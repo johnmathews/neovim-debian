@@ -1,0 +1,194 @@
+# link to another article
+snippet il "link to another article" i
+[$1]({filename}/articles/$2.md)$3
+endsnippet
+
+### Blog meta 
+
+# helper function
+global !p
+import re
+import unidecode
+
+def slugify(text):
+    text = unidecode.unidecode(text).lower()
+    text = text.replace("'", "").replace("`", "").replace(";", "").replace(":", "")
+    return re.sub(r'\W+', '-', text)
+endglobal
+
+# article meta
+snippet meta "Blog post metadata and front matter" b
+Title: $1
+Slug: `!p snip.rv = slugify(t[1])`
+Date: `!p from datetime import datetime
+if not snip.c:
+    snip.rv=datetime.now().strftime("%Y-%m-%d %H:%M:%S%z")`
+Category: $2
+Tags: $3
+
+$4
+endsnippet
+
+# snippet meta
+snippet snip "a tweet or a snippet" b
+Title: $1
+Slug: `!p snip.rv = slugify(t[1])`
+Date: `!p from datetime import datetime
+if not snip.c:
+    snip.rv=datetime.now().strftime("%Y-%m-%d %H:%M:%S%z")`
+Category: snippet
+Tags: $2
+
+$3
+endsnippet
+
+snippet date "insert date meta row"
+Date: `!p from datetime import datetime
+if not snip.c:
+    snip.rv=datetime.now().strftime("%Y-%m-%d %H:%M:%S%z")`
+endsnippet
+
+
+# snippet meta
+snippet nbdata "meta data for notebook conversion" b
+Title: $1
+Slug: `!p snip.rv = slugify(t[1])`
+Date: `!p from datetime import datetime
+if not snip.c:
+    snip.rv=datetime.now().strftime("%Y-%m-%d %H:%M:%S%z")`
+Category: Technical/Data
+Tags: $2
+Summary:
+
+
+[comment]: # (The summary needs to be blank and there needs to be 2 blank lines below, I think.)
+endsnippet
+### ABBREVIATIONS ###
+
+# insert a link
+snippet li "insert a link"
+[$1]($2)$3
+endsnippet
+
+# download a file
+snippet dl "downloadable file"
+[$1]({attach}/documents/$2)$3
+endsnippet
+
+# download a big (100mb+) file
+# you don't need to prefix the bucket object with a /
+snippet dlb "downloadable big file"
+[$1](https://us-east1-johnmathews-website.cloudfunctions.net/download?obj=$2)$3
+endsnippet
+
+# link to bucket
+snippet bu "download link for a file in gcp bucket"
+[archive](https://us-east1-johnmathews-website.cloudfunctions.net/download?obj=movies/$2.mp4)$3
+endsnippet
+
+# embed an image
+snippet im "embed an image"
+![$1]({static}/images/$2){: .image-process-article-inline-image loading='lazy'}
+endsnippet
+
+# embed a clickable image
+snippet ci "embed a clickable image"
+[![$1]({static}/images/$2){: .image-process-article-inline-image loading='lazy'}]({static}/images/`t[2]`)$4
+endsnippet
+
+# superscript
+snippet sup "superscript" i
+$^{$1}$$2
+endsnippet
+
+# bible verses
+snippet ver "superscript followed by highlighted text" i
+$^{$1}$<mark>$2</mark>$3
+endsnippet
+
+# highlight
+snippet ma "highlight text" i
+<mark>$1</mark>$2
+endsnippet
+
+# add a comment in markdown (only)
+snippet com "markdown comment"
+[comment]: # ($1)$2
+endsnippet
+
+# embed reponsive youtube movie
+snippet yt "embed youtube movie"
+<div class="relative mt-3" style="padding-top: 56.25%">
+  <iframe
+    loading="lazy"
+    class="absolute inset-0 w-full h-full"
+    src="https://youtube.com/embed/$1"
+    frameborder="0"
+    allow="autoplay; encrypted-media" allowfullscreen >
+  </iframe>
+</div>$2
+endsnippet
+
+# footnotes
+snippet ref "insert footnote" i
+[ref]$1[/ref] $2
+endsnippet
+
+# lists
+snippet "^- " "markdown unordered list" rbA
+-   
+endsnippet
+
+snippet "^[0-9]\. " "markdown ordered list" rbA
+1.  
+endsnippet
+
+### CATEGORIES ###
+
+snippet "(?i)tech" "all technical categories" ir
+Technical/Developer Tools,Data,Web,Other,Cryptocurrencies,Engineering
+endsnippet
+
+snippet "(?i)non" "all non-technical categories" ir
+Non-technical/Other,Social,Learning,Journal,Entrepreneurship,Photographs
+endsnippet
+
+snippet Technical/Web "blog category"
+Technical/Web
+endsnippet
+
+snippet Technical/Developer_Tools "blog category"
+Technical/Developer Tools
+endsnippet
+
+snippet Technical/Web "blog category"
+Technical/Web
+endsnippet
+
+snippet Technical/Other "blog category"
+Technical/Other
+endsnippet
+
+snippet Technical/Cryptocurrencies "blog category"
+Technical/Cryptocurrencies
+endsnippet
+ 
+snippet Non-technical/Other "blog category"
+Non-technical/Other
+endsnippet
+
+snippet Non-technical/Social "blog category"
+Non-technical/Social
+endsnippet
+
+snippet Non-technical/Learning "blog category"
+Non-technical/Learning
+endsnippet
+
+snippet Non-technical/Journal "blog category"
+Non-technical/Journal
+endsnippet
+
+snippet Non-technical/Entrepreneurship "blog category"
+Non-technical/Entrepreneurship
+endsnippet
