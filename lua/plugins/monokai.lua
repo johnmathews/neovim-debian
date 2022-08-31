@@ -33,13 +33,34 @@ monokai.setup {
     orange = '#FC9867',
     purple = '#AB9DF2',
     red = '#FD6883',
-    neon_green = '#1FFF0F',
     diff_add = '#3d5213',
     diff_remove = '#4a0f23',
     diff_change = '#27406b',
     diff_text = '#23324d',
   },
   custom_hlgroups = {
+
+    -- hrsh7th/nvim-cmp
+    CmpDocumentation = { 
+      fg = palette.white,
+      bg = palette.base1 
+    },
+
+    TSInclude = {
+      fg = palette.aqua,
+    },
+    GitSignsAdd = {
+      fg = palette.green,
+      bg = palette.base2
+    },
+    GitSignsDelete = {
+      fg = palette.pink,
+      bg = palette.base2
+    },
+    GitSignsChange = {
+      fg = palette.orange,
+      bg = palette.base2
+    },
 
     -- background, and normal text
     normal = { 
@@ -162,28 +183,6 @@ monokai.setup {
     },
     ansible_loop_keywords = {
       fg = palette.yellow,
-    },
-
-    -- hrsh7th/nvim-cmp
-    CmpDocumentation = { 
-      fg = palette.white,
-      bg = palette.base1 
-    },
-
-    TSInclude = {
-      fg = palette.aqua,
-    },
-    GitSignsAdd = {
-      fg = palette.green,
-      bg = palette.base2
-    },
-    GitSignsDelete = {
-      fg = palette.pink,
-      bg = palette.base2
-    },
-    GitSignsChange = {
-      fg = palette.orange,
-      bg = palette.base2
     },
 
   }

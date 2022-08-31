@@ -24,15 +24,16 @@ if &shortmess =~ 'A'
 else
   set shortmess=aoO
 endif
-badd +41 init.lua
-badd +132 ~/.config/nvim/lua/plugins.lua
+badd +5 init.lua
+badd +89 ~/.config/nvim/lua/plugins.lua
 badd +41 ~/.config/nvim/lua/plugins/autopairs.lua
-badd +8 ~/.config/nvim/lua/plugins/rainbow.lua
-badd +44 ~/.config/nvim/lua/plugins/monokai.lua
-badd +1 ~/.config/nvim/lua/plugins/telescope.lua
+badd +11 ~/.config/nvim/lua/plugins/monokai.lua
+badd +1 ~/.config/nvim/lua/plugins/lsp/lsp-utils.lua
+badd +2 ~/.config/nvim/lua/plugins/lsp/lsp-installer.lua
+badd +31 ~/.config/nvim/lua/plugins/lsp/handlers.lua
 argglobal
 %argdel
-edit init.lua
+edit ~/.config/nvim/lua/plugins/lsp/handlers.lua
 let s:save_splitbelow = &splitbelow
 let s:save_splitright = &splitright
 set splitbelow splitright
@@ -46,7 +47,7 @@ set winheight=1
 set winminwidth=0
 set winwidth=1
 argglobal
-balt ~/.config/nvim/lua/plugins/monokai.lua
+balt ~/.config/nvim/lua/plugins/lsp/lsp-installer.lua
 setlocal fdm=manual
 setlocal fde=0
 setlocal fmr={{{,}}}
@@ -57,12 +58,12 @@ setlocal fdn=20
 setlocal fen
 silent! normal! zE
 let &fdl = &fdl
-let s:l = 41 - ((40 * winheight(0) + 32) / 65)
+let s:l = 31 - ((30 * winheight(0) + 32) / 65)
 if s:l < 1 | let s:l = 1 | endif
 keepjumps exe s:l
 normal! zt
-keepjumps 41
-normal! 015|
+keepjumps 31
+normal! 0
 tabnext 1
 if exists('s:wipebuf') && len(win_findbuf(s:wipebuf)) == 0 && getbufvar(s:wipebuf, '&buftype') isnot# 'terminal'
   silent exe 'bwipe ' . s:wipebuf
