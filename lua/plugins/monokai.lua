@@ -73,6 +73,7 @@ monokai.setup {
       bg = palette.yellow 
     },
 
+    -- rainbow colors for matching pairs of parentheses
     rainbowcol1 = {
       fg = 'red',
     },
@@ -83,13 +84,13 @@ monokai.setup {
       fg = palette.green,
     },
     rainbowcol4 = {
-      fg = palette.aqua,
+      fg = palette.yellow,
     },
     rainbowcol5 = {
       fg = palette.red,
     },
     rainbowcol6 = {
-      fg = palette.yellow,
+      fg = palette.aqua,
     },
     LineNr = {
       fg = palette.green,

@@ -1,3 +1,5 @@
+-- colors are in the monokai config file
+
 require("nvim-treesitter.configs").setup {
   highlight = {},
   rainbow = {

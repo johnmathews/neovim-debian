@@ -18,7 +18,7 @@ null_ls.setup({
 		-- actions.refactoring,
 		-- actions.gitsigns,
 		completion.tags,
-		completion.luasnip,
+		-- completion.luasnip,
 		-- completion.spell,
 		-- hover.dictionary,
 
