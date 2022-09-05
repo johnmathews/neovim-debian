@@ -40,6 +40,11 @@ monokai.setup {
   },
   custom_hlgroups = {
 
+    CopilotSuggestion = {
+      fg = palette.base0,
+      bg = palette.green,
+    },
+
     -- hrsh7th/nvim-cmp
     CmpDocumentation = { 
       fg = palette.white,
