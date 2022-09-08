@@ -69,27 +69,6 @@ return packer.startup({
 		use("nvim-lua/plenary.nvim")
 		use("nvim-lua/popup.nvim")
 
-		-- COLORSCHEMES
-    use({"folke/lsp-colors.nvim",
-      config = function()
-        require("plugins.lsp_colors")
-      end,
-    })
-
-    use 'Mofiqul/vscode.nvim' -- no
-    use 'marko-cerovac/material.nvim' -- no
-
-		use("Mofiqul/dracula.nvim") -- no
-		use("sainnhe/sonokai") -- no
-		use("glepnir/zephyr-nvim") -- no
-		use({
-			-- "johnmathews/monokai.nvim",
-      'tanvirtin/monokai.nvim',
-			config = function()
-				require("plugins.monokai")
-			end,
-		})
-
 		use("dstein64/vim-startuptime")
 
 		use({
@@ -173,17 +152,6 @@ return packer.startup({
         require("plugins.gps")
       end,
     }
-
-    -- file explorer
-    use({
-      "kyazdani42/nvim-tree.lua",
-			requires = {
-				"kyazdani42/nvim-web-devicons",
-			},
-			config = function()
-				require("plugins.nvim-tree")
-			end,
-		})
 
     -- comments
 		use({
@@ -418,6 +386,34 @@ return packer.startup({
 
 		use("ekalinin/Dockerfile.vim")
 
+    -- file explorer
+    use({
+      "kyazdani42/nvim-tree.lua",
+			requires = {
+				"kyazdani42/nvim-web-devicons",
+			},
+			config = function()
+				require("plugins.nvim-tree")
+			end,
+		})
+
+		-- COLORSCHEMES
+    use({"folke/lsp-colors.nvim",
+      config = function()
+        require("plugins.lsp_colors")
+      end,
+    })
+
+		use({
+      'tanvirtin/monokai.nvim',
+			config = function()
+				require("plugins.monokai")
+			end,
+		})
+
+		use({
+      "kyazdani42/nvim-web-devicons",
+		})
 
 		if PACKER_BOOTSTRAP then
 			require("packer").sync()
