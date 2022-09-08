@@ -15,3 +15,7 @@ Session.vim
 
 # Swap
 .sw[a-p]
+
+# neovim
+
+plugin/packer_compiled.lua
