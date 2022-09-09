@@ -1,11 +1,10 @@
 local toggleterm_status_ok, toggleterm = pcall(require, "toggleterm")
 if not toggleterm_status_ok then
-	print("toggleterm not found")
-	return
+  print("toggleterm not found")
+  return
 end
 
-
-toggleterm.setup{
+toggleterm.setup({
   -- size can be a number or function which is passed the current terminal
   size = function(term)
     if term.direction == "horizontal" then
@@ -15,7 +14,7 @@ toggleterm.setup{
     end
   end,
   -- open_mapping = [[<c-\>]],
-  open_mapping = [[<Tab>t]],
+  open_mapping = [[<F9>]], -- this is mapped to
   insert_mappings = false, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   start_in_insert = true, -- open a terminal window in normal mode or insert mode
@@ -25,10 +24,10 @@ toggleterm.setup{
   hide_numbers = true, -- hide the number column in toggleterm buffers
   shade_filetypes = {},
   shade_terminals = true,
-  shading_factor = '1', -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
+  shading_factor = "1", -- the degree by which to darken to terminal colour, default: 1 for dark backgrounds, 3 for light
   persist_size = true,
   -- direction = 'vertical' | 'horizontal' | 'window' | 'float',
-  direction = 'float',
+  direction = "float",
   close_on_exit = true, -- close the terminal window when the process exits
   shell = vim.o.shell, -- change the default shell
   -- This field is only relevant if direction is set to 'float'
@@ -38,34 +37,32 @@ toggleterm.setup{
     -- the 'curved' border is a custom border type
     -- not natively supported but implemented in this plugin.
     -- border = 'single' | 'double' | 'shadow' | 'curved',
-    border = 'curved',
+    border = "curved",
     -- width = 100,
     -- height = <value>,
     winblend = 0,
     highlights = {
       border = "Normal",
       background = "Normal",
-    }
-  }
-}
+    },
+  },
+})
 
 local Terminal = require("toggleterm.terminal").Terminal
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
-	lazygit:toggle()
+  lazygit:toggle()
 end
 
-vim.api.nvim_set_keymap("n", "tg", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", {noremap = true, silent = true})
-
 local htop = Terminal:new({ cmd = "htop", hidden = true })
-
 function _HTOP_TOGGLE()
-	htop:toggle()
+  htop:toggle()
 end
 
 local python = Terminal:new({ cmd = "python", hidden = true })
-
 function _PYTHON_TOGGLE()
-	python:toggle()
+  python:toggle()
 end
+
+vim.api.nvim_set_keymap("n", "gj", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
