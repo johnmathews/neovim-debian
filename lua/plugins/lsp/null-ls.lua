@@ -7,7 +7,7 @@ end
 -- SOURCES
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
--- local actions = null_ls.builtins.code_actions
+local actions = null_ls.builtins.code_actions
 -- local hover = null_ls.builtins.hover
 local completion = null_ls.builtins.completion
 
@@ -15,7 +15,7 @@ null_ls.setup({
 	debug = false,
 	sources = {
 		-- general
-		-- actions.refactoring,
+		actions.refactoring,
 		-- actions.gitsigns,
 		completion.tags,
 		-- completion.luasnip,
@@ -28,7 +28,14 @@ null_ls.setup({
 		formatting.isort,
 
 		-- javascript
-		formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" } }),
+		-- prettier args are in either projects prettierrc or prettier plugin config file
+		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote=false" } }),
+
+    -- typescript
+     diagnostics.eslint_d.with({
+      diagnostics_format = '[eslint] #{m}\n(#{c})'
+    }),
+    diagnostics.fish,
 
 		-- lua
 		formatting.stylua.with({

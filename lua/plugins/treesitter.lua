@@ -4,7 +4,6 @@ if not status_ok then
 end
 
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {"maintained", "python"},
   sync_install = false,
   ignore_install = {},
   autopairs = {
@@ -23,6 +22,22 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
     disable = { "yaml" }
   },
+  ensure_installed = {
+    "tsx",
+    "fish",
+    "toml",
+    "json",
+    "yaml",
+    "css",
+    "html",
+    "python",
+    "lua",
+    "maintained",
+  },
+  autotag = {
+    enable = true,
+  },
+
   playground = {
     enable = true,
     disable = {},
@@ -47,3 +62,6 @@ require'nvim-treesitter.configs'.setup {
     lint_events = {"BufWrite", "CursorHold"},
   },
 }
+
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }

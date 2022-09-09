@@ -64,6 +64,16 @@ end
 local function lsp_keymaps(bufnr)
   local opts = { noremap = true, silent = true }
 
+  -- these dont work in python
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
+
+  -- this works in lua files
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
+
+  -- in lua, this doesnt do change code, but a menu opens, 
+  vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
+
   -- go todeclaration
   vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   -- go to definition
@@ -92,15 +102,6 @@ local function lsp_keymaps(bufnr)
   vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "rounded" })<CR>', opts)
 
 
-  -- these dont work in python
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "gl", '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
-
-  -- this works in lua files
-  vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lf", "<cmd>lua vim.lsp.buf.format()<CR>", opts)
-
-  -- in lua, this doesnt do change code, but a menu opens, 
-  vim.api.nvim_buf_set_keymap(bufnr, "v", "<leader>lf", "<cmd>lua vim.lsp.buf.range_formatting()<CR>", opts)
 end
 
 M.on_attach = function(client, bufnr)
