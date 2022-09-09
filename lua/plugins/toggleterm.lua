@@ -50,9 +50,16 @@ toggleterm.setup({
 
 local Terminal = require("toggleterm.terminal").Terminal
 
+-- https://github.com/jesseduffield/lazygit
 local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
 function _LAZYGIT_TOGGLE()
   lazygit:toggle()
+end
+
+-- https://github.com/jesseduffield/lazydocker
+local lazydocker = Terminal:new({ cmd = "lazydocker", hidden = true })
+function _LAZYDOCKER_TOGGLE()
+  lazydocker:toggle()
 end
 
 local htop = Terminal:new({ cmd = "htop", hidden = true })
@@ -66,3 +73,4 @@ function _PYTHON_TOGGLE()
 end
 
 vim.api.nvim_set_keymap("n", "gj", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "gk", "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", { noremap = true, silent = true })
