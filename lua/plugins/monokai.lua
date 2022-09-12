@@ -9,6 +9,7 @@ local palette = monokai.pro
 monokai.setup {
 
   palette = {
+    name = 'monokai_pro',
     base0 = '#222426',
     base1 = '#211F22',
     base2 = '#26292C',
