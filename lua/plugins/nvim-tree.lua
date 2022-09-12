@@ -17,7 +17,7 @@ vim.cmd("let g:nvim_tree_width = 40")
 
 local map = vim.api.nvim_set_keymap
 local default_options = { noremap = true, silent = true }
-map("n", "gn", ":NvimTreeFindFileToggle<cr>", default_options)
+map("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", default_options)
 
 nvim_tree.setup {
   -- https://github.com/ahmedkhalf/project.nvim
