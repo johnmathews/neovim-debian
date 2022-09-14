@@ -191,3 +191,5 @@ monokai.setup {
 
   }
 }
+
+return monokai

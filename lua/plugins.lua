@@ -69,6 +69,8 @@ return packer.startup({
     use("nvim-lua/plenary.nvim")
     use("nvim-lua/popup.nvim")
 
+    use("nathom/filetype.nvim")
+
     use("dstein64/vim-startuptime")
 
     use({
@@ -404,7 +406,7 @@ return packer.startup({
       end,
     })
 
-    -- COLORS
+    -- COLORS + colorschemes
     use({
       "folke/lsp-colors.nvim",
       config = function()
@@ -412,19 +414,20 @@ return packer.startup({
       end,
     })
 
+    -- an alternative vivid colorscheme
+    -- use { 'Everblush/everblush.nvim',
+    --   config = function()
+    --     require("plugins.everblush")
+    --   end,
+    --   as = 'everblush' 
+    -- }
+
     use({
       "tanvirtin/monokai.nvim",
       config = function()
         require("plugins.monokai")
       end,
     })
-
-    -- use { 'Everblush/everblush.nvim',
-      -- config = function()
-        -- require("plugins.everblush")
-      -- end,
-      -- as = 'everblush' 
-    -- }
 
     use({
       "kyazdani42/nvim-web-devicons",
