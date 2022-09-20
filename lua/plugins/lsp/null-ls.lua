@@ -32,11 +32,12 @@ null_ls.setup({
 		-- prettier args are in either projects prettierrc or prettier plugin config file
 		-- formatting.prettier.with({ extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote=false" } }),
 
+    -- its bad to put formatting options here. its better to put it somewhere more obvious. like in the projects .prettierrc or .eslintrc
     -- typescript
-     diagnostics.eslint_d.with({
-      diagnostics_format = '[eslint] #{m}\n(#{c})'
-    }),
-    diagnostics.fish,
+    --  diagnostics.eslint_d.with({
+    --   diagnostics_format = '[eslint] #{m}\n(#{c})'
+    -- }),
+    -- diagnostics.fish,
 
 		-- lua
 		formatting.stylua.with({
