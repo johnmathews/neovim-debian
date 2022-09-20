@@ -281,10 +281,6 @@ return packer.startup({
       end,
     })
 
-    -- show hexcodes etc with a bg that matches the color they represent
-    -- off by default, use :ColorHighlight! to toggle. see :h colorizer
-    use({ "chrisbra/Colorizer" })
-
     use("chrisbra/csv.vim")
 
     use("nvie/vim-flake8")
@@ -297,8 +293,13 @@ return packer.startup({
     })
 
     use("tpope/vim-fugitive")
-
     use("airblade/vim-gitgutter")
+    use({
+      "lewis6991/gitsigns.nvim",
+      config = function()
+        require("plugins.git-signs")
+      end,
+    })
 
     use({
       "plasticboy/vim-markdown",
@@ -407,6 +408,11 @@ return packer.startup({
     })
 
     -- COLORS + colorschemes
+
+    -- show hexcodes etc with a bg that matches the color they represent
+    -- off by default, use :ColorHighlight! to toggle. see :h colorizer
+    use({ "chrisbra/Colorizer" })
+
     use({
       "folke/lsp-colors.nvim",
       config = function()
@@ -419,7 +425,7 @@ return packer.startup({
     --   config = function()
     --     require("plugins.everblush")
     --   end,
-    --   as = 'everblush' 
+    --   as = 'everblush'
     -- }
 
     use({
@@ -428,6 +434,9 @@ return packer.startup({
         require("plugins.monokai")
       end,
     })
+
+    -- use("bluz71/vim-nightfly-guicolors")
+    -- use("bluz71/vim-moonfly-colors")
 
     use({
       "kyazdani42/nvim-web-devicons",
