@@ -293,7 +293,7 @@ return packer.startup({
     })
 
     use("tpope/vim-fugitive")
-    use("airblade/vim-gitgutter")
+    -- use("airblade/vim-gitgutter")
     use({
       "lewis6991/gitsigns.nvim",
       config = function()

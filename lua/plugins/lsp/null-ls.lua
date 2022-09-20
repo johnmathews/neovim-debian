@@ -16,6 +16,7 @@ null_ls.setup({
 	sources = {
 		-- general
 		actions.refactoring,
+    null_ls.builtins.code_actions.gitsigns,
 		-- actions.gitsigns,
 		completion.tags,
 		-- completion.luasnip,
