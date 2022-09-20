@@ -15,8 +15,8 @@ setlocal nowrap
 highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=blue
 
 " ========== ALE ==========
-let b:ale_linters = ['eslint']
-let b:ale_fixers = ['eslint', 'remove_trailing_lines', 'trim_whitespace']
+" let b:ale_linters = ['eslint']
+" let b:ale_fixers = ['eslint', 'remove_trailing_lines', 'trim_whitespace']
 " let b:ale_linters = ['eslint', 'prettier']
 " let b:ale_fixers = ['eslint', 'prettier', 'importjs', 'prettier_eslint', 'standard', 'remove_trailing_lines', 'trim_whitespace']
 
