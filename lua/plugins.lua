@@ -421,12 +421,12 @@ return packer.startup({
     })
 
     -- an alternative vivid colorscheme
-    -- use { 'Everblush/everblush.nvim',
-    --   config = function()
-    --     require("plugins.everblush")
-    --   end,
-    --   as = 'everblush'
-    -- }
+    use { 'Everblush/everblush.nvim',
+      config = function()
+        require("plugins.everblush")
+      end,
+      as = 'everblush'
+    }
 
     use({
       "tanvirtin/monokai.nvim",
