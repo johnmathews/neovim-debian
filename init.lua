@@ -14,4 +14,4 @@ require("mappings")
 require("autocmd")
 
 -- load custom snippets. dont remove this.
-require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/luasnippets"})
+require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/luasnippets" })
