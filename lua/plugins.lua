@@ -421,23 +421,7 @@ return packer.startup({
       end,
     })
 
-    -- an alternative vivid colorscheme
-    use { 'Everblush/everblush.nvim',
-      config = function()
-        require("plugins.everblush")
-      end,
-      as = 'everblush'
-    }
-
-    use({
-      "tanvirtin/monokai.nvim",
-      config = function()
-        require("plugins.monokai")
-      end,
-    })
-
-    -- use("bluz71/vim-nightfly-guicolors")
-    -- use("bluz71/vim-moonfly-colors")
+    use 'tanvirtin/monokai.nvim'
 
     use({
       "kyazdani42/nvim-web-devicons",

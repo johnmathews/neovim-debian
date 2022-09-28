@@ -4,7 +4,7 @@ vim.api.nvim_exec([[
     autocmd BufEnter * set formatoptions=jqlt
     autocmd BufEnter * if &syntax == '' | :filetype detect | endif
   augroup END
-  ]], false)
+]], false)
 
 -- highlight on yank
 vim.cmd([[
@@ -50,13 +50,14 @@ vim.cmd([[
 -- reload the vimrc and any files that are soured within it (this is what the nested command does)
 -- called after writing the buffer containing $MYVIMRC and also manually triggered by <Leader>VR
 -- also needs to be run once after opening nvim in order to make colors work for nvim-tree and bufferline
-vim.cmd([[
-  augroup VimReload
-      autocmd!
-      autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
-      autocmd BufEnter * nested source $MYVIMRC
-  augroup END
-]])
+
+-- vim.cmd([[
+--   augroup VimReload
+--       autocmd!
+--       autocmd BufWritePost $MYVIMRC nested source $MYVIMRC
+--       autocmd BufEnter * nested source $MYVIMRC
+--   augroup END
+-- ]])
 
 vim.api.nvim_create_autocmd({ "cursormoved", "bufwinenter", "buffilepost" }, { 
   callback = function() 
