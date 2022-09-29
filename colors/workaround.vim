@@ -20,6 +20,9 @@ hi GitSignsDelete guifg='#FF6188' guibg='#26292C'
 hi GitSignsChange guifg='#FC9867' guibg='#26292C'
 
 
+" LSP
+hi NormalFloat guibg='#404d41'
+hi FloatBorder guifg=white guibg='#404d41'
 
 " Match Parenthesis
 
