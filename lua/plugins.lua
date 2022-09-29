@@ -355,7 +355,7 @@ return packer.startup({
     use("godlygeek/tabular")
 
     -- like tagbar, but in lua
-    -- tags, outline
+    -- tags, outline, layout
     use({
       "simrat39/symbols-outline.nvim",
       config = function()

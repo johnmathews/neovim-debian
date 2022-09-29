@@ -5,7 +5,7 @@ end
 
 
 vim.cmd([[
-  nnoremap <Localleader>l :SymbolsOutline<CR>
+  nnoremap <Localleader>s :SymbolsOutline<CR>
 ]])
 
 local options = {
