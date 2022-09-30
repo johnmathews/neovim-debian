@@ -423,6 +423,12 @@ return packer.startup({
     })
 
     use 'tanvirtin/monokai.nvim'
+    -- use({
+      -- "tanvirtin/monokai.nvim",
+      -- config = function()
+        -- require("plugins.monokai")
+      -- end,
+    -- })
 
     use({
       "kyazdani42/nvim-web-devicons",

@@ -13,7 +13,6 @@ require("functions")
 require("mappings")
 require("autocmd")
 
--- require("colorscheme")
 vim.cmd("colorscheme workaround")
 
 -- load custom snippets. dont remove this.
