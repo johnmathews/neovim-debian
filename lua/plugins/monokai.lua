@@ -1,4 +1,4 @@
--- https://github.com/tanvirtin/monokai.nvim
+
 local status_ok, monokai = pcall(require, "monokai")
 if not status_ok then
   return

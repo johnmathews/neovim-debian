@@ -31,9 +31,13 @@
 --   requiring a string which matches one of these patterns, the plugin will be loaded.
 -- }
 
+-- example of a decent startup i think
+-- https://github.com/younger-1/nvim/blob/42efe08512145323d06c6b5f0877cf9a218f3da7/lua/young/plugin-loader.lua
+
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
+
 if fn.empty(fn.glob(install_path)) > 0 then
   PACKER_BOOTSTRAP = fn.system({
     "git",
@@ -120,10 +124,12 @@ return packer.startup({
       config = function()
         require("plugins.telescope")
       end,
+      event = "VimEnter",
     })
     use({
       "nvim-telescope/telescope-fzf-native.nvim",
       run = "make",
+      event = "VimEnter",
     })
     use({
       "ThePrimeagen/harpoon",
@@ -140,6 +146,7 @@ return packer.startup({
       config = function()
         require("plugins.bufferline")
       end,
+      event = "VimEnter",
     })
 
     -- the statusline at the bottom
@@ -149,6 +156,7 @@ return packer.startup({
       config = function()
         require("plugins.lualine")
       end,
+      event = "VimEnter",
     })
 
     -- shows what method or function you're in
@@ -174,7 +182,7 @@ return packer.startup({
 
     -- use("lukas-reineke/lsp-format.nvim")
     use({ "neovim/nvim-lspconfig" })
-    use({ "williamboman/nvim-lsp-installer" }) 
+    use({ "williamboman/nvim-lsp-installer" })
     -- use { "williamboman/mason.nvim", config = require("mason").setup() } -- replacements for nvim-lsp-installer, breaks keybinds though
     use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
@@ -266,6 +274,7 @@ return packer.startup({
       config = function()
         require("plugins.autopairs")
       end,
+      event = "VimEnter",
     })
 
     use({
@@ -291,15 +300,17 @@ return packer.startup({
       config = function()
         require("plugins.toggleterm")
       end,
+      event = "VimEnter",
     })
 
-    use("tpope/vim-fugitive")
+    -- use("tpope/vim-fugitive")
     -- use("airblade/vim-gitgutter")
     use({
       "lewis6991/gitsigns.nvim",
       config = function()
         require("plugins.git-signs")
       end,
+      event = "VimEnter",
     })
 
     use({
@@ -307,6 +318,7 @@ return packer.startup({
       config = function()
         require("plugins.markdown")
       end,
+      event = "VimEnter",
     })
     use({
       "simnalamburt/vim-mundo",
@@ -327,12 +339,32 @@ return packer.startup({
 
     --  interacting with and manipulating Vim marks
     use({
-      -- "chentau/marks.nvim",
       "chentoast/marks.nvim",
       config = function()
         require("plugins.marks")
       end,
+      event = "VimEnter",
     })
+
+    use("b0o/schemastore.nvim")
+    use("JoosepAlviste/nvim-ts-context-commentstring")
+
+    -- https://github.com/antoinemadec/FixCursorHold.nvim
+    use("antoinemadec/FixCursorHold.nvim")
+
+    use("lukas-reineke/indent-blankline.nvim")
+
+    -- fancy notifications. but no plugins actually use this afaik
+    use({
+      "rcarriga/nvim-notify",
+      config = function()
+        require("plugins.notify")
+      end,
+      event = "VimEnter",
+    })
+
+    use("Pocco81/DAPInstall.nvim")
+    use("mfussenegger/nvim-dap")
 
     use("vim-scripts/pylint.vim")
 
@@ -361,6 +393,7 @@ return packer.startup({
       config = function()
         require("plugins.symbols-outline")
       end,
+      event = "VimEnter",
     })
 
     use({
@@ -407,6 +440,7 @@ return packer.startup({
       config = function()
         require("plugins.nvim-tree")
       end,
+      event = "VimEnter",
     })
 
     -- COLORS + colorschemes
@@ -422,12 +456,12 @@ return packer.startup({
       end,
     })
 
-    use 'tanvirtin/monokai.nvim'
+    use("tanvirtin/monokai.nvim")
     -- use({
-      -- "tanvirtin/monokai.nvim",
-      -- config = function()
-        -- require("plugins.monokai")
-      -- end,
+    -- "tanvirtin/monokai.nvim",
+    -- config = function()
+    -- require("plugins.monokai")
+    -- end,
     -- })
 
     use({

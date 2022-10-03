@@ -15,16 +15,16 @@ local function Row_max_row()
 end
 
 local function filepath_filename()
-  local filename = vim.fn.expand "%:t"
-  local parent = vim.fn.expand "%:h"
-  return parent .. '/' .. filename
+  local filename = vim.fn.expand("%:t")
+  local parent = vim.fn.expand("%:h")
+  return parent .. "/" .. filename
 end
 
 -- progress function
 local progress = function()
   local current_line = vim.fn.line(".")
   local total_lines = vim.fn.line("$")
-  local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██", }
+  local chars = { "__", "▁▁", "▂▂", "▃▃", "▄▄", "▅▅", "▆▆", "▇▇", "██" }
   local line_ratio = current_line / total_lines
   local index = math.ceil(line_ratio * #chars)
   return chars[index]
@@ -44,7 +44,7 @@ lualine.setup({
   sections = {
     lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { { filepath_filename, color = { fg = "white" } } },
+    lualine_c = { { filepath_filename, color = { fg = "#A9DC76" } } },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = {},
     lualine_z = {},
