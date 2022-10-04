@@ -126,11 +126,12 @@ return packer.startup({
       end,
       event = "VimEnter",
     })
+
     use({
       "nvim-telescope/telescope-fzf-native.nvim",
-      run = "make",
-      event = "VimEnter",
+      run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
     })
+
     use({
       "ThePrimeagen/harpoon",
       requires = "nvim-lua/plenary.nvim",
@@ -310,7 +311,6 @@ return packer.startup({
       config = function()
         require("plugins.git-signs")
       end,
-      event = "VimEnter",
     })
 
     use({
@@ -320,6 +320,7 @@ return packer.startup({
       end,
       event = "VimEnter",
     })
+
     use({
       "simnalamburt/vim-mundo",
       config = function()
