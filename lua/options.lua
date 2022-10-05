@@ -41,10 +41,10 @@ local options = {
 
   updatetime = 2000,
   redrawtime = 5000,
+  lazyredraw = true,
 
   cmdheight = 2,
 
-  -- vim.o.lazyredraw = true,
 
   spelllang = { "en_us" },
 

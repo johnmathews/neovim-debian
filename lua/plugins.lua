@@ -100,6 +100,15 @@ return packer.startup({
       end,
     })
 
+    -- https://github.com/wfxr/minimap.vim
+    use({
+      "wfxr/minimap.vim",
+      config = function()
+        require("plugins.minimap")
+      end,
+      event = "VimEnter",
+    })
+
     -- saving sessions
     use("tpope/vim-obsession")
 
