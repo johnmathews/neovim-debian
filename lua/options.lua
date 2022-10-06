@@ -39,9 +39,13 @@ local options = {
   shortmess = "filnxtToOFc",
   completeopt = "menu,menuone,noselect",
 
+  -- swap file is written if nothing happens for this many milliseconds
   updatetime = 2000,
-  redrawtime = 5000,
-  lazyredraw = true,
+
+  redrawtime = 500,
+
+  -- this is only meant to be set temporarily, 
+  lazyredraw = false,
 
   cmdheight = 2,
 
@@ -84,6 +88,12 @@ for k, v in pairs(options) do
 end
 
 vim.cmd("set indentkeys-=0#") -- https://vim.fandom.com/wiki/Restoring_indent_after_typing_hash
+
+-- this is for the cursorhold plugin https://github.com/antoinemadec/FixCursorHold.nvim
+vim.cmd([[
+  let g:cursorhold_updatetime = 100
+]])
+
 
 vim.cmd("au TextYankPost * lua vim.highlight.on_yank {on_visual = true}")
 
