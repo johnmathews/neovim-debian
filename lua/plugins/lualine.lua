@@ -48,9 +48,11 @@ lualine.setup({
   sections = {
     lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { { show_filepath, padding={right=0}, color = { fg = "#A9DC76" } }, { show_filename, color = { fg = "#78DCE8" }, padding={left=0} } },
+    lualine_c = { { show_filepath, padding={right=0}, color = { fg = "#A9DC76" } }, { show_filename, color = { fg = "#78DCE8" }, padding={left=0}, component_separators = {left = "", right = ""} } },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = {},
+    -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
+    -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim
     lualine_z = {
       -- {
       --   "filename",
