@@ -68,6 +68,7 @@ require("gitsigns").setup({
       return "<Ignore>"
     end, { expr = true })
 
+    map({ "n" }, "<leader>b", ":Gitsigns toggle_current_line_blame<CR>")
     -- Actions
     map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
     map({ "n", "v" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
