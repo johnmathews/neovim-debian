@@ -14,10 +14,14 @@ local function Row_max_row()
   return row .. "/" .. max_row
 end
 
-local function filepath_filename()
+local function show_filename()
   local filename = vim.fn.expand("%:t")
+  return "/" .. filename
+end
+
+local function show_filepath()
   local parent = vim.fn.expand("%:h")
-  return parent .. "/" .. filename
+  return parent
 end
 
 -- progress function
@@ -44,10 +48,29 @@ lualine.setup({
   sections = {
     lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { { filepath_filename, color = { fg = "#A9DC76" } } },
+    lualine_c = { { show_filepath, padding={right=0}, color = { fg = "#A9DC76" } }, { show_filename, color = { fg = "#78DCE8" }, padding={left=0} } },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = {},
-    lualine_z = {},
+    lualine_z = {
+      -- {
+      --   "filename",
+      --   file_status = true, -- Displays file status (readonly status, modified status)
+      --   newfile_status = false, -- Display new file status (new file means no write after created)
+      --   path = 1, -- 0: Just the filename
+      --   -- 1: Relative path
+      --   -- 2: Absolute path
+      --   -- 3: Absolute path, with tilde as the home directory
+
+      --   shorting_target = 40, -- Shortens path to leave 40 spaces in the window
+      --   -- for other components. (terrible name, any suggestions?)
+      --   symbols = {
+      --     modified = "[+]", -- Text to show when the file is modified.
+      --     readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
+      --     unnamed = "[No Name]", -- Text to show for unnamed buffers.
+      --     newfile = "[New]", -- Text to show for new created file before first writting
+      --   },
+      -- },
+    },
   },
   inactive_sections = {
     lualine_a = {},

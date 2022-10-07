@@ -18,7 +18,7 @@ hi normal guifg='#FFF1F3' guibg='#000000'
 hi GitSignsAdd guifg='#A9DC76' guibg='#26292C'
 hi GitSignsDelete guifg='#FF6188' guibg='#26292C'
 hi GitSignsChange guifg='#FC9867' guibg='#26292C'
-
+hi GitSignsCurrentLineBlame guifg='#A9DC76'
 
 " LSP
 hi NormalFloat guibg='#404d41'
