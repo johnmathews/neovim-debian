@@ -313,6 +313,26 @@ return packer.startup({
       event = "VimEnter",
     })
 
+    use({
+      "tpope/vim-dadbod",
+      opt = true,
+      requires = {
+        "kristijanhusak/vim-dadbod-ui",
+        "kristijanhusak/vim-dadbod-completion",
+      },
+      config = function()
+        require("plugins.dadbod").setup()
+      end,
+      cmd = {
+        "DBUIToggle",
+        "DBUI",
+        "DBUIAddConnection",
+        "DBUIFindBuffer",
+        "DBUIRenameBuffer",
+        "DBUILastQueryInfo",
+      },
+    })
+
     -- use("tpope/vim-fugitive")
     -- use("airblade/vim-gitgutter")
     use({
