@@ -380,7 +380,7 @@ return packer.startup({
     use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- https://github.com/antoinemadec/FixCursorHold.nvim
-    use("antoinemadec/FixCursorHold.nvim")
+    -- use("antoinemadec/FixCursorHold.nvim")
 
     use("lukas-reineke/indent-blankline.nvim")
 
