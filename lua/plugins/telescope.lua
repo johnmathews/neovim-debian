@@ -14,7 +14,7 @@ map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", defaul
 map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 -- map("n", "<Tab>f", ":Telescope grep_string only_sort_text=true<CR>", default_options)
-map("n", "<Tab>f", ":Telescope live_grep<CR>", default_options)
+map("n", "<Tab>w", ":Telescope live_grep<CR>", default_options)
 
 map("n", "<Tab>p", ":Telescope projects<CR>", default_options)
 map("n", "<Tab>h", ":Telescope help_tags<cr>", default_options)
@@ -30,7 +30,7 @@ map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
 map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
 -- Git pickers
-map("n", "<Tab>w", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", default_options)
+map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", default_options)
 map("n", "<Tab>gc", ":Telescope git_commits<CR>", default_options)
 map("n", "<Tab>gb", ":Telescope git_bcommits<CR>", default_options)
 map("n", "<Tab>gr", ":Telescope git_branches<CR>", default_options)
