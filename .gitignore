@@ -21,4 +21,4 @@ Session.vim
 plugin/packer_compiled.lua
 
 node_modules/
-
+db_ui/connections.json
