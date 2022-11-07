@@ -13,8 +13,8 @@ map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", defaul
 
 map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
--- map("n", "<Tab>f", ":Telescope grep_string only_sort_text=true<CR>", default_options)
-map("n", "<Tab>w", ":Telescope live_grep<CR>", default_options)
+-- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
+map("n", "<Tab>s", ":Telescope live_grep<CR>", default_options)
 
 map("n", "<Tab>p", ":Telescope projects<CR>", default_options)
 map("n", "<Tab>h", ":Telescope help_tags<cr>", default_options)
