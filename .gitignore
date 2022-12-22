@@ -1,6 +1,8 @@
 
 .DS_Store
 
+spell/
+
 # Vim swap files
 [._]*.s[a-v][a-z]
 [._]*.sw[a-p]
@@ -22,4 +24,3 @@ plugin/packer_compiled.lua
 
 node_modules/
 db_ui/connections.json
-
