@@ -14,4 +14,3 @@ map("i", "<Tab><Space>", ":edit $MYVIMRC<CR>", default_options)
 vim.cmd[[imap <silent><script><expr> <Tab><Space> copilot#Accept("\<CR>")]]
 
 vim.g.copilot_no_tab_map = true
-
