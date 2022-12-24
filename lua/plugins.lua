@@ -194,6 +194,7 @@ return packer.startup({
     use({ "neovim/nvim-lspconfig" })
     use({ "williamboman/nvim-lsp-installer" })
     -- use { "williamboman/mason.nvim", config = require("mason").setup() } -- replacements for nvim-lsp-installer, breaks keybinds though
+
     use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" })
