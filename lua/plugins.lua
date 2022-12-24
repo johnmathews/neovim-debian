@@ -192,7 +192,10 @@ return packer.startup({
 
     use({ "neovim/nvim-lspconfig" })
 
-    use({ "williamboman/nvim-lsp-installer" })
+    -- use({ "williamboman/nvim-lsp-installer" })
+    use { "williamboman/mason.nvim" }
+    use { "williamboman/mason-lspconfig.nvim" }
+
     -- use { "williamboman/mason.nvim", config = require("mason").setup() } -- replacements for nvim-lsp-installer, breaks keybinds though
 
     -- use("lukas-reineke/lsp-format.nvim")
