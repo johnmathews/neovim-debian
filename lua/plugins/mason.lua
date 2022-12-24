@@ -1,12 +1,32 @@
-require("mason").setup()
+local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
+if not lspconfig_status_ok then
+  return
+end
 
-require("mason-lspconfig").setup {
+local lsp_installer_status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
+if not lsp_installer_status_ok then
+  return
+end
+
+local mason_status_ok, mason = pcall(require, "mason")
+if not mason_status_ok then
+  return
+end
+
+local mason_lspconfig_status_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_status_ok then
+  return
+end
+
+mason.setup()
+
+mason_lspconfig.setup {
     ensure_installed = { "sumneko_lua", "rust_analyzer" },
     automatic_installation = true,
 }
 
 
-require("mason-lspconfig").setup_handlers({
+mason_lspconfig.setup_handlers({
    -- The first entry (without a key) will be the default handler
    -- and will be called for each installed server that doesn't have
    -- a dedicated handler.
@@ -14,9 +34,6 @@ require("mason-lspconfig").setup_handlers({
        require("lspconfig")[server_name].setup {}
    end,
    -- Next, you can provide targeted overrides for specific servers.
-   ["rust_analyzer"] = function ()
-       require("rust-tools").setup {}
-   end,
    ["sumneko_lua"] = function ()
        lspconfig.sumneko_lua.setup {
            settings = {
@@ -30,17 +47,7 @@ require("mason-lspconfig").setup_handlers({
    end,
 })
 
-local lsp_installer_status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
-if not lsp_installer_status_ok then
-  return
-end
-
 lsp_installer.setup {}
-
-local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
-if not lspconfig_status_ok then
-  return
-end
 
 for _, server in ipairs { "clangd", "eslint", "ltex", "stylua", "lua-language-server" } do
   lspconfig[server].setup { on_attach = on_attach }

@@ -8,7 +8,7 @@ vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v17.9.0/bin/node')"
 
 require("options")
 require("plugins")
-require("plugins.lsp")
+-- require("plugins.lsp")
 
 require("functions")
 require("mappings")
