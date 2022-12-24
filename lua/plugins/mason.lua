@@ -17,7 +17,7 @@ mason.setup()
 
 
 mason_lspconfig.setup {
-    ensure_installed = { "sumneko_lua", "rust_analyzer" },
+    ensure_installed = { "rust_analyzer" },
     automatic_installation = true,
 }
 
@@ -29,17 +29,6 @@ mason_lspconfig.setup_handlers({
        require("lspconfig")[server_name].setup {}
    end,
    -- Next, you can provide targeted overrides for specific servers.
-   ["sumneko_lua"] = function ()
-       lspconfig.sumneko_lua.setup {
-           settings = {
-               Lua = {
-                   diagnostics = {
-                       globals = { "vim" }
-                   }
-               }
-           }
-       }
-   end,
 })
 
 -- this has got to be below the mason_lspconfig.setup.. calls
@@ -48,45 +37,3 @@ if not lsp_installer_status_ok then
   return
 end
 lsp_installer.setup {}
-
--- ====================================================
--- ====================================================
-
-
-for _, server in ipairs { "clangd", "eslint", "ltex", "stylua", "lua-language-server" } do
-  lspconfig[server].setup { on_attach = on_attach }
-end
-  
-lspconfig.sumneko_lua.setup {
-  on_attach = on_attach,
-  settings = {
-    Lua = {
-      format = {
-        enable = false
-      },
-      diagnostics = {
-        globals = {
-          "P",
-          "vim",
-          "require",
-        },
-        disable = {
-          "trailing-space",
-        }
-      },
-      workspace = {
-        library = {
-          [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-          [vim.fn.stdpath("config") .. "/lua"] = true,
-        },
-      },
-    }
-  }
-}
-
-lspconfig.pyright.setup {
-  on_attach = on_attach,
-}
-lspconfig.jsonls.setup {
-  on_attach = on_attach,
-}

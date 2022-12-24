@@ -5,7 +5,9 @@ end
 
 -- require("plugins.lsp.lsp-installer")
 
-require("plugins.lsp.handlers").setup()  -- keybinds in here!
+-- require("plugins.lsp.handlers").setup()  -- keybinds in here!
+
+require("plugins.lsp.handlers-new")  -- keybinds in here!
 require("plugins.lsp.null-ls")
 require("plugins.lsp.toggle-lsp-diagnostics")
 

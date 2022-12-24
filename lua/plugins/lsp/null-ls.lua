@@ -40,13 +40,13 @@ null_ls.setup({
     -- diagnostics.fish,
 
 		-- lua
-		formatting.stylua.with({
-			extra_args = function(params)
-				return params.options
-					and params.options.tabsize
-					and { "--indent-type", "Spaces" }
-					and { "--indent-width", params.optimtns.tabsize }
-			end,
-		}),
+		-- formatting.stylua.with({
+		-- 	extra_args = function(params)
+		-- 		return params.options
+		-- 			and params.options.tabsize
+		-- 			and { "--indent-type", "Spaces" }
+		-- 			and { "--indent-width", params.optimtns.tabsize }
+		-- 	end,
+		-- }),
 	},
 })
