@@ -190,19 +190,20 @@ return packer.startup({
       end,
     })
 
-    -- use("lukas-reineke/lsp-format.nvim")
     use({ "neovim/nvim-lspconfig" })
+
     use({ "williamboman/nvim-lsp-installer" })
     -- use { "williamboman/mason.nvim", config = require("mason").setup() } -- replacements for nvim-lsp-installer, breaks keybinds though
 
-    use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
+    -- use("lukas-reineke/lsp-format.nvim")
+    -- use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
+    -- use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
+
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" })
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
-    use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
 
-    -- normal copilot setup
     use({
       "github/copilot.vim",
       config = function()
@@ -210,23 +211,6 @@ return packer.startup({
       end,
     })
 
-    -- creates a copilot server that a cmp source can access (like an lsp server)
-    -- cmp is not setup to use this source yet - i cant figure out how to make it work.
-    -- use {
-    --   "zbirenbaum/copilot.lua",
-    --   event = { "VimEnter" },
-    --   config = function()
-    --     vim.defer_fn(function()
-    --       require("plugins.copilot")
-    --     end, 100)
-    --   end,
-    -- }
-    -- copilot as a cmp completion source
-    -- cmp is not setup to use this source yet - i cant figure out how to make it work.
-    -- use {
-    --   "zbirenbaum/copilot-cmp",
-    --   module = "copilot_cmp",
-    -- }
 
     -- completions
     use({
