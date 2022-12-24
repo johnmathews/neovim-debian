@@ -49,14 +49,14 @@ if not lsp_installer_status_ok then
 end
 lsp_installer.setup {}
 
+-- ====================================================
+-- ====================================================
+
+
 for _, server in ipairs { "clangd", "eslint", "ltex", "stylua", "lua-language-server" } do
   lspconfig[server].setup { on_attach = on_attach }
 end
   
-lspconfig.luacheck.setup {
-  on_attach = on_attach,
-}
-
 lspconfig.sumneko_lua.setup {
   on_attach = on_attach,
   settings = {
@@ -90,4 +90,3 @@ lspconfig.pyright.setup {
 lspconfig.jsonls.setup {
   on_attach = on_attach,
 }
-
