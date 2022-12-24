@@ -21,8 +21,10 @@ hi GitSignsChange guifg='#FC9867' guibg='#26292C'
 hi GitSignsCurrentLineBlame guifg='#A9DC76'
 
 " LSP
-hi NormalFloat guibg='#404d41'
-hi FloatBorder guifg=white guibg='#404d41'
+hi NormalFloat guifg='#FFF1F3' guibg='#000000'
+" hi NormalFloat guibg='#404d41'
+" hi FloatBorder guifg=white guibg='#000000'
+" hi FloatBorder guifg='#FFF1F3' guibg='#000000'
 
 " Match Parenthesis
 
