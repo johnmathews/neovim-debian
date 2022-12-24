@@ -190,13 +190,15 @@ return packer.startup({
       end,
     })
 
-    use({ "neovim/nvim-lspconfig" })
 
     -- use({ "williamboman/nvim-lsp-installer" })
-    use { "williamboman/mason.nvim" }
+    use({ "williamboman/mason.nvim", config = function()
+      require("plugins.mason")
+    end,
+    })
     use { "williamboman/mason-lspconfig.nvim" }
+    use({ "neovim/nvim-lspconfig" })
 
-    -- use { "williamboman/mason.nvim", config = require("mason").setup() } -- replacements for nvim-lsp-installer, breaks keybinds though
 
     -- use("lukas-reineke/lsp-format.nvim")
     -- use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
