@@ -3,15 +3,25 @@ if not lspconfig_status_ok then
   return
 end
 
-require("mason").setup()
+local mason_ok, mason = pcall(require, "mason")
+if not mason_ok then
+  return
+end
 
-require("mason-lspconfig").setup {
+local mason_lspconfig_ok, mason_lspconfig = pcall(require, "mason-lspconfig")
+if not mason_lspconfig_ok then
+  return
+end
+
+mason.setup()
+
+
+mason_lspconfig.setup {
     ensure_installed = { "sumneko_lua", "rust_analyzer" },
     automatic_installation = true,
 }
 
-
-require("mason-lspconfig").setup_handlers({
+mason_lspconfig.setup_handlers({
    -- The first entry (without a key) will be the default handler
    -- and will be called for each installed server that doesn't have
    -- a dedicated handler.
@@ -32,11 +42,11 @@ require("mason-lspconfig").setup_handlers({
    end,
 })
 
+-- this has got to be below the mason_lspconfig.setup.. calls
 local lsp_installer_status_ok, lsp_installer = pcall(require, "nvim-lsp-installer")
 if not lsp_installer_status_ok then
   return
 end
-
 lsp_installer.setup {}
 
 for _, server in ipairs { "clangd", "eslint", "ltex", "stylua", "lua-language-server" } do
