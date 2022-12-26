@@ -191,13 +191,15 @@ return packer.startup({
     })
 
 
-    -- OLD use({ "williamboman/nvim-lsp-installer" })
-    use({ "neovim/nvim-lspconfig" })
-    use({ "williamboman/mason.nvim", config = function()
+    use({ "williamboman/mason.nvim", 
+      requires = {
+        "neovim/nvim-lspconfig",
+        "williamboman/mason-lspconfig.nvim",
+      },
+    config = function()
       require("plugins.mason")
     end,
     })
-    use { "williamboman/mason-lspconfig.nvim" }
 
 
     -- use("lukas-reineke/lsp-format.nvim")

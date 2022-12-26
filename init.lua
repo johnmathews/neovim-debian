@@ -19,6 +19,3 @@ vim.cmd("colorscheme workaround")
 
 -- load custom snippets. dont remove this.
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/luasnippets" })
-
- local baz =    123
-local bar = baz * 2
