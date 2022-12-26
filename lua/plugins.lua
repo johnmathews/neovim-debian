@@ -100,15 +100,6 @@ return packer.startup({
       end,
     })
 
-    -- https://github.com/wfxr/minimap.vim
-    use({
-      "wfxr/minimap.vim",
-      config = function()
-        require("plugins.minimap")
-      end,
-      event = "VimEnter",
-    })
-
     -- saving sessions
     use("tpope/vim-obsession")
 
@@ -133,7 +124,6 @@ return packer.startup({
       config = function()
         require("plugins.telescope")
       end,
-      event = "VimEnter",
     })
 
     use({
@@ -156,7 +146,6 @@ return packer.startup({
       config = function()
         require("plugins.bufferline")
       end,
-      event = "VimEnter",
     })
 
     -- the statusline at the bottom
@@ -166,7 +155,6 @@ return packer.startup({
       config = function()
         require("plugins.lualine")
       end,
-      event = "VimEnter",
     })
 
     -- shows what method or function you're in
@@ -304,28 +292,26 @@ return packer.startup({
       event = "VimEnter",
     })
 
-    use({
-      "tpope/vim-dadbod",
-      opt = true,
-      requires = {
-        "kristijanhusak/vim-dadbod-ui",
-        "kristijanhusak/vim-dadbod-completion",
-      },
-      config = function()
-        require("plugins.dadbod").setup()
-      end,
-      cmd = {
-        "DBUIToggle",
-        "DBUI",
-        "DBUIAddConnection",
-        "DBUIFindBuffer",
-        "DBUIRenameBuffer",
-        "DBUILastQueryInfo",
-      },
-    })
+    -- use({
+    --   "tpope/vim-dadbod",
+    --   opt = true,
+    --   requires = {
+    --     "kristijanhusak/vim-dadbod-ui",
+    --     "kristijanhusak/vim-dadbod-completion",
+    --   },
+    --   config = function()
+    --     require("plugins.dadbod").setup()
+    --   end,
+    --   cmd = {
+    --     "DBUIToggle",
+    --     "DBUI",
+    --     "DBUIAddConnection",
+    --     "DBUIFindBuffer",
+    --     "DBUIRenameBuffer",
+    --     "DBUILastQueryInfo",
+    --   },
+    -- })
 
-    -- use("tpope/vim-fugitive")
-    -- use("airblade/vim-gitgutter")
     use({
       "lewis6991/gitsigns.nvim",
       config = function()
@@ -338,7 +324,6 @@ return packer.startup({
       config = function()
         require("plugins.markdown")
       end,
-      event = "VimEnter",
     })
 
     use({
@@ -364,7 +349,6 @@ return packer.startup({
       config = function()
         require("plugins.marks")
       end,
-      event = "VimEnter",
     })
 
     use("b0o/schemastore.nvim")
@@ -423,11 +407,6 @@ return packer.startup({
         require("plugins.test")
       end,
     })
-
-    -- cmd is the command that triggers the plugin to be loaded.
-    -- need to run :GoUpdateBinaries after installing the plugin
-    -- for GO language
-    use({ "fatih/vim-go" })
 
     use("hashivim/vim-vagrant")
     use({

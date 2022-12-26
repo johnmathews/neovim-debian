@@ -1,6 +1,3 @@
-" F2 toggle Tagbar
-" F3 ALE fixers
-" F4 create additional tag file for python libraries in venv
 " F5 run python code (venv aware)
 " F7 flake8 formatting check
 
@@ -15,10 +12,10 @@ setlocal textwidth=119
 setlocal autoindent
 setlocal nowrap
 
-augroup PreviewAutocmds
-  autocmd!
-  autocmd WinEnter * if &previewwindow | set syntax=python | endif
-augroup END
+" augroup PreviewAutocmds
+"   autocmd!
+"   autocmd WinEnter * if &previewwindow | set syntax=python | endif
+" augroup END
 
 if exists('+colorcolumn')
     setlocal colorcolumn=121
@@ -28,8 +25,8 @@ endif
 
 " ====================== YAPF ===========================
 " nnoremap <Leader>y :w<bar>:call system("yapf -i -l ".line(".")."-".line(".")." ".expand('%:p'))<CR><bar>:e<CR>
-nnoremap <Leader>y <ESC>V:!yapf<CR>
-xnoremap <leader>y :!yapf<CR>
+" nnoremap <Leader>y <ESC>V:!yapf<CR>
+" xnoremap <leader>y :!yapf<CR>
 " nnoremap <leader>y :0,$!yapf<Cr>
 
 " ========== print variable and its value ===============

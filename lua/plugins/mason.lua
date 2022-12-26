@@ -1,6 +1,10 @@
 -- mason.vim names for language servers are not the same as the names used by lspconfig and mason-lspconfig.
 -- e.g. lspconfig: sumneko_lua, mason.vim: lua-language-server
 
+-- multiple spawn issues - caused by Packer lazyloading things, but not all things. 
+-- be careful about using `event = "VimEnter"` in plugins.lua, and other lazyloading techniques.
+-- https://github.com/LunarVim/LunarVim/issues/2012
+
 local mason_ok, mason = pcall(require, "mason")
 if not mason_ok then
   return
