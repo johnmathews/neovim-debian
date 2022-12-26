@@ -190,7 +190,6 @@ return packer.startup({
       end,
     })
 
-
     use({ "williamboman/mason.nvim", 
       requires = {
         "neovim/nvim-lspconfig",

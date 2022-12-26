@@ -1,5 +1,4 @@
 vim.cmd("let g:python3_host_prog = expand('~/.pyenv/versions/3.10.0/envs/nvim/bin/python3')")
-
 vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v17.9.0/bin/node')")
 
 -- use nvim 0.7 experimental filetype detection. should give faster startup time

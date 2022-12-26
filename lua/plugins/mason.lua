@@ -13,7 +13,6 @@ if not mason_lspconfig_ok then
   return
 end
 
-
 mason_lspconfig.setup {
     ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright" },
     automatic_installation = true,
@@ -23,10 +22,6 @@ local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
 if not lspconfig_status_ok then
   return
 end
-
-
--- Mappings.
--- See `:help vim.diagnostic.*` for documentation on any of the below functions
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
