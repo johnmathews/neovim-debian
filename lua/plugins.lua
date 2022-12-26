@@ -188,10 +188,16 @@ return packer.startup({
     end,
     })
 
+    use({
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = function()
+        require("plugins.lsp-saga")
+      end,
+    })
 
     -- use("lukas-reineke/lsp-format.nvim")
     -- use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
-    -- use({ "RishabhRD/nvim-lsputils", requires = "RishabhRD/popfix" })
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" })
