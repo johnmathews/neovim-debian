@@ -289,25 +289,25 @@ return packer.startup({
       event = "VimEnter",
     })
 
-    -- use({
-    --   "tpope/vim-dadbod",
-    --   opt = true,
-    --   requires = {
-    --     "kristijanhusak/vim-dadbod-ui",
-    --     "kristijanhusak/vim-dadbod-completion",
-    --   },
-    --   config = function()
-    --     require("plugins.dadbod").setup()
-    --   end,
-    --   cmd = {
-    --     "DBUIToggle",
-    --     "DBUI",
-    --     "DBUIAddConnection",
-    --     "DBUIFindBuffer",
-    --     "DBUIRenameBuffer",
-    --     "DBUILastQueryInfo",
-    --   },
-    -- })
+    use({
+      "tpope/vim-dadbod",
+      opt = true,
+      requires = {
+        "kristijanhusak/vim-dadbod-ui",
+        "kristijanhusak/vim-dadbod-completion",
+      },
+      config = function()
+        require("plugins.dadbod").setup()
+      end,
+      cmd = {
+        "DBUIToggle",
+        "DBUI",
+        "DBUIAddConnection",
+        "DBUIFindBuffer",
+        "DBUIRenameBuffer",
+        "DBUILastQueryInfo",
+      },
+    })
 
     use({
       "lewis6991/gitsigns.nvim",
@@ -351,9 +351,6 @@ return packer.startup({
     use("b0o/schemastore.nvim")
     use("JoosepAlviste/nvim-ts-context-commentstring")
 
-    -- https://github.com/antoinemadec/FixCursorHold.nvim
-    -- use("antoinemadec/FixCursorHold.nvim")
-
     use("lukas-reineke/indent-blankline.nvim")
 
     -- fancy notifications. but no plugins actually use this afaik
@@ -382,8 +379,6 @@ return packer.startup({
 
     use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
-
-    --use({ "kana/vim-textobj-user", requires = { "whatyouhide/vim-textobj-xmlattr" } })
 
     use("shmup/vim-sql-syntax")
     use("godlygeek/tabular")

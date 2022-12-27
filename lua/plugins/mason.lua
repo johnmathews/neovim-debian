@@ -1,7 +1,7 @@
 -- mason.vim names for language servers are not the same as the names used by lspconfig and mason-lspconfig.
 -- e.g. lspconfig: sumneko_lua, mason.vim: lua-language-server
 
--- multiple spawn issues - caused by Packer lazyloading things, but not all things. 
+-- multiple spawn issues - caused by Packer lazyloading things, but not all things.
 -- be careful about using `event = "VimEnter"` in plugins.lua, and other lazyloading techniques.
 -- https://github.com/LunarVim/LunarVim/issues/2012
 
@@ -18,8 +18,8 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-    ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright" },
-    automatic_installation = true,
+  ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright" },
+  automatic_installation = true,
 }
 
 local lspconfig_status_ok, lspconfig = pcall(require, "lspconfig")
@@ -33,8 +33,8 @@ end
 -- use lspsaga instead
 local on_attach = function(client, bufnr)
 
-  local opts = { noremap=true, silent=true }
-  local bufopts = { noremap=true, silent=true, buffer=bufnr }
+  local opts = { noremap = true, silent = true }
+  local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
@@ -92,43 +92,43 @@ local lsp_flags = {
 }
 
 mason_lspconfig.setup_handlers({
-   -- The first entry (without a key) will be the default handler
-   -- and will be called for each installed server that doesn't have
-   -- a dedicated handler.
-   function (server_name) -- default handler (optional)
-     require("lspconfig")[server_name].setup {
-       on_attach = on_attach,
-       flags = lsp_flags,
-     }
-   end,
-   -- Next, you can provide targeted overrides for specific servers.
-   ["sumneko_lua"] = function ()
-     lspconfig.sumneko_lua.setup {
-       on_attach = on_attach,
-       flags = lsp_flags,
-       settings = {
-         Lua = {
-           format = {
-             enable = false
-           },
-           diagnostics = {
-             globals = {
-               "P",
-               "vim",
-               "require",
-             },
-             disable = {
-               "trailing-space",
-             }
-           },
-           workspace = {
-             library = {
-               [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-               [vim.fn.stdpath("config") .. "/lua"] = true,
-             },
-           },
-         }
-       }
-     }
-   end,
- })
+  -- The first entry (without a key) will be the default handler
+  -- and will be called for each installed server that doesn't have
+  -- a dedicated handler.
+  function(server_name) -- default handler (optional)
+    require("lspconfig")[server_name].setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+    }
+  end,
+  -- Next, you can provide targeted overrides for specific servers.
+  ["sumneko_lua"] = function()
+    lspconfig.sumneko_lua.setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+      settings = {
+        Lua = {
+          format = {
+            enable = true
+          },
+          diagnostics = {
+            globals = {
+              "P",
+              "vim",
+              "require",
+            },
+            disable = {
+              "trailing-space",
+            }
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
+        }
+      }
+    }
+  end,
+})
