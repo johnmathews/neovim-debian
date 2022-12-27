@@ -18,7 +18,5 @@ null_ls.setup({
 		null_ls.builtins.formatting.isort, -- import order
     null_ls.builtins.formatting.autoflake, -- remove unused imports
     null_ls.builtins.formatting.black, -- formatting
-
-
 	},
 })
