@@ -58,6 +58,8 @@ local catChooser = function(args, snip, table)
   end
 end
 
+-- for choice nodes, use <C-h> to toggle through the options
+-- see mappings.lua:105
 return {
   s("meta", {
     t({ "---" }),
