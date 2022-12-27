@@ -76,9 +76,10 @@ map("n", "gf", ":edit <cfile><CR>", default_options)
 -- query which color - what and which kind of syntax is this color? - wc
 -- ghl. highlight group
 -- also >> :TSHighlightCapturesUnderCursor to see the treesitter highlight color groups
-map( "n", "wc",
-	":echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') .'> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>",
-	default_options
+map("n", "wc",
+  ":echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') .'> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>"
+  ,
+  default_options
 )
 
 -- open the current file in the default app
@@ -95,13 +96,11 @@ map("n", "<C-L>", "<C-W><C-L>", default_options)
 map("n", "cc", ":call ToggleQuickFix()<CR>", default_options)
 -- vim.cmd([[ nmap cc <Plug>(qf_qf_toggle)]])
 
-    
-
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
 
 -- Luasnip
--- vim.cmd([[
---   imap <silent><expr> <C-h> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-h>'
---   smap <silent><expr> <C-h> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-h>'
--- ]])
+vim.cmd([[
+  imap <silent><expr> <C-h> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-h>'
+  smap <silent><expr> <C-h> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-h>'
+]])
