@@ -157,15 +157,6 @@ return packer.startup({
       end,
     })
 
-    -- shows what method or function you're in
-    -- use({
-    --   "SmiteshP/nvim-gps",
-    --   requires = "nvim-treesitter/nvim-treesitter",
-    --   config = function()
-    --     require("plugins.gps")
-    --   end,
-    -- })
-
     -- comments
     use({
       "numToStr/Comment.nvim",
