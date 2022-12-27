@@ -158,13 +158,13 @@ return packer.startup({
     })
 
     -- shows what method or function you're in
-    use({
-      "SmiteshP/nvim-gps",
-      requires = "nvim-treesitter/nvim-treesitter",
-      config = function()
-        require("plugins.gps")
-      end,
-    })
+    -- use({
+    --   "SmiteshP/nvim-gps",
+    --   requires = "nvim-treesitter/nvim-treesitter",
+    --   config = function()
+    --     require("plugins.gps")
+    --   end,
+    -- })
 
     -- comments
     use({
@@ -399,13 +399,14 @@ return packer.startup({
 
     -- like tagbar, but in lua
     -- tags, outline, layout
-    use({
-      "simrat39/symbols-outline.nvim",
-      config = function()
-        require("plugins.symbols-outline")
-      end,
-      event = "VimEnter",
-    })
+    -- use lspsage instead
+    -- use({
+    --   "simrat39/symbols-outline.nvim",
+    --   config = function()
+    --     require("plugins.symbols-outline")
+    --   end,
+    --   event = "VimEnter",
+    -- })
 
     use({
       "janko-m/vim-test",

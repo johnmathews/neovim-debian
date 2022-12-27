@@ -12,7 +12,7 @@ local icons = require "plugins.icons"
 -- Customized config
 gps.setup {
 
-  disable_icons = false, -- Setting it to true will disable all icons
+  disable_icons = false,
 
   icons = {
     ["class-name"] = "%#CmpItemKindClass#" .. icons.kind.Class .. "%*" .. " ", -- Classes and class-like objects
