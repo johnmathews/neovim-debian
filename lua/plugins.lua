@@ -169,14 +169,14 @@ return packer.startup({
       end,
     })
 
-    use({ "williamboman/mason.nvim", 
+    use({ "williamboman/mason.nvim",
       requires = {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
       },
-    config = function()
-      require("plugins.mason")
-    end,
+      config = function()
+        require("plugins.mason")
+      end,
     })
 
     use({
@@ -195,13 +195,37 @@ return packer.startup({
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
 
-    use({
-      "github/copilot.vim",
-      config = function()
-        require("plugins.copilot-simple")
-      end,
-    })
+    -- use({
+    --   "github/copilot.vim",
+    --   config = function()
+    --     require("plugins.copilot-simple")
+    --   end,
+    -- })
 
+    use {
+      "zbirenbaum/copilot.lua",
+      event = "VimEnter",
+      config = function()
+        vim.defer_fn(function()
+          require("copilot").setup()
+        end, 100)
+      end,
+    }
+    use {
+      "zbirenbaum/copilot-cmp",
+      after = { "copilot.lua" },
+      config = function()
+        require("copilot_cmp").setup({
+          method = "getCompletionsCycling",
+          formatters = {
+            label = require("copilot_cmp.format").format_label_text,
+            -- insert_text = require("copilot_cmp.format").format_insert_text,
+            insert_text = require("copilot_cmp.format").remove_existing,
+            preview = require("copilot_cmp.format").deindent,
+          },
+        })
+      end
+    }
 
     -- completions
     use({

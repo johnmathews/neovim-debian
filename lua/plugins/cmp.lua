@@ -16,6 +16,7 @@ local check_backspace = function()
 end
 
 local kind_icons = {
+  Copilot = "",
   Text = "",
   Method = "m",
   Function = "",
@@ -47,6 +48,17 @@ local kind_icons = {
 -- =================
 
 cmp.setup({
+  enabled = function()
+    -- disable completion in comments
+    local context = require 'cmp.config.context'
+    -- keep command mode completion enabled when cursor is in a comment
+    if vim.api.nvim_get_mode().mode == 'c' then
+      return true
+    else
+      return not context.in_treesitter_capture("comment")
+          and not context.in_syntax_group("Comment")
+    end
+  end,
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -114,7 +126,6 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s ", kind_icons[vim_item.kind])
-      vim_item.menu = ({})[entry.source.name]
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
         nvim_lua = "[Nvim_Lua]",
@@ -122,32 +133,23 @@ cmp.setup({
         buffer = "[Buffer]",
         path = "[Path]",
         emoji = "[Emoji]",
+        copilot = "[Copilot]",
       })[entry.source.name]
       return vim_item
     end,
   },
-
+  -- if a group_index is higher, it wont be shown if a source with a lower index value is available
   sources = {
-    { name = "nvim_lsp" },
-    { name = "luasnip" },
-    { name = "path" },
-    { name = "nvim_lua" },
-    { name = "emoji" },
+    { name = "copilot", group_index = 2 },
+    { name = "nvim_lsp", group_index = 2 },
+    { name = "path", group_index = 2 },
+    { name = "luasnip", group_index = 2 },
+    { name = "nvim_lua", group_index = 2 },
+    { name = "emoji", group_index = 3 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
-  },
-  window = {
-    -- documentation = "native",
-    documentation = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    },
-    completion = {
-      border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    },
   },
   experimental = {
     ghost_text = false, -- clobbers copilot
