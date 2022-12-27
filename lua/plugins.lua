@@ -237,6 +237,7 @@ return packer.startup({
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "saadparwaiz1/cmp_luasnip",
+        "lukas-reineke/cmp-under-comparator"
       },
       config = function()
         require("plugins.cmp")
