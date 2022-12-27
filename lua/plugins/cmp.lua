@@ -43,15 +43,19 @@ local kind_icons = {
   TypeParameter = "",
 }
 
+-- SETUP STARTS HERE
+-- =================
+
 cmp.setup({
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
     end,
   },
-  -- completion = {
-  --   autocomplete = false,
-  -- },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
 
   -- how to navigate the completions and documentations windows
   mapping = {
@@ -87,23 +91,23 @@ cmp.setup({
         fallback()
       end
     end, {
-    "i",
-    "s",
-  }),
-  ["<S-Tab>"] = cmp.mapping(
-    function(fallback)
-      if cmp.visible() then
-        cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
-        luasnip.jump(-1)
-      else
-        fallback()
-      end
-    end, 
-    {
       "i",
       "s",
-    }
+    }),
+    ["<S-Tab>"] = cmp.mapping(
+      function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
+        else
+          fallback()
+        end
+      end,
+      {
+        "i",
+        "s",
+      }
     ),
   },
   formatting = {
@@ -113,8 +117,8 @@ cmp.setup({
       vim_item.menu = ({})[entry.source.name]
       vim_item.menu = ({
         nvim_lsp = "[LSP]",
-        nvim_lua = "[Nvim]",
-        luasnip = "[Snippet]",
+        nvim_lua = "[Nvim_Lua]",
+        luasnip = "[Luasnip]",
         buffer = "[Buffer]",
         path = "[Path]",
         emoji = "[Emoji]",
@@ -126,11 +130,10 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "luasnip" },
-    -- { name = "buffer" },
     { name = "path" },
     { name = "nvim_lua" },
     { name = "emoji" },
-  }, 
+  },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
@@ -147,7 +150,34 @@ cmp.setup({
     },
   },
   experimental = {
-    ghost_text = false,  -- clobbers copilot
+    ghost_text = false, -- clobbers copilot
     -- native_menu = false,
   },
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
+})
+
+-- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({
+    { name = 'path' }
+  }, {
+    { name = 'cmdline' }
+  })
 })

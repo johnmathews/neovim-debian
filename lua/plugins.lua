@@ -218,8 +218,6 @@ return packer.startup({
         require("plugins.cmp")
       end,
     })
-    -- snippets in cmp completion window
-    use("saadparwaiz1/cmp_luasnip")
 
     -- snippets engine
     use({ "L3MON4D3/LuaSnip" })

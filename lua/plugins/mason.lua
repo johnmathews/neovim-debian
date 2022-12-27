@@ -91,6 +91,8 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
 mason_lspconfig.setup_handlers({
   -- The first entry (without a key) will be the default handler
   -- and will be called for each installed server that doesn't have
@@ -99,6 +101,7 @@ mason_lspconfig.setup_handlers({
     require("lspconfig")[server_name].setup {
       on_attach = on_attach,
       flags = lsp_flags,
+      capabilities = capabilities,
     }
   end,
   -- Next, you can provide targeted overrides for specific servers.
@@ -106,6 +109,7 @@ mason_lspconfig.setup_handlers({
     lspconfig.sumneko_lua.setup {
       on_attach = on_attach,
       flags = lsp_flags,
+      capabilities = capabilities,
       settings = {
         Lua = {
           format = {
