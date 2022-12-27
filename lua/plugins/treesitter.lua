@@ -23,16 +23,16 @@ require'nvim-treesitter.configs'.setup {
     disable = { "yaml" }
   },
   ensure_installed = {
-    "tsx",
-    "fish",
-    "toml",
-    "json",
-    "yaml",
     "css",
+    "fish",
     "html",
-    "python",
+    "json",
     "lua",
     "maintained",
+    "python",
+    "toml",
+    "tsx",
+    "yaml",
   },
   autotag = {
     enable = true,

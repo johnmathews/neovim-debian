@@ -75,12 +75,15 @@ map("n", "gf", ":edit <cfile><CR>", default_options)
 
 -- query which color - what and which kind of syntax is this color? - wc
 -- ghl. highlight group
--- also >> :TSHighlightCapturesUnderCursor to see the treesitter highlight color groups
 map("n", "wc",
   ":echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') .'> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>"
   ,
   default_options
 )
+
+-- TREESITTER
+map("n", "<leader>ts", ":TSPlaygroundToggle<CR>", default_options)
+map("n", "<leader>tc", ":TSHighlightCapturesUnderCursor<CR>", default_options)
 
 -- open the current file in the default app
 -- gx is mapped to open a url using the open-browser plugin
