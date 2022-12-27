@@ -388,17 +388,6 @@ return packer.startup({
     use("shmup/vim-sql-syntax")
     use("godlygeek/tabular")
 
-    -- like tagbar, but in lua
-    -- tags, outline, layout
-    -- use lspsage instead
-    -- use({
-    --   "simrat39/symbols-outline.nvim",
-    --   config = function()
-    --     require("plugins.symbols-outline")
-    --   end,
-    --   event = "VimEnter",
-    -- })
-
     use({
       "janko-m/vim-test",
       config = function()
