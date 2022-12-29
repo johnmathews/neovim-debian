@@ -21,7 +21,7 @@ saga.init_lsp_saga({
     sign_priority = 20,
     virtual_text = true,
   },
-  finder_request_timeout = 5000,
+  finder_request_timeout = 2500,
   finder_action_keys = {
     open = {'o', '<CR>'},
     vsplit = 's',

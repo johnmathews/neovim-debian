@@ -1,6 +1,6 @@
 local status_ok, telescope = pcall(require, "telescope")
 if not status_ok then
-	return
+  return
 end
 
 local map = vim.api.nvim_set_keymap
@@ -13,6 +13,7 @@ map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", defaul
 
 map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
+
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
 map("n", "<Tab>s", ":Telescope live_grep<CR>", default_options)
 
@@ -31,6 +32,11 @@ map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
 -- Git pickers
 map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", default_options)
+
+-- Searches all files, doesnt ignore anything (--no-ignore) see pickers.all_files below
+-- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
+map("n", "<Tab>a", ":Telescope find_files<CR>", default_options)
+
 map("n", "<Tab>gc", ":Telescope git_commits<CR>", default_options)
 map("n", "<Tab>gb", ":Telescope git_bcommits<CR>", default_options)
 map("n", "<Tab>gr", ":Telescope git_branches<CR>", default_options)
@@ -40,7 +46,7 @@ map("n", "<Tab>gs", ":Telescope git_status<CR>", default_options)
 map("n", "<Tab>vt", ":Telescope treesitter<CR>", default_options)
 
 -- Harpoon
-map("n", "gt", ":Telescope harpoon marks<CR>", default_options)
+map("n", "gh", ":Telescope harpoon marks<CR>", default_options)
 
 -- Vim pickers
 map("n", "<Tab>va", ":Telescope autocommands<CR>", default_options)
@@ -156,15 +162,11 @@ telescope.setup {
     },
   },
   pickers = {
-
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-
+    -- https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#automatic-filtering
+    find_files = {
+      -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
+      find_command = { "rg", "--files", "--no-ignore" },
+    },
     buffers = {
       sort_lastused = false,
       sort_mru = true,
@@ -174,10 +176,10 @@ telescope.setup {
   },
   extensions = {
     fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
     projects = {},
   },
@@ -193,9 +195,10 @@ local M = {}
 
 M.find_files_fallback = function()
   local opts = {} -- define here if you want to define something
-  local ok = pcall(require"telescope.builtin".git_files, opts)
+  local ok = pcall(require "telescope.builtin".git_files, opts)
   if not ok then
-    require"telescope.builtin".find_files(opts) end
+    require "telescope.builtin".find_files(opts)
+  end
 end
 
 return M

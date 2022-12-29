@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright" },
+  ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright", "tailwindcss" },
   automatic_installation = true,
 }
 
@@ -46,24 +46,31 @@ local on_attach = function(client, bufnr)
   --   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)
   --   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, bufopts)
 
-  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts) -- view a list of errors and warnings
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
+  vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, KeymapOptions("Diagnostic - Open Location List")) -- view a list of errors and warnings
+  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, KeymapOptions("Diagnostic - Open Floating Window"))
 
 
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, KeymapOptions("LSP Type Definition"))
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
+    KeymapBufferOptions({ description = "LSP goto Declaration", bufnr = bufnr }))
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition,
+    KeymapBufferOptions({ description = "LSP goto Definition", bufnr = bufnr }))
+  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation,
+    KeymapBufferOptions({ description = "LSP goto Implementation", bufnr = bufnr }))
+  vim.keymap.set('n', 'gr', vim.lsp.buf.references,
+    KeymapBufferOptions({ description = "LSP goto references", bufnr = bufnr }))
+  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help,
+    KeymapBufferOptions({ description = "LSP signature help", bufnr = bufnr }))
 
-  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+  vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder,
+    KeymapBufferOptions({ description = "LSP add workspace folder", bufnr = bufnr }))
+  vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder,
+    KeymapBufferOptions({ description = "LSP remove workspace folder", bufnr = bufnr }))
   vim.keymap.set('n', '<leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
+  end, KeymapBufferOptions({ description = "LSP list workspace folders", bufnr = bufnr }))
 
-  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, bufopts)
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }) )
 
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
@@ -104,6 +111,8 @@ mason_lspconfig.setup_handlers({
               "string",
               "vim",
               "require",
+              "KeymapOptions",
+              "KeymapBufferOptions",
             },
             disable = {
               "trailing-space",

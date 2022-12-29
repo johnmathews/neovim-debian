@@ -77,4 +77,4 @@ end
 vim.api.nvim_set_keymap("n", "<Leader>g", "<cmd>lua _LAZYGIT_TOGGLE()<CR>", { noremap = true, silent = true })
 
 -- lazydocker keybind
-vim.api.nvim_set_keymap("n", "<Leader>d", "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<Leader>ld", "<cmd>lua _LAZYDOCKER_TOGGLE()<CR>", { noremap = true, silent = true })
