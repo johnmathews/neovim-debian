@@ -1,28 +1,36 @@
 local status_ok, lsp_diagnostics = pcall(require, "toggle_lsp_diagnostics")
 
 if not status_ok then
-	return
+  return
 end
 
 lsp_diagnostics.init({
   start_on = true,
-	underline = false,
+  underline = true,
   signs = true,
-	virtual_text = false,
-	-- virtual_text = {
-	-- 	prefix = "",
-	-- 	spacing = 2,
-	-- },
+  virtual_text = true,
+  -- virtual_text = {
+  -- 	prefix = "",
+  -- 	spacing = 2,
+  -- },
 })
 
 -- keymaps
-vim.cmd "nmap <Tab>a <Plug>(toggle-lsp-diag)"
-vim.cmd "nmap <Tab>s <Plug>(toggle-lsp-diag-signs)"
-vim.cmd "nmap <Tab>v <Plug>(toggle-lsp-diag-vtext)"
 
-vim.cmd "nmap <leader>tlu <Plug>(toggle-lsp-diag-underline)"
-vim.cmd "nmap <leader>tlp <Plug>(toggle-lsp-diag-update_in_insert)"
+local function map(mode, l, r, opts)
+  opts = opts or {}
+  opts.buffer = bufnr
+  vim.keymap.set(mode, l, r, opts)
+end
 
-vim.cmd "nmap <leader>tldd <Plug>(toggle-lsp-diag-default)"
-vim.cmd "nmap <leader>tldo <Plug>(toggle-lsp-diag-off)"
-vim.cmd "nmap <leader>tldf <Plug>(toggle-lsp-diag-on)"
+
+map("n", "lda", "<Plug>(toggle-lsp-diag)", KeymapOptions("Diagnostics: Toggle signs and vtext"))
+map("n", "lds", "<Plug>(toggle-lsp-diag-signs)", KeymapOptions("Diagnostics: Toggle signs"))
+map("n", "ldv", "<Plug>(toggle-lsp-diag-vtexts)", KeymapOptions("Diagnostics: Toggle virtual text"))
+
+map("n", "ldu", "<Plug>(toggle-lsp-diag-underline)", KeymapOptions("Diagnostics: Toggle underline"))
+map("n", "ldp", "<Plug>(toggle-lsp-diag-update_in_insert)", KeymapOptions("Diagnostics: Toggle update_in_insert"))
+
+map("n", "ldt", "<Plug>(toggle-lsp-diag-default)", KeymapOptions("Diagnostics: Toggle default settings"))
+map("n", "ldf", "<Plug>(toggle-lsp-diag-off)", KeymapOptions("Diagnostics: Off"))
+map("n", "ldn", "<Plug>(toggle-lsp-diag-on)", KeymapOptions("Diagnostics: On"))

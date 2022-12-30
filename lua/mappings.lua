@@ -11,26 +11,23 @@ local default_options = { noremap = true, silent = true }
 local expr_options = { noremap = true, expr = true, silent = true }
 
 ----- INSERT MODE ---------------
-map("i", "jk", "<ESC>", default_options)
+map("i", "jk", "<ESC>", KeymapOptions("enter Insert Mode"))
 --jump back one word
-map("i", "<C-h>", "<C-o>b", default_options)
+map("i", "<C-h>", "<C-o>b", KeymapOptions("jump back one word"))
 -- delete the word infront of the cursor
-map("i", "<C-e>", "<C-o>de", default_options)
+map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 -- try to make each word an undo step
 -- map("i", "<SPACE>", "<C-o>u<SPACE>", default_options)
 
 --Remap space as leader key
-map("n", "<Space>", "<Nop>", default_options)
+map("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
-map("n", "<leader>ve", ":edit $MYVIMRC<CR>", default_options)
-map("n", "<leader>vf", ":edit ~/.config/nvim/ftplugin/<C-R>=&filetype<CR>.vim<CR>", default_options)
-map("n", "<leader>vr", ":source $MYVIMRC<CR>|:autocmd User VimReload<CR>", default_options)
-
--- These commands will sort buffers by directory, language, or a custom criteria
-map("n", "be", ":BufferLineSortByExtension<CR>", default_options)
-map("n", "bd", ":BufferLineSortByDirectory<CR>", default_options)
+map("n", "<leader>ve", ":edit $MYVIMRC<CR>", KeymapOptions("edit vimrc"))
+map("n", "<leader>vf", ":edit ~/.config/nvim/ftplugin/<C-R>=&filetype<CR>.vim<CR>",
+  KeymapOptions("edit ftplugin file for current buffers filetype"))
+map("n", "<leader>vr", ":source $MYVIMRC<CR>|:autocmd User VimReload<CR>", KeymapOptions("reload vimrc file"))
 
 -- Natural cursor movement over wrapped lines
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
@@ -49,9 +46,9 @@ map("n", "`", "/", { noremap = true, silent = false })
 map("n", "``", ": nohlsearch<CR>", default_options)
 map("n", "*", "*``", default_options)
 
-map("n", "<leader>lw", ":set nowrap!<CR>", default_options)
-map("n", "<leader>ln", ":set relativenumber!<CR>", default_options)
-map("n", "<leader>ss", ":setlocal spell!<CR>", default_options)
+map("n", "<leader>tw", ":set nowrap!<CR>", KeymapOptions("toggle linewrap"))
+map("n", "<leader>tn", ":set relativenumber!<CR>", KeymapOptions("toggle relative line numbers"))
+map("n", "<leader>ts", ":setlocal spell!<CR>", KeymapOptions("toggle spell checker"))
 
 map("n", "o", "o<ESC>", default_options)
 map("n", "O", "O<ESC>", default_options)
@@ -61,15 +58,13 @@ map("n", ":", ";", { noremap = true, silent = false })
 map("v", ";", ":", { noremap = true, silent = false })
 map("v", ":", ";", { noremap = true, silent = false })
 
-map("n", "<Tab>ww", ":wa<CR>", default_options)
---map("n", "<Tab>qq", ":FloatermKill!<CR><BAR>:qa<CR>", default_options)
-map("n", "<Tab>qq", ":qa<CR>", default_options)
+map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
+map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit all buffers"))
 
 vim.api.nvim_create_user_command('BufOnly', '%bdelete|edit #|normal `"', {})
-map("n", "<Tab>qo", ":BufOnly<CR>", default_options) -- close other buffers
+map("n", "<Tab>qo", ":BufOnly<CR>", KeymapOptions("Close other buffers"))
 
-map("n", "qq", ":bn|bd #<CR>", default_options)
--- map("n", "qq", ":b#|bd#<CR>", default_options) -- this doesnt work right. reopens a closed buffer
+map("n", "qq", ":bn|bd #<CR>", KeymapOptions("Quit buffer"))
 map("n", "<leader>Q", ":bufdo bdelete<CR>", default_options)
 map("n", "gf", ":edit <cfile><CR>", default_options)
 
@@ -78,16 +73,16 @@ map("n", "gf", ":edit <cfile><CR>", default_options)
 map("n", "wc",
   ":echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') .'> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>"
   ,
-  default_options
+  KeymapOptions("Get current highlight group")
 )
 
 -- TREESITTER
-map("n", "<leader>ts", ":TSPlaygroundToggle<CR>", default_options)
-map("n", "<leader>tc", ":TSHighlightCapturesUnderCursor<CR>", default_options)
+map("n", "<leader>tp", ":TSPlaygroundToggle<CR>", KeymapOptions("Treesitter Playground"))
+map("n", "<leader>tc", ":TSHighlightCapturesUnderCursor<CR>", KeymapOptions("Treesitter item under cursor"))
 
 -- open the current file in the default app
 -- gx is mapped to open a url using the open-browser plugin
-map("n", "<leader>x", ":!xdg-open %<CR><CR>", default_options)
+map("n", "<leader>x", ":!xdg-open %<CR><CR>", KeymapOptions("Open current file in default app"))
 
 -- Split navigations
 map("n", "<C-H>", "<C-W><C-H>", default_options)
@@ -96,8 +91,7 @@ map("n", "<C-K>", "<C-W><C-K>", default_options)
 map("n", "<C-L>", "<C-W><C-L>", default_options)
 
 -- FUNCTIONS
-map("n", "cc", ":call ToggleQuickFix()<CR>", default_options)
--- vim.cmd([[ nmap cc <Plug>(qf_qf_toggle)]])
+map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
@@ -109,9 +103,10 @@ vim.keymap.set({ "i", "s" }, "<C-j>", function()
   if ls.choice_active() then
     ls.change_choice(1)
   end
-end)
+end, KeymapOptions("LuaSnip choice node next"))
+
 vim.keymap.set({ "i", "s" }, "<C-k>", function()
   if ls.choice_active() then
     ls.change_choice(-1)
-  end
-end)
+  end 
+end, KeymapOptions("LuaSnip choice node previous"))
