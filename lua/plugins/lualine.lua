@@ -4,12 +4,12 @@ if not status_ok then
 end
 
 local function Current_col()
-  local _, column = unpack(vim.api.nvim_win_get_cursor(0))
+  local _, column = table.unpack(vim.api.nvim_win_get_cursor(0))
   return column + 1
 end
 
 local function Row_max_row()
-  local row, _ = unpack(vim.api.nvim_win_get_cursor(0))
+  local row, _ = table.unpack(vim.api.nvim_win_get_cursor(0))
   local max_row = vim.api.nvim_buf_line_count(0)
   return row .. "/" .. max_row
 end
@@ -49,7 +49,7 @@ lualine.setup({
     lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
     lualine_b = { "branch", "diff", "diagnostics" },
     lualine_c = { { show_filepath, padding={right=0}, color = { fg = "#A9DC76" } }, { show_filename, color = { fg = "#78DCE8" }, padding={left=0}, component_separators = {left = "", right = ""} } },
-    lualine_x = { "encoding", "fileformat", "filetype" },
+    lualine_x = { "lsp_progress", "encoding", "fileformat", "filetype" },
     lualine_y = {},
     -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
     -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim

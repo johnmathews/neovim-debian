@@ -151,7 +151,10 @@ return packer.startup({
     -- the statusline at the bottom
     use({
       "nvim-lualine/lualine.nvim",
-      requires = { "kyazdani42/nvim-web-devicons", opt = true },
+      requires = {
+        "kyazdani42/nvim-web-devicons",
+        "WhoIsSethDaniel/lualine-lsp-progress.nvim",
+      },
       config = function()
         require("plugins.lualine")
       end,
