@@ -11,23 +11,6 @@ setlocal autoindent
 setlocal fileformat=unix
 setlocal nowrap
 
-" setlocal colorcolumn=80,100
-highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=blue
-
-" ========== ALE ==========
-" let b:ale_linters = ['eslint']
-" let b:ale_fixers = ['eslint', 'remove_trailing_lines', 'trim_whitespace']
-" let b:ale_linters = ['eslint', 'prettier']
-" let b:ale_fixers = ['eslint', 'prettier', 'importjs', 'prettier_eslint', 'standard', 'remove_trailing_lines', 'trim_whitespace']
-
-let b:ale_warn_about_trailing_whitespace = 1
-let b:ale_pattern_options = {'\.min.js$': {'ale_enabled': 0}}
-
-
-" ===== jsBeautify =====
-nnoremap <buffer>  <c-f> :call JsBeautify()<cr>
-
 " ==== console.log() something =====
-" vnoremap <buffer> <localleader>p y<esc>oconsole.log(`--- debug <esc>gpa: ${<esc>gpa}`);<ESC>
 vnoremap <buffer> <localleader>p y<esc>oconsole.log('--- debug <esc>gpa: ', <esc>gpa);<ESC>
 nnoremap <buffer> <Localleader>p <esc>oconsole.log(`--- debug <esc>gpa: ${<esc>gpa}`);<ESC>
