@@ -14,6 +14,14 @@ hi TSInclude guifg='#78DCE8'
 " Normal text
 hi normal guifg='#FFF1F3' guibg='#000000'
 
+" which-key
+" hi WhichKeyFloat guifg='#FFF1F3' guibg='#000000'
+" hi WhichKeyBorder guifg='#FFF1F3' guibg='#000000'
+" hi WhichKey guifg='#FFF1F3' guibg='#000000'
+" hi WhichKeySeparator guifg='#FFF1F3' guibg='#000000'
+" hi WhichKeyDesc guifg='#FFF1F3' guibg='#000000'
+
+
 " Git Signs
 hi GitSignsAdd guifg='#A9DC76' guibg='#26292C'
 hi GitSignsDelete guifg='#FF6188' guibg='#26292C'
