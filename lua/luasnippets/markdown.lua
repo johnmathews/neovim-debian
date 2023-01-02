@@ -11,7 +11,7 @@ local fmt = require("luasnip.extras.fmt").fmt
 
 local c = ls.choice_node
 local d = ls.dynamic_node
--- local sn = ls.snippet_node
+local sn = ls.snippet_node
 -- local r = ls.restore_node
 -- local l = require("luasnip.extras").lambda
 -- local rep = require("luasnip.extras").rep
@@ -58,7 +58,7 @@ local catChooser = function(args, snip, table)
   end
 end
 
--- for choice nodes, use <C-h> to toggle through the options
+-- for choice nodes, use <C-j> and <C-k> to toggle through the options
 -- see mappings.lua:105
 return {
   s("meta", {
@@ -128,24 +128,24 @@ return {
   s({
     dscr = "links to an internal page",
     name = "article link link",
-    trig = "il",
+    trig = "internal-link",
   }, {
     t({ "[" }),
     i(1, "<text>"),
-    t({ "]({filename}/articles/" }),
-    i(2, "<text>"),
-    t({ ".md) " }),
+    t({ "](" }),
+    i(2, "<slug>"),
+    t({ ") " }),
   }),
 
   s({
     dscr = "download a link",
     name = "download link",
-    trig = "li",
+    trig = "external-link",
   }, {
     t({ "[" }),
     i(1, "<text>"),
     t({ "](" }),
-    i(2, "<text>"),
+    i(2, "<url>"),
     t({ ") " }),
   }),
 
@@ -156,8 +156,8 @@ return {
   }, {
     t({ "[" }),
     i(1, "<text>"),
-    t({ "]({attach}/documents/" }),
-    i(2, "<text>"),
+    t({ "](/documents/" }),
+    i(2, "<file-name>"),
     t({ ") " }),
   }),
 
@@ -185,48 +185,48 @@ return {
 
   s({
     namr = "image embed",
-    dscr = "embed an image",
-    trig = "im",
+    dscr = "embed an image (not clickable)",
+    trig = "image-embed",
   }, {
     t({ "![" }),
     i(1, "<text>"),
-    t({ "]({static}/images/" }),
+    t({ "](/static/images/" }),
     i(2, "<text>"),
-    t({ "){: .image-process-article-inline-image loading='lazy'} " }),
+    t({ ") " }),
   }),
 
   s({
-    namr = "image link",
+    namr = "clickable image link",
     dscr = "insert a clickable image",
-    trig = "ci",
+    trig = "clickable-image-embed",
   }, {
     t({ "[![" }),
     i(1, "<text>"),
-    t({ "]({static}/images/" }),
+    t({ "](/static/images/" }),
     i(2, "<text>"),
-    t({ "){: .image-process-article-inline-image loading='lazy'}]({static}/images/ " }),
-    i(3, "<text>"),
-    t({ '"' }),
+    t({ ")](/static/images/" }),
+    d(3, function(args) return sn(nil, {i(2, args[1])}) end, {2}),
+    t({ ')' }),
   }),
 
   s({
     namr = "superscript",
     dscr = "superscript text",
-    trig = "sup",
+    trig = "superscript",
   }, {
-    t({ "$^" }),
+    t({ "$^{" }),
     i(1, "<text>"),
-    t({ "$ " }),
+    t({ "}$ " }),
   }),
 
   s({
     namr = "bible verse",
     dscr = "highlighted bible verse with superscript",
-    trig = "ver",
+    trig = "verse",
   }, {
-    t({ "$^" }),
+    t({ "$^{" }),
     i(1, "verse number"),
-    t({ "$<mark>" }),
+    t({ "}$<mark>" }),
     i(2, "text here"),
     t({ "</mark> " }),
   }),
@@ -234,7 +234,7 @@ return {
   s({
     namr = "highlight",
     dscr = "highlighted (marked) text tag",
-    trig = "ma",
+    trig = "highlight",
   }, {
     t({ "<mark>" }),
     i(1, "text here"),
@@ -244,39 +244,12 @@ return {
   s({
     namr = "comment",
     dscr = "comment text",
-    trig = "com",
+    trig = "comment",
   }, {
     t({ "", "[comment]: # (" }),
     i(1),
     t({ ") " }),
   }),
-
-  s({
-    namr = "Technical Categories",
-    dscr = "Blog - technical categories for blog posts",
-    trig = "tech",
-  }, {
-    t("Technical/Developer Tools,Data,Web,Other,Cryptocurrencies,Engineering"),
-  }),
-
-  s({
-    namr = "Non-technical Categories",
-    dscr = "Blog - non-technical categories for blog posts",
-    trig = "non",
-  }, {
-    t("Non-technical/Other,Social,Learning,Journal,Entrepreneurship,Photographs"),
-  }),
-
-  s(
-    {
-      namr = "footnote",
-      dscr = "insert a footnote",
-      trig = "ref",
-    },
-    fmt("[ref]{}[/ref]", {
-      i(1, "<text>"),
-    })
-  ),
 
   s({
     namr = "youtube movie",
