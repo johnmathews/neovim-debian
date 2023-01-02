@@ -24,13 +24,13 @@ local function map(mode, l, r, opts)
 end
 
 
-map("n", "lda", "<Plug>(toggle-lsp-diag)", KeymapOptions("Diagnostics: Toggle signs and vtext"))
-map("n", "lds", "<Plug>(toggle-lsp-diag-signs)", KeymapOptions("Diagnostics: Toggle signs"))
-map("n", "ldv", "<Plug>(toggle-lsp-diag-vtexts)", KeymapOptions("Diagnostics: Toggle virtual text"))
+map("n", "<leader>la", "<Plug>(toggle-lsp-diag)", KeymapOptions("Diagnostics: Toggle signs and vtext")) -- :ToggleDiag
+map("n", "<leader>ls", "<Plug>(toggle-lsp-diag-signs)", KeymapOptions("Diagnostics: Toggle signs"))
+map("n", "<leader>lv", "<Plug>(toggle-lsp-diag-vtexts)", KeymapOptions("Diagnostics: Toggle virtual text"))
 
-map("n", "ldu", "<Plug>(toggle-lsp-diag-underline)", KeymapOptions("Diagnostics: Toggle underline"))
-map("n", "ldp", "<Plug>(toggle-lsp-diag-update_in_insert)", KeymapOptions("Diagnostics: Toggle update_in_insert"))
+map("n", "<leader>lu", "<Plug>(toggle-lsp-diag-underline)", KeymapOptions("Diagnostics: Toggle underline"))
+map("n", "<leader>lp", "<Plug>(toggle-lsp-diag-update_in_insert)", KeymapOptions("Diagnostics: Toggle update_in_insert"))
 
-map("n", "ldt", "<Plug>(toggle-lsp-diag-default)", KeymapOptions("Diagnostics: Toggle default settings"))
-map("n", "ldf", "<Plug>(toggle-lsp-diag-off)", KeymapOptions("Diagnostics: Off"))
-map("n", "ldn", "<Plug>(toggle-lsp-diag-on)", KeymapOptions("Diagnostics: On"))
+map("n", "<leader>lt", "<Plug>(toggle-lsp-diag-default)", KeymapOptions("Diagnostics: Toggle default settings")) -- :ToggleDiagDefault
+map("n", "<leader>lf", "<Plug>(toggle-lsp-diag-off)", KeymapOptions("Diagnostics: Off")) --:ToggleDiagOfF
+map("n", "<leader>ln", "<Plug>(toggle-lsp-diag-on)", KeymapOptions("Diagnostics: On")) -- :ToggleDiagOn

@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "sumneko_lua", "rust_analyzer", "pyright", "tailwindcss" },
+  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "sumneko_lua" },
   automatic_installation = true,
 }
 
@@ -70,7 +70,8 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, KeymapBufferOptions({ description = "LSP list workspace folders", bufnr = bufnr }))
 
-  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }) )
+  vim.keymap.set('n', '<leader>lf', function() vim.lsp.buf.format { async = true } end,
+    KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
 
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')

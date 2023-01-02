@@ -280,23 +280,17 @@ return {
 
   s({
     namr = "youtube movie",
-    dscr = "responsive youtube embed",
-    trig = "yt",
+    dscr = "embed responsive iframe, type='youtube|amazon'",
+    trig = "if",
   }, {
     t({
-      '<div class="relative mt-3" style="padding-top: 56.25%">',
-      "   <iframe",
-      '    loading="lazy"',
-      '    class="absolute inset-0 w-full h-full"',
-      '    src="https://youtube.com/embed/',
+      "import IframeEmbed from '../components/IframeEmbed'",
+      "",
+      "<IframeEmbed type='youtube' src='https://youtube.com/embed/"
     }),
     i(1, "<URL>"),
     t({
-      '"',
-      '    frameborder="0"',
-      '    allow="autoplay; encrypted-media" allowfullscreen >',
-      "  </iframe>",
-      "</div>",
+      "' />"
     }),
   }),
 }
