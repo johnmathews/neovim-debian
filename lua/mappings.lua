@@ -62,7 +62,7 @@ map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
 map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit all buffers"))
 
 vim.api.nvim_create_user_command('BufOnly', '%bdelete|edit #|normal `"', {})
-map("n", "<Tab>qo", ":BufOnly<CR>", KeymapOptions("Close other buffers"))
+map("n", "<Tab>qo", ":BufOnly<CR>", KeymapOptions("Close other buffers")) -- buf only is defined 1 row above
 
 map("n", "qq", ":bn|bd #<CR>", KeymapOptions("Quit buffer"))
 map("n", "<leader>Q", ":bufdo bdelete<CR>", default_options)

@@ -140,13 +140,13 @@ return packer.startup({
     })
 
     -- the buffer names at the top
-    use({
-      "akinsho/bufferline.nvim",
-      requires = "kyazdani42/nvim-web-devicons",
-      config = function()
-        require("plugins.bufferline")
-      end,
-    })
+    -- use({
+    --   "akinsho/bufferline.nvim",
+    --   requires = "kyazdani42/nvim-web-devicons",
+    --   config = function()
+    --     require("plugins.bufferline")
+    --   end,
+    -- })
 
     -- the statusline at the bottom
     use({
@@ -190,20 +190,10 @@ return packer.startup({
       end,
     })
 
-    -- use("lukas-reineke/lsp-format.nvim")
-    -- use({ "tamago324/nlsp-settings.nvim" }) -- language server settings defined in json for
-
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" })
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
-
-    -- use({
-    --   "github/copilot.vim",
-    --   config = function()
-    --     require("plugins.copilot-simple")
-    --   end,
-    -- })
 
     use {
       "zbirenbaum/copilot.lua",
@@ -465,12 +455,6 @@ return packer.startup({
     })
 
     use("tanvirtin/monokai.nvim")
-    -- use({
-    -- "tanvirtin/monokai.nvim",
-    -- config = function()
-    -- require("plugins.monokai")
-    -- end,
-    -- })
 
     use({
       "kyazdani42/nvim-web-devicons",
