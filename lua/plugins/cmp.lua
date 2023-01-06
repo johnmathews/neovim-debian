@@ -49,14 +49,15 @@ local kind_icons = {
 
 cmp.setup({
   enabled = function()
-    -- disable completion in comments
     local context = require 'cmp.config.context'
-    -- keep command mode completion enabled when cursor is in a comment
-    if vim.api.nvim_get_mode().mode == 'c' then
+    local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+
+    if vim.api.nvim_get_mode().mode == 'c' then -- keep command mode completion enabled when cursor is in a comment
       return true
+    elseif buftype == "prompt" then -- disable cmp in telescope prompt
+      return false 
     else
-      return not context.in_treesitter_capture("comment")
-          and not context.in_syntax_group("Comment")
+      return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment") -- disable completion in comments
     end
   end,
   sorting = {

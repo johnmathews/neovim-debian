@@ -1,4 +1,3 @@
--- Modes
 --   normal_mode = "n",
 --   insert_mode = "i",
 --   visual_mode = "v",
@@ -60,13 +59,6 @@ map("v", ":", ";", { noremap = true, silent = false })
 
 map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
 map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit all buffers"))
-
-vim.api.nvim_create_user_command('BufOnly', '%bdelete|edit #|normal `"', {})
-map("n", "<Tab>qo", ":BufOnly<CR>", KeymapOptions("Close other buffers")) -- buf only is defined 1 row above
-
-map("n", "qq", ":bn|bd #<CR>", KeymapOptions("Quit buffer"))
-map("n", "<leader>Q", ":bufdo bdelete<CR>", default_options)
-map("n", "gf", ":edit <cfile><CR>", default_options)
 
 -- query which color - what and which kind of syntax is this color? - wc
 -- ghl. highlight group

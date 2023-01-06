@@ -191,9 +191,23 @@ return packer.startup({
     })
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
-    use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" })
+    -- use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" }) -- clashed with close-buffers
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+
+    -- buffers and window management
+    use({ "marklcrns/vim-smartq",
+      config = function()
+        require("plugins.smartq")
+      end,
+    })
+
+    -- use({ "Asheq/close-buffers.vim" })
+    use({ "Asheq/close-buffers.vim", 
+      config = function()
+        require("plugins.close-buffers")
+      end,
+    })
 
     use {
       "zbirenbaum/copilot.lua",
