@@ -9,7 +9,7 @@ local default_options = { noremap = true, silent = true }
 -- Telescope
 -- tab-V/S/A are taken by toggle-lsp plugin
 
-map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", default_options)
+map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", KeymapOptions("Telescope current buffer fuzzy find"))
 
 map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
@@ -31,7 +31,7 @@ map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
 map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
 -- Git pickers
-map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", default_options)
+map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", KeymapOptions("Telescope find git files fallback"))
 
 -- Searches all files, doesnt ignore anything (--no-ignore) see pickers.all_files below
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories

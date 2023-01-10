@@ -2,7 +2,7 @@ local map = vim.api.nvim_set_keymap
 
 -- Exit/Delete buffer while respecting window splits and tabs, and other types of buffer.
 
-map("n", "Q", "<Plug>(smartq_this)", KeymapOptions("Quit buffer (smartQ)"))
+map("n", "qq", "<Plug>(smartq_this)", KeymapOptions("Quit buffer (smartQ)"))
 
 -- map("n", "<C-Q>", "<Plug>(smartq_this_force)", KeymapOptions("Quit buffer (smartQ)"))
 map("n", "wq", "<Plug>(smartq_this_save)", KeymapOptions("Quit buffer (smartQ)"))

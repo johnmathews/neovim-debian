@@ -346,12 +346,12 @@ return packer.startup({
       end,
     })
 
-    use({
-      "plasticboy/vim-markdown",
-      config = function()
-        require("plugins.markdown")
-      end,
-    })
+    -- use({
+    --   "plasticboy/vim-markdown",
+    --   config = function()
+    --     require("plugins.markdown")
+    --   end,
+    -- })
 
     use({
       "simnalamburt/vim-mundo",

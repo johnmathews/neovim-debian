@@ -174,9 +174,9 @@ return {
   }),
 
   s({
-    namr = "link to bucket",
-    dscr = "link to bucket",
-    trig = "bu",
+    namr = "link to GCS asset",
+    dscr = "link to GCS asset",
+    trig = "gcs",
   }, {
     t({ "[archive](https://us-east1-johnmathews-website.cloudfunctions.net/download?obj=movies/" }),
     i(1, "<text>"),
