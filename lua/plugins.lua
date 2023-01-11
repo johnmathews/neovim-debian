@@ -203,7 +203,7 @@ return packer.startup({
     })
 
     -- use({ "Asheq/close-buffers.vim" })
-    use({ "Asheq/close-buffers.vim", 
+    use({ "Asheq/close-buffers.vim",
       config = function()
         require("plugins.close-buffers")
       end,
@@ -271,6 +271,7 @@ return packer.startup({
       },
     })
 
+    -- not sure if this is really used. does toggleterm use it?
     use({
       "skywind3000/asyncrun.vim",
       config = function()
@@ -278,12 +279,21 @@ return packer.startup({
       end,
     })
 
+    -- this is an (unmaintained) treesitter plugin.
+    -- config is in the `rainbow` attribute in treesitter.lua
     use({
       "p00f/nvim-ts-rainbow",
+    })
+
+    -- autoclose and autorename html tags (html,tsx,vue,svelte,php,rescript)
+    -- this is a treesitter plugin. config is the `autotag` attribute in treesitter.lua
+    use({
+      "windwp/nvim-ts-autotag",
       config = function()
-        require("plugins.rainbow")
+        require("plugins.autotag")
       end,
     })
+
 
     use({
       "windwp/nvim-autopairs",
@@ -293,19 +303,14 @@ return packer.startup({
       event = "VimEnter",
     })
 
-    use({
-      "windwp/nvim-ts-autotag",
-      config = function()
-        require("plugins.autotag")
-      end,
-    })
 
-    use({
-      "MunifTanjim/prettier.nvim",
-      config = function()
-        require("plugins.prettier")
-      end,
-    })
+    -- this might not be necessary because of Mason, and prettier is built-in to null-ls
+    -- use({
+    --   "MunifTanjim/prettier.nvim",
+    --   config = function()
+    --     require("plugins.prettier")
+    --   end,
+    -- })
 
     use("chrisbra/csv.vim")
 
@@ -352,6 +357,16 @@ return packer.startup({
     --     require("plugins.markdown")
     --   end,
     -- })
+
+    -- preview markdown
+    use({ "ellisonleao/glow.nvim",
+      config = function()
+        require("glow").setup({
+          style = "dark", 
+          pager = true,
+        })
+      end,
+    })
 
     use({
       "simnalamburt/vim-mundo",

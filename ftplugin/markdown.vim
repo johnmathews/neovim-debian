@@ -30,6 +30,9 @@ setlocal nojoinspaces
 setlocal conceallevel=0
 let g:indentLine_conceallevel = 0
 
+
+nnoremap <buffer> <Leader>m :Glow<CR>
+
 " Stop telling me underscores are errors:
 syn match markdownError "\w\@<=\w\@="
 
