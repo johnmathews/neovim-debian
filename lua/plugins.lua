@@ -291,11 +291,16 @@ return packer.startup({
     -- this is a treesitter plugin. config is the `autotag` attribute in treesitter.lua
     use({
       "windwp/nvim-ts-autotag",
-      config = function()
-        require("plugins.autotag")
-      end,
     })
 
+    -- automatically stop highlighting search terms once the cursor is moved
+    use({
+      "asiryk/auto-hlsearch.nvim",
+      tag = "1.0.0",
+      config = function()
+        require("auto-hlsearch").setup()
+      end
+    })
 
     use({
       "windwp/nvim-autopairs",
@@ -364,7 +369,7 @@ return packer.startup({
     use({ "ellisonleao/glow.nvim",
       config = function()
         require("glow").setup({
-          style = "dark", 
+          style = "dark",
           pager = true,
         })
       end,

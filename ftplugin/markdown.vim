@@ -30,8 +30,9 @@ setlocal nojoinspaces
 setlocal conceallevel=0
 let g:indentLine_conceallevel = 0
 
-
-nnoremap <buffer> <Leader>m :Glow<CR>
+lua << EOF
+  vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
+EOF
 
 " Stop telling me underscores are errors:
 syn match markdownError "\w\@<=\w\@="
