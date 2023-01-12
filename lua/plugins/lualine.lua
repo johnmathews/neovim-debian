@@ -54,7 +54,7 @@ lualine.setup({
     lualine_a = { progress, require('auto-session-library').current_session_name, "progress", Row_max_row, Current_col,
       "mode" },
     -- lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
-    lualine_b = { "branch", "diff" },
+    lualine_b = { { "branch", padding = { left = 3, right = 1 } }, { "diff", padding = { left = 1, right = 3 } } },
     lualine_c = { { show_filepath, padding = { right = 0 }, color = { fg = "#A9DC76" } },
       { show_filename, color = { fg = "#FF647F" }, padding = { left = 0, right = 2 },
         component_separators = { left = "", right = "" } }, { "diagnostics", padding = { left = 2, right = 2 } } },
