@@ -1,39 +1,3 @@
--- use {
---   'myusername/example',        -- The plugin location string
---   -- The following keys are all optional
---   disable = boolean,           -- Mark a plugin as inactive
---   as = string,                 -- Specifies an alias under which to install the plugin
---   installer = function,        -- Specifies custom installer. See "custom installers" below.
---   updater = function,          -- Specifies custom updater. See "custom installers" below.
---   after = string or list,      -- Specifies plugins to load before this plugin. See "sequencing" below
---   rtp = string,                -- Specifies a subdirectory of the plugin to add to runtimepath.
---   opt = boolean,               -- Manually marks a plugin as optional.
---   branch = string,             -- Specifies a git branch to use
---   tag = string,                -- Specifies a git tag to use. Supports '*' for "latest tag"
---   commit = string,             -- Specifies a git commit to use
---   lock = boolean,              -- Skip updating this plugin in updates/syncs. Still cleans.
---   run = string, function, or table, -- Post-update/install hook. See "update/install hooks".
---   requires = string or list,   -- Specifies plugin dependencies. See "dependencies".
---   rocks = string or list,      -- Specifies Luarocks dependencies for the plugin
---   config = string or function, -- Specifies code to run after this plugin is loaded.
---   -- The setup key implies opt = true
---   setup = string or function,  -- Specifies code to run before this plugin is loaded.
---   -- The following keys all imply lazy-loading and imply opt = true
---   cmd = string or list,        -- Specifies commands which load this plugin. Can be an autocmd pattern.
---   ft = string or list,         -- Specifies filetypes which load this plugin.
---   keys = string or list,       -- Specifies maps which load this plugin. See "Keybindings".
---   event = string or list,      -- Specifies autocommand events which load this plugin.
---   fn = string or list          -- Specifies functions which load this plugin.
---   cond = string, function, or list of strings/functions,   -- Specifies a conditional test to load this plugin
---   module = string or list      -- Specifies Lua module names for require. When requiring a string which starts
---                                -- with one of these module names, the plugin will be loaded.
---   module_pattern = string/list -- Specifies Lua pattern of Lua module names for require. When
---   requiring a string which matches one of these patterns, the plugin will be loaded.
--- }
-
--- example of a decent startup i think
--- https://github.com/younger-1/nvim/blob/42efe08512145323d06c6b5f0877cf9a218f3da7/lua/young/plugin-loader.lua
-
 local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
@@ -280,6 +244,7 @@ return packer.startup({
         "nvim-treesitter/playground",
       },
     })
+    use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- not sure if this is really used. does toggleterm use it?
     -- would be useful for running heavier commands in the bg
@@ -315,7 +280,6 @@ return packer.startup({
     })
 
 
-    use("chrisbra/csv.vim")
 
     -- this might not be necessary because of Mason, and prettier is built-in to null-ls
     -- use({
@@ -324,10 +288,14 @@ return packer.startup({
     --     require("plugins.prettier")
     --   end,
     -- })
-
-
     -- this might not be necessary because of Mason, and prettier is built-in to null-ls
     -- use("nvie/vim-flake8")
+    -- might not be necessary because of mason
+    -- use("vim-scripts/pylint.vim")
+
+    -- might not be neccesssary because of mason
+    -- use("Pocco81/DAPInstall.nvim")
+    -- use("mfussenegger/nvim-dap")
 
     use({
       "akinsho/toggleterm.nvim",
@@ -395,7 +363,8 @@ return packer.startup({
         require("plugins.open-browser")
       end,
     })
-    use("tpope/vim-projectionist")
+    -- TODO what does this do?
+    -- use("tpope/vim-projectionist")
     use("tpope/vim-repeat")
 
     --  interacting with and manipulating Vim marks
@@ -406,40 +375,44 @@ return packer.startup({
       end,
     })
 
-    use("b0o/schemastore.nvim")
-    use("JoosepAlviste/nvim-ts-context-commentstring")
+    -- maybe this isnt necessary either. cos of null-ls
+    -- use("b0o/schemastore.nvim")
 
-    use("lukas-reineke/indent-blankline.nvim")
+    -- what odes this even do? can treesitter do it too?
+    -- use("lukas-reineke/indent-blankline.nvim")
 
     -- fancy notifications. but no plugins actually use this afaik
-    use({
-      "rcarriga/nvim-notify",
-      config = function()
-        require("plugins.notify")
-      end,
-      event = "VimEnter",
-    })
+    -- use({
+    --   "rcarriga/nvim-notify",
+    --   config = function()
+    --     require("plugins.notify")
+    --   end,
+    --   event = "VimEnter",
+    -- })
 
-    use("Pocco81/DAPInstall.nvim")
-    use("mfussenegger/nvim-dap")
-
-    use("vim-scripts/pylint.vim")
-
+    -- TODO
     -- adds various text objects to give you more targets to operate on
     use("wellle/targets.vim")
+    use("ggandor/leap.nvim")
     -- Jump to any location specified by two characters.
-    use({
-      "justinmk/vim-sneak",
-      config = function()
-        require("plugins.sneak")
-      end,
-    })
+    -- use({
+    --   "justinmk/vim-sneak",
+    --   config = function()
+    --     require("plugins.sneak")
+    --   end,
+    -- })
+
+
 
     use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
 
-    use("shmup/vim-sql-syntax")
-    use("godlygeek/tabular")
+    -- maybe not necessary anymore because of lsp mason TS etc
+    -- use("shmup/vim-sql-syntax")
+
+    -- not sure what this does that csv doesnt do
+    -- use("godlygeek/tabular")
+    use("chrisbra/csv.vim")
 
     use({
       "janko-m/vim-test",
