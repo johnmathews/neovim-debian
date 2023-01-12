@@ -10,6 +10,7 @@ local function Current_col()
   return "c" .. column + 1
 end
 
+-- THIS DOESNT WORK AND ISNT USED
 function Row_max_row()
   ---@diagnostic disable-next-line: deprecated
   table.unpack = table.unpack or unpack -- 5.1 compatibility
@@ -51,8 +52,7 @@ lualine.setup({
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { progress, require('auto-session-library').current_session_name, "progress", Row_max_row, Current_col,
-      "mode" },
+    lualine_a = { progress, require('auto-session-library').current_session_name, "progress", Current_col, "mode" },
     -- lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
     lualine_b = { { "branch", padding = { left = 3, right = 1 } }, { "diff", padding = { left = 1, right = 3 } } },
     lualine_c = { { show_filepath, padding = { right = 0 }, color = { fg = "#A9DC76" } },

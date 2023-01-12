@@ -15,7 +15,8 @@ map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
-map("n", "<Tab>s", ":Telescope live_grep<CR>", default_options)
+map("n", "<Tab>s", ":Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" })
+map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep with args" })
 
 map("n", "<Tab>p", ":Telescope projects<CR>", default_options)
 map("n", "<Tab>h", ":Telescope help_tags<cr>", default_options)
@@ -189,6 +190,7 @@ telescope.setup {
 telescope.load_extension('projects')
 telescope.load_extension('fzf')
 telescope.load_extension('harpoon')
+telescope.load_extension('live_grep_args')
 
 
 local M = {}

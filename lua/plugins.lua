@@ -99,7 +99,6 @@ return packer.startup({
         require("plugins.project")
       end,
     })
-
     -- saving sessions
     -- use("tpope/vim-obsession")
     use {
@@ -107,7 +106,7 @@ return packer.startup({
       config = function()
         require("auto-session").setup {
           log_level = "error",
-          auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these 
+          auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these
           auto_save_enabled = true,
         }
       end
@@ -130,6 +129,7 @@ return packer.startup({
         "BurntSushi/ripgrep",
         "nvim-treesitter/nvim-treesitter",
         "neovim/nvim-lspconfig",
+        "nvim-telescope/telescope-live-grep-args.nvim",
       },
       config = function()
         require("plugins.telescope")
