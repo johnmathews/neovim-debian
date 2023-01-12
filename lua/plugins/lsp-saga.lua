@@ -21,6 +21,7 @@ saga.init_lsp_saga({
     sign_priority = 20,
     virtual_text = true,
   },
+  diagnostic_header = { " ", " ", " ", "ﴞ " }, -- doesnt work
   finder_request_timeout = 2500,
   finder_action_keys = {
     open = {'o', '<CR>'},

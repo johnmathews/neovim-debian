@@ -19,6 +19,17 @@ local map = vim.api.nvim_set_keymap
 local default_options = { noremap = true, silent = true }
 map("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", default_options)
 
+-- map("n", "mn", ":require('nvim-tree.api').marks.navigate.next", default_options)
+-- map("n", "mp", ":require('nvim-tree.api').marks.navigate.prev", default_options)
+-- map("n", "ms", ":require('nvim-tree.api').marks.navigate.select", default_options)
+-- map("n", "ml", ":require('nvim-tree.api').marks.navigate.list", default_options)
+
+
+vim.keymap.set("n", "mn", require("nvim-tree.api").marks.navigate.next)
+vim.keymap.set("n", "mp", require("nvim-tree.api").marks.navigate.prev)
+vim.keymap.set("n", "ml", require("nvim-tree.api").marks.navigate.select)
+vim.keymap.set("n", "mc", require("nvim-tree.api").marks.clear)
+
 nvim_tree.setup {
   -- https://github.com/ahmedkhalf/project.nvim
   renderer = {
@@ -100,6 +111,8 @@ nvim_tree.setup {
         { key = "s", action = "split" },
         { key = "<C-x>", action = "" },
         { key = "<C-d>", action = "trash"},
+        { key = "n", action = "toggle_mark" },
+        { key = "m", action = "" },
         { key = "D", action = ""},
         { key = "<Tab>", action = ""},
         { key = "<C-e>", action = ""},

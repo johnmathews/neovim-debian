@@ -291,15 +291,9 @@ return packer.startup({
     -- this is a treesitter plugin. config is the `autotag` attribute in treesitter.lua
     use({
       "windwp/nvim-ts-autotag",
-    })
-
-    -- automatically stop highlighting search terms once the cursor is moved
-    use({
-      "asiryk/auto-hlsearch.nvim",
-      tag = "1.0.0",
       config = function()
-        require("auto-hlsearch").setup()
-      end
+        require('nvim-ts-autotag').setup()
+      end,
     })
 
     use({
@@ -311,6 +305,8 @@ return packer.startup({
     })
 
 
+    use("chrisbra/csv.vim")
+
     -- this might not be necessary because of Mason, and prettier is built-in to null-ls
     -- use({
     --   "MunifTanjim/prettier.nvim",
@@ -319,9 +315,9 @@ return packer.startup({
     --   end,
     -- })
 
-    use("chrisbra/csv.vim")
 
-    use("nvie/vim-flake8")
+    -- this might not be necessary because of Mason, and prettier is built-in to null-ls
+    -- use("nvie/vim-flake8")
 
     use({
       "akinsho/toggleterm.nvim",
@@ -452,6 +448,14 @@ return packer.startup({
 
     -- highlights the XML/HTML tags that enclose your cursor location.
     use({ "valloric/matchtagalways" })
+
+    -- highlight matching tags in html, js, jsx, vue, svelte
+    use({ 
+      "leafOfTree/vim-matchtag",
+      config = function()
+        require("plugins.vim-matchtag")
+      end,
+  })
 
     -- syntax highlighting for requirements.txt files
     use("raimon49/requirements.txt.vim")
