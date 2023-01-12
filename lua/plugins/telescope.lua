@@ -9,14 +9,18 @@ local default_options = { noremap = true, silent = true }
 -- Telescope
 -- tab-V/S/A are taken by toggle-lsp plugin
 
-map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>", KeymapOptions("Telescope current buffer fuzzy find"))
+map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>",
+  KeymapOptions("Telescope current buffer fuzzy find"))
 
 map("n", "<Tab>r", ":Telescope buffers<CR>", default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
 map("n", "<Tab>s", ":Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" })
-map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep with args" })
+map("n", "<Tab>y", ":lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<CR>", { noremap = true, silent = true, desc = "Telescope fuzzy-find text in PWD" })
+map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+  { noremap = true, silent = true, desc = "Telescope ripgrep with args" })
+
 
 map("n", "<Tab>p", ":Telescope projects<CR>", default_options)
 map("n", "<Tab>h", ":Telescope help_tags<cr>", default_options)
@@ -32,7 +36,8 @@ map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
 map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
 -- Git pickers
-map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>", KeymapOptions("Telescope find git files fallback"))
+map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>",
+  KeymapOptions("Telescope find git files fallback"))
 
 -- Searches all files, doesnt ignore anything (--no-ignore) see pickers.all_files below
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
@@ -58,6 +63,32 @@ map("n", "<Tab>vo", ":Telescope vim_options<CR>", default_options)
 map("n", "<Localleader>r", ":Telescope lsp_references<CR>", default_options)
 map("n", "<Tab>b", ":Telescope lsp_workspace_symbols<CR>", default_options)
 map("n", "<Localleader>a", ":Telescope lsp_code_actions<CR>", default_options)
+
+
+-- register extensions
+telescope.load_extension('projects')
+telescope.load_extension('fzf')
+telescope.load_extension('harpoon')
+telescope.load_extension('live_grep_args')
+
+
+-- Custom actions
+local transform_mod = require("telescope.actions.mt").transform_mod
+local nvb_actions = transform_mod {
+  file_path = function(prompt_bufnr)
+    -- Get selected entry and the file full path
+    local content = require("telescope.actions.state").get_selected_entry()
+    local full_path = content.cwd .. require("plenary.path").path.sep .. content.value
+    print("*** full_path = ", full_path)
+
+    -- Yank the path to unnamed register
+    vim.fn.setreg('"', full_path)
+
+    -- Close the popup
+    -- require("utils").info "File path is yanked "
+    require("telescope.actions").close(prompt_bufnr)
+  end,
+}
 
 
 -- map("n", "<leader>pw", ":lua require(\"telescope.builtin\").grep_string({search=vim.fn.expand(\"<cword>\")})<CR>", default_options)
@@ -167,13 +198,32 @@ telescope.setup {
     find_files = {
       -- `hidden = true` will still show the inside of `.git/` as it's not `.gitignore`d.
       find_command = { "rg", "--files", "--no-ignore" },
+      mappings = {
+        n = {
+          ["y"] = nvb_actions.file_path,
+        },
+        i = {
+          ["<C-y>"] = nvb_actions.file_path,
+        },
+      },
     },
-    buffers = {
-      sort_lastused = false,
-      sort_mru = true,
-      ignore_current_buffer = true,
-      cwd_only = false,
-    }
+    git_files = {
+      -- theme = "ivy",  --dropdown
+      mappings = {
+        n = {
+          ["y"] = nvb_actions.file_path,
+        },
+        i = {
+          ["<C-y>"] = nvb_actions.file_path,
+        },
+      },
+    },
+  },
+  buffers = {
+    sort_lastused = false,
+    sort_mru = true,
+    ignore_current_buffer = true,
+    cwd_only = false,
   },
   extensions = {
     fzf = {
@@ -185,12 +235,6 @@ telescope.setup {
     projects = {},
   },
 }
-
--- register extensions
-telescope.load_extension('projects')
-telescope.load_extension('fzf')
-telescope.load_extension('harpoon')
-telescope.load_extension('live_grep_args')
 
 
 local M = {}
