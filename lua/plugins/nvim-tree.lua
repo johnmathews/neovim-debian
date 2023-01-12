@@ -6,19 +6,9 @@ if not status_ok then
   return
 end
 
-local config_status_ok, nvim_tree_config = pcall(require, "nvim-tree.config")
-if not config_status_ok then
-  return
-end
+vim.cmd("let g:nvim_tree_width = 45")
 
-local tree_cb = nvim_tree_config.nvim_tree_callback
-
-vim.cmd("let g:nvim_tree_width = 40")
-
-local map = vim.api.nvim_set_keymap
-local default_options = { noremap = true, silent = true }
-map("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", default_options)
-
+vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", { noremap = true, silent = true, desc = "open/close nvim-tree" })
 vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select, { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
 vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear, { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" } )
 

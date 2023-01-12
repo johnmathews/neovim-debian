@@ -125,3 +125,5 @@ vim.g.session_dir = "~/.config/nvim/sessions/"
 
 vim.opt.shortmess:append("c")
 
+-- auto-session plugin
+vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

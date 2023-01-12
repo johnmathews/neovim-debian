@@ -1,0 +1,991 @@
+
+
+n  <Space>lf   *@<Lua 1742: ~/.config/nvim/lua/plugins/mason.lua:73>
+                 LSP format buffer
+n  <Space>wl   *@<Lua 1743: ~/.config/nvim/lua/plugins/mason.lua:69>
+                 LSP list workspace folders
+n  <Space>wr   *@<Lua 1744: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:680>
+                 LSP remove workspace folder
+n  <Space>wa   *@<Lua 1751: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:643>
+                 LSP add workspace folder
+n  <Space>lÞ   *@<Nop>
+n  <Space>wÞ   *@<Nop>
+n  [c          *@<Lua 1730: ~/.config/nvim/lua/plugins/git-signs.lua:61>
+                 GitSigns: navigate hunk
+v  \p          *@y<Esc>oprint("*** <Esc>gpa = ", <Esc>gpa)<Esc>
+n  ]c          *@<Lua 1766: ~/.config/nvim/lua/plugins/git-signs.lua:51>
+                 GitSigns: next hunk
+n  gst         *@<Lua 1769: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/actions.lua:213>
+                 GitSigns: Toggle Deleted
+n  gsD         *@<Lua 555: ~/.config/nvim/lua/plugins/git-signs.lua:81>
+                 GitSigns: Diff ??
+n  gsd         *@<Lua 1768: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/actions.lua:1023>
+                 GitSigns: Diff current buffer
+n  gsb         *@<Lua 1767: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/actions.lua:195>
+                 GitSigns: blame current line
+n  gsB         *@<Lua 1741: ~/.config/nvim/lua/plugins/git-signs.lua:78>
+                 GitSigns: blame entire buffer
+n  gshp        *@<Lua 1733: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/actions.lua:702>
+                 Gitsigns: Preview hunk
+n  gshR        *@<Lua 1770: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/actions.lua:401>
+                 GitSigns: Reset buffer
+n  gshu        *@<Lua 1732: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/async.lua:52>
+                 GitSigns: Unstage hunk
+n  gsS         *@<Lua 1731: ~/.local/share/nvim/site/pack/packer/start/gitsigns.nvim/lua/gitsigns/async.lua:52>
+                 GitSigns: Stage buffer
+n  gr          *@<Lua 1774: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:556>
+                 LSP goto references
+n  gi          *@<Lua 1765: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:95>
+                 LSP goto Implementation
+n  gd          *@<Lua 1547: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:75>
+                 LSP goto Definition
+n  gD          *@<Lua 1923: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:65>
+                 LSP goto Declaration
+n  gshs        *@Gitsigns: stage_hunk<CR>
+v  gshs        *@Gitsigns: stage_hunk<CR>
+n  gshr        *@Gitsigns: reset_hunk<CR>
+v  gshr        *@Gitsigns: reset_hunk<CR>
+n  gsÞ         *@<Nop>
+n  gshÞ        *@<Nop>
+o  ih          *@:<C-U>Gitsigns select_hunk<CR>
+                 GitSigns: select hunk
+x  ih          *@:<C-U>Gitsigns select_hunk<CR>
+                 GitSigns: select hunk
+n  <C-K>       *@<Lua 1752: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:102>
+                 LSP signature help
+s  <Tab>       * <Lua 2704: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+n  <Tab>gÞ     * <Nop>
+n  <Tab>qÞ     * <Nop>
+n  <Tab>vÞ     * <Nop>
+n  <Tab>wÞ     * <Nop>
+n  <Tab>dÞ     * <Nop>
+n  <Tab>Þ      * <Nop>
+n  <Tab>       * <Cmd>lua require("which-key").show("\9", {mode = "n", auto = true})<CR>
+n  <Tab>4      * :lua require('harpoon.ui').nav_file(4)<CR>
+                 Harpoon buffer
+n  <Tab>3      * :lua require('harpoon.ui').nav_file(3)<CR>
+                 Harpoon buffer
+n  <Tab>2      * :lua require('harpoon.ui').nav_file(2)<CR>
+                 Harpoon buffer
+n  <Tab>1      * :lua require('harpoon.ui').nav_file(1)<CR>
+                 Harpoon buffer
+n  <Tab>b      * :Telescope lsp_workspace_symbols<CR>
+n  <Tab>vo     * :Telescope vim_options<CR>
+n  <Tab>vr     * :Telescope registers<CR>
+n  <Tab>va     * :Telescope autocommands<CR>
+n  <Tab>vt     * :Telescope treesitter<CR>
+n  <Tab>gs     * :Telescope git_status<CR>
+n  <Tab>gr     * :Telescope git_branches<CR>
+n  <Tab>gb     * :Telescope git_bcommits<CR>
+n  <Tab>gc     * :Telescope git_commits<CR>
+n  <Tab>a      * :Telescope find_files<CR>
+n  <Tab>f      * <Cmd>lua require'plugins.telescope'.find_files_fallback()<CR>
+                 Telescope find git files fallback
+n  <Tab>z      * :Telescope resume<CR>
+n  <Tab>l      * :Telescope loclist<CR>
+n  <Tab>qf     * :Telescope quickfix<CR>
+n  <Tab>j      * :Telescope jumplist<CR>
+n  <Tab>vk     * :Telescope keymaps<CR>
+n  <Tab>vs     * :Telescope search_history<CR>
+n  <Tab>vc     * :Telescope command_history<CR>
+n  <Tab>h      * :Telescope help_tags<CR>
+n  <Tab>p      * :Telescope projects<CR>
+n  <Tab>s      * :Telescope live_grep<CR>
+n  <Tab>o      * :Telescope oldfiles<CR>
+n  <Tab>r      * :Telescope buffers<CR>
+n  <Tab>i      * :Telescope current_buffer_fuzzy_find fuzzy=true<CR>
+                 Telescope current buffer fuzzy find
+n  <Tab>qo     * :Bdelete other<CR>
+                 Close all other buffers
+n  <Tab>qq     * :qa<CR>
+                 Quit Vim
+n  <Tab>ww     * :wa<CR>
+                 Write all buffers
+n  <Tab>dn     * <Plug>(toggle-lsp-diag-on)
+                 Diagnostics: On
+n  <Tab>df     * <Plug>(toggle-lsp-diag-off)
+                 Diagnostics: Off
+n  <Tab>dt     * <Plug>(toggle-lsp-diag-vtext)
+                 Diagnostics: Toggle virtual text
+n  <Tab>ds     * <Plug>(toggle-lsp-diag-signs)
+                 Diagnostics: Toggle signs
+n  <Tab>dd     * <Plug>(toggle-lsp-diag)
+                 Diagnostics: Toggle signs and vtext
+n  <Space>D    * <Lua 2677: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/lsp/buf.lua:85>
+                 LSP Type Definition
+n  <Space>e    * <Lua 2899: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/diagnostic.lua:1237>
+                 Diagnostic - Open Floating Window
+n  <Space>q    * <Lua 2892: /usr/local/Cellar/neovim/0.8.0/share/nvim/runtime/lua/vim/diagnostic.lua:1453>
+                 Diagnostic - Open Location List
+n  <Space>n    * :NvimTreeFindFileToggle<CR>
+                 open/close nvim-tree
+n  <Space>ld   * <Cmd>lua _LAZYDOCKER_TOGGLE()<CR>
+n  <Space>g    * <Cmd>lua _LAZYGIT_TOGGLE()<CR>
+n  <Space>tÞ   * <Nop>
+n  <Space>cÞ   * <Nop>
+n  <Space>vÞ   * <Nop>
+n  <Space>Þ    * <Nop>
+x  <Space>cÞ   * <Nop>
+x  <Space>Þ    * <Nop>
+x  <Space>     * <Cmd>lua require("which-key").show(" ", {mode = "v", auto = true})<CR>
+n  <Space>o    * <Cmd>Lspsaga outline<CR>
+n  <Space>cd   * <Cmd>Lspsaga show_cursor_diagnostics<CR>
+v  <Space>ca   * <Cmd>Lspsaga code_action<CR>
+n  <Space>ca   * <Cmd>Lspsaga code_action<CR>
+n  <Space>u    * :MundoToggle<CR>
+n  <Space>x    * :!xdg-open %<CR><CR>
+                 Open current file in default app
+n  <Space>tc   * :TSHighlightCapturesUnderCursor<CR>
+                 Treesitter item under cursor
+n  <Space>tp   * :TSPlaygroundToggle<CR>
+                 Treesitter Playground
+n  <Space>ts   * :setlocal spell!<CR>
+                 toggle spell checker
+n  <Space>tn   * :set relativenumber!<CR>
+                 toggle relative line numbers
+n  <Space>tw   * :set nowrap!<CR>
+                 toggle linewrap
+n  <Space>vr   * :source $MYVIMRC<CR>|:autocmd User VimReload<CR>
+                 reload vimrc file
+n  <Space>vf   * :edit ~/.config/nvim/ftplugin/<C-R>=&filetype<CR>.vim<CR>
+                 edit ftplugin file for current buffers filetype
+n  <Space>ve   * :edit $MYVIMRC<CR>
+                 edit vimrc
+n  <Space>     * <Cmd>lua require("which-key").show(" ", {mode = "n", auto = true})<CR>
+n  !aÞ         * <Nop>
+n  !iÞ         * <Nop>
+n  !Þ          * <Nop>
+n  !           * <Cmd>lua require("which-key").show("!", {mode = "n", auto = true})<CR>
+n  "           * <Cmd>lua require("which-key").show("\"", {mode = "n", auto = true})<CR>
+x  "           * <Cmd>lua require("which-key").show("\"", {mode = "v", auto = true})<CR>
+x  #           * y?\V<C-R>"<CR>
+                 Nvim builtin
+o  %             <Plug>(MatchitOperationForward)
+x  %             <Plug>(MatchitVisualForward)
+n  %             <Plug>(MatchitNormalForward)
+n  &           * :&&<CR>
+                 Nvim builtin
+n  '           * <Cmd>lua require("which-key").show("'", {mode = "n", auto = true})<CR>
+n  *           * *``
+x  *           * y/\V<C-R>"<CR>
+                 Nvim builtin
+v  :           * ;
+n  :           * ;
+v  ;           * :
+n  ;           * :
+n  <aÞ         * <Nop>
+n  <iÞ         * <Nop>
+n  <Þ          * <Nop>
+n  <           * <Cmd>lua require("which-key").show("<", {mode = "n", auto = true})<CR>
+n  <p            <Plug>(unimpaired-put-below-leftward)
+n  <P            <Plug>(unimpaired-put-above-leftward)
+n  <s<Esc>     & <Nop>
+n  <s            <Plug>(unimpaired-enable)
+n  =Þ          * <Nop>
+n  =           * <Cmd>lua require("which-key").show("=", {mode = "n", auto = true})<CR>
+n  =p            <Plug>(unimpaired-put-below-reformat)
+n  =P            <Plug>(unimpaired-put-above-reformat)
+n  =s<Esc>     & <Nop>
+n  =s            <Plug>(unimpaired-toggle)
+n  >aÞ         * <Nop>
+n  >iÞ         * <Nop>
+n  >Þ          * <Nop>
+n  >           * <Cmd>lua require("which-key").show(">", {mode = "n", auto = true})<CR>
+n  >p            <Plug>(unimpaired-put-below-rightward)
+n  >P            <Plug>(unimpaired-put-above-rightward)
+n  >s<Esc>     & <Nop>
+n  >s            <Plug>(unimpaired-disable)
+n  @Þ          * <Nop>
+n  @           * <Cmd>lua require("which-key").show("@", {mode = "n", auto = true})<CR>
+x  @(targetsÞ  * <Nop>
+x  @(targetÞ   * <Nop>
+x  @(targeÞ    * <Nop>
+x  @(targÞ     * <Nop>
+x  @(tarÞ      * <Nop>
+x  @(taÞ       * <Nop>
+x  @(tÞ        * <Nop>
+x  @(Þ         * <Nop>
+x  @Þ          * <Nop>
+x  @           * <Cmd>lua require("which-key").show("@", {mode = "v", auto = true})<CR>
+x  @(targets)  * :<C-U>call targets#do()<CR>
+o  @(targets)  * :<C-U>call targets#do()<CR>
+x  A             targets#e('o', 'A', 'A')
+o  A             targets#e('o', 'A', 'A')
+n  DÞ          * <Nop>
+n  D           * <Cmd>lua require("which-key").show("D", {mode = "n", auto = true})<CR>
+n  Du          * <Cmd>DBUIToggle<CR>
+                 Toggle UI
+n  Df          * <Cmd>DBUIFindBuffer<CR>
+                 Find buffer
+n  Dr          * <Cmd>DBUIRenameBuffer<CR>
+                 Rename buffer
+n  Dq          * <Cmd>DBUILastQueryInfo<CR>
+                 Last query info
+   F             <Plug>Sneak_F
+x  I             targets#e('o', 'I', 'I')
+o  I             targets#e('o', 'I', 'I')
+n  K           * <Cmd>Lspsaga hover_doc<CR>
+n  O           * O<Esc>
+n  QÞ          * <Nop>
+n  Q           * <Cmd>lua require("which-key").show("Q", {mode = "n", auto = true})<CR>
+n  QE          * <Plug>(smartq_wipe_empty)
+                 Quit buffer (smartQ)
+x  S             <Plug>VSurround
+nosS             <Plug>Sneak_,
+   T             <Plug>Sneak_T
+n  Y           * y$
+                 Nvim builtin
+x  Z             <Plug>Sneak_S
+o  Z             <Plug>Sneak_S
+n  [Þ          * <Nop>
+n  [           * <Cmd>lua require("which-key").show("[", {mode = "n", auto = true})<CR>
+x  [Þ          * <Nop>
+x  [           * <Cmd>lua require("which-key").show("[", {mode = "v", auto = true})<CR>
+n  [xx           <Plug>(unimpaired-xml-encode-line)
+x  [x            <Plug>(unimpaired-xml-encode)
+n  [x            <Plug>(unimpaired-xml-encode)
+n  [uu           <Plug>(unimpaired-url-encode-line)
+x  [u            <Plug>(unimpaired-url-encode)
+n  [u            <Plug>(unimpaired-url-encode)
+n  [CC           <Plug>(unimpaired-string-encode-line)
+x  [C            <Plug>(unimpaired-string-encode)
+n  [C            <Plug>(unimpaired-string-encode)
+n  [yy           <Plug>(unimpaired-string-encode-line)
+x  [y            <Plug>(unimpaired-string-encode)
+n  [y            <Plug>(unimpaired-string-encode)
+n  [P            <Plug>(unimpaired-put-above)
+n  [p            <Plug>(unimpaired-put-above)
+n  [o<Esc>     & <Nop>
+n  [o            <Plug>(unimpaired-enable)
+x  [e            <Plug>(unimpaired-move-selection-up)
+n  [<Space>      <Plug>(unimpaired-blank-up)
+o  [n            <Plug>(unimpaired-context-previous)
+x  [n            <Plug>(unimpaired-context-previous)
+n  [n            <Plug>(unimpaired-context-previous)
+n  [f            <Plug>(unimpaired-directory-previous)
+n  [<C-T>        <Plug>(unimpaired-ptprevious)
+n  [T            <Plug>(unimpaired-tfirst)
+n  [t            <Plug>(unimpaired-tprevious)
+n  [<C-Q>        <Plug>(unimpaired-cpfile)
+n  [Q            <Plug>(unimpaired-cfirst)
+n  [q            <Plug>(unimpaired-cprevious)
+n  [<C-L>        <Plug>(unimpaired-lpfile)
+n  [L            <Plug>(unimpaired-lfirst)
+n  [l            <Plug>(unimpaired-lprevious)
+n  [B            <Plug>(unimpaired-bfirst)
+n  [b            <Plug>(unimpaired-bprevious)
+n  [A            <Plug>(unimpaired-first)
+n  [a            <Plug>(unimpaired-previous)
+n  [E          * <Lua 102: ~/.config/nvim/lua/plugins/lsp-saga.lua:87>
+n  [e          * <Cmd>Lspsaga diagnostic_jump_prev<CR>
+o  [%            <Plug>(MatchitOperationMultiBackward)
+x  [%            <Plug>(MatchitVisualMultiBackward)
+n  [%            <Plug>(MatchitNormalMultiBackward)
+n  \Þ          * <Nop>
+n  \           * <Cmd>lua require("which-key").show("\\", {mode = "n", auto = true})<CR>
+n  \a          * :Telescope lsp_code_actions<CR>
+n  \r          * :Telescope lsp_references<CR>
+n  ]Þ          * <Nop>
+n  ]           * <Cmd>lua require("which-key").show("]", {mode = "n", auto = true})<CR>
+x  ]Þ          * <Nop>
+x  ]           * <Cmd>lua require("which-key").show("]", {mode = "v", auto = true})<CR>
+n  ]xx           <Plug>(unimpaired-xml-decode-line)
+x  ]x            <Plug>(unimpaired-xml-decode)
+n  ]x            <Plug>(unimpaired-xml-decode)
+n  ]uu           <Plug>(unimpaired-url-decode-line)
+x  ]u            <Plug>(unimpaired-url-decode)
+n  ]u            <Plug>(unimpaired-url-decode)
+n  ]CC           <Plug>(unimpaired-string-decode-line)
+x  ]C            <Plug>(unimpaired-string-decode)
+n  ]C            <Plug>(unimpaired-string-decode)
+n  ]yy           <Plug>(unimpaired-string-decode-line)
+x  ]y            <Plug>(unimpaired-string-decode)
+n  ]y            <Plug>(unimpaired-string-decode)
+n  ]P            <Plug>(unimpaired-put-below)
+n  ]p            <Plug>(unimpaired-put-below)
+n  ]o<Esc>     & <Nop>
+n  ]o            <Plug>(unimpaired-disable)
+x  ]e            <Plug>(unimpaired-move-selection-down)
+n  ]<Space>      <Plug>(unimpaired-blank-down)
+o  ]n            <Plug>(unimpaired-context-next)
+x  ]n            <Plug>(unimpaired-context-next)
+n  ]n            <Plug>(unimpaired-context-next)
+n  ]f            <Plug>(unimpaired-directory-next)
+n  ]<C-T>        <Plug>(unimpaired-ptnext)
+n  ]T            <Plug>(unimpaired-tlast)
+n  ]t            <Plug>(unimpaired-tnext)
+n  ]<C-Q>        <Plug>(unimpaired-cnfile)
+n  ]Q            <Plug>(unimpaired-clast)
+n  ]q            <Plug>(unimpaired-cnext)
+n  ]<C-L>        <Plug>(unimpaired-lnfile)
+n  ]L            <Plug>(unimpaired-llast)
+n  ]l            <Plug>(unimpaired-lnext)
+n  ]B            <Plug>(unimpaired-blast)
+n  ]b            <Plug>(unimpaired-bnext)
+n  ]A            <Plug>(unimpaired-last)
+n  ]a            <Plug>(unimpaired-next)
+n  ]E          * <Lua 104: ~/.config/nvim/lua/plugins/lsp-saga.lua:88>
+n  ]e          * <Cmd>Lspsaga diagnostic_jump_next<CR>
+o  ]%            <Plug>(MatchitOperationMultiForward)
+x  ]%            <Plug>(MatchitVisualMultiForward)
+n  ]%            <Plug>(MatchitNormalMultiForward)
+n  ``          * : nohlsearch<CR>
+n  `           * /
+o  ao            <Plug>(VselectOctalNumber)
+v  ao            <Plug>(VselectOctalNumber)
+o  ai            <Plug>(VselectBinaryNumber)
+v  ai            <Plug>(VselectBinaryNumber)
+o  ax            <Plug>(VselectHexNumber)
+v  ax            <Plug>(VselectHexNumber)
+o  an            <Plug>(VselectNumber)
+v  an            <Plug>(VselectNumber)
+x  a             targets#e('o', 'a', 'a')
+o  a             targets#e('o', 'a', 'a')
+x  a%            <Plug>(MatchitVisualTextObject)
+n  caÞ         * <Nop>
+n  ciÞ         * <Nop>
+n  cÞ          * <Nop>
+n  c           * <Cmd>lua require("which-key").show("c", {mode = "n", auto = true})<CR>
+n  cS            <Plug>CSurround
+n  cs            <Plug>Csurround
+n  daÞ         * <Nop>
+n  diÞ         * <Nop>
+n  dÞ          * <Nop>
+n  d           * <Cmd>lua require("which-key").show("d", {mode = "n", auto = true})<CR>
+n  ds            <Plug>Dsurround
+n  dm          * <Cmd>lua require'marks'.delete()<CR>
+n  dm5         * <Cmd>lua require'marks'.delete_bookmark5()<CR>
+n  dm4         * <Cmd>lua require'marks'.delete_bookmark4()<CR>
+n  dm<Space>   * <Cmd>lua require'marks'.delete_buf()<CR>
+n  dm-         * <Cmd>lua require'marks'.delete_line()<CR>
+n  dm3         * <Cmd>lua require'marks'.delete_bookmark3()<CR>
+n  dm2         * <Cmd>lua require'marks'.delete_bookmark2()<CR>
+n  dm6         * <Cmd>lua require'marks'.delete_bookmark6()<CR>
+n  dm9         * <Cmd>lua require'marks'.delete_bookmark9()<CR>
+n  dm=         * <Cmd>lua require'marks'.delete_bookmark()<CR>
+n  dm8         * <Cmd>lua require'marks'.delete_bookmark8()<CR>
+n  dm1         * <Cmd>lua require'marks'.delete_bookmark1()<CR>
+n  dm7         * <Cmd>lua require'marks'.delete_bookmark7()<CR>
+n  dm0         * <Cmd>lua require'marks'.delete_bookmark0()<CR>
+   f             <Plug>Sneak_f
+n  gUaÞ        * <Nop>
+n  gUiÞ        * <Nop>
+n  gUÞ         * <Nop>
+n  guaÞ        * <Nop>
+n  guiÞ        * <Nop>
+n  guÞ         * <Nop>
+n  g~aÞ        * <Nop>
+n  g~iÞ        * <Nop>
+n  g~Þ         * <Nop>
+n  gÞ          * <Nop>
+n  g           * <Cmd>lua require("which-key").show("g", {mode = "n", auto = true})<CR>
+x  gÞ          * <Nop>
+x  g           * <Cmd>lua require("which-key").show("g", {mode = "v", auto = true})<CR>
+x  gS            <Plug>VgSurround
+n  gcA         * <Lua 135: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:218>
+                 Comment insert end of line
+n  gcO         * <Lua 134: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:179>
+                 Comment insert above
+n  gco         * <Lua 133: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:182>
+                 Comment insert below
+x  gb          * <Plug>(comment_toggle_blockwise_visual)
+                 Comment toggle blockwise (visual)
+x  gc          * <Plug>(comment_toggle_linewise_visual)
+                 Comment toggle linewise (visual)
+n  gbc         * <Lua 131: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/init.lua:108>
+                 Comment toggle current block
+n  gcc         * <Lua 129: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/init.lua:104>
+                 Comment toggle current line
+n  gb          * <Plug>(comment_toggle_blockwise)
+                 Comment toggle blockwise
+n  gc          * <Plug>(comment_toggle_linewise)
+                 Comment toggle linewise
+v  gci         * :normal gcc<CR>
+n  gp          * :lua require('harpoon.ui').nav_prev()<CR>
+n  gn          * :lua require('harpoon.ui').nav_next()<CR>
+n  ga          * :lua require('harpoon.mark').add_file()<CR>:echom 'added to Harpoon'<CR>
+n  gh          * :lua require('harpoon.ui').toggle_quick_menu()<CR>
+n  gd          * <Cmd>Lspsaga peek_definition<CR>
+n  gr          * <Cmd>Lspsaga rename<CR>
+v  gx            <Plug>(openbrowser-smart-search)
+n  gx            <Plug>(openbrowser-smart-search)
+o  g%            <Plug>(MatchitOperationBackward)
+x  g%            <Plug>(MatchitVisualBackward)
+n  g%            <Plug>(MatchitNormalBackward)
+n  gq          * :call ToggleQuickFix()<CR>
+                 toggle quickfix window
+o  io            <Plug>(VselectOctalNumber)
+v  io            <Plug>(VselectOctalNumber)
+o  ii            <Plug>(VselectBinaryNumber)
+v  ii            <Plug>(VselectBinaryNumber)
+o  ix            <Plug>(VselectHexNumber)
+v  ix            <Plug>(VselectHexNumber)
+o  in            <Plug>(VselectNumber)
+v  in            <Plug>(VselectNumber)
+x  i             targets#e('o', 'i', 'i')
+o  i             targets#e('o', 'i', 'i')
+n  j           * v:count == 0 ? 'gj' : 'j'
+n  k           * v:count == 0 ? 'gk' : 'k'
+n  lf          * <Cmd>Lspsaga lsp_finder<CR>
+n  m,          * <Cmd>lua require'marks'.set_next()<CR>
+n  m5          * <Cmd>lua require'marks'.set_bookmark5()<CR>
+n  m3          * <Cmd>lua require'marks'.set_bookmark3()<CR>
+n  m4          * <Cmd>lua require'marks'.set_bookmark4()<CR>
+n  m[          * <Cmd>lua require'marks'.prev()<CR>
+n  m:          * <Cmd>lua require'marks'.preview()<CR>
+n  m]          * <Cmd>lua require'marks'.next()<CR>
+n  m6          * <Cmd>lua require'marks'.set_bookmark6()<CR>
+n  m2          * <Cmd>lua require'marks'.set_bookmark2()<CR>
+n  m           * <Cmd>lua require'marks'.set()<CR>
+n  m9          * <Cmd>lua require'marks'.set_bookmark9()<CR>
+n  m;          * <Cmd>lua require'marks'.toggle()<CR>
+n  m{          * <Cmd>lua require'marks'.prev_bookmark()<CR>
+n  m}          * <Cmd>lua require'marks'.next_bookmark()<CR>
+n  m8          * <Cmd>lua require'marks'.set_bookmark8()<CR>
+n  m1          * <Cmd>lua require'marks'.set_bookmark1()<CR>
+n  m7          * <Cmd>lua require'marks'.set_bookmark7()<CR>
+n  m0          * <Cmd>lua require'marks'.set_bookmark0()<CR>
+n  o           * o<Esc>
+v  p           * "_dP
+n  qq          * <Plug>(smartq_this)
+                 Quit buffer (smartQ)
+   s             <Plug>Sneak_;
+n  t<Space>Þ   * <Nop>
+n  t<Space>    * <Cmd>lua require("which-key").show("t ", {mode = "n", auto = true})<CR>
+n  t<Space>g   * :TestVisit<CR>
+n  t<Space>l   * :TestLast<CR>
+n  t<Space>s   * :TestSuite<CR>
+n  t<Space>f   * :TestFile<CR>
+n  t<Space>n   * :TestNearest<CR>
+   t             <Plug>Sneak_t
+n  vaÞ         * <Nop>
+n  viÞ         * <Nop>
+n  vÞ          * <Nop>
+n  v           * <Cmd>lua require("which-key").show("v", {mode = "n", auto = true})<CR>
+n  wq          * <Plug>(smartq_this_save)
+                 Quit buffer (smartQ)
+n  wc          * :echo 'hi<' . synIDattr(synID(line('.'),col('.'),1),'name') . '> trans<' . synIDattr(synID(line('.'),col('.'),0),'name') .'> lo<' . synIDattr(synIDtrans(synID(line('.'),col('.'),1)),'name') . '>'<CR>
+                 Get current highlight group
+n  yaÞ         * <Nop>
+n  yiÞ         * <Nop>
+n  yÞ          * <Nop>
+n  y           * <Cmd>lua require("which-key").show("y", {mode = "n", auto = true})<CR>
+n  yo<Esc>     & <Nop>
+n  yo            <Plug>(unimpaired-toggle)
+n  ySS           <Plug>YSsurround
+n  ySs           <Plug>YSsurround
+n  yss           <Plug>Yssurround
+n  yS            <Plug>YSurround
+n  ys            <Plug>Ysurround
+n  zc          * <Lua 240: ~/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua/lua/nvim-tree/marks/init.lua:31>
+                 Clear nvim-tree bookmarks
+n  zl          * <Lua 239: ~/.local/share/nvim/site/pack/packer/opt/nvim-tree.lua/lua/nvim-tree/marks/navigation.lua:77>
+                 List nvim-tree bookmarks
+n  zfaÞ        * <Nop>
+n  zfiÞ        * <Nop>
+n  zfÞ         * <Nop>
+n  zÞ          * <Nop>
+n  z           * <Cmd>lua require("which-key").show("z", {mode = "n", auto = true})<CR>
+o  z             <Plug>Sneak_s
+s  <S-Tab>     * <Lua 2686: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+n  <F9>        * <Cmd>execute v:count . "ToggleTerm"<CR>
+                 Toggle Terminal
+n  <C-W>Þ      * <Nop>
+n  <C-W>       * <Cmd>lua require("which-key").show("\23", {mode = "n", auto = true})<CR>
+n  <C-E>       * :WinResizerStartResize<CR>
+n  <Plug>(unimpaired-xml-decode-line) * <SNR>73_TransformSetup("xml_decode")."_"
+x  <Plug>(unimpaired-xml-decode) * <SNR>73_TransformSetup("xml_decode")
+n  <Plug>(unimpaired-xml-decode) * <SNR>73_TransformSetup("xml_decode")
+n  <Plug>unimpaired_line_xml_decode * <SNR>73_TransformSetup("xml_decode")."_"
+x  <Plug>unimpaired_xml_decode * <SNR>73_TransformSetup("xml_decode")
+n  <Plug>unimpaired_xml_decode * <SNR>73_TransformSetup("xml_decode")
+n  <Plug>(unimpaired-xml-encode-line) * <SNR>73_TransformSetup("xml_encode")."_"
+x  <Plug>(unimpaired-xml-encode) * <SNR>73_TransformSetup("xml_encode")
+n  <Plug>(unimpaired-xml-encode) * <SNR>73_TransformSetup("xml_encode")
+n  <Plug>unimpaired_line_xml_encode * <SNR>73_TransformSetup("xml_encode")."_"
+x  <Plug>unimpaired_xml_encode * <SNR>73_TransformSetup("xml_encode")
+n  <Plug>unimpaired_xml_encode * <SNR>73_TransformSetup("xml_encode")
+n  <Plug>(unimpaired-url-decode-line) * <SNR>73_TransformSetup("url_decode")."_"
+x  <Plug>(unimpaired-url-decode) * <SNR>73_TransformSetup("url_decode")
+n  <Plug>(unimpaired-url-decode) * <SNR>73_TransformSetup("url_decode")
+n  <Plug>unimpaired_line_url_decode * <SNR>73_TransformSetup("url_decode")."_"
+x  <Plug>unimpaired_url_decode * <SNR>73_TransformSetup("url_decode")
+n  <Plug>unimpaired_url_decode * <SNR>73_TransformSetup("url_decode")
+n  <Plug>(unimpaired-url-encode-line) * <SNR>73_TransformSetup("url_encode")."_"
+x  <Plug>(unimpaired-url-encode) * <SNR>73_TransformSetup("url_encode")
+n  <Plug>(unimpaired-url-encode) * <SNR>73_TransformSetup("url_encode")
+n  <Plug>unimpaired_line_url_encode * <SNR>73_TransformSetup("url_encode")."_"
+x  <Plug>unimpaired_url_encode * <SNR>73_TransformSetup("url_encode")
+n  <Plug>unimpaired_url_encode * <SNR>73_TransformSetup("url_encode")
+n  <Plug>(unimpaired-string-decode-line) * <SNR>73_TransformSetup("string_decode")."_"
+x  <Plug>(unimpaired-string-decode) * <SNR>73_TransformSetup("string_decode")
+n  <Plug>(unimpaired-string-decode) * <SNR>73_TransformSetup("string_decode")
+n  <Plug>unimpaired_line_string_decode * <SNR>73_TransformSetup("string_decode")."_"
+x  <Plug>unimpaired_string_decode * <SNR>73_TransformSetup("string_decode")
+n  <Plug>unimpaired_string_decode * <SNR>73_TransformSetup("string_decode")
+n  <Plug>(unimpaired-string-encode-line) * <SNR>73_TransformSetup("string_encode")."_"
+x  <Plug>(unimpaired-string-encode) * <SNR>73_TransformSetup("string_encode")
+n  <Plug>(unimpaired-string-encode) * <SNR>73_TransformSetup("string_encode")
+n  <Plug>unimpaired_line_string_encode * <SNR>73_TransformSetup("string_encode")."_"
+x  <Plug>unimpaired_string_encode * <SNR>73_TransformSetup("string_encode")
+n  <Plug>unimpaired_string_encode * <SNR>73_TransformSetup("string_encode")
+n  <Plug>unimpairedPutBelow * :call <SNR>73_putline(']p', 'below')<CR>
+n  <Plug>unimpairedPutAbove * :call <SNR>73_putline('[p', 'above')<CR>
+n  <Plug>(unimpaired-put-below-reformat) * :<C-U>call <SNR>73_putline(v:count1 . ']p', 'Below')<CR>=']
+n  <Plug>(unimpaired-put-above-reformat) * :<C-U>call <SNR>73_putline(v:count1 . '[p', 'Above')<CR>=']
+n  <Plug>(unimpaired-put-below-leftward) * :<C-U>call <SNR>73_putline(v:count1 . ']p', 'Below')<CR><']
+n  <Plug>(unimpaired-put-above-leftward) * :<C-U>call <SNR>73_putline(v:count1 . '[p', 'Above')<CR><']
+n  <Plug>(unimpaired-put-below-rightward) * :<C-U>call <SNR>73_putline(v:count1 . ']p', 'Below')<CR>>']
+n  <Plug>(unimpaired-put-above-rightward) * :<C-U>call <SNR>73_putline(v:count1 . '[p', 'Above')<CR>>']
+n  <Plug>(unimpaired-put-below) * :call <SNR>73_putline(']p', 'below')<CR>
+n  <Plug>(unimpaired-put-above) * :call <SNR>73_putline('[p', 'above')<CR>
+n  <Plug>(unimpaired-toggle)p & :<C-U>call <SNR>73_SetupPaste()<CR>0C
+n  <Plug>(unimpaired-disable)p & :<C-U>call <SNR>73_SetupPaste()<CR>o
+n  <Plug>(unimpaired-enable)p & :<C-U>call <SNR>73_SetupPaste()<CR>O
+n  <Plug>(unimpaired-paste) & :<C-U>call <SNR>73_SetupPaste()<CR>
+n  <Plug>unimpairedPaste * :call <SNR>73_SetupPaste()<CR>
+n  <Plug>(unimpaired-toggle)t & :<C-U>set colorcolumn=<C-R>=<SNR>73_ColorColumn(!empty(&cc))<CR><CR>
+n  <Plug>(unimpaired-disable)t & :<C-U>set colorcolumn=<C-R>=<SNR>73_ColorColumn(1)<CR><CR>
+n  <Plug>(unimpaired-enable)t & :<C-U>set colorcolumn=<C-R>=<SNR>73_ColorColumn(0)<CR><CR>
+n  <Plug>(unimpaired-toggle)+ & :<C-U>set <C-R>=<SNR>73_CursorOptions()<CR><CR>
+n  <Plug>(unimpaired-disable)+ & :<C-U>set nocursorline nocursorcolumn<CR>
+n  <Plug>(unimpaired-enable)+ & :<C-U>set cursorline cursorcolumn<CR>
+n  <Plug>(unimpaired-toggle)x & :<C-U>set <C-R>=<SNR>73_CursorOptions()<CR><CR>
+n  <Plug>(unimpaired-disable)x & :<C-U>set nocursorline nocursorcolumn<CR>
+n  <Plug>(unimpaired-enable)x & :<C-U>set cursorline cursorcolumn<CR>
+n  <Plug>(unimpaired-toggle)v & :<C-U>set <C-R>=(&virtualedit =~# "all") ? "virtualedit-=all" : "virtualedit+=all"<CR><CR>
+n  <Plug>(unimpaired-disable)v & :<C-U>set virtualedit-=all<CR>
+n  <Plug>(unimpaired-enable)v & :<C-U>set virtualedit+=all<CR>
+n  <Plug>(unimpaired-toggle)z & :<C-U>setlocal <C-R>=<SNR>73_Toggle("spell")<CR><CR>
+n  <Plug>(unimpaired-disable)z & :<C-U>setlocal nospell<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)z & :<C-U>setlocal spell<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)w & :<C-U>setlocal <C-R>=<SNR>73_Toggle("wrap")<CR><CR>
+n  <Plug>(unimpaired-disable)w & :<C-U>setlocal nowrap<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)w & :<C-U>setlocal wrap<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)s & :<C-U>setlocal <C-R>=<SNR>73_Toggle("spell")<CR><CR>
+n  <Plug>(unimpaired-disable)s & :<C-U>setlocal nospell<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)s & :<C-U>setlocal spell<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)r & :<C-U>setlocal <C-R>=<SNR>73_Toggle("relativenumber")<CR><CR>
+n  <Plug>(unimpaired-disable)r & :<C-U>setlocal norelativenumber<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)r & :<C-U>setlocal relativenumber<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)n & :<C-U>setlocal <C-R>=<SNR>73_Toggle("number")<CR><CR>
+n  <Plug>(unimpaired-disable)n & :<C-U>setlocal nonumber<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)n & :<C-U>setlocal number<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)l & :<C-U>setlocal <C-R>=<SNR>73_Toggle("list")<CR><CR>
+n  <Plug>(unimpaired-disable)l & :<C-U>setlocal nolist<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)l & :<C-U>setlocal list<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)i & :<C-U>set <C-R>=<SNR>73_Toggle("ignorecase")<CR><CR>
+n  <Plug>(unimpaired-disable)i & :<C-U>set noignorecase<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)i & :<C-U>set ignorecase<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)h & :<C-U>set <C-R>=<SNR>73_Toggle("hlsearch")<CR><CR>
+n  <Plug>(unimpaired-disable)h & :<C-U>set nohlsearch<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)h & :<C-U>set hlsearch<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)d & :<C-U><C-R>=&diff ? "diffoff" : "diffthis"<CR><CR>
+n  <Plug>(unimpaired-disable)d & :<C-U>diffoff<CR>
+n  <Plug>(unimpaired-enable)d & :<C-U>diffthis<CR>
+n  <Plug>(unimpaired-toggle)| & :<C-U>setlocal <C-R>=<SNR>73_Toggle("cursorcolumn")<CR><CR>
+n  <Plug>(unimpaired-disable)| & :<C-U>setlocal nocursorcolumn<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)| & :<C-U>setlocal cursorcolumn<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)u & :<C-U>setlocal <C-R>=<SNR>73_Toggle("cursorcolumn")<CR><CR>
+n  <Plug>(unimpaired-disable)u & :<C-U>setlocal nocursorcolumn<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)u & :<C-U>setlocal cursorcolumn<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)_ & :<C-U>setlocal <C-R>=<SNR>73_Toggle("cursorline")<CR><CR>
+n  <Plug>(unimpaired-disable)_ & :<C-U>setlocal nocursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)_ & :<C-U>setlocal cursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)- & :<C-U>setlocal <C-R>=<SNR>73_Toggle("cursorline")<CR><CR>
+n  <Plug>(unimpaired-disable)- & :<C-U>setlocal nocursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)- & :<C-U>setlocal cursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)c & :<C-U>setlocal <C-R>=<SNR>73_Toggle("cursorline")<CR><CR>
+n  <Plug>(unimpaired-disable)c & :<C-U>setlocal nocursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-enable)c & :<C-U>setlocal cursorline<C-R>=<SNR>73_StatuslineRefresh()<CR><CR>
+n  <Plug>(unimpaired-toggle)b & :<C-U>set background=<C-R>=&background == "dark" ? "light" : "dark"<CR><CR>
+n  <Plug>(unimpaired-disable)b & :<C-U>set background=dark<CR>
+n  <Plug>(unimpaired-enable)b & :<C-U>set background=light<CR>
+   <Plug>unimpairedMoveSelectionDown * :<C-U>call <SNR>73_MoveSelectionDown(v:count1)<CR>
+   <Plug>unimpairedMoveSelectionUp * :<C-U>call <SNR>73_MoveSelectionUp(v:count1)<CR>
+n  <Plug>unimpairedMoveDown * :<C-U>call <SNR>73_Move('+',v:count1,'down')<CR>
+n  <Plug>unimpairedMoveUp * :<C-U>call <SNR>73_Move('--',v:count1,'up')<CR>
+   <Plug>(unimpaired-move-selection-down) * :<C-U>call <SNR>73_MoveSelectionDown(v:count1)<CR>
+   <Plug>(unimpaired-move-selection-up) * :<C-U>call <SNR>73_MoveSelectionUp(v:count1)<CR>
+n  <Plug>(unimpaired-move-down) * :<C-U>call <SNR>73_Move('+',v:count1,'down')<CR>
+n  <Plug>(unimpaired-move-up) * :<C-U>call <SNR>73_Move('--',v:count1,'up')<CR>
+n  <Plug>unimpairedBlankDown * :<C-U>exe <SNR>73_BlankDown()<CR>
+n  <Plug>unimpairedBlankUp * :<C-U>exe <SNR>73_BlankUp()<CR>
+n  <Plug>(unimpaired-blank-down) * :<C-U>exe <SNR>73_BlankDown()<CR>
+n  <Plug>(unimpaired-blank-up) * :<C-U>exe <SNR>73_BlankUp()<CR>
+o  <Plug>unimpairedContextNext * :<C-U>call <SNR>73_ContextMotion(0)<CR>
+o  <Plug>unimpairedContextPrevious * :<C-U>call <SNR>73_ContextMotion(1)<CR>
+x  <Plug>unimpairedContextNext * :<C-U>exe 'normal! gv'|call <SNR>73_Context(0)<CR>
+x  <Plug>unimpairedContextPrevious * :<C-U>exe 'normal! gv'|call <SNR>73_Context(1)<CR>
+n  <Plug>unimpairedContextNext * :<C-U>call <SNR>73_Context(0)<CR>
+n  <Plug>unimpairedContextPrevious * :<C-U>call <SNR>73_Context(1)<CR>
+o  <Plug>(unimpaired-context-next) * :<C-U>call <SNR>73_ContextMotion(0)<CR>
+o  <Plug>(unimpaired-context-previous) * :<C-U>call <SNR>73_ContextMotion(1)<CR>
+v  <Plug>(unimpaired-context-next) * :<C-U>exe 'normal! gv'|call <SNR>73_Context(0)<CR>
+v  <Plug>(unimpaired-context-previous) * :<C-U>exe 'normal! gv'|call <SNR>73_Context(1)<CR>
+n  <Plug>(unimpaired-context-next) * :<C-U>call <SNR>73_Context(0)<CR>
+n  <Plug>(unimpaired-context-previous) * :<C-U>call <SNR>73_Context(1)<CR>
+n  <Plug>unimpairedDirectoryPrevious * :<C-U>execute <SNR>73_PreviousFileEntry(v:count1)<CR>
+n  <Plug>unimpairedDirectoryNext * :<C-U>execute <SNR>73_NextFileEntry(v:count1)<CR>
+n  <Plug>(unimpaired-directory-previous) * :<C-U>execute <SNR>73_PreviousFileEntry(v:count1)<CR>
+n  <Plug>(unimpaired-directory-next) * :<C-U>execute <SNR>73_NextFileEntry(v:count1)<CR>
+n  <Plug>unimpairedTPNext * :<C-U>exe "p".(v:count ? v:count : "")."tnext"<CR>
+n  <Plug>unimpairedTPPrevious * :<C-U>exe "p".(v:count ? v:count : "")."tprevious"<CR>
+n  <Plug>(unimpaired-ptnext) * :<C-U>exe v:count1 . "ptnext"<CR>
+n  <Plug>(unimpaired-ptprevious) * :<C-U>exe v:count1 . "ptprevious"<CR>
+n  <Plug>unimpairedTLast * :<C-U>exe "".(v:count ? v:count : "")."tlast"<CR>
+n  <Plug>unimpairedTFirst * :<C-U>exe "".(v:count ? v:count : "")."tfirst"<CR>
+n  <Plug>unimpairedTNext * :<C-U>exe "".(v:count ? v:count : "")."tnext"<CR>
+n  <Plug>unimpairedTPrevious * :<C-U>exe "".(v:count ? v:count : "")."tprevious"<CR>
+n  <Plug>(unimpaired-tlast) * :<C-U><C-R>=v:count ? v:count . "trewind" : "tlast"<CR><CR>
+n  <Plug>(unimpaired-tfirst) * :<C-U><C-R>=v:count ? v:count . "trewind" : "tfirst"<CR><CR>
+n  <Plug>(unimpaired-tnext) * :<C-U>exe "".(v:count ? v:count : "")."tnext"<CR>
+n  <Plug>(unimpaired-tprevious) * :<C-U>exe "".(v:count ? v:count : "")."tprevious"<CR>
+n  <Plug>unimpairedQNFile * :<C-U>exe "".(v:count ? v:count : "")."cnfile"<CR>zv
+n  <Plug>unimpairedQPFile * :<C-U>exe "".(v:count ? v:count : "")."cpfile"<CR>zv
+n  <Plug>(unimpaired-cnfile) * :<C-U>exe "".(v:count ? v:count : "")."cnfile"<CR>zv
+n  <Plug>(unimpaired-cpfile) * :<C-U>exe "".(v:count ? v:count : "")."cpfile"<CR>zv
+n  <Plug>unimpairedQLast * :<C-U>exe "".(v:count ? v:count : "")."clast"<CR>zv
+n  <Plug>unimpairedQFirst * :<C-U>exe "".(v:count ? v:count : "")."cfirst"<CR>zv
+n  <Plug>unimpairedQNext * :<C-U>exe "".(v:count ? v:count : "")."cnext"<CR>zv
+n  <Plug>unimpairedQPrevious * :<C-U>exe "".(v:count ? v:count : "")."cprevious"<CR>zv
+n  <Plug>(unimpaired-clast) * :<C-U><C-R>=v:count ? v:count . "cc" : "clast"<CR><CR>zv
+n  <Plug>(unimpaired-cfirst) * :<C-U><C-R>=v:count ? v:count . "cc" : "cfirst"<CR><CR>zv
+n  <Plug>(unimpaired-cnext) * :<C-U>exe "".(v:count ? v:count : "")."cnext"<CR>zv
+n  <Plug>(unimpaired-cprevious) * :<C-U>exe "".(v:count ? v:count : "")."cprevious"<CR>zv
+n  <Plug>unimpairedLNFile * :<C-U>exe "".(v:count ? v:count : "")."lnfile"<CR>zv
+n  <Plug>unimpairedLPFile * :<C-U>exe "".(v:count ? v:count : "")."lpfile"<CR>zv
+n  <Plug>(unimpaired-lnfile) * :<C-U>exe "".(v:count ? v:count : "")."lnfile"<CR>zv
+n  <Plug>(unimpaired-lpfile) * :<C-U>exe "".(v:count ? v:count : "")."lpfile"<CR>zv
+n  <Plug>unimpairedLLast * :<C-U>exe "".(v:count ? v:count : "")."llast"<CR>zv
+n  <Plug>unimpairedLFirst * :<C-U>exe "".(v:count ? v:count : "")."lfirst"<CR>zv
+n  <Plug>unimpairedLNext * :<C-U>exe "".(v:count ? v:count : "")."lnext"<CR>zv
+n  <Plug>unimpairedLPrevious * :<C-U>exe "".(v:count ? v:count : "")."lprevious"<CR>zv
+n  <Plug>(unimpaired-llast) * :<C-U><C-R>=v:count ? v:count . "ll" : "llast"<CR><CR>zv
+n  <Plug>(unimpaired-lfirst) * :<C-U><C-R>=v:count ? v:count . "ll" : "lfirst"<CR><CR>zv
+n  <Plug>(unimpaired-lnext) * :<C-U>exe "".(v:count ? v:count : "")."lnext"<CR>zv
+n  <Plug>(unimpaired-lprevious) * :<C-U>exe "".(v:count ? v:count : "")."lprevious"<CR>zv
+n  <Plug>unimpairedBLast * :<C-U>exe "".(v:count ? v:count : "")."blast"<CR>
+n  <Plug>unimpairedBFirst * :<C-U>exe "".(v:count ? v:count : "")."bfirst"<CR>
+n  <Plug>unimpairedBNext * :<C-U>exe "".(v:count ? v:count : "")."bnext"<CR>
+n  <Plug>unimpairedBPrevious * :<C-U>exe "".(v:count ? v:count : "")."bprevious"<CR>
+n  <Plug>(unimpaired-blast) * :<C-U><C-R>=v:count ? v:count . "buffer" : "blast"<CR><CR>
+n  <Plug>(unimpaired-bfirst) * :<C-U><C-R>=v:count ? v:count . "buffer" : "bfirst"<CR><CR>
+n  <Plug>(unimpaired-bnext) * :<C-U>exe "".(v:count ? v:count : "")."bnext"<CR>
+n  <Plug>(unimpaired-bprevious) * :<C-U>exe "".(v:count ? v:count : "")."bprevious"<CR>
+n  <Plug>unimpairedALast * :<C-U>exe "".(v:count ? v:count : "")."last"<CR>
+n  <Plug>unimpairedAFirst * :<C-U>exe "".(v:count ? v:count : "")."first"<CR>
+n  <Plug>unimpairedANext * :<C-U>exe "".(v:count ? v:count : "")."next"<CR>
+n  <Plug>unimpairedAPrevious * :<C-U>exe "".(v:count ? v:count : "")."previous"<CR>
+n  <Plug>(unimpaired-last) * :<C-U><C-R>=v:count ? v:count . "argument" : "last"<CR><CR>
+n  <Plug>(unimpaired-first) * :<C-U><C-R>=v:count ? v:count . "argument" : "first"<CR><CR>
+n  <Plug>(unimpaired-next) * :<C-U>exe "".(v:count ? v:count : "")."next"<CR>
+n  <Plug>(unimpaired-previous) * :<C-U>exe "".(v:count ? v:count : "")."previous"<CR>
+v  <Plug>VgSurround * :<C-U>call <SNR>70_opfunc(visualmode(),visualmode() ==# 'V' ? 0 : 1)<CR>
+v  <Plug>VSurround * :<C-U>call <SNR>70_opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
+n  <Plug>YSurround * <SNR>70_opfunc2('setup')
+n  <Plug>Ysurround * <SNR>70_opfunc('setup')
+n  <Plug>YSsurround * <SNR>70_opfunc2('setup').'_'
+n  <Plug>Yssurround * '^'.v:count1.<SNR>70_opfunc('setup').'g_'
+n  <Plug>CSurround * :<C-U>call <SNR>70_changesurround(1)<CR>
+n  <Plug>Csurround * :<C-U>call <SNR>70_changesurround()<CR>
+n  <Plug>Dsurround * :<C-U>call <SNR>70_dosurround(<SNR>70_inputtarget())<CR>
+n  <Plug>SurroundRepeat * .
+o  <Plug>SneakPrevious   <Plug>Sneak_,
+o  <Plug>SneakNext   <Plug>Sneak_;
+x  <Plug>SneakPrevious   <Plug>Sneak_,
+x  <Plug>SneakNext   <Plug>Sneak_;
+n  <Plug>SneakPrevious   <Plug>Sneak_,
+n  <Plug>SneakNext   <Plug>Sneak_;
+o  <Plug>(SneakStreakBackward)   <Plug>SneakLabel_S
+o  <Plug>(SneakStreak)   <Plug>SneakLabel_s
+x  <Plug>(SneakStreakBackward)   <Plug>SneakLabel_S
+x  <Plug>(SneakStreak)   <Plug>SneakLabel_s
+n  <Plug>(SneakStreakBackward)   <Plug>SneakLabel_S
+n  <Plug>(SneakStreak)   <Plug>SneakLabel_s
+x  <Plug>VSneakPrevious   <Plug>Sneak_,
+x  <Plug>VSneakNext   <Plug>Sneak_;
+x  <Plug>VSneakBackward   <Plug>Sneak_S
+x  <Plug>VSneakForward   <Plug>Sneak_s
+n  <Plug>SneakBackward   <Plug>Sneak_S
+n  <Plug>SneakForward   <Plug>Sneak_s
+o  <Plug>SneakLabel_S * :<C-U>call sneak#wrap(v:operator, 2, 1, 2, 2)<CR>
+o  <Plug>SneakLabel_s * :<C-U>call sneak#wrap(v:operator, 2, 0, 2, 2)<CR>
+x  <Plug>SneakLabel_S * :<C-U>call sneak#wrap(visualmode(), 2, 1, 2, 2)<CR>
+x  <Plug>SneakLabel_s * :<C-U>call sneak#wrap(visualmode(), 2, 0, 2, 2)<CR>
+n  <Plug>SneakLabel_S * :<C-U>call sneak#wrap('', 2, 1, 2, 2)<CR>
+n  <Plug>SneakLabel_s * :<C-U>call sneak#wrap('', 2, 0, 2, 2)<CR>
+o  <Plug>Sneak_T * :<C-U>call sneak#wrap(v:operator, 1, 1, 0, 0)<CR>
+o  <Plug>Sneak_t * :<C-U>call sneak#wrap(v:operator, 1, 0, 0, 0)<CR>
+x  <Plug>Sneak_T * :<C-U>call sneak#wrap(visualmode(), 1, 1, 0, 0)<CR>
+x  <Plug>Sneak_t * :<C-U>call sneak#wrap(visualmode(), 1, 0, 0, 0)<CR>
+n  <Plug>Sneak_T * :<C-U>call sneak#wrap('', 1, 1, 0, 0)<CR>
+n  <Plug>Sneak_t * :<C-U>call sneak#wrap('', 1, 0, 0, 0)<CR>
+o  <Plug>Sneak_F * :<C-U>call sneak#wrap(v:operator, 1, 1, 1, 0)<CR>
+o  <Plug>Sneak_f * :<C-U>call sneak#wrap(v:operator, 1, 0, 1, 0)<CR>
+x  <Plug>Sneak_F * :<C-U>call sneak#wrap(visualmode(), 1, 1, 1, 0)<CR>
+x  <Plug>Sneak_f * :<C-U>call sneak#wrap(visualmode(), 1, 0, 1, 0)<CR>
+n  <Plug>Sneak_F * :<C-U>call sneak#wrap('', 1, 1, 1, 0)<CR>
+n  <Plug>Sneak_f * :<C-U>call sneak#wrap('', 1, 0, 1, 0)<CR>
+o  <Plug>Sneak_, * :<C-U>call <SNR>68_rpt(v:operator, 1)<CR>
+o  <Plug>Sneak_; * :<C-U>call <SNR>68_rpt(v:operator, 0)<CR>
+x  <Plug>Sneak_, * :<C-U>call <SNR>68_rpt(visualmode(), 1)<CR>
+x  <Plug>Sneak_; * :<C-U>call <SNR>68_rpt(visualmode(), 0)<CR>
+n  <Plug>Sneak_, * :<C-U>call <SNR>68_rpt('', 1)<CR>
+n  <Plug>Sneak_; * :<C-U>call <SNR>68_rpt('', 0)<CR>
+o  <Plug>SneakRepeat * :<C-U>call sneak#wrap(v:operator, sneak#util#getc(), sneak#util#getc(), sneak#util#getc(), sneak#util#getc())<CR>
+o  <Plug>Sneak_S * :<C-U>call sneak#wrap(v:operator, 2, 1, 2, 1)<CR>
+o  <Plug>Sneak_s * :<C-U>call sneak#wrap(v:operator, 2, 0, 2, 1)<CR>
+x  <Plug>Sneak_S * :<C-U>call sneak#wrap(visualmode(), 2, 1, 2, 1)<CR>
+x  <Plug>Sneak_s * :<C-U>call sneak#wrap(visualmode(), 2, 0, 2, 1)<CR>
+n  <Plug>Sneak_S * :<C-U>call sneak#wrap('', 2, 1, 2, 1)<CR>
+n  <Plug>Sneak_s * :<C-U>call sneak#wrap('', 2, 0, 2, 1)<CR>
+n  <Plug>(smartq_close_splits) * :<C-U>SmartQCloseSplits<CR>
+n  <Plug>(smartq_wipe_empty_force) * :<C-U>SmartQWipeEmpty!<CR>
+n  <Plug>(smartq_wipe_empty) * :<C-U>SmartQWipeEmpty<CR>
+n  <Plug>(smartq_this_force) * :<C-U>SmartQ!<CR>
+n  <Plug>(smartq_this_save) * :<C-U>SmartQSave<CR>
+n  <Plug>(smartq_this) * :<C-U>SmartQ<CR>
+n  <Plug>(qf_qf_switch) * &filetype ==# 'qf' ? '<C-W>p' : '<C-W>b'
+n  <Plug>(qf_loc_toggle_stay) * :<C-U> call qf#toggle#ToggleLocWindow(1)<CR>
+n  <Plug>(qf_loc_toggle) * :<C-U> call qf#toggle#ToggleLocWindow(0)<CR>
+n  <Plug>(qf_qf_toggle_stay) * :<C-U> call qf#toggle#ToggleQfWindow(1)<CR>
+n  <Plug>(qf_qf_toggle) * :<C-U> call qf#toggle#ToggleQfWindow(0)<CR>
+n  <Plug>(qf_loc_next) * :<C-U> call qf#wrap#WrapCommand('down', 'l')<CR>
+n  <Plug>(qf_loc_previous) * :<C-U> call qf#wrap#WrapCommand('up', 'l')<CR>
+n  <Plug>(qf_qf_next) * :<C-U> call qf#wrap#WrapCommand('down', 'c')<CR>
+n  <Plug>(qf_qf_previous) * :<C-U> call qf#wrap#WrapCommand('up', 'c')<CR>
+n  <Plug>QfSwitch   &filetype ==# 'qf' ? '<C-W>p' : '<C-W>b'
+n  <Plug>QfLtoggle   <Plug>(qf_loc_toggle)
+n  <Plug>QfCtoggle   <Plug>(qf_qf_toggle)
+n  <Plug>QfLnext   <Plug>(qf_loc_next)
+n  <Plug>QfLprevious   <Plug>(qf_loc_previous)
+n  <Plug>QfCnext   <Plug>(qf_qf_next)
+n  <Plug>QfCprevious   <Plug>(qf_qf_previous)
+o  <Plug>(VselectOctalNumber) * :<C-U>call <SNR>64_VselectOctalNumber()<CR>
+v  <Plug>(VselectOctalNumber) * :<C-U>call <SNR>64_VselectOctalNumber()<CR>
+o  <Plug>(VselectHexNumber) * :<C-U>call <SNR>64_VselectHexNumber()<CR>
+v  <Plug>(VselectHexNumber) * :<C-U>call <SNR>64_VselectHexNumber()<CR>
+o  <Plug>(VselectBinaryNumber) * :<C-U>call <SNR>64_VselectBinaryNumber()<CR>
+v  <Plug>(VselectBinaryNumber) * :<C-U>call <SNR>64_VselectBinaryNumber()<CR>
+o  <Plug>(VselectNumber) * :<C-U>call <SNR>64_VselectNumber()<CR>
+v  <Plug>(VselectNumber) * :<C-U>call <SNR>64_VselectNumber()<CR>
+n  <Plug>(toggle-lsp-diag-on) * <Cmd>lua require'toggle_lsp_diagnostics'.turn_on_diagnostics()<CR>
+n  <Plug>(toggle-lsp-diag-off) * <Cmd>lua require'toggle_lsp_diagnostics'.turn_off_diagnostics()<CR>
+n  <Plug>(toggle-lsp-diag) * <Cmd>lua require'toggle_lsp_diagnostics'.toggle_diagnostics()<CR>
+n  <Plug>(toggle-lsp-diag-default) * <Cmd>lua require'toggle_lsp_diagnostics'.turn_on_default_diagnostics()<CR>
+n  <Plug>(toggle-lsp-diag-update_in_insert) * <Cmd>lua require'toggle_lsp_diagnostics'.toggle_update_in_insert()<CR>
+n  <Plug>(toggle-lsp-diag-vtext) * <Cmd>lua require'toggle_lsp_diagnostics'.toggle_virtual_text()<CR>
+n  <Plug>(toggle-lsp-diag-signs) * <Cmd>lua require'toggle_lsp_diagnostics'.toggle_signs()<CR>
+n  <Plug>(toggle-lsp-diag-underline) * <Cmd>lua require'toggle_lsp_diagnostics'.toggle_underline()<CR>
+n  <Plug>PlenaryTestFile * :lua require('plenary.test_harness').test_directory(vim.fn.expand("%:p"))<CR>
+x  <Plug>(openbrowser-smart-search) * :<C-U>call openbrowser#_keymap_smart_search('v')<CR>
+n  <Plug>(openbrowser-smart-search) * :<C-U>call openbrowser#_keymap_smart_search('n')<CR>
+x  <Plug>(openbrowser-search) * :<C-U>call openbrowser#_keymap_search('v')<CR>
+n  <Plug>(openbrowser-search) * :<C-U>call openbrowser#_keymap_search('n')<CR>
+x  <Plug>(openbrowser-open-incognito) * :<C-U>call openbrowser#_keymap_open('v', 0, ['--incognito'])<CR>
+n  <Plug>(openbrowser-open-incognito) * :<C-U>call openbrowser#_keymap_open('n', 0, ['--incognito'])<CR>
+x  <Plug>(openbrowser-open) * :<C-U>call openbrowser#_keymap_open('v')<CR>
+n  <Plug>(openbrowser-open) * :<C-U>call openbrowser#_keymap_open('n')<CR>
+n  <Plug>(Marks-prev-bookmark9) * <Cmd> lua require'marks'.prev_bookmark9()<CR>
+n  <Plug>(Marks-next-bookmark9) * <Cmd> lua require'marks'.next_bookmark9()<CR>
+n  <Plug>(Marks-delete-bookmark9) * <Cmd> lua require'marks'.delete_bookmark9()<CR>
+n  <Plug>(Marks-set-bookmark9) * <Cmd> lua require'marks'.set_bookmark9()<CR>
+n  <Plug>(Marks-prev-bookmark8) * <Cmd> lua require'marks'.prev_bookmark8()<CR>
+n  <Plug>(Marks-next-bookmark8) * <Cmd> lua require'marks'.next_bookmark8()<CR>
+n  <Plug>(Marks-delete-bookmark8) * <Cmd> lua require'marks'.delete_bookmark8()<CR>
+n  <Plug>(Marks-set-bookmark8) * <Cmd> lua require'marks'.set_bookmark8()<CR>
+n  <Plug>(Marks-prev-bookmark7) * <Cmd> lua require'marks'.prev_bookmark7()<CR>
+n  <Plug>(Marks-next-bookmark7) * <Cmd> lua require'marks'.next_bookmark7()<CR>
+n  <Plug>(Marks-delete-bookmark7) * <Cmd> lua require'marks'.delete_bookmark7()<CR>
+n  <Plug>(Marks-set-bookmark7) * <Cmd> lua require'marks'.set_bookmark7()<CR>
+n  <Plug>(Marks-prev-bookmark6) * <Cmd> lua require'marks'.prev_bookmark6()<CR>
+n  <Plug>(Marks-next-bookmark6) * <Cmd> lua require'marks'.next_bookmark6()<CR>
+n  <Plug>(Marks-delete-bookmark6) * <Cmd> lua require'marks'.delete_bookmark6()<CR>
+n  <Plug>(Marks-set-bookmark6) * <Cmd> lua require'marks'.set_bookmark6()<CR>
+n  <Plug>(Marks-prev-bookmark5) * <Cmd> lua require'marks'.prev_bookmark5()<CR>
+n  <Plug>(Marks-next-bookmark5) * <Cmd> lua require'marks'.next_bookmark5()<CR>
+n  <Plug>(Marks-delete-bookmark5) * <Cmd> lua require'marks'.delete_bookmark5()<CR>
+n  <Plug>(Marks-set-bookmark5) * <Cmd> lua require'marks'.set_bookmark5()<CR>
+n  <Plug>(Marks-prev-bookmark4) * <Cmd> lua require'marks'.prev_bookmark4()<CR>
+n  <Plug>(Marks-next-bookmark4) * <Cmd> lua require'marks'.next_bookmark4()<CR>
+n  <Plug>(Marks-delete-bookmark4) * <Cmd> lua require'marks'.delete_bookmark4()<CR>
+n  <Plug>(Marks-set-bookmark4) * <Cmd> lua require'marks'.set_bookmark4()<CR>
+n  <Plug>(Marks-prev-bookmark3) * <Cmd> lua require'marks'.prev_bookmark3()<CR>
+n  <Plug>(Marks-next-bookmark3) * <Cmd> lua require'marks'.next_bookmark3()<CR>
+n  <Plug>(Marks-delete-bookmark3) * <Cmd> lua require'marks'.delete_bookmark3()<CR>
+n  <Plug>(Marks-set-bookmark3) * <Cmd> lua require'marks'.set_bookmark3()<CR>
+n  <Plug>(Marks-prev-bookmark2) * <Cmd> lua require'marks'.prev_bookmark2()<CR>
+n  <Plug>(Marks-next-bookmark2) * <Cmd> lua require'marks'.next_bookmark2()<CR>
+n  <Plug>(Marks-delete-bookmark2) * <Cmd> lua require'marks'.delete_bookmark2()<CR>
+n  <Plug>(Marks-set-bookmark2) * <Cmd> lua require'marks'.set_bookmark2()<CR>
+n  <Plug>(Marks-prev-bookmark1) * <Cmd> lua require'marks'.prev_bookmark1()<CR>
+n  <Plug>(Marks-next-bookmark1) * <Cmd> lua require'marks'.next_bookmark1()<CR>
+n  <Plug>(Marks-delete-bookmark1) * <Cmd> lua require'marks'.delete_bookmark1()<CR>
+n  <Plug>(Marks-set-bookmark1) * <Cmd> lua require'marks'.set_bookmark1()<CR>
+n  <Plug>(Marks-prev-bookmark0) * <Cmd> lua require'marks'.prev_bookmark0()<CR>
+n  <Plug>(Marks-next-bookmark0) * <Cmd> lua require'marks'.next_bookmark0()<CR>
+n  <Plug>(Marks-delete-bookmark0) * <Cmd> lua require'marks'.delete_bookmark0()<CR>
+n  <Plug>(Marks-set-bookmark0) * <Cmd> lua require'marks'.set_bookmark0()<CR>
+n  <Plug>(Marks-prev-bookmark) * <Cmd> lua require'marks'.prev_bookmark()<CR>
+n  <Plug>(Marks-next-bookmark) * <Cmd> lua require'marks'.next_bookmark()<CR>
+n  <Plug>(Marks-delete-bookmark) * <Cmd> lua require'marks'.delete_bookmark()<CR>
+n  <Plug>(Marks-prev) * <Cmd> lua require'marks'.prev()<CR>
+n  <Plug>(Marks-next) * <Cmd> lua require'marks'.next()<CR>
+n  <Plug>(Marks-preview) * <Cmd> lua require'marks'.preview()<CR>
+n  <Plug>(Marks-deletebuf) * <Cmd> lua require'marks'.delete_buf()<CR>
+n  <Plug>(Marks-deleteline) * <Cmd> lua require'marks'.delete_line()<CR>
+n  <Plug>(Marks-delete) * <Cmd> lua require'marks'.delete()<CR>
+n  <Plug>(Marks-toggle) * <Cmd> lua require'marks'.toggle()<CR>
+n  <Plug>(Marks-setnext) * <Cmd> lua require'marks'.set_next()<CR>
+n  <Plug>(Marks-set) * <Cmd> lua require'marks'.set()<CR>
+s  <Plug>luasnip-jump-prev * <Cmd>lua require'luasnip'.jump(-1)<CR>
+s  <Plug>luasnip-jump-next * <Cmd>lua require'luasnip'.jump(1)<CR>
+s  <Plug>luasnip-prev-choice * <Cmd>lua require'luasnip'.change_choice(-1)<CR>
+s  <Plug>luasnip-next-choice * <Cmd>lua require'luasnip'.change_choice(1)<CR>
+s  <Plug>luasnip-expand-snippet * <Cmd>lua require'luasnip'.expand()<CR>
+s  <Plug>luasnip-expand-or-jump * <Cmd>lua require'luasnip'.expand_or_jump()<CR>
+   <Plug>luasnip-expand-repeat * <Cmd>lua require'luasnip'.expand_repeat()<CR>
+   <Plug>luasnip-delete-check * <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR>
+x  <Plug>(comment_toggle_blockwise_visual) * <Esc><Cmd>lua require("Comment.api").locked("toggle.blockwise")(vim.fn.visualmode())<CR>
+                 Comment toggle blockwise (visual)
+x  <Plug>(comment_toggle_linewise_visual) * <Esc><Cmd>lua require("Comment.api").locked("toggle.linewise")(vim.fn.visualmode())<CR>
+                 Comment toggle linewise (visual)
+n  <Plug>(comment_toggle_blockwise_count) * <Lua 160: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle blockwise with count
+n  <Plug>(comment_toggle_linewise_count) * <Lua 159: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle linewise with count
+n  <Plug>(comment_toggle_blockwise_current) * <Lua 158: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle current block
+n  <Plug>(comment_toggle_linewise_current) * <Lua 157: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle current line
+n  <Plug>(comment_toggle_blockwise) * <Lua 156: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle blockwise
+n  <Plug>(comment_toggle_linewise) * <Lua 155: ~/.local/share/nvim/site/pack/packer/start/Comment.nvim/lua/Comment/api.lua:246>
+                 Comment toggle linewise
+x  <Plug>ColorFgBg * :<C-U>ColorSwapFgBg<CR>
+n  <Plug>ColorFgBg * :<C-U>ColorSwapFgBg<CR>
+x  <Plug>ColorContrast * :<C-U>ColorContrast<CR>
+n  <Plug>ColorContrast * :<C-U>ColorContrast<CR>
+x  <Plug>Colorizer * :ColorHighlight<CR>
+n  <Plug>Colorizer * :<C-U>ColorToggle<CR>
+n  <C-Q>       * :Bdelete menu<CR>
+                 BDelete menu
+n  <M-d>       * <Cmd>Lspsaga open_floaterm lazygit<CR>
+x  <Plug>NetrwBrowseXVis * :<C-U>call netrw#BrowseXVis()<CR>
+n  <Plug>NetrwBrowseX * :call netrw#BrowseX(netrw#GX(),netrw#CheckIfRemote(netrw#GX()))<CR>
+x  <Plug>(MatchitVisualTextObject)   <Plug>(MatchitVisualMultiBackward)o<Plug>(MatchitVisualMultiForward)
+o  <Plug>(MatchitOperationMultiForward) * :<C-U>call matchit#MultiMatch("W",  "o")<CR>
+o  <Plug>(MatchitOperationMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "o")<CR>
+x  <Plug>(MatchitVisualMultiForward) * :<C-U>call matchit#MultiMatch("W",  "n")<CR>m'gv``
+x  <Plug>(MatchitVisualMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "n")<CR>m'gv``
+n  <Plug>(MatchitNormalMultiForward) * :<C-U>call matchit#MultiMatch("W",  "n")<CR>
+n  <Plug>(MatchitNormalMultiBackward) * :<C-U>call matchit#MultiMatch("bW", "n")<CR>
+o  <Plug>(MatchitOperationBackward) * :<C-U>call matchit#Match_wrapper('',0,'o')<CR>
+o  <Plug>(MatchitOperationForward) * :<C-U>call matchit#Match_wrapper('',1,'o')<CR>
+x  <Plug>(MatchitVisualBackward) * :<C-U>call matchit#Match_wrapper('',0,'v')<CR>m'gv``
+x  <Plug>(MatchitVisualForward) * :<C-U>call matchit#Match_wrapper('',1,'v')<CR>:if col("''") != col("$") | exe ":normal! m'" | endif<CR>gv``
+n  <Plug>(MatchitNormalBackward) * :<C-U>call matchit#Match_wrapper('',0,'n')<CR>
+n  <Plug>(MatchitNormalForward) * :<C-U>call matchit#Match_wrapper('',1,'n')<CR>
+s  <C-K>       * <Lua 12: ~/.config/nvim/lua/mappings.lua:100>
+                 LuaSnip choice node previous
+s  <C-J>       * <Lua 8: ~/.config/nvim/lua/mappings.lua:94>
+                 LuaSnip choice node next
+n  <C-P>       * <Tab>
+n  <C-K>       * <C-W><C-K>
+n  <C-J>       * <C-W><NL>
+n  <C-H>       * <C-W><C-H>
+n  <C-L>       * <C-W><C-L>
+
+i  <BS>        *@v:lua.MPairs.autopairs_bs()
+i  <M-e>       *@<Esc>l<Cmd>lua require('nvim-autopairs.fastwrap').show()<CR>
+i  "           *@<Lua 278: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  '           *@<Lua 276: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  (           *@<Lua 279: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  )           *@<Lua 280: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  [           *@<Lua 281: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  ]           *@<Lua 282: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  `           *@<Lua 2006: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  {           *@<Lua 286: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+i  }           *@<Lua 283: ~/.local/share/nvim/site/pack/packer/opt/nvim-autopairs/lua/nvim-autopairs.lua:252>
+                 autopairs map key
+c  <C-F>       * <Lua 2004: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-F>       * <Lua 2680: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <S-Tab>     * <Lua 2003: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <S-Tab>     * <Lua 2706: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <C-B>       * <Lua 2707: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-B>       * <Lua 2008: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <C-N>       * <Lua 2705: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <C-Space>   * <Lua 2694: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-Space>   * <Lua 2014: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <C-P>       * <Lua 2009: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <C-E>       * <Lua 2005: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-]>       * <Lua 1753: ~/.local/share/nvim/site/pack/packer/opt/copilot.lua/lua/copilot/suggestion.lua:429>
+                 [copilot] dismiss suggestion
+i  <M-[>       * <Lua 1754: ~/.local/share/nvim/site/pack/packer/opt/copilot.lua/lua/copilot/suggestion.lua:354>
+                 [copilot] prev suggestion
+i  <M-]>       * <Lua 1755: ~/.local/share/nvim/site/pack/packer/opt/copilot.lua/lua/copilot/suggestion.lua:343>
+                 [copilot] next suggestion
+i  <M-l>       * <Lua 1763: ~/.local/share/nvim/site/pack/packer/opt/copilot.lua/lua/copilot/suggestion.lua:417>
+                 [copilot] accept suggestion
+i  <M-CR>      * <Lua 1764: ~/.local/share/nvim/site/pack/packer/opt/copilot.lua/lua/copilot/panel.lua:485>
+                 [copilot] (panel) open
+i  <C-G>Þ      * <Nop>
+i  <C-G>       * <Cmd>lua require("which-key").show("\7", {mode = "i", auto = true})<CR>
+i  <C-R>       * <Cmd>lua require("which-key").show("\18", {mode = "i", auto = true})<CR>
+c  <C-R>       * <Cmd>lua require("which-key").show("\18", {mode = "c", auto = true})<CR>
+i  <C-G>S        <Plug>ISurround
+i  <C-G>s        <Plug>Isurround
+i  <C-S>         <Plug>Isurround
+i  <Plug>ISurround * <C-R>=<SNR>70_insert(1)<CR>
+i  <Plug>Isurround * <C-R>=<SNR>70_insert()<CR>
+c  <Plug>(TelescopeFuzzyCommandSearch) * <C-\>e "lua require('telescope.builtin').command_history { default_text = [=[" . escape(getcmdline(), '"') . "]=] }"<CR><CR>
+!  <Plug>luasnip-expand-repeat * <Cmd>lua require'luasnip'.expand_repeat()<CR>
+!  <Plug>luasnip-delete-check * <Cmd>lua require'luasnip'.unlink_current_if_deleted()<CR>
+i  <Plug>luasnip-jump-prev * <Cmd>lua require'luasnip'.jump(-1)<CR>
+i  <Plug>luasnip-jump-next * <Cmd>lua require'luasnip'.jump(1)<CR>
+i  <Plug>luasnip-prev-choice * <Cmd>lua require'luasnip'.change_choice(-1)<CR>
+i  <Plug>luasnip-next-choice * <Cmd>lua require'luasnip'.change_choice(1)<CR>
+i  <Plug>luasnip-expand-snippet * <Cmd>lua require'luasnip'.expand()<CR>
+i  <Plug>luasnip-expand-or-jump * <Cmd>lua require'luasnip'.expand_or_jump()<CR>
+i  <C-K>       * <Lua 2011: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-J>       * <Lua 302: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-E>       * <Lua 2016: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <C-H>       * <C-O>b
+                 jump back one word
+i  <C-W>       * <C-G>u<C-W>
+                 Nvim builtin
+i  <C-U>       * <C-G>u<C-U>
+                 Nvim builtin
+i  <Tab>       * <Lua 2013: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+c  <Tab>       * <Lua 11: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  <CR>        * <Lua 2691: ~/.local/share/nvim/site/pack/packer/start/nvim-cmp/lua/cmp/utils/keymap.lua:127>
+                 cmp.utils.keymap.set_map
+i  jk          * <Esc>
+                 enter Insert Mode

@@ -101,7 +101,16 @@ return packer.startup({
     })
 
     -- saving sessions
-    use("tpope/vim-obsession")
+    -- use("tpope/vim-obsession")
+    use {
+      'rmagatti/auto-session',
+      config = function()
+        require("auto-session").setup {
+          log_level = "error",
+          auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these 
+        }
+      end
+    }
 
     -- resizing windows
     use({
@@ -450,12 +459,12 @@ return packer.startup({
     use({ "valloric/matchtagalways" })
 
     -- highlight matching tags in html, js, jsx, vue, svelte
-    use({ 
+    use({
       "leafOfTree/vim-matchtag",
       config = function()
         require("plugins.vim-matchtag")
       end,
-  })
+    })
 
     -- syntax highlighting for requirements.txt files
     use("raimon49/requirements.txt.vim")

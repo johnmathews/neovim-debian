@@ -82,13 +82,10 @@ local function config_winbar_or_statusline()
         win_val = get_file_name(true) -- set to true to include path
         if sym ~= nil then win_val = win_val .. sym end
         vim.wo.winbar = win_val
-        -- if work in statusline
-        vim.wo.stl = win_val
     end
 end
 
 local events = { 'BufEnter', 'BufWinEnter', 'CursorMoved' }
-
 vim.api.nvim_create_autocmd(events, {
     pattern = '*',
     callback = function() config_winbar_or_statusline() end,
@@ -98,3 +95,7 @@ vim.api.nvim_create_autocmd('User', {
     pattern = 'LspsagaUpdateSymbol',
     callback = function() config_winbar_or_statusline() end,
 })
+
+-- set linenumber in telescope previews
+vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+

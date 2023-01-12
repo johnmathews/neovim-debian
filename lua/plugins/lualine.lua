@@ -4,13 +4,18 @@ if not status_ok then
 end
 
 local function Current_col()
+  ---@diagnostic disable-next-line: deprecated
+  table.unpack = table.unpack or unpack -- 5.1 compatibility
   local _, column = table.unpack(vim.api.nvim_win_get_cursor(0))
   return column + 1
 end
 
-local function Row_max_row()
+function Row_max_row()
+  ---@diagnostic disable-next-line: deprecated
+  table.unpack = table.unpack or unpack -- 5.1 compatibility
   local row, _ = table.unpack(vim.api.nvim_win_get_cursor(0))
   local max_row = vim.api.nvim_buf_line_count(0)
+  print("*** row .. " / " .. max_row = ", row .. "/" .. max_row)
   return row .. "/" .. max_row
 end
 
@@ -40,39 +45,24 @@ lualine.setup({
     globalstatus = true, -- true for laststatus=3, false by default
     theme = "ayu_mirage",
     -- theme = "auto",
-    component_separators = { left = "", right = "" },
+    component_separators = { left = "", right = "" }, -- 
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     always_divide_middle = true,
   },
   sections = {
-    lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
-    lualine_b = { "branch", "diff", "diagnostics" },
-    lualine_c = { { show_filepath, padding={right=0}, color = { fg = "#A9DC76" } }, { show_filename, color = { fg = "#78DCE8" }, padding={left=0}, component_separators = {left = "", right = ""} } },
+    lualine_a = { progress, require('auto-session-library').current_session_name, "progress", Row_max_row, Current_col,
+      "mode" },
+    -- lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
+    lualine_b = { "branch", "diff" },
+    lualine_c = { { show_filepath, padding = { right = 0 }, color = { fg = "#A9DC76" } },
+      { show_filename, color = { fg = "#FF647F" }, padding = { left = 0, right = 2 },
+        component_separators = { left = "", right = "" } }, { "diagnostics", padding = { left = 2, right = 2 } } },
     lualine_x = { "lsp_progress", "encoding", "fileformat", "filetype" },
     lualine_y = {},
     -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
     -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim
-    lualine_z = {
-      -- {
-      --   "filename",
-      --   file_status = true, -- Displays file status (readonly status, modified status)
-      --   newfile_status = false, -- Display new file status (new file means no write after created)
-      --   path = 1, -- 0: Just the filename
-      --   -- 1: Relative path
-      --   -- 2: Absolute path
-      --   -- 3: Absolute path, with tilde as the home directory
-
-      --   shorting_target = 40, -- Shortens path to leave 40 spaces in the window
-      --   -- for other components. (terrible name, any suggestions?)
-      --   symbols = {
-      --     modified = "[+]", -- Text to show when the file is modified.
-      --     readonly = "[-]", -- Text to show when the file is non-modifiable or readonly.
-      --     unnamed = "[No Name]", -- Text to show for unnamed buffers.
-      --     newfile = "[New]", -- Text to show for new created file before first writting
-      --   },
-      -- },
-    },
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = {},
