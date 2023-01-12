@@ -10,8 +10,8 @@ setlocal linebreak " Wrap lines at convenient points, avoid wrapping a line in t
 setlocal nowrap
 setlocal scrolloff=3 " The number of screen lines to keep above and below the cursor
 
-setlocal textwidth=80
-setlocal colorcolumn=81
+setlocal textwidth=100
+setlocal colorcolumn=101
 " highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=darkcyan
 
 " add text width to autoformat options

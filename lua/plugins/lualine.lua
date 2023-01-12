@@ -20,6 +20,10 @@ function Row_max_row()
   return row .. "/" .. max_row
 end
 
+local function total_rows() 
+  return vim.api.nvim_buf_line_count(0)
+end
+
 local function show_filename()
   local filename = vim.fn.expand("%:t")
   return "/" .. filename
@@ -58,7 +62,7 @@ lualine.setup({
     lualine_c = { { show_filepath, padding = { right = 0 }, color = { fg = "#A9DC76" } },
       { show_filename, color = { fg = "#FF647F" }, padding = { left = 0, right = 2 },
         component_separators = { left = "", right = "" } }, { "diagnostics", padding = { left = 2, right = 2 } } },
-    lualine_x = { "lsp_progress", "encoding", "fileformat", "filetype" },
+    lualine_x = { "lsp_progress", "encoding", "fileformat", "filetype", { total_rows, color = { fg='#FF647F'} } },
     lualine_y = {},
     -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
     -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim
