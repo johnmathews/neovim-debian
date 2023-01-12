@@ -7,7 +7,7 @@ local function Current_col()
   ---@diagnostic disable-next-line: deprecated
   table.unpack = table.unpack or unpack -- 5.1 compatibility
   local _, column = table.unpack(vim.api.nvim_win_get_cursor(0))
-  return column + 1
+  return "c" .. column + 1
 end
 
 function Row_max_row()

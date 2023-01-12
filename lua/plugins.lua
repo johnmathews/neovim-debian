@@ -108,6 +108,7 @@ return packer.startup({
         require("auto-session").setup {
           log_level = "error",
           auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these 
+          auto_save_enabled = true,
         }
       end
     }
