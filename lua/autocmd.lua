@@ -50,9 +50,11 @@ vim.cmd([[
 -- WINBAR USING LSPSAGA
 -- ====================
 local function config_winbar_or_statusline()
-  local exclude = { ['terminal'] = true, ['toggleterm'] = true, ['prompt'] = true, ['NvimTree'] = true, ['help'] = true }
-  if not vim.api.nvim_win_get_config(0).zindex or not exclude[vim.bo.filetype] then
-    vim.wo.winbar = require('lspsaga.symbolwinbar'):get_winbar() or ' '
+  local exclude = { ['terminal'] = true, ['toggleterm'] = true, ['prompt'] = true, ['NvimTree'] = true, ['help'] = true,  ['TelescopePrompt'] = true }
+  if  exclude[vim.bo.filetype] then
+    vim.wo.winbar = ""
+  elseif not vim.api.nvim_win_get_config(0).zindex then
+    vim.wo.winbar = require('lspsaga.symbolwinbar'):get_winbar() or " " 
   end
 end
 
