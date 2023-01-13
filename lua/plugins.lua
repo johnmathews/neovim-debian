@@ -165,7 +165,6 @@ return packer.startup({
     })
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
-    -- use({ "onsails/lspkind-nvim", requires = "famiu/bufdelete.nvim" }) -- clashed with close-buffers
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
 
@@ -176,7 +175,6 @@ return packer.startup({
       end,
     })
 
-    -- use({ "Asheq/close-buffers.vim" })
     use({ "Asheq/close-buffers.vim",
       config = function()
         require("plugins.close-buffers")
@@ -229,10 +227,10 @@ return packer.startup({
     use({ "L3MON4D3/LuaSnip" })
 
     -- library of snippets
-    use({ "rafamadriz/friendly-snippets" })
+    -- use({ "rafamadriz/friendly-snippets" })
 
     -- tame the quickfix window
-    use({ "romainl/vim-qf" })
+    -- use({ "romainl/vim-qf" })
 
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -355,6 +353,7 @@ return packer.startup({
         require("plugins.mundo")
       end,
     })
+
     use("MisanthropicBit/vim-numbers")
 
     use({
@@ -363,9 +362,6 @@ return packer.startup({
         require("plugins.open-browser")
       end,
     })
-    -- TODO what does this do?
-    -- use("tpope/vim-projectionist")
-    use("tpope/vim-repeat")
 
     --  interacting with and manipulating Vim marks
     use({
@@ -390,20 +386,14 @@ return packer.startup({
     --   event = "VimEnter",
     -- })
 
-    -- TODO
     -- adds various text objects to give you more targets to operate on
-    use("wellle/targets.vim")
-    use("ggandor/leap.nvim")
-    -- Jump to any location specified by two characters.
-    -- use({
-    --   "justinmk/vim-sneak",
-    --   config = function()
-    --     require("plugins.sneak")
-    --   end,
-    -- })
+    use({ "wellle/targets.vim" })
+    use({ "ggandor/leap.nvim",
+      config = function()
+        require('leap').add_default_mappings()
+      end })
 
-
-
+    use("tpope/vim-repeat")
     use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
 
@@ -414,6 +404,7 @@ return packer.startup({
     -- use("godlygeek/tabular")
     use("chrisbra/csv.vim")
 
+    -- run python tests from the buffer
     use({
       "janko-m/vim-test",
       config = function()
@@ -431,7 +422,6 @@ return packer.startup({
 
     -- highlights the XML/HTML tags that enclose your cursor location.
     use({ "valloric/matchtagalways" })
-
     -- highlight matching tags in html, js, jsx, vue, svelte
     use({
       "leafOfTree/vim-matchtag",
@@ -442,15 +432,14 @@ return packer.startup({
 
     -- syntax highlighting for requirements.txt files
     use("raimon49/requirements.txt.vim")
-
     use({
       "pearofducks/ansible-vim",
       config = function()
         require("plugins.ansible-vim")
       end,
     })
-
-    use("ekalinin/Dockerfile.vim")
+    -- lsp null-ls might have this
+    -- use("ekalinin/Dockerfile.vim")
 
     -- file explorer
     use({
@@ -469,16 +458,13 @@ return packer.startup({
     -- show hexcodes etc with a bg that matches the color they represent
     -- off by default, use :ColorHighlight! to toggle. see :h colorizer
     use({ "chrisbra/Colorizer" })
-
     use({
       "folke/lsp-colors.nvim",
       config = function()
-        require("plugins.lsp_colors")
+        require("plugins.lsp-colors")
       end,
     })
-
     use("tanvirtin/monokai.nvim")
-
     use({
       "kyazdani42/nvim-web-devicons",
     })
@@ -500,5 +486,6 @@ return packer.startup({
       enable = true,
       threshold = 0.1, -- the amount in ms that a plugins load time must be over for it to be included in the profile
     },
+    snapshot_path = vim.fn.stdpath("config") .. "/packer-snapshots/",
   },
 })
