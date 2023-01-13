@@ -1,60 +1,98 @@
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.init_lsp_saga({
-   symbol_in_winbar = {
-     in_custom = true
-   },
+saga.setup({
+  symbol_in_winbar = {
+    enable = true,
+    separator = ' ',
+    hide_keyword = true,
+    show_file = true,
+    folder_level = 2,
+  },
+
   border_style = "single", -- "single" | "double" | "rounded" | "bold" | "plus"
   saga_winblend = 0,
-  move_in_saga = { prev = '<C-p>',next = '<C-n>'},
-  preview_lines_above = 2,
-  max_preview_lines = 10,
+  move_in_saga = { prev = '<C-p>', next = '<C-n>' },
+  preview = {
+    lines_above = 2,
+    lines_below = 10,
+  },
+  scroll_preview = {
+    scroll_down = '<C-f>',
+    scroll_up = '<C-b>',
+  },
   code_action_icon = "💡",
   code_action_num_shortcut = true,
-  code_action_lightbulb = {
+  lightbulb = {
     enable = true,
-    enable_in_insert = false,
-    cache_code_action = true,
+    enable_in_insert = true,
     sign = true,
-    update_time = 150,
-    sign_priority = 20,
+    sign_priority = 40,
     virtual_text = true,
   },
-  diagnostic_header = { " ", " ", " ", "ﴞ " }, -- doesnt work
-  finder_request_timeout = 2500,
-  finder_action_keys = {
-    open = {'o', '<CR>'},
+  code_action = {
+    num_shortcut = true,
+    keys = {
+      quit = 'q',
+      exec = '<CR>',
+    },
+  },
+  diagnostic = {
+    twice_into = false,
+    show_code_action = true,
+    show_source = true,
+    keys = {
+      exec_action = 'o',
+      quit = 'q',
+    },
+  },
+  finder = {
+    edit = { 'o', '<CR>' },
     vsplit = 's',
     split = 'i',
     tabe = 't',
-    quit = {'q', '<ESC>'},
+    quit = { 'q', '<ESC>' },
   },
-  code_action_keys = {
-    quit = 'q',
-    exec = '<CR>',
-  },
-  definition_action_keys = {
+  finder_request_timeout = 2500,
+  definition = {
     edit = '<C-c>o',
     vsplit = '<C-c>v',
     split = '<C-c>i',
     tabe = '<C-c>t',
     quit = 'q',
+    close = '<Esc>',
   },
-  rename_action_quit = '<C-c>',
-  rename_in_select = true,
-  show_outline = {
+  rename = {
+    quit = '<C-c>',
+    exec = '<CR>',
+    in_select = true,
+  },
+  outline = {
     win_position = 'right',
-    --set special filetype win that outline window split.like NvimTree neotree
-    -- defx, db_ui
     win_with = '',
     win_width = 30,
-    auto_enter = true,
+    show_detail = true,
     auto_preview = true,
-    virt_text = '┃',
-    jump_key = 'o',
-    -- auto refresh when change buffer
     auto_refresh = true,
+    auto_close = true,
+    custom_sort = nil,
+    keys = {
+      jump = 'o',
+      expand_collaspe = 'u',
+      quit = 'q',
+    },
+  },
+  callhierarchy = {
+    show_detail = false,
+    keys = {
+      edit = 'e',
+      vsplit = 's',
+      split = 'i',
+      tabe = 't',
+      jump = 'o',
+      quit = 'q',
+      expand_collaspe = 'u',
+    },
   },
   -- custom lsp kind
   -- usage { Field = 'color code'} or {Field = {your icon, your color code}}
@@ -65,8 +103,8 @@ saga.init_lsp_saga({
 -- if there is no implement it will hide
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back
-keymap("n", "lf", "<cmd>Lspsaga lsp_finder<CR>", { silent = true })
-keymap({"n","v"}, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
+keymap("n", "<leader>f", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, desc = "LSP finder" })
+keymap({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent = true })
 keymap("n", "gr", "<cmd>Lspsaga rename<CR>", { silent = true })
 
 -- Peek Definition
@@ -84,11 +122,13 @@ keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
-keymap("n", "[E", function() require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
-keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
+keymap("n", "[E", function() require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR }) end,
+  { silent = true })
+keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end,
+  { silent = true })
 
 -- Outline
-keymap("n","<leader>o", "<cmd>Lspsaga outline<CR>",{ silent = true })
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })
@@ -100,4 +140,3 @@ keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
 keymap("n", "<A-d>", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
 -- close floaterm
 keymap("t", "<A-d>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
-

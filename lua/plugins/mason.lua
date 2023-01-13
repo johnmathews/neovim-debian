@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "sumneko_lua" },
+  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "sumneko_lua", "jsonls" },
   automatic_installation = true,
 }
 

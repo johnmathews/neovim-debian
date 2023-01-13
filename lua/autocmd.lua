@@ -65,23 +65,28 @@ local function get_file_name(include_path)
 end
 
 local function config_winbar_or_statusline()
+
     local exclude = {
         ['terminal'] = true,
         ['toggleterm'] = true,
         ['prompt'] = true,
         ['NvimTree'] = true,
         ['help'] = true,
-    } -- Ignore float windows and exclude filetype
+    }
+
     if vim.api.nvim_win_get_config(0).zindex or exclude[vim.bo.filetype] then
         vim.wo.winbar = ''
     else
-        local ok, lspsaga = pcall(require, 'lspsaga.symbolwinbar')
-        local sym
-        if ok then sym = lspsaga.get_symbol_node() end
-        local win_val = ''
-        win_val = get_file_name(true) -- set to true to include path
-        if sym ~= nil then win_val = win_val .. sym end
-        vim.wo.winbar = win_val
+        vim.wo.winbar = require('lspsaga.symbolwinbar'):get_winbar()
+        -- vim.wo.winbar = ''
+
+        -- local ok, lspsaga = pcall(require, 'lspsaga.symbolwinbar')
+        -- local sym
+        -- if ok then sym = lspsaga.get_symbol_node() end
+        -- local win_val = ''
+        -- win_val = get_file_name(true) -- set to true to include path
+        -- if sym ~= nil then win_val = win_val .. sym end
+        -- vim.wo.winbar = win_val
     end
 end
 
@@ -91,6 +96,7 @@ vim.api.nvim_create_autocmd(events, {
     callback = function() config_winbar_or_statusline() end,
 })
 
+-- update symbols in LSP Saga
 vim.api.nvim_create_autocmd('User', {
     pattern = 'LspsagaUpdateSymbol',
     callback = function() config_winbar_or_statusline() end,
