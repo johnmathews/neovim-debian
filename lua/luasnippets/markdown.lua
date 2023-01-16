@@ -37,9 +37,9 @@ local slugify = function(args, _)
 end
 
 local catChooser = function(args, snip, table)
-  if args[1][1] == "Technical/" then
+  if args[1][1] == "Technical." then
     return c(3, {
-      t("Developer Tools"),
+      t("Developer-Tools"),
       t("Data"),
       t("Web"),
       t("Other"),
@@ -75,7 +75,7 @@ return {
         -- (without it, the cursor would always jump
         -- directly into the inner choiceNode).
         i(1),
-        t("Technical/"),
+        t("Technical."),
         c(2, {
           t("Developer Tools"),
           t("Data"),
@@ -87,7 +87,7 @@ return {
       },
       {
         i(1),
-        t("Non-technical/"),
+        t("Non-technical."),
         c(2, {
           t("Photographs"),
           t("Entrepreneurship"),
@@ -183,8 +183,8 @@ return {
     trig = "gcs",
   }, {
     t({ "[archive](https://us-east1-johnmathews-website.cloudfunctions.net/download?obj=movies/" }),
-    i(1, "<text>"),
-    t({ ".mp4) " }),
+    i(1, "<text.fileextension>"),
+    t({ ") " }),
   }),
 
   s({
@@ -209,7 +209,7 @@ return {
     t({ "](/static/images/" }),
     i(2, "<text>"),
     t({ ")](/static/images/" }),
-    d(3, function(args) return sn(nil, {i(2, args[1])}) end, {2}),
+    d(3, function(args) return sn(nil, { i(2, args[1]) }) end, { 2 }),
     t({ ')' }),
   }),
 
@@ -258,7 +258,7 @@ return {
   s({
     namr = "youtube movie",
     dscr = "embed responsive iframe, type='youtube|amazon'",
-    trig = "if",
+    trig = "ifr",
   }, {
     t({
       "import IframeEmbed from '../components/IframeEmbed'",
