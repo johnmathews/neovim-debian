@@ -226,12 +226,6 @@ return packer.startup({
     -- snippets engine
     use({ "L3MON4D3/LuaSnip" })
 
-    -- library of snippets
-    -- use({ "rafamadriz/friendly-snippets" })
-
-    -- tame the quickfix window
-    -- use({ "romainl/vim-qf" })
-
     use({
       "nvim-treesitter/nvim-treesitter",
       run = ":TSUpdate",
@@ -277,24 +271,6 @@ return packer.startup({
       event = "VimEnter",
     })
 
-
-
-    -- this might not be necessary because of Mason, and prettier is built-in to null-ls
-    -- use({
-    --   "MunifTanjim/prettier.nvim",
-    --   config = function()
-    --     require("plugins.prettier")
-    --   end,
-    -- })
-    -- this might not be necessary because of Mason, and prettier is built-in to null-ls
-    -- use("nvie/vim-flake8")
-    -- might not be necessary because of mason
-    -- use("vim-scripts/pylint.vim")
-
-    -- might not be neccesssary because of mason
-    -- use("Pocco81/DAPInstall.nvim")
-    -- use("mfussenegger/nvim-dap")
-
     use({
       "akinsho/toggleterm.nvim",
       config = function()
@@ -330,13 +306,6 @@ return packer.startup({
       end,
     })
 
-    -- use({
-    --   "plasticboy/vim-markdown",
-    --   config = function()
-    --     require("plugins.markdown")
-    --   end,
-    -- })
-
     -- preview markdown
     use({ "ellisonleao/glow.nvim",
       config = function()
@@ -371,23 +340,9 @@ return packer.startup({
       end,
     })
 
-    -- maybe this isnt necessary either. cos of null-ls
-    -- use("b0o/schemastore.nvim")
-
-    -- what odes this even do? can treesitter do it too?
-    -- use("lukas-reineke/indent-blankline.nvim")
-
-    -- fancy notifications. but no plugins actually use this afaik
-    -- use({
-    --   "rcarriga/nvim-notify",
-    --   config = function()
-    --     require("plugins.notify")
-    --   end,
-    --   event = "VimEnter",
-    -- })
-
     -- adds various text objects to give you more targets to operate on
     use({ "wellle/targets.vim" })
+    -- movement, like sneak
     use({ "ggandor/leap.nvim",
       config = function()
         require('leap').add_default_mappings()
@@ -397,11 +352,6 @@ return packer.startup({
     use("tpope/vim-surround")
     use("tpope/vim-unimpaired")
 
-    -- maybe not necessary anymore because of lsp mason TS etc
-    -- use("shmup/vim-sql-syntax")
-
-    -- not sure what this does that csv doesnt do
-    -- use("godlygeek/tabular")
     use("chrisbra/csv.vim")
 
     -- run python tests from the buffer
@@ -413,15 +363,10 @@ return packer.startup({
     })
 
     use("hashivim/vim-vagrant")
-    use({
-      "lervag/vimtex",
-      config = function()
-        require("plugins.vimtex")
-      end,
-    })
 
     -- highlights the XML/HTML tags that enclose your cursor location.
     use({ "valloric/matchtagalways" })
+
     -- highlight matching tags in html, js, jsx, vue, svelte
     use({
       "leafOfTree/vim-matchtag",
@@ -438,8 +383,6 @@ return packer.startup({
         require("plugins.ansible-vim")
       end,
     })
-    -- lsp null-ls might have this
-    -- use("ekalinin/Dockerfile.vim")
 
     -- file explorer
     use({
