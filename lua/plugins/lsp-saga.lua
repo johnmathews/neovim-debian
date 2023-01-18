@@ -109,7 +109,7 @@ saga.setup({
     custom_sort = nil,
     keys = {
       jump = 'o',
-      expand_collaspe = 'u',
+      expand_collaspe = 'i',
       quit = 'q',
     },
   },
@@ -150,11 +150,13 @@ keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true })
 keymap("n", "]e", "<cmd>Lspsaga diagnostic_jump_next<CR>", { silent = true })
 
 -- Only jump to error
-keymap("n", "[E", function() require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
-keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end, { silent = true })
+keymap("n", "[E", function() require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR }) end,
+  { silent = true })
+keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end,
+  { silent = true })
 
--- Outline
-keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
+-- Outline is buggy
+-- keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

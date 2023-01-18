@@ -6,8 +6,6 @@ if not status_ok then
   return
 end
 
-vim.cmd("let g:nvim_tree_width = 45")
-
 vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", { noremap = true, silent = true, desc = "open/close nvim-tree" })
 vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select, { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
 vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear, { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" } )
@@ -78,7 +76,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 40,
+    width = 45,
     hide_root_folder = false,
     side = "left",
     mappings = {

@@ -1,8 +1,8 @@
 local ensure_packer = function()
   local fn = vim.fn
-  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
   if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     print("Installing packer. Restart Neovim...")
     return true
@@ -160,6 +160,11 @@ return packer.startup({
         require("plugins.lsp-saga")
       end,
     })
+    -- saga outline is buggy
+    use({ 'simrat39/symbols-outline.nvim',
+      config = function()
+        require("plugins.symbols-outline")
+      end })
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
@@ -344,7 +349,7 @@ return packer.startup({
       config = function()
         require("plugins.leap")
       end,
-      })
+    })
 
     use("tpope/vim-repeat")
     use("tpope/vim-surround")
