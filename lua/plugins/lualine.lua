@@ -53,12 +53,10 @@ lualine.setup({
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     always_divide_middle = true,
   },
-  sections = {
-    lualine_a = { progress, require('auto-session-library').current_session_name, Row_max_row, "progress", Current_col, "mode" },
-    -- lualine_a = { progress, '%{ObsessionStatus("$", "!$")}', "progress", Row_max_row, Current_col, "mode" },
+  tabline = {
+    lualine_a = { progress, require('auto-session-library').current_session_name, Row_max_row, Current_col, "mode" },
     lualine_b = { { "branch", padding = { left = 3, right = 1 } }, { "diff", padding = { left = 1, right = 3 } } },
-    lualine_c = { { show_filepath, padding = { right = 0 }, color = { fg = "#A9DC76" } },
-      { show_filename, color = { fg = "#FF647F" }, padding = { left = 0, right = 2 },
+    lualine_c = { { show_filepath, padding = { left = 2, right = 0 }, color = { fg = "#000000", bg = "#e5e5e5" } }, { show_filename, color = { fg = "#000000", bg = "#e5e5e5" }, padding = { left = 0, right = 2 },
         component_separators = { left = "", right = "" } }, { "diagnostics", padding = { left = 2, right = 2 } } },
     lualine_x = { "lsp_progress", "encoding", "fileformat", "filetype", { total_rows, color = { fg = '#FF647F' } } },
     lualine_y = {},
@@ -74,6 +72,15 @@ lualine.setup({
     lualine_y = {},
     lualine_z = {},
   },
-  tabline = {},
-  extensions = {},
+  sections = {},
+  extensions = {
+    'quickfix',
+    'nvim-tree',
+    'toggleterm',
+    -- 'symbols-outline',
+    'nvim-dap-ui',
+    'mundo',
+    'man',
+    'fzf'
+  }
 })

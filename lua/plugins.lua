@@ -1,26 +1,17 @@
-local fn = vim.fn
-
-local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-
-if fn.empty(fn.glob(install_path)) > 0 then
-  PACKER_BOOTSTRAP = fn.system({
-    "git",
-    "clone",
-    "--depth",
-    "1",
-    "https://github.com/wbthomason/packer.nvim",
-    install_path,
-  })
-  print("Installing packer. Restart Neovim...")
-  vim.cmd([[packadd packer.nvim]])
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    print("Installing packer. Restart Neovim...")
+    return true
+  end
+  return false
 end
 
-vim.cmd([[
-  augroup packer_user_config
-  autocmd!
-  autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]])
+-- install packer if it isnt already installed
+ensure_packer()
 
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
@@ -28,6 +19,14 @@ if not status_ok then
   vim.notify("Packer not found")
   return
 end
+
+-- run PackerCompile whenever plugins.lua is saved
+vim.cmd([[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]])
 
 return packer.startup({
   function(use)
@@ -63,8 +62,7 @@ return packer.startup({
         require("plugins.project")
       end,
     })
-    -- saving sessions
-    -- use("tpope/vim-obsession")
+
     use {
       'rmagatti/auto-session',
       config = function()
@@ -84,7 +82,6 @@ return packer.startup({
       end,
     })
 
-    -- find anything
     use({
       "nvim-telescope/telescope.nvim",
       -- commit = "23e28d066a55a8e33bff33196f7bd65ea3ecbdbe",
@@ -345,8 +342,9 @@ return packer.startup({
     -- movement, like sneak
     use({ "ggandor/leap.nvim",
       config = function()
-        require('leap').add_default_mappings()
-      end })
+        require("plugins.leap")
+      end,
+      })
 
     use("tpope/vim-repeat")
     use("tpope/vim-surround")
