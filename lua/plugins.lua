@@ -161,10 +161,10 @@ return packer.startup({
       end,
     })
     -- saga outline is buggy
-    use({ 'simrat39/symbols-outline.nvim',
-      config = function()
-        require("plugins.symbols-outline")
-      end })
+    -- use({ 'simrat39/symbols-outline.nvim',
+    --   config = function()
+    --     require("plugins.symbols-outline")
+    --   end })
 
     use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })

@@ -2,129 +2,129 @@ local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
 saga.setup({
-  symbol_in_winbar = {
-    enable = true,
-    separator = ' ',
-    hide_keyword = true,
-    show_file = true,
-    folder_level = 2,
-  },
-  ui = {
-    -- currently only round theme
-    theme = 'round',
-    -- border type can be single,double,rounded,solid,shadow.
-    border = 'solid',
-    winblend = 0,
-    expand = '',
-    collaspe = '',
-    preview = ' ',
-    code_action = '💡',
-    diagnostic = '🐞',
-    incoming = ' ',
-    outgoing = ' ',
-    colors = {
-      --float window normal bakcground color
-      normal_bg = '#1d1536',
-      --title background color
-      title_bg = '#afd700',
-      red = '#e95678',
-      magenta = '#b33076',
-      orange = '#FF8700',
-      yellow = '#f7bb3b',
-      green = '#afd700',
-      cyan = '#36d0e0',
-      blue = '#61afef',
-      purple = '#CBA6F7',
-      white = '#d1d4cf',
-      black = '#1c1c19',
-    },
-    kind = {},
-  },
-  move_in_saga = { prev = '<C-p>', next = '<C-n>' },
-  preview = {
-    lines_above = 2,
-    lines_below = 10,
-  },
-  scroll_preview = {
-    scroll_down = '<C-f>',
-    scroll_up = '<C-b>',
-  },
-  code_action_icon = "💡",
-  code_action_num_shortcut = true,
-  lightbulb = {
-    enable = true,
-    enable_in_insert = true,
-    sign = true,
-    sign_priority = 40,
-    virtual_text = true,
-  },
-  code_action = {
-    num_shortcut = true,
-    keys = {
-      quit = 'q',
-      exec = '<CR>',
-    },
-  },
-  diagnostic = {
-    twice_into = false,
-    show_code_action = true,
-    show_source = true,
-    keys = {
-      exec_action = 'o',
-      quit = 'q',
-    },
-  },
-  finder = {
-    edit = { 'o', '<CR>' },
-    vsplit = 's',
-    split = 'i',
-    tabe = 't',
-    quit = { 'q', '<ESC>' },
-  },
-  finder_request_timeout = 2500,
-  definition = {
-    edit = '<C-c>o',
-    vsplit = '<C-c>v',
-    split = '<C-c>i',
-    tabe = '<C-c>t',
-    quit = 'q',
-    close = '<Esc>',
-  },
-  rename = {
-    quit = '<C-c>',
-    exec = '<CR>',
-    mark = 'x',
-    confirm = '<CR>',
-    in_select = true,
-    whole_project = true,
-  },
-  outline = {
-    win_position = 'left',
-    win_with = '',
-    win_width = 50,
-    show_detail = true,
-    auto_preview = true,
-    auto_refresh = true,
-    auto_close = true,
-    custom_sort = nil,
-    keys = {
-      jump = 'o',
-      expand_collaspe = 'i',
-      quit = 'q',
-    },
-  },
-  callhierarchy = {
-    show_detail = false,
-    keys = {
-      edit = 'e',
-      vsplit = 's',
-      split = 'i',
-      tabe = 't',
-      jump = 'o',
-      quit = 'q',
-      expand_collaspe = 'u',
-    },
-  },
+  -- symbol_in_winbar = {
+  --   enable = true,
+  --   separator = ' ',
+  --   hide_keyword = true,
+  --   show_file = true,
+  --   folder_level = 2,
+  -- },
+  -- ui = {
+  --   -- currently only round theme
+  --   theme = 'round',
+  --   -- border type can be single,double,rounded,solid,shadow.
+  --   border = 'solid',
+  --   winblend = 0,
+  --   expand = '',
+  --   collaspe = '',
+  --   preview = ' ',
+  --   code_action = '💡',
+  --   diagnostic = '🐞',
+  --   incoming = ' ',
+  --   outgoing = ' ',
+  --   colors = {
+  --     --float window normal bakcground color
+  --     normal_bg = '#1d1536',
+  --     --title background color
+  --     title_bg = '#afd700',
+  --     red = '#e95678',
+  --     magenta = '#b33076',
+  --     orange = '#FF8700',
+  --     yellow = '#f7bb3b',
+  --     green = '#afd700',
+  --     cyan = '#36d0e0',
+  --     blue = '#61afef',
+  --     purple = '#CBA6F7',
+  --     white = '#d1d4cf',
+  --     black = '#1c1c19',
+  --   },
+  --   kind = {},
+  -- },
+  -- move_in_saga = { prev = '<C-p>', next = '<C-n>' },
+  -- preview = {
+  --   lines_above = 2,
+  --   lines_below = 10,
+  -- },
+  -- scroll_preview = {
+  --   scroll_down = '<C-f>',
+  --   scroll_up = '<C-b>',
+  -- },
+  -- code_action_icon = "💡",
+  -- code_action_num_shortcut = true,
+  -- lightbulb = {
+  --   enable = true,
+  --   enable_in_insert = true,
+  --   sign = true,
+  --   sign_priority = 40,
+  --   virtual_text = true,
+  -- },
+  -- code_action = {
+  --   num_shortcut = true,
+  --   keys = {
+  --     quit = 'q',
+  --     exec = '<CR>',
+  --   },
+  -- },
+  -- diagnostic = {
+  --   twice_into = false,
+  --   show_code_action = true,
+  --   show_source = true,
+  --   keys = {
+  --     exec_action = 'o',
+  --     quit = 'q',
+  --   },
+  -- },
+  -- finder = {
+  --   edit = { 'o', '<CR>' },
+  --   vsplit = 's',
+  --   split = 'i',
+  --   tabe = 't',
+  --   quit = { 'q', '<ESC>' },
+  -- },
+  -- finder_request_timeout = 2500,
+  -- definition = {
+  --   edit = '<C-c>o',
+  --   vsplit = '<C-c>v',
+  --   split = '<C-c>i',
+  --   tabe = '<C-c>t',
+  --   quit = 'q',
+  --   close = '<Esc>',
+  -- },
+  -- rename = {
+  --   quit = '<C-c>',
+  --   exec = '<CR>',
+  --   mark = 'x',
+  --   confirm = '<CR>',
+  --   in_select = true,
+  --   whole_project = true,
+  -- },
+  -- outline = {
+  --   win_position = 'left',
+  --   win_with = '',
+  --   win_width = 50,
+  --   show_detail = true,
+  --   auto_preview = true,
+  --   auto_refresh = true,
+  --   auto_close = true,
+  --   custom_sort = nil,
+  --   keys = {
+  --     jump = 'o',
+  --     expand_collaspe = 'i',
+  --     quit = 'q',
+  --   },
+  -- },
+  -- callhierarchy = {
+  --   show_detail = false,
+  --   keys = {
+  --     edit = 'e',
+  --     vsplit = 's',
+  --     split = 'i',
+  --     tabe = 't',
+  --     jump = 'o',
+  --     quit = 'q',
+  --     expand_collaspe = 'u',
+  --   },
+  -- },
 })
 
 -- Lsp finder find the symbol definition implement reference
@@ -156,7 +156,7 @@ keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity 
   { silent = true })
 
 -- Outline is buggy
--- keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
+keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true })

@@ -30,12 +30,11 @@ map("n", "<Tab>vs", ":Telescope search_history<CR>", default_options)
 map("n", "<Tab>vk", ":Telescope keymaps<CR>", default_options)
 
 map("n", "<Tab>j", ":Telescope jumplist<CR>", default_options)
-map("n", "<Tab>qf", ":Telescope quickfix<CR>", default_options)
 map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
+map("n", "<Tab>qf", ":Telescope quickfix<CR>", default_options)
 
 map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
--- Git pickers
 map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>",
   KeymapOptions("Telescope find git files fallback"))
 
@@ -43,6 +42,7 @@ map("n", "<Tab>f", "<CMD>lua require'plugins.telescope'.find_files_fallback()<CR
 -- https://github.com/nvim-telescope/telescope.nvim/wiki/Configuration-Recipes#file-and-text-search-in-hidden-files-and-directories
 map("n", "<Tab>a", ":Telescope find_files<CR>", default_options)
 
+-- Git pickers
 map("n", "<Tab>gc", ":Telescope git_commits<CR>", default_options)
 map("n", "<Tab>gb", ":Telescope git_bcommits<CR>", default_options)
 map("n", "<Tab>gr", ":Telescope git_branches<CR>", default_options)
