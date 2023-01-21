@@ -1,7 +1,11 @@
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
-saga.setup({})
+saga.setup({
+  outline = {
+    win_width = 40,
+  }
+})
 
 -- when you use action in finder like open vsplit then you can
 -- use <C-t> to jump back

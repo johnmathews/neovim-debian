@@ -37,7 +37,8 @@ map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 -- map("v", ">", ">gv", default_options)
 
 -- paste over currently selected text without yanking it
-map("v", "p", '"_dP', default_options)
+-- this might messup "<number>p
+-- map("v", "p", '"_dP', default_options)
 
 -- Searching
 -- map("n", "/", "`", { noremap = true, silent = false })
@@ -83,7 +84,7 @@ map("n", "<C-K>", "<C-W><C-K>", default_options)
 map("n", "<C-L>", "<C-W><C-L>", default_options)
 
 -- FUNCTIONS
-map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
+-- map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)

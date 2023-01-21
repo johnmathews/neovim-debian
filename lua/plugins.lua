@@ -84,7 +84,6 @@ return packer.startup({
 
     use({
       "nvim-telescope/telescope.nvim",
-      -- commit = "23e28d066a55a8e33bff33196f7bd65ea3ecbdbe",
       requires = {
         "nvim-lua/plenary.nvim",
         "BurntSushi/ripgrep",
@@ -109,15 +108,6 @@ return packer.startup({
         require("plugins.harpoon")
       end,
     })
-
-    -- the buffer names at the top
-    -- use({
-    --   "akinsho/bufferline.nvim",
-    --   requires = "kyazdani42/nvim-web-devicons",
-    --   config = function()
-    --     require("plugins.bufferline")
-    --   end,
-    -- })
 
     -- the statusline at the bottom
     use({

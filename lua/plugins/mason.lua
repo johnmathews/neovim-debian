@@ -27,14 +27,23 @@ if not lspconfig_status_ok then
   return
 end
 
+
+function KeymapBufferOptions(args)
+  local description = args.description or "no description"
+  local bufnr = args.bufnr
+  return {
+    noremap = true,
+    silent = true,
+    desc = description,
+    buffer = bufnr,
+  }
+end
+
+
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
--- use lspsaga instead
 local on_attach = function(client, bufnr)
-
-  local opts = { noremap = true, silent = true }
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
   -- HANDLED BETTER BY LSPSAGA.
   --   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)

@@ -11,17 +11,6 @@ function KeymapOptions(description)
   }
 end
 
-function KeymapBufferOptions(args)
-  local description = args.description or "no description"
-  local bufnr = args.bufnr
-  return {
-    noremap = true,
-    silent = true,
-    desc = description,
-    buffer = bufnr,
-  }
-end
-
 require("options")
 require("plugins")
 require("plugins.lsp")
