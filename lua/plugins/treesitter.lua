@@ -70,3 +70,7 @@ require 'nvim-treesitter.configs'.setup {
 
 local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.tsx.filetype_to_parsername = { "javascript", "typescript.tsx" }
+
+local map = vim.api.nvim_set_keymap
+map("n", "<leader>tp", ":TSPlaygroundToggle<CR>", KeymapOptions("Treesitter Playground"))
+map("n", "<leader>tc", ":TSHighlightCapturesUnderCursor<CR>", KeymapOptions("Treesitter item under cursor"))

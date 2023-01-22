@@ -18,6 +18,13 @@ map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 -- try to make each word an undo step
 -- map("i", "<SPACE>", "<C-o>u<SPACE>", default_options)
 
+
+map("n", "<F1>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
+map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers"))
+map("n", "<F3>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker"))
+map("n", "<F5>", ":e<CR>|:lua vim.notify('~ Buffer Refreshed 😊 ~')<CR>", KeymapOptions("Refresh buffer"))
+
+
 --Remap space as leader key
 map("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
 vim.g.mapleader = " "
@@ -32,27 +39,19 @@ map("n", "<leader>vr", ":source $MYVIMRC<CR>|:autocmd User VimReload<CR>", Keyma
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
 map("n", "k", "v:count == 0 ? 'gk' : 'k'", expr_options)
 
--- better indenting
--- map("v", "<", "<gv", default_options)
--- map("v", ">", ">gv", default_options)
-
 -- paste over currently selected text without yanking it
 -- this might messup "<number>p
 -- map("v", "p", '"_dP', default_options)
 
 -- Searching
--- map("n", "/", "`", { noremap = true, silent = false })
 map("n", "`", "/", { noremap = true, silent = false })
 map("n", "``", ": nohlsearch<CR>", default_options)
 map("n", "*", "*``", default_options)
 
-map("n", "<leader>tw", ":set nowrap!<CR>", KeymapOptions("toggle linewrap"))
-map("n", "<leader>tn", ":set relativenumber!<CR>", KeymapOptions("toggle relative line numbers"))
-map("n", "<leader>ts", ":setlocal spell!<CR>", KeymapOptions("toggle spell checker"))
-
 map("n", "o", "o<ESC>", default_options)
 map("n", "O", "O<ESC>", default_options)
 
+-- swap semicolon and colon
 map("n", ";", ":", { noremap = true, silent = false })
 map("n", ":", ";", { noremap = true, silent = false })
 map("v", ";", ":", { noremap = true, silent = false })
@@ -68,10 +67,6 @@ map("n", "wc",
   ,
   KeymapOptions("Get current highlight group")
 )
-
--- TREESITTER
-map("n", "<leader>tp", ":TSPlaygroundToggle<CR>", KeymapOptions("Treesitter Playground"))
-map("n", "<leader>tc", ":TSHighlightCapturesUnderCursor<CR>", KeymapOptions("Treesitter item under cursor"))
 
 -- open the current file in the default app
 -- gx is mapped to open a url using the open-browser plugin
