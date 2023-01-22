@@ -1,6 +1,3 @@
---   normal_mode = "n",
---   insert_mode = "i",
---   visual_mode = "v",
 --   visual_block_mode = "x",
 --   term_mode = "t",
 --   command_mode = "c",
@@ -84,17 +81,3 @@ map("n", "<C-L>", "<C-W><C-L>", default_options)
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
 
--- Luasnip
-local ls = require("luasnip")
-
-vim.keymap.set({ "i", "s" }, "<C-j>", function()
-  if ls.choice_active() then
-    ls.change_choice(1)
-  end
-end, KeymapOptions("LuaSnip choice node next"))
-
-vim.keymap.set({ "i", "s" }, "<C-k>", function()
-  if ls.choice_active() then
-    ls.change_choice(-1)
-  end
-end, KeymapOptions("LuaSnip choice node previous"))
