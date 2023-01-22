@@ -14,7 +14,7 @@ toggleterm.setup({
     end
   end,
   -- open_mapping = [[<c-\>]],
-  open_mapping = [[<F9>]], -- this is mapped to
+  open_mapping = [[<F8>]], -- this is mapped to
   insert_mappings = false, -- whether or not the open mapping applies in insert mode
   terminal_mappings = true, -- whether or not the open mapping applies in the opened terminals
   start_in_insert = true, -- open a terminal window in normal mode or insert mode

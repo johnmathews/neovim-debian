@@ -22,13 +22,10 @@ hi normal guifg='#FFF1F3' guibg='#000000'
 " hi WhichKeyDesc guifg='#FFF1F3' guibg='#000000'
 
 " symbols outline
-hi FocusedSymbol guifg='#FD6883'
-hi Pmenu guifg='#FFD866'
-hi SymbolsOutlineConnector guifg='#A9DC76'
-hi Comment guifg='#FFD866'
-hi TSError guifg='#FD6883'
-hi TSString guifg='#FFD866'
-hi TSType guifg='#A9DC76'
+" hi FocusedSymbol guifg='#FD6883'
+" hi Pmenu guifg='#FFD866'
+" hi SymbolsOutlineConnector guifg='#A9DC76'
+" hi Comment guifg='#FFD866'
 
 " Git Signs
 hi GitSignsAdd guifg='#A9DC76' guibg='#26292C'
