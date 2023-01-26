@@ -12,14 +12,13 @@ map("i", "jk", "<ESC>", KeymapOptions("enter Insert Mode"))
 map("i", "<C-h>", "<C-o>b", KeymapOptions("jump back one word"))
 -- delete the word infront of the cursor
 map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
--- try to make each word an undo step
--- map("i", "<SPACE>", "<C-o>u<SPACE>", default_options)
 
-
-map("n", "<F1>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
-map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers"))
-map("n", "<F3>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker"))
-map("n", "<F5>", ":e<CR>|:lua vim.notify('~ Buffer Refreshed 😊 ~')<CR>", KeymapOptions("Refresh buffer"))
+map("n", "<F1>", ":e<CR>|:lua vim.notify('~ Buffer Refreshed 😊 ~')<CR>", KeymapOptions("Refresh buffer"))
+map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>",
+  KeymapOptions("Toggle relative line numbers"))
+map("n", "<F3>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
+map("n", "<F4>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>",
+  KeymapOptions("Toggle spell checker"))
 
 
 --Remap space as leader key
@@ -28,9 +27,11 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
 map("n", "<leader>ve", ":edit $MYVIMRC<CR>", KeymapOptions("edit vimrc"))
+map("n", "<leader>vr", ":source $MYVIMRC<CR>|:autocmd User VimReload<CR>", KeymapOptions("reload vimrc file"))
+
+-- open filetype plugin for current buffer
 map("n", "<leader>vf", ":edit ~/.config/nvim/ftplugin/<C-R>=&filetype<CR>.vim<CR>",
   KeymapOptions("edit ftplugin file for current buffers filetype"))
-map("n", "<leader>vr", ":source $MYVIMRC<CR>|:autocmd User VimReload<CR>", KeymapOptions("reload vimrc file"))
 
 -- Natural cursor movement over wrapped lines
 map("n", "j", "v:count == 0 ? 'gj' : 'j'", expr_options)
@@ -80,4 +81,3 @@ map("n", "<C-L>", "<C-W><C-L>", default_options)
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
-

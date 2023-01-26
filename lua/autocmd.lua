@@ -14,7 +14,7 @@ vim.cmd([[
   augroup end
 ]])
 
--- .bq → sql
+-- bigquery files should be sql filetype .bq → sql
 vim.cmd([[
   autocmd BufEnter,BufNew *.bq setl filetype=sql
 ]])

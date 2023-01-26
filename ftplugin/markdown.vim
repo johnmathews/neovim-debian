@@ -1,9 +1,9 @@
 setlocal smarttab
-setlocal softtabstop=4
+setlocal softtabstop=2
 setlocal noautoindent " if previous line is indented, don't make new line also indented
 
-setlocal tabstop=4
-setlocal shiftwidth=4 " this is how many spaces a tab is.
+setlocal tabstop=2
+setlocal shiftwidth=2 " this is how many spaces a tab is.
 setlocal expandtab
 setlocal linebreak " Wrap lines at convenient points, avoid wrapping a line in the middle of a word.
 

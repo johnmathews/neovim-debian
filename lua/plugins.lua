@@ -156,9 +156,17 @@ return packer.startup({
     --     require("plugins.symbols-outline")
     --   end })
 
-    use({ "jose-elias-alvarez/null-ls.nvim" }) -- for formatters and linters and code actions
+    use({ "jose-elias-alvarez/null-ls.nvim",
+      config = function()
+        require("plugins.null-ls")
+      end
+    }) -- for formatters and linters and code actions
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
-    use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim" })
+    use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+      config = function()
+        require("plugins.toggle-lsp-diagnostics")
+      end
+    })
 
     -- buffers and window management
     use({ "marklcrns/vim-smartq",
