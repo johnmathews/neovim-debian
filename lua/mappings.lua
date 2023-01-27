@@ -14,8 +14,7 @@ map("i", "<C-h>", "<C-o>b", KeymapOptions("jump back one word"))
 map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 
 map("n", "<F1>", ":e<CR>|:lua vim.notify('~ Buffer Refreshed 😊 ~')<CR>", KeymapOptions("Refresh buffer"))
-map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>",
-  KeymapOptions("Toggle relative line numbers"))
+map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers"))
 map("n", "<F3>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
 map("n", "<F4>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>",
   KeymapOptions("Toggle spell checker"))

@@ -39,7 +39,6 @@ function KeymapBufferOptions(args)
   }
 end
 
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 
@@ -104,6 +103,7 @@ mason_lspconfig.setup_handlers({
     }
   end,
   -- Next, you can provide targeted overrides for specific servers.
+  -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
   ["sumneko_lua"] = function()
     lspconfig.sumneko_lua.setup {
       on_attach = on_attach,
@@ -112,7 +112,15 @@ mason_lspconfig.setup_handlers({
       settings = {
         Lua = {
           format = {
-            enable = true
+            enable = true,
+            default_config = {
+              indent_type = "Spaces",
+              indent_width = 2,
+              line_length = 180, -- doesnt work
+            },
+          },
+          completion = {
+            callSnippet = "Both",
           },
           diagnostics = {
             globals = {

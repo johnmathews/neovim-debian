@@ -150,17 +150,12 @@ return packer.startup({
         require("plugins.lsp-saga")
       end,
     })
-    -- saga outline is buggy
-    -- use({ 'simrat39/symbols-outline.nvim',
-    --   config = function()
-    --     require("plugins.symbols-outline")
-    --   end })
 
     use({ "jose-elias-alvarez/null-ls.nvim",
       config = function()
         require("plugins.null-ls")
       end
-    }) -- for formatters and linters and code actions
+    })
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
     use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
       config = function()
