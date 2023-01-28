@@ -29,9 +29,9 @@ map("n", "<Tab>vc", ":Telescope command_history<CR>", default_options)
 map("n", "<Tab>vs", ":Telescope search_history<CR>", default_options)
 map("n", "<Tab>vk", ":Telescope keymaps<CR>", default_options)
 
-map("n", "<Tab>j", ":Telescope jumplist<CR>", default_options)
-map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
-map("n", "<Tab>qf", ":Telescope quickfix<CR>", default_options)
+-- map("n", "<Tab>j", ":Telescope jumplist<CR>", default_options)
+-- map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
+-- map("n", "<Tab>qf", ":Telescope quickfix<CR>", default_options)
 
 map("n", "<Tab>z", ":Telescope resume<CR>", default_options)
 
