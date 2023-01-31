@@ -77,7 +77,7 @@ return {
         i(1),
         t("Technical."),
         c(2, {
-          t("Developer Tools"),
+          t("Developer-Tools"),
           t("Data"),
           t("Web"),
           t("Other"),

@@ -236,12 +236,12 @@ return packer.startup({
     -- not sure if this is really used. does toggleterm use it?
     -- would be useful for running heavier commands in the bg
     -- or as part of another plugin that did heavy bg work
-    use({
-      "skywind3000/asyncrun.vim",
-      config = function()
-        require("plugins.asyncrun")
-      end,
-    })
+    -- use({
+    --   "skywind3000/asyncrun.vim",
+    --   config = function()
+    --     require("plugins.asyncrun")
+    --   end,
+    -- })
 
     -- this is an (unmaintained) treesitter plugin.
     -- config is in the `rainbow` attribute in treesitter.lua
