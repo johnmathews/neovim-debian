@@ -59,7 +59,7 @@ local catChooser = function(args, snip, table)
 end
 
 -- for choice nodes, use <C-j> and <C-k> to toggle through the options
--- see mappings.lua:105
+-- see luasnip.lua:125
 return {
   s("meta", {
     t({ "---" }),
@@ -105,7 +105,10 @@ return {
     t({ "", 'tags: ["' }),
     i(3),
     t({ '"]' }),
-    t({ "", "" }),
+    t({ "" }),
+    t({ "", "image: '/static/images/" }),
+    i(4),
+    t({ ".png'", "" }),
     t({ "---" }),
     t({ "", "" }),
     t({ "", "" }),
@@ -122,6 +125,7 @@ return {
     t({ "", 'tags: ["' }),
     i(2),
     t({ '"]' }),
+    t({ "", "image: '/static/images/<NAME>.png'"}),
     t({ "", "---" }),
     t({ "", "" }),
     t({ "", "" }),

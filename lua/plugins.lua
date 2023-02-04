@@ -219,7 +219,11 @@ return packer.startup({
     })
 
     -- snippets engine
-    use({ "L3MON4D3/LuaSnip" })
+    use({ "L3MON4D3/LuaSnip",
+      config = function()
+        require("plugins.luasnip")
+      end,
+    })
 
     use({
       "nvim-treesitter/nvim-treesitter",
@@ -232,16 +236,6 @@ return packer.startup({
       },
     })
     use("JoosepAlviste/nvim-ts-context-commentstring")
-
-    -- not sure if this is really used. does toggleterm use it?
-    -- would be useful for running heavier commands in the bg
-    -- or as part of another plugin that did heavy bg work
-    -- use({
-    --   "skywind3000/asyncrun.vim",
-    --   config = function()
-    --     require("plugins.asyncrun")
-    --   end,
-    -- })
 
     -- this is an (unmaintained) treesitter plugin.
     -- config is in the `rainbow` attribute in treesitter.lua
@@ -354,7 +348,7 @@ return packer.startup({
     use({
       "janko-m/vim-test",
       config = function()
-        require("plugins.test")
+        require("plugins.vim-test")
       end,
     })
 
