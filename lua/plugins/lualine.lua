@@ -41,7 +41,7 @@ lualine.setup({
   },
   tabline = {
     lualine_a = { require('auto-session-library').current_session_name, Row_max_row, Current_col, "mode" },
-    lualine_b = { { "branch", padding = { left = 3, right = 1 } }, { "diff", padding = { left = 1, right = 3 } } },
+    lualine_b = { { "branch", padding = { left = 3, right = 3 } }, { "diff", padding = { left = 3, right = 3 } } },
     lualine_c = { { show_filepath, padding = { left = 2, right = 0 }, color = { fg = "#000000", bg = "#39FF14" } },
       { show_filename, color = { fg = "#000000", bg = "#39FF14" }, padding = { left = 0, right = 2 } },
       { "diagnostics", padding = { left = 2, right = 2 } }, "lsp_progress" },

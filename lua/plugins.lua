@@ -305,6 +305,17 @@ return packer.startup({
       end,
     })
 
+    -- used only because it can format yaml frontmatter in a markdown blog post
+    use({
+      "preservim/vim-markdown",
+      requires = {
+        "godlygeek/tabular",
+      },
+      config = function()
+        require("plugins.vim-markdown")
+      end,
+    })
+
     use({
       "simnalamburt/vim-mundo",
       config = function()

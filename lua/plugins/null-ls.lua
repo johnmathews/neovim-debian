@@ -13,10 +13,10 @@ null_ls.setup({
     -- null_ls.builtins.code_actions.gitsigns,
     -- null_ls.builtins.completion.tags,
 
-    --  Markdown, JavaScript, TypeScript, JSX,
+    --  Prettier formatting works on Markdown, JavaScript, TypeScript, JSX,
     -- =======
     null_ls.builtins.formatting.prettier.with({
-        extra_args = { "--prose-wrap", "always" },
+      extra_args = { "--prose-wrap", "always" },
     }),
 
     -- PYTHON

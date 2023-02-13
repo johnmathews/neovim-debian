@@ -1,3 +1,20 @@
+" Make Row Title Case <leader>mt
+nnoremap <buffer> <leader>mt :s/\<./\u&/g<bar>:nohlsearch<bar><esc>
+vnoremap <buffer> <leader>mt :s/\<./\u&/g<bar>:nohlsearch<bar><esc>
+
+" make text bold <leader>mb
+nnoremap <buffer> <leader>mb ebi**<ESC>ea**<space><ESC>
+vmap <buffer> <leader>mb c**<ESC>gcP
+
+" make text italic <leader>mi
+nnoremap <buffer> <leader>mi ebi*<ESC>ea*<ESC>
+vmap <buffer> <leader>mi c__<ESC>gcP
+
+" make code block <leader>mc
+nnoremap <buffer> <leader>mc ebi`<ESC>ea`<ESC>
+vmap <buffer> <leader>mc c``<ESC>gcP
+
+" == local settings
 setlocal smarttab
 setlocal softtabstop=2
 setlocal noautoindent " if previous line is indented, don't make new line also indented
@@ -11,7 +28,7 @@ setlocal nowrap
 setlocal scrolloff=3 " The number of screen lines to keep above and below the cursor
 
 setlocal textwidth=100
-setlocal colorcolumn=101
+" setlocal colorcolumn=101
 " highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=darkcyan
 
 " add text width to autoformat options
@@ -30,42 +47,20 @@ setlocal nojoinspaces
 setlocal conceallevel=0
 let g:indentLine_conceallevel = 0
 
-lua << EOF
-  vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
-EOF
-
 " Stop telling me underscores are errors:
 syn match markdownError "\w\@<=\w\@="
 
 " Rainbow parenthesis turned off
 let g:rainbow_active = 0
 
-
-let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace_except_double']
-let b:ale_warn_about_trailing_whitespace = 1
-
-" select some text and make it a hyperlink
-vnoremap ml "lxa[(F["lpf("lp
-
-
 " format paragraph
 " command! FormatParagraph normal! vipgw`^
-command! FormatParagraph normal! gwip
-nnoremap <leader>fp :FormatParagraph<CR>
-vnoremap <leader>fp gw
+" command! FormatParagraph normal! gwip
+" nnoremap <leader>fp :FormatParagraph<CR>
+" vnoremap <leader>fp gw
 
-" make  row Tile Case
-nnoremap <buffer> <leader>mt :s/\<./\u&/g<bar>:nohlsearch<bar><esc><C-O>
-vnoremap <buffer> <leader>mt :s/\<./\u&/g<bar>:nohlsearch<bar><esc><C-O>
-
-" make text bold
-nnoremap <buffer> <leader>mb ebi**<ESC>ea**<space><ESC>
-vmap <buffer> <leader>mb c**<ESC>gcP
-
-" make text italic
-nnoremap <buffer> <leader>mi ebi*<ESC>ea*<ESC>
-vmap <buffer> <leader>mi c__<ESC>gcP
-
-" make code block
-nnoremap <buffer> <leader>mc ebi`<ESC>ea`<ESC>
-vmap <buffer> <leader>mc c``<ESC>gcP
+" this breaks syntax highlighting, so put it at the end
+" Glow preview
+lua << EOF
+  vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
+EOF

@@ -33,7 +33,6 @@ local options = {
   mouse = "a",
   startofline = false,
   number = true,
-  relativenumber = true,
   signcolumn = "auto",
 
   shortmess = "filnxtToOFc",

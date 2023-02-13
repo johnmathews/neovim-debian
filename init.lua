@@ -21,4 +21,5 @@ require("autocmd")
 vim.cmd("colorscheme workaround")
 
 -- load custom snippets. dont remove this.
-require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/luasnippets" })
+-- require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/snippets" })
+require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })

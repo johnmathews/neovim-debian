@@ -72,3 +72,4 @@ vim.api.nvim_create_autocmd('User', {
 
 -- set linenumber in telescope previews
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
+

@@ -58,9 +58,22 @@ local catChooser = function(args, snip, table)
   end
 end
 
+
 -- for choice nodes, use <C-j> and <C-k> to toggle through the options
 -- see luasnip.lua:125
 return {
+  s({
+    trig = "code",
+    namr = "markdown code block",
+    dscr = "Create empty markdown code block",
+  }, {
+    t "``` ",
+    i(1, "Language"),
+    t { "", "" },
+    i(2, "Content"),
+    t { "", "```", "" },
+    i(0),
+  }),
   s("meta", {
     t({ "---" }),
     t({ "", "title: " }),
@@ -106,9 +119,9 @@ return {
     i(3),
     t({ '"]' }),
     t({ "" }),
-    t({ "", "image: '/static/images/" }),
+    t({ "", "image: /static/images/" }),
     i(4),
-    t({ ".png'", "" }),
+    t({ ".png", "" }),
     t({ "---" }),
     t({ "", "" }),
     t({ "", "" }),
@@ -125,13 +138,20 @@ return {
     t({ "", 'tags: ["' }),
     i(2),
     t({ '"]' }),
-    t({ "", "image: '/static/images/<NAME>.png'"}),
+    t({ "", "image: '/static/images/<NAME>.png'" }),
     t({ "", "---" }),
     t({ "", "" }),
     t({ "", "" }),
     i(3),
   }),
 
+  s({
+    dscr = "insert a table of contents",
+    name = "table of contents",
+    trig = "toc",
+  }, {
+    t({ "<TOCInline toc={props.toc} exclude='Contents' toHeading={2} />" }),
+  }),
 
   s({
     dscr = "links to an internal page",
