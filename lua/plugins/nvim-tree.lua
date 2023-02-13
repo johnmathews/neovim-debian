@@ -6,9 +6,12 @@ if not status_ok then
   return
 end
 
-vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>", { noremap = true, silent = true, desc = "open/close nvim-tree" })
-vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select, { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
-vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear, { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" } )
+vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>",
+  { noremap = true, silent = true, desc = "open/close nvim-tree" })
+vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select,
+  { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
+vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear,
+  { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" })
 
 nvim_tree.setup {
   -- https://github.com/ahmedkhalf/project.nvim
@@ -41,7 +44,7 @@ nvim_tree.setup {
   respect_buf_cwd = true,
   disable_netrw = true,
   hijack_netrw = true,
-  open_on_setup = true,
+  open_on_setup = false,
   ignore_ft_on_setup = {
     "alpha",
   },
@@ -90,11 +93,11 @@ nvim_tree.setup {
         { key = "<C-v>", action = "" },
         { key = "s", action = "split" },
         { key = "<C-x>", action = "" },
-        { key = "<C-d>", action = "trash"},
+        { key = "<C-d>", action = "trash" },
         { key = "m", action = "toggle_mark" },
-        { key = "D", action = ""},
-        { key = "<Tab>", action = ""},
-        { key = "<C-e>", action = ""},
+        { key = "D", action = "" },
+        { key = "<Tab>", action = "" },
+        { key = "<C-e>", action = "" },
       },
     },
     number = false,

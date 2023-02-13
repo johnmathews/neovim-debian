@@ -18,6 +18,7 @@ map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line
 map("n", "<F3>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
 map("n", "<F4>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>",
   KeymapOptions("Toggle spell checker"))
+map("n", "<F5>", ':let @" = expand("%")', KeymapOptions("Yank (copy) filepath to clipboard"))
 
 
 --Remap space as leader key
