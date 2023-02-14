@@ -12,12 +12,16 @@ local default_options = { noremap = true, silent = true }
 map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>",
   KeymapOptions("Telescope current buffer fuzzy find"))
 
-map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, sorter = require'telescope.sorters'.get_substr_matcher() })<CR>", default_options)
+map("n", "<Tab>r",
+  ":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, sorter = require'telescope.sorters'.get_substr_matcher() })<CR>"
+  , default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
 map("n", "<Tab>s", ":Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" })
-map("n", "<Tab>y", ":lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<CR>", { noremap = true, silent = true, desc = "Telescope fuzzy-find text in PWD" })
+map("n", "<Tab>y",
+  ":lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<CR>"
+  , { noremap = true, silent = true, desc = "Telescope fuzzy-find text in PWD" })
 map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Telescope ripgrep with args" })
 
@@ -52,7 +56,8 @@ map("n", "<Tab>gs", ":Telescope git_status<CR>", default_options)
 map("n", "<Tab>vt", ":Telescope treesitter<CR>", default_options)
 
 -- Harpoon
-map("n", "gh", ":Telescope harpoon marks<CR>", default_options)
+-- map("n", "<leader>h", ":Telescope harpoon marks theme=dropdown<CR>", default_options)
+map("n", "<leader>h", ":Telescope harpoon marks<CR>", default_options)
 
 -- Vim pickers
 map("n", "<Tab>va", ":Telescope autocommands<CR>", default_options)
