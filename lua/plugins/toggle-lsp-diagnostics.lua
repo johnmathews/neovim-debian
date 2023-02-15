@@ -1,3 +1,4 @@
+-- https://github.com/WhoIsSethDaniel/toggle-lsp-diagnostics.nvim
 local status_ok, lsp_diagnostics = pcall(require, "toggle_lsp_diagnostics")
 
 if not status_ok then
@@ -22,6 +23,7 @@ end
 map("n", "<Tab>dd", "<Plug>(toggle-lsp-diag)", KeymapOptions("Diagnostics: Toggle signs and vtext")) -- :ToggleDiag
 map("n", "<Tab>ds", "<Plug>(toggle-lsp-diag-signs)", KeymapOptions("Diagnostics: Toggle signs"))
 map("n", "<Tab>dt", "<Plug>(toggle-lsp-diag-vtext)", KeymapOptions("Diagnostics: Toggle virtual text"))
+map("n", "<Tab>du", "<Plug>(toggle-lsp-diag-underline)", KeymapOptions("Diagnostics: Toggle underline"))
 
 map("n", "<Tab>df", "<Plug>(toggle-lsp-diag-off)", KeymapOptions("Diagnostics: Off")) --:ToggleDiagOfF
 map("n", "<Tab>dn", "<Plug>(toggle-lsp-diag-on)", KeymapOptions("Diagnostics: On")) -- :ToggleDiagOn

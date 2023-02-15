@@ -69,17 +69,17 @@ require("gitsigns").setup({
     end, { expr = true, desc = "GitSigns: navigate hunk" })
 
     -- Actions
-    map({ "n", "v" }, "gshs", "Gitsigns: stage_hunk<CR>")
-    map({ "n", "v" }, "gshr", "Gitsigns: reset_hunk<CR>")
-    map("n", "gsS", gs.stage_buffer, KeymapOptions("GitSigns: Stage buffer"))
-    map("n", "gshu", gs.undo_stage_hunk, KeymapOptions("GitSigns: Unstage hunk"))
-    map("n", "gshR", gs.reset_buffer, KeymapOptions("GitSigns: Reset buffer"))
-    map("n", "gshp", gs.preview_hunk, KeymapOptions("Gitsigns: Preview hunk"))
-    map("n", "gsb", gs.toggle_current_line_blame, KeymapOptions("GitSigns: blame current line"))
-    map("n", "gsB", function() gs.blame_line({ full = true }) end, KeymapOptions("GitSigns: blame w/ preview"))
-    map("n", "gsd", gs.diffthis, KeymapOptions("GitSigns: Diff current buffer"))
-    map("n", "gsD", function() gs.diffthis("~") end, KeymapOptions("GitSigns: Diff ??"))
-    map("n", "gst", gs.toggle_deleted, KeymapOptions("GitSigns: Toggle Deleted"))
+    map({ "n", "v" }, "<Leader>shs", "Gitsigns: stage_hunk<CR>")
+    map({ "n", "v" }, "<Leader>shr", "Gitsigns: reset_hunk<CR>")
+    map("n", "<Leader>sS", gs.stage_buffer, KeymapOptions("GitSigns: Stage buffer"))
+    map("n", "<Leader>shu", gs.undo_stage_hunk, KeymapOptions("GitSigns: Unstage hunk"))
+    map("n", "<Leader>shR", gs.reset_buffer, KeymapOptions("GitSigns: Reset buffer"))
+    map("n", "<Leader>shp", gs.preview_hunk, KeymapOptions("Gitsigns: Preview hunk"))
+    map("n", "<Leader>sb", gs.toggle_current_line_blame, KeymapOptions("GitSigns: blame current line"))
+    map("n", "<Leader>sB", function() gs.blame_line({ full = true }) end, KeymapOptions("GitSigns: blame w/ preview"))
+    map("n", "<Leader>sd", gs.diffthis, KeymapOptions("GitSigns: Diff current buffer"))
+    map("n", "<Leader>sD", function() gs.diffthis("~") end, KeymapOptions("GitSigns: Diff ??"))
+    map("n", "<Leader>st", gs.toggle_deleted, KeymapOptions("GitSigns: Toggle Deleted"))
 
     -- Text object
     map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", KeymapOptions("GitSigns: select hunk"))
