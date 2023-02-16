@@ -57,7 +57,7 @@ map("n", "<Tab>vt", ":Telescope treesitter<CR>", default_options)
 
 -- Harpoon
 -- map("n", "<leader>h", ":Telescope harpoon marks theme=dropdown<CR>", default_options)
-map("n", "<leader>h", ":Telescope harpoon marks<CR>", default_options)
+-- map("n", "<leader>h", ":Telescope harpoon marks<CR>", default_options)
 
 -- Vim pickers
 map("n", "<Tab>va", ":Telescope autocommands<CR>", default_options)
