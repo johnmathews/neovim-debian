@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "sumneko_lua", "jsonls" },
+  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "lua_ls", "jsonls" },
   automatic_installation = true,
 }
 
@@ -43,7 +43,6 @@ end
 local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end,
     KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
-
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -91,6 +90,8 @@ local lsp_flags = {
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 mason_lspconfig.setup_handlers({
+  -- AVAILABLE SERVERS: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
+
   -- The first entry (without a key) will be the default handler and will be called for
   -- each installed server that doesn't have a dedicated handler.
   function(server_name) -- default handler (optional)
@@ -102,8 +103,8 @@ mason_lspconfig.setup_handlers({
   end,
   -- Next, you can provide targeted overrides for specific servers.
   -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
-  ["sumneko_lua"] = function()
-    lspconfig.sumneko_lua.setup {
+  ["lua_ls"] = function()
+    lspconfig.lua_ls.setup {
       on_attach = on_attach,
       flags = lsp_flags,
       capabilities = capabilities,

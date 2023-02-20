@@ -15,7 +15,7 @@ null_ls.setup({
 
 
     -- XML
-    -- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#tidy
+    null_ls.builtins.formatting.xmllint,
     null_ls.builtins.formatting.tidy.with({
       filetypes = { "xml" }, 
       extra_args = { "--quiet", "--show-warnings", "--show-errors", "--show-info" },
