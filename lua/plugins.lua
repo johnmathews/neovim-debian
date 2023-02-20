@@ -137,17 +137,10 @@ return packer.startup({
       requires = {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
+        "mfussenegger/nvim-dap"
       },
       config = function()
         require("plugins.mason")
-      end,
-    })
-
-    use({
-      "glepnir/lspsaga.nvim",
-      branch = "main",
-      config = function()
-        require("plugins.lsp-saga")
       end,
     })
 
@@ -161,6 +154,14 @@ return packer.startup({
       config = function()
         require("plugins.toggle-lsp-diagnostics")
       end
+    })
+
+    use({
+      "glepnir/lspsaga.nvim",
+      branch = "main",
+      config = function()
+        require("plugins.lsp-saga")
+      end,
     })
 
     -- buffers and window management
