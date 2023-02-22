@@ -133,7 +133,8 @@ return packer.startup({
       end,
     })
 
-    use({ "williamboman/mason.nvim",
+    use({
+      "williamboman/mason.nvim",
       requires = {
         "neovim/nvim-lspconfig",
         "williamboman/mason-lspconfig.nvim",
@@ -144,13 +145,15 @@ return packer.startup({
       end,
     })
 
-    use({ "jose-elias-alvarez/null-ls.nvim",
+    use({
+      "jose-elias-alvarez/null-ls.nvim",
       config = function()
         require("plugins.null-ls")
       end
     })
     use({ "ray-x/lsp_signature.nvim", requires = "neovim/nvim-lspconfig" })
-    use({ "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
+    use({
+      "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
       config = function()
         require("plugins.toggle-lsp-diagnostics")
       end
@@ -165,13 +168,15 @@ return packer.startup({
     })
 
     -- buffers and window management
-    use({ "marklcrns/vim-smartq",
+    use({
+      "marklcrns/vim-smartq",
       config = function()
         require("plugins.smartq")
       end,
     })
 
-    use({ "Asheq/close-buffers.vim",
+    use({
+      "Asheq/close-buffers.vim",
       config = function()
         require("plugins.close-buffers")
       end,
@@ -182,9 +187,13 @@ return packer.startup({
       event = "VimEnter",
       config = function()
         vim.defer_fn(function()
-          require("copilot").setup()
-        end, 100)
+          require("copilot").setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          })
+        end, 1000)
       end,
+
     }
     use {
       "zbirenbaum/copilot-cmp",
@@ -194,7 +203,6 @@ return packer.startup({
           method = "getCompletionsCycling",
           formatters = {
             label = require("copilot_cmp.format").format_label_text,
-            -- insert_text = require("copilot_cmp.format").format_insert_text,
             insert_text = require("copilot_cmp.format").remove_existing,
             preview = require("copilot_cmp.format").deindent,
           },
@@ -220,7 +228,8 @@ return packer.startup({
     })
 
     -- snippets engine
-    use({ "L3MON4D3/LuaSnip",
+    use({
+      "L3MON4D3/LuaSnip",
       config = function()
         require("plugins.luasnip")
       end,
@@ -297,7 +306,8 @@ return packer.startup({
     })
 
     -- preview markdown
-    use({ "ellisonleao/glow.nvim",
+    use({
+      "ellisonleao/glow.nvim",
       config = function()
         require("glow").setup({
           style = "dark",
@@ -344,7 +354,8 @@ return packer.startup({
     -- adds various text objects to give you more targets to operate on
     use({ "wellle/targets.vim" })
     -- movement, like sneak
-    use({ "ggandor/leap.nvim",
+    use({
+      "ggandor/leap.nvim",
       config = function()
         require("plugins.leap")
       end,
@@ -358,10 +369,13 @@ return packer.startup({
 
     -- run python tests from the buffer
     use({
-      "janko-m/vim-test",
+      "vim-test/vim-test",
       config = function()
         require("plugins.vim-test")
       end,
+      requires = {
+        "skywind3000/asyncrun.vim",
+      },
     })
 
     use("hashivim/vim-vagrant")
@@ -403,12 +417,12 @@ return packer.startup({
     -- show hexcodes etc with a bg that matches the color they represent
     -- off by default, use :ColorHighlight! to toggle. see :h colorizer
     use({ "chrisbra/Colorizer" })
-    use({
-      "folke/lsp-colors.nvim",
-      config = function()
-        require("plugins.lsp-colors")
-      end,
-    })
+    -- use({
+    --   "folke/lsp-colors.nvim",
+    --   config = function()
+    --     require("plugins.lsp-colors")
+    --   end,
+    -- })
     use("tanvirtin/monokai.nvim")
     use({
       "kyazdani42/nvim-web-devicons",
@@ -418,7 +432,6 @@ return packer.startup({
       require("packer").sync()
     end
   end,
-
   config = {
     compile_path = vim.fn.stdpath("config") .. "/plugin/packer_compiled.lua",
     max_jobs = 16,

@@ -15,6 +15,12 @@ local check_backspace = function()
   return col == 0 or vim.fn.getline("."):sub(col, col):match("%s")
 end
 
+local has_words_before = function()
+  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
+end
+
 local kind_icons = {
   Copilot = "",
   Text = "",
@@ -55,17 +61,24 @@ cmp.setup({
     if vim.api.nvim_get_mode().mode == 'c' then -- keep command mode completion enabled when cursor is in a comment
       return true
     elseif buftype == "prompt" then -- disable cmp in telescope prompt
-      return false 
+      return false
     else
-      return not context.in_treesitter_capture("comment") and not context.in_syntax_group("Comment") -- disable completion in comments
+      return not context.in_treesitter_capture("comment") and
+          not context.in_syntax_group("Comment") -- disable completion in comments
     end
   end,
   sorting = {
+    priority_weight = 2,
     comparators = {
+      -- require("copilot_cmp.comparators").prioritize,
+      -- require("copilot_cmp.comparators").score,
+
       cmp.config.compare.offset,
       cmp.config.compare.exact,
       cmp.config.compare.score,
-      require "cmp-under-comparator".under,
+      cmp.config.compare.recently_used,
+      -- require "cmp-under-comparator".under, -- small plugin to better sort functions that start with a `_` https://github.com/lukas-reineke/cmp-under-comparator
+      cmp.config.compare.locality,
       cmp.config.compare.kind,
       cmp.config.compare.sort_text,
       cmp.config.compare.length,
@@ -81,7 +94,6 @@ cmp.setup({
     completion = cmp.config.window.bordered(),
     documentation = cmp.config.window.bordered(),
   },
-
   -- how to navigate the completions and documentations windows
   mapping = {
 
@@ -90,7 +102,7 @@ cmp.setup({
     ["<C-j>"] = cmp.mapping.select_next_item(),
 
     -- documentation
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -101,10 +113,18 @@ cmp.setup({
 
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
-    ["<CR>"] = cmp.mapping.confirm { select = false },
-    ["`"] = cmp.mapping.confirm { select = true },
-    ["<Tab>"] = cmp.mapping(function(fallback)
-      if cmp.visible() then
+    ["<CR>"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    },
+    ["`"] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = false,
+    },
+    ["<Tab>"] = vim.schedule_wrap(function(fallback)
+      if cmp.visible() and has_words_before() then
+        cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      elseif cmp.visible() then
         cmp.select_next_item()
       elseif luasnip.expandable() then
         luasnip.expand()
@@ -123,8 +143,8 @@ cmp.setup({
       function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable(-1) then
-          luasnip.jump(-1)
+        elseif luasnip.jumpable( -1) then
+          luasnip.jump( -1)
         else
           fallback()
         end
@@ -140,25 +160,25 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s ", kind_icons[vim_item.kind])
       vim_item.menu = ({
-        nvim_lsp = "[LSP]",
-        nvim_lua = "[Nvim_Lua]",
-        luasnip = "[Luasnip]",
-        buffer = "[Buffer]",
-        path = "[Path]",
-        emoji = "[Emoji]",
-        copilot = "[Copilot]",
-      })[entry.source.name]
+            nvim_lsp = "[LSP]",
+            nvim_lua = "[Nvim_Lua]",
+            luasnip = "[Luasnip]",
+            buffer = "[Buffer]",
+            path = "[Path]",
+            emoji = "[Emoji]",
+            copilot = "[Copilot]",
+          })[entry.source.name]
       return vim_item
     end,
   },
   -- if a group_index is higher, it wont be shown if a source with a lower index value is available
   sources = {
-    { name = "copilot", group_index = 2 },
+    { name = "copilot",  group_index = 2 },
     { name = "nvim_lsp", group_index = 2 },
-    { name = "path", group_index = 2 },
-    { name = "luasnip", group_index = 2 },
+    { name = "path",     group_index = 2 },
+    { name = "luasnip",  group_index = 2 },
     { name = "nvim_lua", group_index = 2 },
-    { name = "emoji", group_index = 3 },
+    { name = "emoji",    group_index = 3 },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
