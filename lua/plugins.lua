@@ -191,7 +191,7 @@ return packer.startup({
             suggestion = { enabled = false },
             panel = { enabled = false },
           })
-        end, 1000)
+        end, 100)
       end,
 
     }
@@ -202,7 +202,7 @@ return packer.startup({
         require("copilot_cmp").setup({
           method = "getCompletionsCycling",
           formatters = {
-            label = require("copilot_cmp.format").format_label_text,
+            label = require("copilot_cmp.format").format_label_text, -- this breaks multiline suggestions sometimes
             insert_text = require("copilot_cmp.format").remove_existing,
             preview = require("copilot_cmp.format").deindent,
           },
