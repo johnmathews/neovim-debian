@@ -137,7 +137,13 @@ return packer.startup({
     use({
       "j-hui/fidget.nvim",
       config = function()
-        require "fidget".setup{}
+        require "fidget".setup {
+          align = {
+            bottom = false, -- align fidgets along bottom edge of buffer
+            right = true, -- align fidgets along right edge of buffer
+          },
+
+        }
       end,
     })
 
