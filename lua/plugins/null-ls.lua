@@ -8,12 +8,6 @@ null_ls.setup({
   debug = false,
   sources = {
 
-    -- GENERAL
-    -- =======
-    -- null_ls.builtins.code_actions.gitsigns,
-    -- null_ls.builtins.completion.tags,
-
-
     -- XML
     null_ls.builtins.formatting.xmllint,
     null_ls.builtins.formatting.tidy.with({
@@ -37,10 +31,10 @@ null_ls.setup({
     null_ls.builtins.formatting.isort, -- import order
     null_ls.builtins.formatting.black, -- formatting
     null_ls.builtins.formatting.autoflake, -- remove unused imports
-    null_ls.builtins.diagnostics.pylint.with({ --  static code analysis
-      diagnostics_postprocess = function(diagnostic)
-        diagnostic.code = diagnostic.message_id
-      end,
-    }),
+    -- null_ls.builtins.diagnostics.pylint.with({ --  static code analysis
+    --   diagnostics_postprocess = function(diagnostic)
+    --     diagnostic.code = diagnostic.message_id
+    --   end,
+    -- }),
   },
 })
