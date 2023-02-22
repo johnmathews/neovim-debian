@@ -133,6 +133,14 @@ return packer.startup({
       end,
     })
 
+    -- lsp status indicator, because maybe the lualine one is broken?
+    use({
+      "j-hui/fidget.nvim",
+      config = function()
+        require "fidget".setup{}
+      end,
+    })
+
     use({
       "williamboman/mason.nvim",
       requires = {
