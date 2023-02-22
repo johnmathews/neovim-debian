@@ -1,14 +1,16 @@
+--
 -- toggle the quickfix window
--- vim.cmd [[
---   function! ToggleQuickFix()
---     if empty(filter(getwininfo(), 'v:val.quickfix'))
---       copen 15
---       setlocal norelativenumber
---     else
---       cclose
---     endif
---   endfunction
--- ]]
+-- in mappings.lua gq is mapped to this
+vim.cmd [[
+  function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+      copen 15
+      setlocal norelativenumber
+    else
+      cclose
+    endif
+  endfunction
+]]
 
 -- blog post
 vim.cmd [[

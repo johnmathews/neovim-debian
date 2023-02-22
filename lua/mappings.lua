@@ -77,7 +77,7 @@ map("n", "<C-K>", "<C-W><C-K>", default_options)
 map("n", "<C-L>", "<C-W><C-L>", default_options)
 
 -- FUNCTIONS
--- map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
+map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
