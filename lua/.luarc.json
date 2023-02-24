@@ -8,6 +8,7 @@
         "require",
         "KeymapOptions",
         "KeymapBufferOptions",
-        "bufnr"
+        "bufnr",
+        "PACKER_BOOTSTRAP"
     ]
 }
