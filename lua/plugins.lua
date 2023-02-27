@@ -182,19 +182,19 @@ return packer.startup({
     })
 
     -- buffers and window management
-    use({
-      "marklcrns/vim-smartq",
-      config = function()
-        require("plugins.smartq")
-      end,
-    })
+    -- use({
+    --   "marklcrns/vim-smartq",
+    --   config = function()
+    --     require("plugins.smartq")
+    --   end,
+    -- })
 
-    use({
-      "Asheq/close-buffers.vim",
-      config = function()
-        require("plugins.close-buffers")
-      end,
-    })
+    -- use({
+    --   "Asheq/close-buffers.vim",
+    --   config = function()
+    --     require("plugins.close-buffers")
+    --   end,
+    -- })
 
     use {
       "zbirenbaum/copilot.lua",
@@ -259,7 +259,6 @@ return packer.startup({
         "nvim-treesitter/playground",
       },
     })
-    use("JoosepAlviste/nvim-ts-context-commentstring")
 
     -- this is an (unmaintained) treesitter plugin.
     -- config is in the `rainbow` attribute in treesitter.lua

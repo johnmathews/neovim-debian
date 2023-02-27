@@ -14,7 +14,7 @@ map("v", "gci", ":normal gcc<cr>",  { noremap = true, silent = true })
 local ft = require('Comment.ft')
 ft.Dockerfile = {'#%s', '#%s'}
 
-setup = {
+local setup = {
   ---Add a space b/w comment and the line
   ---@type boolean|fun():boolean
   padding = true,
