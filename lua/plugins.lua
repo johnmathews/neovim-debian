@@ -182,6 +182,7 @@ return packer.startup({
     })
 
     -- buffers and window management
+    -- doesnt seem to play nice with nvim-tree anymore
     -- use({
     --   "marklcrns/vim-smartq",
     --   config = function()
@@ -189,12 +190,12 @@ return packer.startup({
     --   end,
     -- })
 
-    -- use({
-    --   "Asheq/close-buffers.vim",
-    --   config = function()
-    --     require("plugins.close-buffers")
-    --   end,
-    -- })
+    use({
+      "Asheq/close-buffers.vim",
+      config = function()
+        require("plugins.close-buffers")
+      end,
+    })
 
     use {
       "zbirenbaum/copilot.lua",

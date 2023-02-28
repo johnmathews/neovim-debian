@@ -58,6 +58,9 @@ map("v", ":", ";", { noremap = true, silent = false })
 map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
 map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit Vim"))
 
+-- smartQ disabled because it doesnt play nice with nvim-tree
+map("n", "qq", ":bd<CR>", KeymapOptions("Close buffer"))
+
 -- query which color - what and which kind of syntax is this color? - wc
 -- ghl. highlight group
 map("n", "wc",
