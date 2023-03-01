@@ -54,7 +54,7 @@ map("v", ";", ":", { noremap = true, silent = false })
 map("v", ":", ";", { noremap = true, silent = false })
 
 map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
-map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit Vim"))
+map("n", "<Tab>qq", ":NvimTreeClose<CR>|:qa<CR>", KeymapOptions("Quit Vim"))
 
 -- smartQ disabled because it doesnt play nice with nvim-tree
 -- map("n", "qq", ":bd<CR>", KeymapOptions("Close buffer"))

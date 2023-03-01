@@ -12,9 +12,8 @@ local default_options = { noremap = true, silent = true }
 map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>",
   KeymapOptions("Telescope current buffer fuzzy find"))
 
-map("n", "<Tab>r",
-  ":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, sorter = require'telescope.sorters'.get_substr_matcher() })<CR>"
-  , default_options)
+-- map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, sorter = require'telescope.sorters'.get_substr_matcher() })<CR>" , default_options)
+map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>" , default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)

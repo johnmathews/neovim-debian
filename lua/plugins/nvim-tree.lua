@@ -6,6 +6,11 @@ if not status_ok then
   return
 end
 
+local api_status_ok, nvim_tree_api = pcall(require, "nvim-tree.api")
+if not api_status_ok then
+  return
+end
+
 vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>",
   { noremap = true, silent = true, desc = "open/close nvim-tree" })
 
@@ -104,3 +109,9 @@ nvim_tree.setup {
     require_confirm = true,
   },
 }
+
+local function open_nvim_tree()
+  nvim_tree_api.tree.toggle({ focus = false, find_file = true, })
+end
+
+vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })
