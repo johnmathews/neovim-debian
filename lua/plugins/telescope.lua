@@ -29,9 +29,18 @@ map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_gre
 map("n", "<Tab>p", ":Telescope projects<CR>", default_options)
 map("n", "<Tab>h", ":Telescope help_tags<cr>", default_options)
 
-map("n", "<Tab>vc", ":Telescope command_history<CR>", default_options)
-map("n", "<Tab>vs", ":Telescope search_history<CR>", default_options)
-map("n", "<Tab>vk", ":Telescope keymaps<CR>", default_options)
+map("n", "<Tab>tc", ":Telescope command_history<CR>", default_options)
+map("n", "<Tab>ts", ":Telescope search_history<CR>", default_options)
+map("n", "<Tab>tk", ":Telescope keymaps<CR>", default_options)
+
+-- Treesitter picker
+map("n", "<Tab>tt", ":Telescope treesitter<CR>", default_options)
+
+-- Vim pickers
+map("n", "<Tab>ta", ":Telescope autocommands<CR>", default_options)
+map("n", "<Tab>tr", ":Telescope registers<CR>", default_options)
+map("n", "<Tab>to", ":Telescope vim_options<CR>", default_options)
+
 
 -- map("n", "<Tab>j", ":Telescope jumplist<CR>", default_options)
 -- map("n", "<Tab>l", ":Telescope loclist<CR>", default_options)
@@ -52,17 +61,9 @@ map("n", "<Tab>gb", ":Telescope git_bcommits<CR>", default_options)
 map("n", "<Tab>gr", ":Telescope git_branches<CR>", default_options)
 map("n", "<Tab>gs", ":Telescope git_status<CR>", default_options)
 
--- Treesitter picker
-map("n", "<Tab>vt", ":Telescope treesitter<CR>", default_options)
-
 -- Harpoon
 -- map("n", "<leader>h", ":Telescope harpoon marks theme=dropdown<CR>", default_options)
 -- map("n", "<leader>h", ":Telescope harpoon marks<CR>", default_options)
-
--- Vim pickers
-map("n", "<Tab>va", ":Telescope autocommands<CR>", default_options)
-map("n", "<Tab>vr", ":Telescope registers<CR>", default_options)
-map("n", "<Tab>vo", ":Telescope vim_options<CR>", default_options)
 
 -- LSP pickers
 map("n", "<Localleader>r", ":Telescope lsp_references<CR>", default_options)
@@ -75,7 +76,7 @@ telescope.load_extension('projects')
 telescope.load_extension('fzf')
 telescope.load_extension('harpoon')
 telescope.load_extension('live_grep_args')
-
+telescope.load_extension('smart_history')
 
 -- Custom actions
 local transform_mod = require("telescope.actions.mt").transform_mod
@@ -130,6 +131,10 @@ telescope.setup {
     selection_caret = "  ",
     entry_prefix = "   ",
     path_display = { "truncate" },
+    history = {
+      path = '~/.local/share/nvim/databases/telescope_history.sqlite3',
+      limit = 100,
+    },
 
     mappings = {
       i = {

@@ -63,6 +63,7 @@ return packer.startup({
       end,
     })
 
+    -- https://github.com/rmagatti/auto-session#-command-hooks
     use {
       'rmagatti/auto-session',
       config = function()
@@ -90,6 +91,8 @@ return packer.startup({
         "nvim-treesitter/nvim-treesitter",
         "neovim/nvim-lspconfig",
         "nvim-telescope/telescope-live-grep-args.nvim",
+        "kkharji/sqlite.lua",
+        "nvim-telescope/telescope-smart-history.nvim",
       },
       config = function()
         require("plugins.telescope")
@@ -183,12 +186,12 @@ return packer.startup({
 
     -- buffers and window management
     -- doesnt seem to play nice with nvim-tree anymore
-    -- use({
-    --   "marklcrns/vim-smartq",
-    --   config = function()
-    --     require("plugins.smartq")
-    --   end,
-    -- })
+    use({
+      "marklcrns/vim-smartq",
+      config = function()
+        require("plugins.smartq")
+      end,
+    })
 
     use({
       "Asheq/close-buffers.vim",

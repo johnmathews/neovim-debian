@@ -8,6 +8,7 @@ end
 
 vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>",
   { noremap = true, silent = true, desc = "open/close nvim-tree" })
+
 vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select,
   { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
 vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear,
@@ -74,25 +75,25 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 45,
+    width = 60,
     hide_root_folder = false,
     side = "left",
     mappings = {
       custom_only = false,
       list = {
-        { key = "?", action = "toggle_help" },
-        { key = "g?", action = "" },
+        { key = "?",                  action = "toggle_help" },
+        { key = "g?",                 action = "" },
         { key = { "l", "<CR>", "o" }, action = "edit" },
-        { key = "h", action = "close_node" },
-        { key = "v", action = "vsplit" },
-        { key = "<C-v>", action = "" },
-        { key = "s", action = "split" },
-        { key = "<C-x>", action = "" },
-        { key = "<C-d>", action = "trash" },
-        { key = "m", action = "toggle_mark" },
-        { key = "D", action = "" },
-        { key = "<Tab>", action = "" },
-        { key = "<C-e>", action = "" },
+        { key = "h",                  action = "close_node" },
+        { key = "v",                  action = "vsplit" },
+        { key = "<C-v>",              action = "" },
+        { key = "s",                  action = "split" },
+        { key = "<C-x>",              action = "" },
+        { key = "<C-d>",              action = "trash" },
+        { key = "m",                  action = "toggle_mark" },
+        { key = "D",                  action = "" },
+        { key = "<Tab>",              action = "" },
+        { key = "<C-e>",              action = "" },
       },
     },
     number = false,

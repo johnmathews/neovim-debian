@@ -16,9 +16,7 @@ map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 map("n", "<F1>", ":e<CR>|:lua vim.notify('Buffer Refreshed!')<CR>", KeymapOptions("Refresh buffer"))
 map("n", "<F2>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers"))
 map("n", "<F3>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
-map("n", "<F4>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>",
-  KeymapOptions("Toggle spell checker"))
-map("n", "<F5>", ':let @" = expand("%")', KeymapOptions("Yank (copy) filepath to clipboard"))
+map("n", "<F4>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker"))
 
 
 --Remap space as leader key
@@ -59,7 +57,7 @@ map("n", "<Tab>ww", ":wa<CR>", KeymapOptions("Write all buffers"))
 map("n", "<Tab>qq", ":qa<CR>", KeymapOptions("Quit Vim"))
 
 -- smartQ disabled because it doesnt play nice with nvim-tree
-map("n", "qq", ":bd<CR>", KeymapOptions("Close buffer"))
+-- map("n", "qq", ":bd<CR>", KeymapOptions("Close buffer"))
 
 -- query which color - what and which kind of syntax is this color? - wc
 -- ghl. highlight group
