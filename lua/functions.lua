@@ -19,3 +19,49 @@ function! s:NewPost(fn)
 endfunction
 command! -nargs=1 Mp call s:NewPost(<q-args>)
 ]]
+
+-- clear registers and overwrite shada file so that register state is persisted
+vim.cmd [[
+function! ClearAllRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789/-="*+'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+    echom "cleared all registers. Inspect with :reg"
+endfunction
+
+command! ClearAllRegisters call ClearAllRegisters()
+command! wsh!
+]]
+
+vim.cmd [[
+function! ClearLetterRegisters()
+    let regs='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+    echom "cleared letter registers. Inspect with :reg"
+endfunction
+
+command! ClearLetterRegisters call ClearAllRegisters()
+command! wsh!
+]]
+
+vim.cmd [[
+function! ClearNumberRegisters()
+    let regs='0123456789'
+    let i=0
+    while (i<strlen(regs))
+        exec 'let @'.regs[i].'=""'
+        let i=i+1
+    endwhile
+    echom "reset registers 1 - 9. Inspect with :reg"
+endfunction
+
+command! ClearNumberRegisters call ClearNumberRegisters()
+command! wsh!
+]]
