@@ -17,7 +17,6 @@ local options = {
   wildmode = "longest:full,full",
   wrap = true, -- long lines dont disappear off the screen
   wrapscan = true, -- searchees wrap around to beginning or end
-  whichwrap = "h,l", 
   list = true, -- Show some invisible characters
   listchars = { tab = " ", trail = "·" },
 
