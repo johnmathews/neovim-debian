@@ -11,11 +11,11 @@ null_ls.setup({
     -- XML
     null_ls.builtins.formatting.xmllint,
     null_ls.builtins.formatting.tidy.with({
-      filetypes = { "xml" }, 
+      filetypes = { "xml" },
       extra_args = { "--quiet", "--show-warnings", "--show-errors", "--show-info" },
     }),
     null_ls.builtins.diagnostics.tidy.with({
-      filetypes = { "xml" }, 
+      filetypes = { "xml" },
       extra_args = { "--quiet", "--show-warnings", "--show-errors", "--show-info" },
     }),
 
@@ -24,6 +24,12 @@ null_ls.setup({
     null_ls.builtins.formatting.prettier.with({
       extra_args = { "--prose-wrap", "always" },
     }),
+
+    -- ESLint https://github.com/mantoni/eslint_d.js
+    -- this might not be necessary in addition to prettier
+    null_ls.builtins.code_actions.eslint_d,
+    null_ls.builtins.diagnostics.eslint_d,
+    null_ls.builtins.formatting.eslint_d,
 
     -- PYTHON
     -- ======
