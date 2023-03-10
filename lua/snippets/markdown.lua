@@ -74,7 +74,54 @@ return {
     t { "", "```", "" },
     i(0),
   }),
-  s("meta", {
+
+  s({
+    trig = "category",
+    namr = "blog categories",
+    dscr = "blog categories",
+  }, c(1, {
+    {
+      -- put an insertNode here so it's possible
+      -- to change the outer choice.
+      -- (without it, the cursor would always jump
+      -- directly into the inner choiceNode).
+      i(1),
+      t("technical."),
+      c(2, {
+        t("snippet"),
+        t("developer-tools"),
+        t("data"),
+        t("web"),
+        t("cryptocurrencies"),
+        t("engineering"),
+        t("other"),
+      }),
+    },
+    {
+      i(1),
+      t("non-technical."),
+      c(2, {
+        t("snippet"),
+        t("photographs"),
+        t("entrepreneurship"),
+        t("journal"),
+        t("learning"),
+        t("social"),
+        t("other"),
+      }),
+    },
+    {
+      i(1),
+      t("snippet"),
+    },
+  }
+  )),
+
+  s({
+    trig = "meta",
+    namr = "blog post frontmatter",
+    dscr = "blog post frontmatter",
+  }, {
     t({ "---" }),
     t({ "", "title: " }),
     i(1),
