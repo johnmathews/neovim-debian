@@ -185,7 +185,6 @@ return packer.startup({
     })
 
     -- buffers and window management
-    -- doesnt seem to play nice with nvim-tree anymore
     use({
       "marklcrns/vim-smartq",
       config = function()
@@ -428,6 +427,7 @@ return packer.startup({
         require("plugins.nvim-tree")
       end,
       event = "VimEnter",
+      -- commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
     })
 
     -- COLORS + colorschemes
