@@ -370,6 +370,7 @@ return packer.startup({
 
     -- adds various text objects to give you more targets to operate on
     use({ "wellle/targets.vim" })
+
     -- movement, like sneak
     use({
       "ggandor/leap.nvim",

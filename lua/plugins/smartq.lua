@@ -2,7 +2,8 @@ local map = vim.api.nvim_set_keymap
 
 -- Exit/Delete buffer while respecting window splits and tabs, and other types of buffer.
 
-map("n", "qq", "<Plug>(smartq_this)", KeymapOptions("Quit buffer (smartQ)"))
+map("n", "qq", ":bprevious<CR> | :bdelete #<CR>", KeymapOptions("Quit buffer (vanilla)"))
+-- map("n", "qq", "<Plug>(smartq_this)", KeymapOptions("Quit buffer (smartQ)"))
 
 -- map("n", "<C-Q>", "<Plug>(smartq_this_force)", KeymapOptions("Quit buffer (smartQ)"))
 map("n", "wq", "<Plug>(smartq_this_save)", KeymapOptions("Quit buffer (smartQ)"))
@@ -20,7 +21,7 @@ vim.cmd([[
 -- on excluded buffers. Non-modifiable buffers are preserved by default.
 vim.cmd([[
   let g:smartq_exclude_filetypes = [ 'fugitive', 'NvimTree' ]
-  let g:smartq_exclude_buftypes= [ '' ]
+  let g:smartq_exclude_buftypes= [ 'NvimTree' ]
 ]])
 
 -- Quit buffers using :q command. Non-modifiable and readonly file uses :q
@@ -36,7 +37,7 @@ vim.cmd([[ let g:smartq_bw_filetypes = [ '' ]
 ]])
 
 -- Automatically wipe empty (with no changes) buffer(s)
-vim.cmd([[ let g:smartq_auto_wipe_emtpy = 1 ]])
+vim.cmd([[ let g:smartq_auto_wipe_emtpy = 0 ]])
 
 -- Best attemp to prevent exiting editor when left with an empty modifiable buffer
 -- Automatically close splits when left with 1 modifiable buffer
