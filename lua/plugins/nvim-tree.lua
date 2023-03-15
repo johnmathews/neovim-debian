@@ -110,8 +110,8 @@ nvim_tree.setup {
   },
 }
 
+-- this might conflict with session manager plugin
 local function open_nvim_tree()
   nvim_tree_api.tree.toggle({ focus = false, find_file = true, })
 end
-
 vim.api.nvim_create_autocmd({ "VimEnter" }, { callback = open_nvim_tree })

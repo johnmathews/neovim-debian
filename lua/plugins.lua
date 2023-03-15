@@ -71,6 +71,7 @@ return packer.startup({
           log_level = "error",
           auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these
           auto_save_enabled = true,
+          pre_save_cmds = {"NvimTreeClose"},
         }
       end
     }
@@ -418,6 +419,7 @@ return packer.startup({
     })
 
     -- file explorer
+    -- https://github.com/nvim-tree/nvim-tree.lua/commits/master
     use({
       "kyazdani42/nvim-tree.lua",
       requires = {
@@ -427,7 +429,7 @@ return packer.startup({
         require("plugins.nvim-tree")
       end,
       event = "VimEnter",
-      -- commit = "9c97e6449b0b0269bd44e1fd4857184dfa57bb4c",
+      -- commit = "8b8d457e07d279976a9baac6bbff5aa036afdc5f",
     })
 
     -- COLORS + colorschemes
