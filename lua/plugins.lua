@@ -67,12 +67,7 @@ return packer.startup({
     use {
       'rmagatti/auto-session',
       config = function()
-        require("auto-session").setup {
-          log_level = "error",
-          auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these
-          auto_save_enabled = true,
-          pre_save_cmds = {"NvimTreeClose"},
-        }
+        require("plugins.auto-session")
       end
     }
 

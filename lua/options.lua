@@ -104,10 +104,6 @@ vim.cmd("set path+=~/.config/nvim/lua/plugins/")
 
 vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
 
--- https://dockyard.com/blog/2018/06/01/simple-vim-session-management-part-1
--- this is a custom variable to be used with a custom command defined in the linked article
-vim.g.session_dir = "~/.config/nvim/sessions/"
-
 -- opt.foldenable = false
 -- opt.foldmethod = "indent"
 -- opt.hlsearch = true -- Highlight found searches
@@ -126,6 +122,3 @@ vim.g.session_dir = "~/.config/nvim/sessions/"
 --
 
 vim.opt.shortmess:append("c")
-
--- auto-session plugin
-vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
