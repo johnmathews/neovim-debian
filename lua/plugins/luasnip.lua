@@ -16,13 +16,14 @@ ls.config.set_config {
   -- Autosnippets:
   enable_autosnippets = true,
 
-  ext_opts = {
-    [types.choiceNode] = {
-      active = {
-        virt_text = { { " <- Current Choice", "NonTest" } },
-      },
-    },
-  },
+  -- because luasnip is a cmp source, virtual text isnt necessary
+  -- ext_opts = {
+  --   [types.choiceNode] = {
+  --     active = {
+  --       virt_text = { { " <- Current Choice", "NonTest" } },
+  --     },
+  --   },
+  -- },
 }
 
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/lua/luasnippets" })

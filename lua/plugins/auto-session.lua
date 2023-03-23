@@ -18,4 +18,5 @@ vim.cmd [[
 ]]
 
 
-vim.cmd("let g:auto_session_enabled = v:false")
+-- this stops sessions from being loaded automatically
+-- vim.cmd("let g:auto_session_enabled = v:false")

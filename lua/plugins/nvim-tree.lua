@@ -14,11 +14,16 @@ end
 vim.api.nvim_set_keymap("n", "<Leader>n", ":NvimTreeFindFileToggle<cr>",
   { noremap = true, silent = true, desc = "open/close nvim-tree" })
 
-vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select, { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
-vim.keymap.set("n", "zn", require("nvim-tree.api").marks.navigate.next, { noremap = true, silent = true, desc = "Next nvim-tree bookmark" })
-vim.keymap.set("n", "zp", require("nvim-tree.api").marks.navigate.prev, { noremap = true, silent = true, desc = "Previous nvim-tree bookmark" })
-vim.keymap.set("n", "zs", require("nvim-tree.api").marks.navigate.select, { noremap = true, silent = true, desc = "Select nvim-tree bookmark" })
-vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear, { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" })
+vim.keymap.set("n", "zc", require("nvim-tree.api").marks.clear,
+  { noremap = true, silent = true, desc = "Clear nvim-tree bookmarks" })
+vim.keymap.set("n", "zn", require("nvim-tree.api").marks.navigate.next,
+  { noremap = true, silent = true, desc = "Next nvim-tree bookmark" })
+vim.keymap.set("n", "zp", require("nvim-tree.api").marks.navigate.prev,
+  { noremap = true, silent = true, desc = "Previous nvim-tree bookmark" })
+vim.keymap.set("n", "zl", require("nvim-tree.api").marks.navigate.select,
+  { noremap = true, silent = true, desc = "List nvim-tree bookmarks" })
+vim.keymap.set("n", "zs", require("nvim-tree.api").marks.navigate.select,
+  { noremap = true, silent = true, desc = "Select nvim-tree bookmark" })
 
 nvim_tree.setup {
   -- https://github.com/ahmedkhalf/project.nvim

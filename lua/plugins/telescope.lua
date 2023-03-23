@@ -21,6 +21,8 @@ map("n", "<Tab>s", ":Telescope live_grep<CR>", { noremap = true, silent = true, 
 map("n", "<Tab>y",
   ":lua require'telescope.builtin'.grep_string{ shorten_path = true, word_match = '-w', only_sort_text = true, search = '' }<CR>"
   , { noremap = true, silent = true, desc = "Telescope fuzzy-find text in PWD" })
+
+-- ripgrep https://github.com/nvim-telescope/telescope-live-grep-args.nvim
 map("n", "<Tab>x", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Telescope ripgrep with args" })
 

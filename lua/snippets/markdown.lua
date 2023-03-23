@@ -130,16 +130,13 @@ return {
     t({ "", "category: " }),
     c(2, {
       {
-        -- put an insertNode here so it's possible
-        -- to change the outer choice.
-        -- (without it, the cursor would always jump
-        -- directly into the inner choiceNode).
         i(1),
         t("technical."),
         c(2, {
           t("snippet"),
           t("developer-tools"),
           t("data"),
+          t("AI"),
           t("web"),
           t("cryptocurrencies"),
           t("engineering"),
@@ -159,41 +156,16 @@ return {
           t("other"),
         }),
       },
-      {
-        i(1),
-        t("snippet"),
-      },
     }),
-    t({ "", 'tags: ["' }),
-    i(3),
-    t({ '"]' }),
+    t({ "", 'tags: ["' }), i(3), t({ '"]' }),
     t({ "" }),
-    t({ "", "description: " }),
-    i(4),
-    t({ "", "image: /static/images/" }),
-    i(5),
-    t({ ".png", "" }),
+    t({ "", "image: # /static/images/" }), i(4), t({ ".png" }),
+    t({ "", "description: " }), i(5),
+    t({ "", "" }),
     t({ "---" }),
     t({ "", "" }),
     t({ "", "" }),
     i(0),
-  }),
-
-  s("snip", {
-    t({ "---" }),
-    t({ "", "title: " }),
-    i(1),
-    t({ "", "date: " }),
-    f(date, {}),
-    t({ "", "category: snippet " }),
-    t({ "", 'tags: ["' }),
-    i(2),
-    t({ '"]' }),
-    t({ "", "image: '/static/images/<NAME>.png'" }),
-    t({ "", "---" }),
-    t({ "", "" }),
-    t({ "", "" }),
-    i(3),
   }),
 
   s({
