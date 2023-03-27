@@ -16,6 +16,14 @@ vim.cmd([[
   augroup end
 ]])
 
+
+vim.cmd([[
+  augroup RedrawOnFocusGained
+    autocmd!
+    autocmd FocusGained * :redraw!
+  augroup end
+]])
+
 -- bigquery files should be sql filetype .bq → sql
 vim.cmd([[
   autocmd BufEnter,BufNew *.bq setl filetype=sql
