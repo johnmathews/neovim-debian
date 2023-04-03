@@ -29,8 +29,6 @@ setlocal scrolloff=3 " The number of screen lines to keep above and below the cu
 
 setlocal whichwrap=hl  " let h and l wrap to previous or next line
 
-setlocal virtualedit=block " allow cursor to move past the end of the line
-
 setlocal textwidth=100
 " setlocal colorcolumn=101
 " highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=darkcyan
@@ -64,7 +62,7 @@ let g:rainbow_active = 0
 " vnoremap <leader>fp gw
 
 " this breaks syntax highlighting, so put it at the end
-" Glow preview
-lua << EOF
-  vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
-EOF
+" Glow preview - disabled because it crashes vim.
+" lua << EOF
+"   vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
+" EOF

@@ -18,7 +18,7 @@ local options = {
   wrap = true, -- long lines dont disappear off the screen
   wrapscan = true, -- searchees wrap around to beginning or end
   whichwrap = "h,l",  -- this seems to mess up intuitive col count when jumping lines
-  virtualedit = "all", 
+  virtualedit = "block",
   list = true, -- Show some invisible characters
   listchars = { tab = " ", trail = "·" },
 
