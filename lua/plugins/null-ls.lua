@@ -33,7 +33,9 @@ null_ls.setup({
 
     -- PYTHON
     -- ======
-    null_ls.builtins.diagnostics.flake8, -- style and code-quality checker
+    null_ls.builtins.diagnostics.flake8.with({
+      args = { "--max-line-length=120" },
+    }), -- style and code-quality checker
     null_ls.builtins.formatting.isort, -- import order
     null_ls.builtins.formatting.black, -- formatting
     null_ls.builtins.formatting.autoflake, -- remove unused imports
