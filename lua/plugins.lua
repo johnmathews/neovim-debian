@@ -201,7 +201,9 @@ return packer.startup({
       "jackMort/ChatGPT.nvim",
       config = function()
         require("chatgpt").setup({
-          -- optional configuration
+          keymaps = {
+            submit = "<C-s>"
+          }
         })
       end,
       requires = {
