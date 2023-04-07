@@ -63,6 +63,6 @@ let g:rainbow_active = 0
 
 " this breaks syntax highlighting, so put it at the end
 " Glow preview - disabled because it crashes vim.
-" lua << EOF
-"   vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
-" EOF
+lua << EOF
+  vim.api.nvim_set_keymap("n", "<Leader>p", ":Glow<CR>", KeymapOptions("Preview markdown"))
+EOF

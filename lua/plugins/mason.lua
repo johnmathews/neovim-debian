@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "pylsp", "tailwindcss", "lua_ls", "jsonls" },
+  ensure_installed = { "rust_analyzer", "pylsp", "pyright", "tailwindcss", "lua_ls", "jsonls" },
   automatic_installation = true,
 }
 
@@ -115,13 +115,15 @@ mason_lspconfig.setup_handlers({
         pylsp = {
           plugins = {
             black = { -- dont know if config is here or in null-ls
-              enabled = true,
+              enabled = false,
               line_length = 120,
               preview = true,
             },
             pycodestyle = {
-              -- ignore = { 'E501' },
-              maxLineLength = 120
+              ignore = { 
+                'E501' -- line too long
+              },
+              maxLineLength = 110
             }
           }
         }

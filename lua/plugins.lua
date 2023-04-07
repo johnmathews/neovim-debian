@@ -341,7 +341,7 @@ return packer.startup({
       config = function()
         require("glow").setup({
           style = "dark",
-          pager = true,
+          pager = false,
         })
       end,
     })

@@ -39,9 +39,11 @@ null_ls.setup({
     --   args = { "--max-line-length=120" },
     -- }), -- style and code-quality checker
 
-    null_ls.builtins.formatting.isort, -- import order
-    null_ls.builtins.formatting.black, -- formatting
     null_ls.builtins.formatting.autoflake, -- remove unused imports
+    null_ls.builtins.formatting.isort, -- import order
+    null_ls.builtins.formatting.black.with({
+      args = { "--stdin-filename", "$FILENAME", "--quiet", "-", "--line-length", "110" }
+    }), -- formatting
 
     -- null_ls.builtins.diagnostics.pylint.with({ --  static code analysis
     --   diagnostics_postprocess = function(diagnostic)
