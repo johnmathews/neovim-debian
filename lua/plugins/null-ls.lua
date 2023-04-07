@@ -33,12 +33,16 @@ null_ls.setup({
 
     -- PYTHON
     -- ======
-    null_ls.builtins.diagnostics.flake8.with({
-      args = { "--max-line-length=120" },
-    }), -- style and code-quality checker
+    
+    -- flake8 does not play nice with pyright or pylsp
+    -- null_ls.builtins.diagnostics.flake8.with({
+    --   args = { "--max-line-length=120" },
+    -- }), -- style and code-quality checker
+
     null_ls.builtins.formatting.isort, -- import order
     null_ls.builtins.formatting.black, -- formatting
     null_ls.builtins.formatting.autoflake, -- remove unused imports
+
     -- null_ls.builtins.diagnostics.pylint.with({ --  static code analysis
     --   diagnostics_postprocess = function(diagnostic)
     --     diagnostic.code = diagnostic.message_id

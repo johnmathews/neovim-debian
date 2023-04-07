@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "pyright", "tailwindcss", "lua_ls", "jsonls" },
+  ensure_installed = { "rust_analyzer", "pylsp", "tailwindcss", "lua_ls", "jsonls" },
   automatic_installation = true,
 }
 
@@ -101,8 +101,33 @@ mason_lspconfig.setup_handlers({
       capabilities = capabilities,
     }
   end,
-  -- Next, you can provide targeted overrides for specific servers.
   -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
+
+  -- TO SEE ACTIVE CONFIG: 
+  -- :lua print(vim.inspect(vim.lsp.get_active_clients()))
+  --
+  ["pylsp"] = function() -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
+    lspconfig.pylsp.setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+      capabilities = capabilities,
+      settings = {
+        pylsp = {
+          plugins = {
+            black = {
+              enabled = true,
+              line_length = 120,
+              preview = true,
+            },
+            pycodestyle = {
+              -- ignore = { 'E501' },
+              maxLineLength = 120
+            }
+          }
+        }
+      }
+    }
+  end,
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup {
       on_attach = on_attach,
