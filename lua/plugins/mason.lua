@@ -114,7 +114,7 @@ mason_lspconfig.setup_handlers({
       settings = {
         pylsp = {
           plugins = {
-            black = {
+            black = { -- dont know if config is here or in null-ls
               enabled = true,
               line_length = 120,
               preview = true,
