@@ -26,6 +26,11 @@ vim.keymap.set("n", "zs", require("nvim-tree.api").marks.navigate.select,
   { noremap = true, silent = true, desc = "Select nvim-tree bookmark" })
 
 nvim_tree.setup {
+  actions = {
+    open_file = {
+      resize_window = false,
+    }
+  },
   -- https://github.com/ahmedkhalf/project.nvim
   renderer = {
     highlight_opened_files = 'all',
@@ -53,6 +58,7 @@ nvim_tree.setup {
       }
     },
   },
+
   respect_buf_cwd = true,
   disable_netrw = true,
   hijack_netrw = true,
@@ -86,7 +92,7 @@ nvim_tree.setup {
     timeout = 500,
   },
   view = {
-    width = 30,
+    width = 50,
     hide_root_folder = false,
     side = "left",
     mappings = {

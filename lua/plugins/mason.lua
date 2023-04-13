@@ -103,7 +103,7 @@ mason_lspconfig.setup_handlers({
   end,
   -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
 
-  -- TO SEE ACTIVE CONFIG: 
+  -- TO SEE ACTIVE CONFIG:
   -- :lua print(vim.inspect(vim.lsp.get_active_clients()))
   --
   ["pylsp"] = function() -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
@@ -120,8 +120,10 @@ mason_lspconfig.setup_handlers({
               preview = true,
             },
             pycodestyle = {
-              ignore = { 
-                'E501' -- line too long
+              ignore = {
+                'E501', -- line too long
+                'F401', -- unused import
+                'W503', -- line break before binary operator
               },
               maxLineLength = 110
             }
