@@ -175,6 +175,7 @@ return packer.startup({
     use({
       "glepnir/lspsaga.nvim",
       branch = "main",
+      tag = "*",
       config = function()
         require("plugins.lsp-saga")
       end,

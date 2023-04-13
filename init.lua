@@ -1,5 +1,5 @@
 vim.cmd("let g:python3_host_prog = expand('~/.pyenv/versions/3.10.0/envs/nvim/bin/python3')")
-vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v17.9.0/bin/node')")
+vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v18.16.0/bin/node')")
 
 
 function KeymapOptions(description)
