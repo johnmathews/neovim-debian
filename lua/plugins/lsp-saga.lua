@@ -4,11 +4,22 @@ local saga = require('lspsaga')
 saga.setup({
   outline = {
     win_width = 40,
-  }
+  },
+  finder = {
+    max_width = 100,
+  },
+  ui = {
+    title = true,
+    border = "rounded",
+  },
+  beacon = {
+    enable = true,
+    frequency = 7,
+  },
 })
 
 -- when you use action in finder like open vsplit then you can use <C-t> to jump back
-keymap("n", "<leader>s", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, desc = "LSP finder" })
+keymap("n", "<leader>i", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, desc = "LSP finder" })
 keymap({ "n", "v" }, "<leader>c", "<cmd>Lspsaga code_action<CR>", { silent = true, desc = "LspSaga code actions" })
 keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "LspSaga rename" })
 

@@ -37,6 +37,8 @@ hi GitSignsCurrentLineBlame guifg='#A9DC76'
 " hi FloatBorder guifg=white guibg='#000000'
 hi NormalFloat guibg='#404d41'
 
+hi SagaBorder guifg='#78DCE8' guibg='#000000'
+
 " Match Parenthesis
 
 hi MatchParen guifg='#000000' guibg='#FFD866'
