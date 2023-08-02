@@ -18,6 +18,11 @@ function KeymapOptions(description)
   }
 end
 
+-- for lazy
+vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 require("options")
 require("plugins")
 

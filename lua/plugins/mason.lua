@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "pylsp", "pyright", "tailwindcss", "lua_ls", "jsonls" },
+  ensure_installed = { "rust_analyzer", "tailwindcss", "lua_ls", "jsonls" },
   automatic_installation = true,
 }
 
@@ -84,7 +84,7 @@ end
 
 
 local lsp_flags = {
-  debounce_text_changes = 150,
+  debounce_text_changes = 500,
 }
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -106,32 +106,60 @@ mason_lspconfig.setup_handlers({
   -- TO SEE ACTIVE CONFIG:
   -- :lua print(vim.inspect(vim.lsp.get_active_clients()))
   --
-  ["pylsp"] = function() -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
-    lspconfig.pylsp.setup {
-      on_attach = on_attach,
-      flags = lsp_flags,
-      capabilities = capabilities,
-      settings = {
-        pylsp = {
-          plugins = {
-            black = { -- dont know if config is here or in null-ls
-              enabled = false,
-              line_length = 120,
-              preview = true,
-            },
-            pycodestyle = {
-              ignore = {
-                'E501', -- line too long
-                'F401', -- unused import
-                'W503', -- line break before binary operator
-              },
-              maxLineLength = 110
-            }
-          }
-        }
-      }
-    }
-  end,
+  -- dont use pylsp because ruff+pyright+black is enough
+  -- ["pylsp"] = function() -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
+  --   lspconfig.pylsp.setup {
+  --     on_attach = on_attach,
+  --     flags = lsp_flags,
+  --     capabilities = capabilities,
+  --     settings = {
+  --       pylsp = {
+  --         plugins = {
+  --           black = { -- dont know if config is here or in null-ls
+  --             enabled = false,
+  --             line_length = 120,
+  --             preview = true,
+  --           },
+  --           pycodestyle = {
+  --             ignore = {
+  --               'E501', -- line too long
+  --               'F401', -- unused import
+  --               'W503', -- line break before binary operator
+  --             },
+  --             maxLineLength = 110
+  --           }
+  --         }
+  --       }
+  --     }
+  --   }
+  -- end,
+  -- ["pyright"] = function()
+  --   lspconfig.pyright.setup {
+  --     on_attach = on_attach,
+  --     flags = lsp_flags,
+  --     capabilities = capabilities,
+  --     settings = {
+  --       -- pyright = {
+  --       --   disableOrganizeImports = true,
+  --       -- },
+  --       python = {
+  --         analysis = {
+  --           useLibraryCodeForTypes = true,
+  --           typeCheckingMode = "basic",
+  --           autoSearchPaths = true,
+  --           diagnosticSeverityOverrides = {
+  --             reportUnusedVariable = false, -- or anything
+  --           },
+  --         }
+  --       }
+  --     }
+  --   }
+  -- end,
+  -- ["ruff_lsp"] = function()
+  --   lspconfig.ruff_lsp.setup {
+  --     on_attach = function(client, _) client.server_capabilities.hoverProvider = false end,
+  -- }
+  -- end,
   ["lua_ls"] = function()
     lspconfig.lua_ls.setup {
       on_attach = on_attach,

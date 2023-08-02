@@ -15,10 +15,10 @@ local function pick_color()
 end
 
 local function footer()
-  local total_plugins = #vim.tbl_keys(packer_plugins)
+  -- local total_plugins = #vim.tbl_keys(packer_plugins)
   local datetime = os.date(" %d-%m-%Y   %H:%M:%S")
   return datetime
-  .. "   " .. total_plugins .. " plugins"
+  -- .. "   " .. total_plugins .. " plugins"
   .. "   v" .. vim.version().major .. "." .. vim.version().minor .. "." .. vim.version().patch
 end
 
