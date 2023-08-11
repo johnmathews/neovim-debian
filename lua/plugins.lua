@@ -24,14 +24,20 @@ return lazy.setup({
   { "nvim-lua/popup.nvim" },
   { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
-
   {
-    -- https://github.com/tanvirtin/monokai.nvim
-    "tanvirtin/monokai.nvim",
+    -- https://github.com/cpea2506/one_monokai.nvim
+    "cpea2506/one_monokai.nvim",
     config = function()
-      require("plugins.monokai")
+      require("plugins.one_monokai")
     end,
   },
+  -- {
+  --   -- https://github.com/tanvirtin/monokai.nvim
+  --   "tanvirtin/monokai.nvim",
+  --   config = function()
+  --     require("plugins.monokai")
+  --   end,
+  -- },
   {
     "folke/which-key.nvim",
     config = function()

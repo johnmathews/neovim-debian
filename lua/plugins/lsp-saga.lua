@@ -1,6 +1,8 @@
 local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
+-- DOCUMENTATION https://nvimdev.github.io/lspsaga/
+
 saga.setup({
   outline = {
     layout = "float",

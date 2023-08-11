@@ -41,3 +41,8 @@ require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
 
 -- use the following to see what highlight group the text under the cursor is part of
 -- :exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')
+
+-- keep at end
+-- vim.cmd("colorscheme monokai")
+vim.cmd.colorscheme "one_monokai"
+
