@@ -71,15 +71,16 @@ local function config_winbar_or_statusline()
   if exclude[vim.bo.filetype] then
     vim.wo.winbar = ""
   elseif not vim.api.nvim_win_get_config(0).zindex then
-    vim.wo.winbar = require('lspsaga.symbolwinbar'):get_winbar() or " "
+    -- https://nvimdev.github.io/lspsaga/breadcrumbs/
+    vim.wo.winbar = require('lspsaga.symbol.winbar').get_bar() or " "
   end
 end
 
--- local events = { 'BufEnter', 'BufWinEnter', 'CursorMoved' }
--- vim.api.nvim_create_autocmd(events, {
---   pattern = '*',
-  -- callback = function() config_winbar_or_statusline() end,
--- })
+local events = { 'BufEnter', 'BufWinEnter', 'CursorMoved' }
+vim.api.nvim_create_autocmd(events, {
+  pattern = '*',
+  callback = function() config_winbar_or_statusline() end,
+})
 
 -- update symbols in LSP Saga
 vim.api.nvim_create_autocmd('User', {

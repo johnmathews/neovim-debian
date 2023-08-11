@@ -60,7 +60,7 @@ cmp.setup({
 
     if vim.api.nvim_get_mode().mode == 'c' then -- keep command mode completion enabled when cursor is in a comment
       return true
-    elseif buftype == "prompt" then -- disable cmp in telescope prompt
+    elseif buftype == "prompt" then             -- disable cmp in telescope prompt
       return false
     else
       return not context.in_treesitter_capture("comment") and
@@ -102,7 +102,7 @@ cmp.setup({
     ["<C-j>"] = cmp.mapping.select_next_item(),
 
     -- documentation
-    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs( -1), { "i", "c" }),
+    ["<C-b>"] = cmp.mapping(cmp.mapping.scroll_docs(-1), { "i", "c" }),
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
@@ -113,6 +113,7 @@ cmp.setup({
 
     -- Accept currently selected item. If none selected, `select` first item.
     -- Set `select` to `false` to only confirm explicitly selected items.
+    -- copilot losing indentation https://github.com/LunarVim/LunarVim/issues/3343
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Insert,
       select = false,
@@ -135,7 +136,7 @@ cmp.setup({
       else
         fallback()
       end
-    end, {
+    end, { ---@diagnostic disable-line
       "i",
       "s",
     }),
@@ -143,8 +144,8 @@ cmp.setup({
       function(fallback)
         if cmp.visible() then
           cmp.select_prev_item()
-        elseif luasnip.jumpable( -1) then
-          luasnip.jump( -1)
+        elseif luasnip.jumpable(-1) then
+          luasnip.jump(-1)
         else
           fallback()
         end
@@ -160,14 +161,14 @@ cmp.setup({
     format = function(entry, vim_item)
       vim_item.kind = string.format("%s ", kind_icons[vim_item.kind])
       vim_item.menu = ({
-            nvim_lsp = "[LSP]",
-            nvim_lua = "[Nvim_Lua]",
-            luasnip = "[Luasnip]",
-            buffer = "[Buffer]",
-            path = "[Path]",
-            emoji = "[Emoji]",
-            copilot = "[Copilot]",
-          })[entry.source.name]
+        nvim_lsp = "[LSP]",
+        nvim_lua = "[Nvim_Lua]",
+        luasnip = "[Luasnip]",
+        buffer = "[Buffer]",
+        path = "[Path]",
+        emoji = "[Emoji]",
+        copilot = "[Copilot]",
+      })[entry.source.name]
       return vim_item
     end,
   },

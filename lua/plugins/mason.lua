@@ -161,6 +161,8 @@ mason_lspconfig.setup_handlers({
   -- }
   -- end,
   ["lua_ls"] = function()
+    -- documentation about annotations and ignoring a row: https://luals.github.io/wiki/annotations/#diagnostic
+    -- just search this repo for ---@diagnostic
     lspconfig.lua_ls.setup {
       on_attach = on_attach,
       flags = lsp_flags,

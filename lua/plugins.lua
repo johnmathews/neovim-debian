@@ -164,14 +164,14 @@ return lazy.setup({
     end
   },
 
-  -- {
-  --   "glepnir/lspsaga.nvim",
-  --   branch = "main",
-  --   -- tag = "*",
-  --   config = function()
-  --     require("plugins.lsp-saga")
-  --   end,
-  -- },
+  {
+    "glepnir/lspsaga.nvim",
+    branch = "main",
+    -- tag = "*",
+    config = function()
+      require("plugins.lsp-saga")
+    end,
+  },
 
   -- buffers and window management
   {

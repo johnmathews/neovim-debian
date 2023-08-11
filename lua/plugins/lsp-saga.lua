@@ -3,6 +3,7 @@ local saga = require('lspsaga')
 
 saga.setup({
   outline = {
+    layout = "float",
     win_width = 40,
   },
   finder = {
