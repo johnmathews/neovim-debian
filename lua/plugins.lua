@@ -32,7 +32,6 @@ return lazy.setup({
       require("plugins.monokai")
     end,
   },
-
   {
     "folke/which-key.nvim",
     config = function()
