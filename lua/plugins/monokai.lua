@@ -8,6 +8,7 @@ end
 local palette = monokai.pro
 
 monokai.setup({
+  italics = true,
   palette = {
     name = "monokai_pro",
     base0 = "#222426",
@@ -168,7 +169,7 @@ monokai.setup({
     },
     dockerfileEnvWithComment = {
       fg = palette.green,
-
+    },
     -- Telescope
     TelescopeBorder = {
       -- fg = palette.base7,

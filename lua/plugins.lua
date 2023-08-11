@@ -26,10 +26,10 @@ return lazy.setup({
   { "dstein64/vim-startuptime" },
 
   {
+    -- https://github.com/tanvirtin/monokai.nvim
     "tanvirtin/monokai.nvim",
     config = function()
       require("plugins.monokai")
-      -- require('monokai').setup { italics = true, palette = require('monokai').pro }
     end,
   },
 
