@@ -12,14 +12,14 @@ local options = {
   backspace = { "indent", "eol", "start" },
   expandtab = true,
   shiftwidth = 2, -- Size of an indent
-  tabstop = 2, -- Number of spaces tabs count for
+  tabstop = 2,    -- Number of spaces tabs count for
 
   wildmode = "longest:full,full",
-  wrap = true, -- long lines dont disappear off the screen
-  wrapscan = true, -- searchees wrap around to beginning or end
-  whichwrap = "h,l",  -- this seems to mess up intuitive col count when jumping lines
+  wrap = true,       -- long lines dont disappear off the screen
+  wrapscan = true,   -- searchees wrap around to beginning or end
+  whichwrap = "h,l", -- this seems to mess up intuitive col count when jumping lines
   virtualedit = "block",
-  list = true, -- Show some invisible characters
+  list = true,       -- Show some invisible characters
   listchars = { tab = " ", trail = "·" },
 
   undofile = true,
@@ -46,7 +46,7 @@ local options = {
 
   redrawtime = 500,
 
-  -- this is only meant to be set temporarily, 
+  -- this is only meant to be set temporarily,
   lazyredraw = false,
 
   cmdheight = 2,
@@ -78,7 +78,7 @@ local options = {
   cursorcolumn = false,
 
   smartindent = false, -- Insert indents automatically
-  cindent = true, -- https://vim.fandom.com/wiki/Restoring_indent_after_typing_hash
+  cindent = true,      -- https://vim.fandom.com/wiki/Restoring_indent_after_typing_hash
   guicursor = "n-v-c-sm:block-blinkwait50-blinkon50-blinkoff50,i-ci-ve:ver25-Cursor-blinkon100-blinkoff100,r-cr-o:hor20",
 
 
@@ -86,7 +86,7 @@ local options = {
 }
 
 for k, v in pairs(options) do
-	vim.opt[k] = v
+  vim.opt[k] = v
 end
 
 vim.cmd("set indentkeys-=0#") -- https://vim.fandom.com/wiki/Restoring_indent_after_typing_hash

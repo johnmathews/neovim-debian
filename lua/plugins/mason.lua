@@ -167,6 +167,17 @@ mason_lspconfig.setup_handlers({
       capabilities = capabilities,
       settings = {
         Lua = {
+          telemetry = { enable = false },
+          runtime = {
+            version = 'LuaJIT',
+            path = vim.fn.expand("$VIMRUNTIME/lua"),
+          },
+          workspace = {
+            library = {
+              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
+              [vim.fn.stdpath("config") .. "/lua"] = true,
+            },
+          },
           format = {
             enable = true,
             default_config = {
@@ -191,12 +202,6 @@ mason_lspconfig.setup_handlers({
             disable = {
               "trailing-space",
             }
-          },
-          workspace = {
-            library = {
-              [vim.fn.expand("$VIMRUNTIME/lua")] = true,
-              [vim.fn.stdpath("config") .. "/lua"] = true,
-            },
           },
         }
       }

@@ -1,14 +1,13 @@
-
 local status_ok, monokai = pcall(require, "monokai")
 if not status_ok then
   return
 end
 
 -- pro, soda, ristretto
-local palette = require("monokai").pro
+-- local palette = require("monokai").pro
+local palette = monokai.pro
 
 monokai.setup({
-
   palette = {
     name = "monokai_pro",
     base0 = "#222426",
@@ -37,46 +36,41 @@ monokai.setup({
     diff_change = "#27406b",
     diff_text = "#23324d",
   },
-
   custom_hlgroups = {
-
     -- nvim-tree
-    NvimTreeFolderName = {
-      fg = palette.green,
-    },
-    NvimTreeRootFolder = {
-      fg = palette.base8,
-    },
-    NvimTreeFolderIcon = {
-      fg = palette.green,
-    },
-    NvimTreeOpenedFolderName = {
-      fg = palette.aqua,
-    },
-    NvimTreeFileIcon = {
-      fg = palette.aqua,
-    },
-    NvimTreeSpecialFile = {
-      fg = palette.purple,
-    },
-    NvimTreeSymlink = {
-      fg = palette.green,
-    },
-
-    CopilotSuggestion = {
-      fg = palette.base0,
-      bg = palette.green,
-    },
-
-    -- hrsh7th/nvim-cmp
-    CmpDocumentation = {
-      fg = palette.white,
-      bg = palette.base1,
-    },
-
-    TSInclude = {
-      fg = palette.aqua,
-    },
+    -- NvimTreeFolderName = {
+    --   fg = palette.green,
+    -- },
+    -- NvimTreeRootFolder = {
+    --   fg = palette.base8,
+    -- },
+    -- NvimTreeFolderIcon = {
+    --   fg = palette.green,
+    -- },
+    -- NvimTreeOpenedFolderName = {
+    --   fg = palette.aqua,
+    -- },
+    -- NvimTreeFileIcon = {
+    --   fg = palette.aqua,
+    -- },
+    -- NvimTreeSpecialFile = {
+    --   fg = palette.purple,
+    -- },
+    -- NvimTreeSymlink = {
+    --   fg = palette.green,
+    -- },
+    -- CopilotSuggestion = {
+    --   fg = palette.base0,
+    --   bg = palette.green,
+    -- },
+    -- -- hrsh7th/nvim-cmp
+    -- CmpDocumentation = {
+    --   fg = palette.white,
+    --   bg = palette.base1,
+    -- },
+    -- TSInclude = {
+    --   fg = palette.aqua,
+    -- },
     GitSignsAdd = {
       fg = palette.green,
       bg = palette.base2,
@@ -89,18 +83,16 @@ monokai.setup({
       fg = palette.orange,
       bg = palette.base2,
     },
-
     -- background, and normal text
-    normal = {
-      fg = palette.white,
-      bg = palette.black,
-    },
+    -- normal = {
+    --   fg = palette.white,
+    --   bg = palette.black,
+    -- },
 
     MatchParen = {
       fg = palette.black,
       bg = palette.yellow,
     },
-
     -- rainbow colors for matching pairs of parentheses
     rainbowcol1 = {
       fg = "red",
@@ -144,12 +136,10 @@ monokai.setup({
       fg = palette.yellow,
       style = "italic",
     },
-
     -- visual mode
     Visual = {
       bg = palette.base5,
     },
-
     -- requirements.txt
     requirementsPackageName = {
       fg = palette.green,
@@ -163,7 +153,6 @@ monokai.setup({
     requirementsCommandOption = {
       fg = palette.red,
     },
-
     -- Docker
     dockerfileKeywords = {
       fg = palette.orange,
@@ -179,7 +168,6 @@ monokai.setup({
     },
     dockerfileEnvWithComment = {
       fg = palette.green,
-    },
 
     -- Telescope
     TelescopeBorder = {
@@ -193,7 +181,6 @@ monokai.setup({
     TelescopeMatching = {
       fg = palette.aqua,
     },
-
     -- ansible
     yamlBlockMappingKey = {
       fg = palette.orange,

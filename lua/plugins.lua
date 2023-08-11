@@ -24,6 +24,15 @@ return lazy.setup({
   { "nvim-lua/popup.nvim" },
   { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
+
+  {
+    "tanvirtin/monokai.nvim",
+    config = function()
+      require("plugins.monokai")
+      -- require('monokai').setup { italics = true, palette = require('monokai').pro }
+    end,
+  },
+
   {
     "folke/which-key.nvim",
     config = function()
@@ -79,7 +88,8 @@ return lazy.setup({
 
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build =
+    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
 
   {
@@ -117,11 +127,12 @@ return lazy.setup({
   -- lsp status indicator, because maybe the lualine one is broken?
   {
     "j-hui/fidget.nvim",
+    tag = "legacy",
     config = function()
       require "fidget".setup {
         align = {
           bottom = false, -- align fidgets along bottom edge of buffer
-          right = true, -- align fidgets along right edge of buffer
+          right = true,   -- align fidgets along right edge of buffer
         },
 
       }
@@ -154,14 +165,14 @@ return lazy.setup({
     end
   },
 
-  {
-    "glepnir/lspsaga.nvim",
-    branch = "main",
-    -- tag = "*",
-    config = function()
-      require("plugins.lsp-saga")
-    end,
-  },
+  -- {
+  --   "glepnir/lspsaga.nvim",
+  --   branch = "main",
+  --   -- tag = "*",
+  --   config = function()
+  --     require("plugins.lsp-saga")
+  --   end,
+  -- },
 
   -- buffers and window management
   {
@@ -394,7 +405,7 @@ return lazy.setup({
   { "hashivim/vim-vagrant" },
 
   -- highlights the XML/HTML tags that enclose your cursor location.
-  { "valloric/matchtagalways" },
+  -- { "valloric/matchtagalways" },
 
   -- highlight matching tags in html, js, jsx, vue, svelte
   {
@@ -438,6 +449,5 @@ return lazy.setup({
   --     require("plugins.lsp-colors")
   --   end,
   -- })
-  ("tanvirtin/monokai.nvim"),
   { "kyazdani42/nvim-web-devicons" },
 })
