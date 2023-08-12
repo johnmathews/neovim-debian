@@ -20,7 +20,6 @@ null_ls.setup({
     }),
 
     --  Prettier formatting works on Markdown, JavaScript, TypeScript, JSX,
-    -- =======
     null_ls.builtins.formatting.prettier.with({
       extra_args = { "--prose-wrap", "always" },
     }),
@@ -32,7 +31,6 @@ null_ls.setup({
     null_ls.builtins.formatting.eslint_d,
 
     -- PYTHON
-    -- ======
     -- ruff and ruff-lsp is installed using mason
     null_ls.builtins.formatting.black -- use pyproject.toml for modifications
   },

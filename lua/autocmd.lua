@@ -57,6 +57,7 @@ vim.cmd([[
   autocmd FileType qf wincmd J
 ]])
 
+
 -- WINBAR USING LSPSAGA
 -- ====================
 local function config_winbar_or_statusline()
