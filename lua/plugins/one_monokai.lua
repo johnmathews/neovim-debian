@@ -77,10 +77,10 @@ require("one_monokai").setup({
         bg = colors.base2,
       },
       -- background, and normal text
-      -- normal = {
-      --   fg = colors.white,
-      --   bg = colors.black,
-      -- },
+      normal = {
+        fg = colors.white,
+        bg = colors.base0,
+      },
 
       MatchParen = {
         fg = colors.black,

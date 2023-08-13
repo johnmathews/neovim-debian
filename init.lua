@@ -44,5 +44,5 @@ require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
 
 -- keep at end
 -- vim.cmd("colorscheme monokai")
-vim.cmd.colorscheme "one_monokai"
+-- vim.cmd.colorscheme "one_monokai"
 
