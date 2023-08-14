@@ -23,9 +23,7 @@ command! -nargs=1 Mp call s:NewPost(<q-args>)
 -- convert ascii typographuc quotes to normal quotes including slanty quotes,
 function Convert_smart_and_fancy_ascii_chars_to_normal_chars()
   vim.cmd([[
-    %!iconv -f utf-8 -t ascii//translit
-    echom "ascii chars converted!"
-    w
+    exe 'normal! ma' | %!iconv -f utf-8 -t ascii//translit | if search('pattern') == 0 | exe 'normal! `a' | endif
   ]])
 end
 

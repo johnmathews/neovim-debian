@@ -1,3 +1,4 @@
+-- i think this isnt used anywhere
 vim.cmd([[
   set rtp+=/usr/local/opt/fzf
 
@@ -12,10 +13,10 @@ vim.cmd([[
   command! -bang -nargs=? -complete=dir AllFiles
       \ call fzf#run(fzf#wrap('allfiles', fzf#vim#with_preview({ 'dir': <q-args>, 'sink': 'e', 'source': 'rg --files --hidden --no-ignore' }), <bang>0))
 
-  nnoremap <silent> <Leader>r :Buffers<CR>
-  nnoremap <silent> <Leader>f :Rg<CR>
-  nnoremap <silent> <Leader>e :Files<CR>
-  nnoremap <leader>E :AllFiles<cr>
+  " nnoremap <silent> <Leader>r :Buffers<CR>
+  " nnoremap <silent> <Leader>f :Rg<CR>
+  " nnoremap <silent> <Leader>e :Files<CR>
+  " nnoremap <leader>E :AllFiles<cr>
 
   let g:fzf_buffers_jump = 1
 

@@ -13,11 +13,11 @@ map("i", "<C-h>", "<C-o>b", KeymapOptions("jump back one word"))
 -- delete the word infront of the cursor
 map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 
-map("n", "<F1>", ":e<CR>|:lua vim.notify('Buffer Refreshed!')<CR>", KeymapOptions("Refresh buffer"))
-map("n", "<F2>", ":LspRestart<CR>|:lua vim.notify('LspRestart')<CR>", KeymapOptions("Restart LSP"))
-map("n", "<F3>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers"))
-map("n", "<F4>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap"))
-map("n", "<F5>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker"))
+map("n", "<F1>", ":e<CR>|:lua vim.notify('Buffer Refreshed!')<CR>", KeymapOptions("Refresh buffer")) -- refresh buffer
+map("n", "<F2>", ":LspRestart<CR>|:lua vim.notify('LspRestart')<CR>", KeymapOptions("Restart LSP")) -- restart LSP
+map("n", "<F3>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers")) -- toggle relative linenumbers
+map("n", "<F4>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap")) -- toggle linewrap
+map("n", "<F5>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker")) -- toggle spellcheck
 
 
 --Remap space as leader key

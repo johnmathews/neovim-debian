@@ -42,8 +42,8 @@ end
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
   -- run ascii conversion function before async lsp.buf.format
-  vim.keymap.set('n', '<leader>f', function() Convert_smart_and_fancy_ascii_chars_to_normal_chars() vim.lsp.buf.format { async = true } end,
-    KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
+  -- vim.keymap.set('n', '<leader>f', function() Convert_smart_and_fancy_ascii_chars_to_normal_chars() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
+  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
