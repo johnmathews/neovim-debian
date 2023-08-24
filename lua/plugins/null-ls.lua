@@ -32,6 +32,9 @@ null_ls.setup({
 
     -- PYTHON
     -- ruff and ruff-lsp is installed using mason
-    null_ls.builtins.formatting.black -- use pyproject.toml for modifications
+    null_ls.builtins.formatting.black.with({
+    -- extra_args = { "--line-length=120" }
+  }), -- use pyproject.toml for modifications
+
   },
 })

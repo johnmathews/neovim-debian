@@ -18,9 +18,6 @@ function KeymapOptions(description)
   }
 end
 
--- API KEYS
-vim.fn.setenv('OPENAI_API_KEY', 'this-isnt-the-real-value-but-this-is-where-it-goes')
-
 vim.api.nvim_set_keymap("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"

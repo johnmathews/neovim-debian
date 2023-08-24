@@ -191,6 +191,9 @@ return lazy.setup({
 
   {
     "jackMort/ChatGPT.nvim",
+    -- into video https://www.youtube.com/watch?v=7k0KZsheLP4
+    -- api/secret managment avoiding plaintext config files https://github.com/jackMort/ChatGPT.nvim#secrets-management
+    event = "VeryLazy", 
     config = function()
       require("chatgpt").setup({
         keymaps = {

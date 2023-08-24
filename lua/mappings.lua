@@ -19,7 +19,6 @@ map("n", "<F3>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line
 map("n", "<F4>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap")) -- toggle linewrap
 map("n", "<F5>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker")) -- toggle spellcheck
 
-
 --Remap space as leader key
 map("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
 vim.g.mapleader = " "
