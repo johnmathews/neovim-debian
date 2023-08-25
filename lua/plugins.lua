@@ -193,16 +193,62 @@ return lazy.setup({
     "jackMort/ChatGPT.nvim",
     -- into video https://www.youtube.com/watch?v=7k0KZsheLP4
     -- api/secret managment avoiding plaintext config files https://github.com/jackMort/ChatGPT.nvim#secrets-management
-    event = "VeryLazy", 
+    event = "VeryLazy",
     config = function()
       require("chatgpt").setup({
-        keymaps = {
-          submit = "<C-s>"
+        edit_with_instructions = {
+          diff = false,
+          keymaps = {
+            close = "<C-c>",
+            accept = "<C-y>",
+            toggle_diff = "<C-d>",
+            toggle_settings = "<C-o>",
+            cycle_windows = "<Tab>",
+            use_output_as_input = "<C-i>",
+          },
         },
         chat = {
-          welcome_message = "welcome John",
+          welcome_message = "welcome..",
           loading_text = "Loading, please wait ...",
-        }
+        },
+        keymaps = {
+          submit = "<C-s>",
+          close = { "<C-c>" },
+          yank_last = "<C-y>",
+          yank_last_code = "<C-k>",
+          scroll_up = "<C-u>",
+          scroll_down = "<C-d>",
+          new_session = "<C-n>",
+          cycle_windows = "<Tab>",
+          cycle_modes = "<C-f>",
+          select_session = "<Space>",
+          rename_session = "r",
+          delete_session = "d",
+          draft_message = "<C-d>",
+          toggle_settings = "<C-o>",
+          toggle_message_role = "<C-r>",
+          toggle_system_role_open = "<C-s>",
+          stop_generating = "<C-x>",
+        },
+        openai_params = {
+          model = "gpt-3.5-turbo",
+          frequency_penalty = 0,
+          presence_penalty = 0,
+          max_tokens = 300,
+          temperature = 0,
+          top_p = 1,
+          n = 1,
+        },
+        openai_edit_params = {
+          model = "code-davinci-edit-001",
+          temperature = 0,
+          top_p = 1,
+          n = 1,
+        },
+        actions_paths = {},
+        show_quickfixes_cmd = "Trouble quickfix",
+        predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
+
       })
     end,
     dependencies = {
@@ -337,39 +383,39 @@ return lazy.setup({
   {
     "gaoDean/autolist.nvim",
     ft = {
-        "markdown",
-        "text",
-        "tex",
-        "plaintex",
-        "norg",
+      "markdown",
+      "text",
+      "tex",
+      "plaintex",
+      "norg",
     },
     config = function()
-        require("autolist").setup()
+      require("autolist").setup()
 
-        vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
-        vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
-        -- vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>") -- an example of using <c-t> to indent
-        vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
-        vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
-        vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
-        vim.keymap.set("n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>")
-        vim.keymap.set("n", "<C-r>", "<cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("i", "<tab>", "<cmd>AutolistTab<cr>")
+      vim.keymap.set("i", "<s-tab>", "<cmd>AutolistShiftTab<cr>")
+      -- vim.keymap.set("i", "<c-t>", "<c-t><cmd>AutolistRecalculate<cr>") -- an example of using <c-t> to indent
+      vim.keymap.set("i", "<CR>", "<CR><cmd>AutolistNewBullet<cr>")
+      vim.keymap.set("n", "o", "o<cmd>AutolistNewBullet<cr>")
+      vim.keymap.set("n", "O", "O<cmd>AutolistNewBulletBefore<cr>")
+      vim.keymap.set("n", "<CR>", "<cmd>AutolistToggleCheckbox<cr><CR>")
+      vim.keymap.set("n", "<C-r>", "<cmd>AutolistRecalculate<cr>")
 
-        -- cycle list types with dot-repeat
-        vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
-        vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
+      -- cycle list types with dot-repeat
+      vim.keymap.set("n", "<leader>cn", require("autolist").cycle_next_dr, { expr = true })
+      vim.keymap.set("n", "<leader>cp", require("autolist").cycle_prev_dr, { expr = true })
 
-        -- if you don't want dot-repeat
-        -- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
-        -- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
+      -- if you don't want dot-repeat
+      -- vim.keymap.set("n", "<leader>cn", "<cmd>AutolistCycleNext<cr>")
+      -- vim.keymap.set("n", "<leader>cp", "<cmd>AutolistCycleNext<cr>")
 
-        -- functions to recalculate list on edit
-        vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
-        vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
-        vim.keymap.set("n", "dd", "dd<cmd>AutolistRecalculate<cr>")
-        vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
+      -- functions to recalculate list on edit
+      vim.keymap.set("n", ">>", ">><cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("n", "<<", "<<<cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("n", "dd", "dd<cmd>AutolistRecalculate<cr>")
+      vim.keymap.set("v", "d", "d<cmd>AutolistRecalculate<cr>")
     end,
-    },
+  },
 
   -- preview markdown
   {

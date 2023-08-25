@@ -51,4 +51,14 @@ return {
       text "John Mathews",
       insert(0),
     }),
+    snip({
+      trig = "mo",
+      namr = "vim mode line",
+      dscr = "insert a mode line",
+    }, {
+      text "# vim: ft=",
+      insert(1, "zsh"),
+      text ":",
+      insert(2),
+    }),
 }
