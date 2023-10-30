@@ -14,7 +14,7 @@ vim.cmd [[
 -- blog post
 vim.cmd [[
 function! s:NewPost(fn)
-  execute "e " . "~/projects/websites/blog/data/blog/" . a:fn . ".md"
+  execute "e " . "~/projects/blog/data/blog/" . a:fn . ".md"
 endfunction
 command! -nargs=1 Mp call s:NewPost(<q-args>)
 ]]

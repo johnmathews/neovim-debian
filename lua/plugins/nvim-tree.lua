@@ -138,6 +138,7 @@ nvim_tree.setup {
   },
   -- https://github.com/ahmedkhalf/project.nvim
   renderer = {
+    root_folder_label = false,
     highlight_opened_files = 'all',
     icons = {
       webdev_colors = true,
@@ -198,26 +199,7 @@ nvim_tree.setup {
   },
   view = {
     width = 50,
-    hide_root_folder = false,
     side = "left",
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = "?",                  action = "toggle_help" },
-        { key = "g?",                 action = "" },
-        { key = { "l", "<CR>", "o" }, action = "edit" },
-        { key = "h",                  action = "close_node" },
-        { key = "v",                  action = "vsplit" },
-        { key = "<C-v>",              action = "" },
-        { key = "s",                  action = "split" },
-        { key = "<C-x>",              action = "" },
-        { key = "<C-d>",              action = "trash" },
-        { key = "m",                  action = "toggle_mark" },
-        { key = "D",                  action = "" },
-        { key = "<Tab>",              action = "" },
-        { key = "<C-e>",              action = "" },
-      },
-    },
     number = false,
     relativenumber = false,
   },
