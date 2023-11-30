@@ -15,7 +15,7 @@
 
 Not sure what these are, check `h marks-bookmarks`
 
-8. `m<0-9]` - Add a bookmark 
+8. `m[0-9]` - Add a bookmark 
 
 
 
