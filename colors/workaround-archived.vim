@@ -6,6 +6,7 @@ runtime colors/monokai_pro.vim
 " let diff_text = '#23324d'
 
 hi CopilotSuggestion guifg='#222426' guibg='#A9DC76'
+hi Normal guifg=white
 
 hi CmpDocumentation guifg='#FFF1F3' guibg='#211F22'
 

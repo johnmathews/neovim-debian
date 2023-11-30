@@ -38,6 +38,21 @@ monokai.setup({
     diff_text = "#23324d",
   },
   custom_hlgroups = {
+
+    mkdNonListItemBlock = {
+      fg = palette.white,
+      bg = palette.black,
+    },
+    Normal = {
+      fg = palette.white,
+      bg = palette.black,
+    },
+    -- background, and normal text
+    -- normal = {
+    --   fg = palette.white,
+    --   bg = palette.black,
+    -- },
+
     -- nvim-tree
     -- NvimTreeFolderName = {
     --   fg = palette.green,
@@ -84,12 +99,6 @@ monokai.setup({
       fg = palette.orange,
       bg = palette.base2,
     },
-    -- background, and normal text
-    -- normal = {
-    --   fg = palette.white,
-    --   bg = palette.black,
-    -- },
-
     MatchParen = {
       fg = palette.black,
       bg = palette.yellow,

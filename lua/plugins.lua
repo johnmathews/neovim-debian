@@ -24,6 +24,7 @@ return lazy.setup({
   { "nvim-lua/popup.nvim" },
   { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
+  { "gioele/vim-autoswap"},
   {
     -- https://github.com/cpea2506/one_monokai.nvim
     "cpea2506/one_monokai.nvim",
@@ -534,11 +535,4 @@ return lazy.setup({
   -- required by several plugins
   { "kyazdani42/nvim-web-devicons" },
 
-  -- shouldnt be necessary anymore. repo has been archived https://github.com/folke/lsp-colors.nvim
-  -- use({
-  --   "folke/lsp-colors.nvim",
-  --   config = function()
-  --     require("plugins.lsp-colors")
-  --   end,
-  -- })
 })

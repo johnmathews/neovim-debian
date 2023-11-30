@@ -13,7 +13,8 @@ map("n", "<Tab>i", ":Telescope current_buffer_fuzzy_find fuzzy=true<CR>",
   KeymapOptions("Telescope current buffer fuzzy find"))
 
 -- map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ sort_lastused = true, ignore_current_buffer = true, sorter = require'telescope.sorters'.get_substr_matcher() })<CR>" , default_options)
-map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>" , default_options)
+map("n", "<Tab>r", ":lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>",
+  default_options)
 map("n", "<Tab>o", ":Telescope oldfiles<CR>", default_options)
 
 -- map("n", "<Tab>s", ":Telescope grep_string only_sort_text=true<CR>", default_options)
@@ -232,10 +233,10 @@ telescope.setup {
   },
   extensions = {
     fzf = {
-      fuzzy = true, -- false will only do exact matching
+      fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
-      override_file_sorter = true, -- override the file sorter
-      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
     },
     projects = {},
   },

@@ -27,7 +27,7 @@ local options = {
 
   backup = true,
   backupdir = "/tmp/,/private/tmp",
-  directory = "/tmp/,/private/tmp",
+  directory = "/tmp/,/private/tmp", -- maybe this is swapfile location?
 
   timeout = true,
   timeoutlen = 300,
@@ -118,7 +118,8 @@ vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "
 -- vim.o.whichwrap = vim.o.whichwrap .. "<,>" -- Wrap movement between lines in edit mode with arrows
 -- opt.wrap = true
 -- -- opt.cc = "80"
---
---
 
-vim.opt.shortmess:append("c")
+-- vim.opt.shortmess:append("c") -- already appended
+
+-- autoswap plugin, if using tmux, switch to the tmux pain containing the open buffer.
+vim.g.autoswap_detect_tmux = 1
