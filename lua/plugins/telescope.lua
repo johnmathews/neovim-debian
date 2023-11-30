@@ -75,7 +75,7 @@ map("n", "<Localleader>a", ":Telescope lsp_code_actions<CR>", default_options)
 
 -- register extensions
 telescope.load_extension('projects')
-telescope.load_extension('fzf')
+telescope.load_extension('fzf') -- this is telescope-fzf-native - https://github.com/nvim-telescope/telescope.nvim/wiki/Switching-from-fzf-to-telescope
 telescope.load_extension('harpoon')
 telescope.load_extension('live_grep_args')
 telescope.load_extension('smart_history')
@@ -232,7 +232,7 @@ telescope.setup {
     },
   },
   extensions = {
-    fzf = {
+    fzf = { -- this is telescope-fzf-native and is recommended - https://github.com/nvim-telescope/telescope.nvim/wiki/Switching-from-fzf-to-telescope
       fuzzy = true,                   -- false will only do exact matching
       override_generic_sorter = true, -- override the generic sorter
       override_file_sorter = true,    -- override the file sorter

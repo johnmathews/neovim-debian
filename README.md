@@ -11,26 +11,44 @@ Things that can be searched:
    - excludes git ignored files
    - \<tab\>f
 3. all files
-   - <tab>a
+   - \<tab\>a
    - Command: `:Telescope find_files<CR>`
 4. text
    - this is ripgrep, not FZF. 
-   - <tab>s
+   - \<tab\>s
    - `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
-5. more text
-   - you can add args, like 
+   - Search for a string in your current working directory and get results live as you type,
+     respects .gitignore. (Requires ripgrep)
+1. more text [extension repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
+   - enables passing arguments to the grep command
        - ` --no-ignore` - searches inside files ignored by git
-       - `todo` - searches only in files with .py extension
+       - `-tpy` - searches only in files with .py extension. E.g.: `-t*` where * is the file extension
    - `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>` 
-6. vim command history
+2. vim command history
    - a history of anything done in `EX` mode
-   - <tab>tc
+   - \<tab\>tc
+3. search history
+4. keymaps
+5. git
+    - commits
+    - branches
+    - status
+    - bcommits
+6. resume
+    - whatever you were doing last in telescope
+    - \<tab\>z
+7. autocommands
+8. treesitter things
+9. vim options
+10. help files
+11. projects
 
 ### Extensions
 
-- fzf
+- fzf [fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
+    - this gives better performance and sorting behavior. Also includes FZF syntax: \!, \', \^, \$
 - projects
 - harpoon
-- live_grep_args
+- live_grep_args [repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 - smart_history
 
