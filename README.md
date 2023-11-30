@@ -22,8 +22,9 @@ Things that can be searched:
 1. more text [extension repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
    - enables passing arguments to the grep command
        - ` --no-ignore` - searches inside files ignored by git
-       - `-tpy` - searches only in files with .py extension. E.g.: `-t*` where * is the file extension
+       - `-tpy` or `--type python`- searches only in files with .py extension. E.g.: `-t*` where * is the file extension
    - `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>` 
+   - uses ripgrep. [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
 2. vim command history
    - a history of anything done in `EX` mode
    - \<tab\>tc
