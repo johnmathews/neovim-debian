@@ -14,17 +14,18 @@ Things that can be searched:
    - \<tab\>a
    - Command: `:Telescope find_files<CR>`
 4. text
-   - this is ripgrep, not FZF. 
+   - uses ripgrep, not FZF. 
    - \<tab\>s
    - `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
    - Search for a string in your current working directory and get results live as you type,
      respects .gitignore. (Requires ripgrep)
-1. more text [extension repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
-   - enables passing arguments to the grep command
+1. more text
+   - enables passing arguments to ripgrep
        - ` --no-ignore` - searches inside files ignored by git
        - `-tpy` or `--type python`- searches only in files with .py extension. E.g.: `-t*` where * is the file extension
    - `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>` 
-   - uses ripgrep. [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
+   - [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
+   - [extension](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 2. vim command history
    - a history of anything done in `EX` mode
    - \<tab\>tc
