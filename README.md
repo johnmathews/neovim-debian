@@ -1,5 +1,23 @@
 # Notes about this Neovim config
 
+## Marks
+
+1. create next sign: 
+
+## Gitsigns
+
+1. blame current line `<leader>sb`
+2. stage buffer `<leader>sS`
+3. Symbols:
+    * `|` - added or changed
+    * `_` - deleted
+    * `-` - top delete
+    * `~` - change number
+
+## LSP
+
+### LSP-Saga
+
 ## Finding stuff
 
 Things that can be searched:
