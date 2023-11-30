@@ -5,11 +5,11 @@
 Things that can be searched:
 
 1. buffer names 
-   - <tab>r
+   - \<tab\>r
    - `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
 2. files
    - excludes git ignored files
-   - <tab>f
+   - \<tab\>f
 3. all files
    - <tab>a
    - Command: `:Telescope find_files<CR>`
