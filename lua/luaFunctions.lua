@@ -21,7 +21,7 @@ function M.asyncGitCommitAndPush(commitMessage)
             vim.fn.system('git add .')
             vim.fn.system('git commit -m "' .. commitMessage .. '"')
             vim.fn.system('git push')
-            vim.api.nvim_out_write("Changes pushed to remote\n")
+            vim.api.nvim_out_write('git commit -m "' .. commitMessage .. '"\n')
         end)
     end)
 end
