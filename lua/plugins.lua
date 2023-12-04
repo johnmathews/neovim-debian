@@ -103,7 +103,7 @@ return lazy.setup({
   {
     "nvim-lualine/lualine.nvim",
     dependencies = {
-      "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-web-devicons",
       "WhoIsSethDaniel/lualine-lsp-progress.nvim",
     },
     config = function()
@@ -521,7 +521,7 @@ return lazy.setup({
   {
     "kyazdani42/nvim-tree.lua",
     dependencies = {
-      "kyazdani42/nvim-web-devicons",
+      'nvim-tree/nvim-web-devicons'
     },
     config = function()
       require("plugins.nvim-tree")
@@ -537,6 +537,6 @@ return lazy.setup({
   { "chrisbra/Colorizer" },
 
   -- required by several plugins
-  { "kyazdani42/nvim-web-devicons" },
+  { "nvim-tree/nvim-web-devicons" },
 
 })
