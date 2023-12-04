@@ -12,41 +12,40 @@ Things that can be searched:
    - Command: `<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>` 
    - excludes git ignored files if in a git repository. If not in a git repository, searches all
      files.
-3. All files
+1. All files
    - `<tab>a`
    - Command: `:Telescope find_files<CR>`
-4. text - whole project, respects .gitignore
-   - `\<tab\>s`
+2. Text - whole project, respects .gitignore
+   - `<tab>s`
+   - Command: `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
    - uses ripgrep, not FZF.
-   - `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
-   - Search for a string in your current working directory and get results live
-     as you type, respects .gitignore. (Requires ripgrep)
-1. text - flexible
-   - `\<tab\>x` 
+   - Search for a string in your current working directory, respects `.gitignore`. Requires Ripgrep.
+3. Text - flexible
+   - `<tab>x` 
+   - Command: `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>`
    - enables passing arguments to ripgrep
      - ` --no-ignore` - searches inside files ignored by git
      - `-tpy` or `--type python`- searches only in files with .py extension.
-   - `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>`
    - [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
    - [extension](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
-2. vim command history
-   - `\<tab\>tc`
+4. Vim command history
+   - `<tab>tc`
    - a history of anything done in `EX` mode
-3. search history
-4. keymaps
-5. git
-   - commits
-   - branches
-   - status
-   - bcommits
-6. resume
+5. Search history
+6. Keymaps
+7. Git
+   - Commits
+   - Branches
+   - Status
+   - Bcommits
+8. Resume
     - whatever you were doing last in telescope
-    - \<tab\>z
-7. autocommands
-8. treesitter things
-9. vim options
-10. help files
-11. projects
+    - `<tab>z`
+9. Autocommands
+10. Treesitter things
+11. Vim options
+12. Help files
+13. Projects
 
 #### Telescope Extensions
 
