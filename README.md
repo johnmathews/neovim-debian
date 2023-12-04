@@ -4,23 +4,25 @@
 
 Things that can be searched:
 
-1. buffer names
-   - \<tab\>r
-   - `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
-2. files
-   - excludes git ignored files
-   - \<tab\>f
-3. all files
-   - \<tab\>a
+1. Buffers
+   - `\<tab\>r`
+   - Command: `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
+2. Files in repo
+   - `\<tab\>f`
+   - Command: `<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>` 
+   - excludes git ignored files if in a git repository. If not in a git repository, searches all
+     files.
+3. All files
+   - `\<tab\>a`
    - Command: `:Telescope find_files<CR>`
 4. text - whole project, respects .gitignore
+   - `\<tab\>s`
    - uses ripgrep, not FZF.
-   - \<tab\>s
    - `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
    - Search for a string in your current working directory and get results live
      as you type, respects .gitignore. (Requires ripgrep)
 1. text - flexible
-   - \<tab\>x 
+   - `\<tab\>x` 
    - enables passing arguments to ripgrep
      - ` --no-ignore` - searches inside files ignored by git
      - `-tpy` or `--type python`- searches only in files with .py extension.
@@ -28,7 +30,7 @@ Things that can be searched:
    - [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
    - [extension](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 2. vim command history
-   - \<tab\>tc
+   - `\<tab\>tc`
    - a history of anything done in `EX` mode
 3. search history
 4. keymaps
