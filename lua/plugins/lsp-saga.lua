@@ -38,11 +38,11 @@ keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "Lsp
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
 keymap("n", "gd", "<cmd>Lspsaga peek_definition<CR>", { silent = true, desc = "LspSaga peek definition" })
+
 keymap("n", "<leader>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, desc = "LspSaga line diagnostics" })
 
 -- Show cursor diagnostics
-keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>",
-  { silent = true, desc = "LspSaga cursor diagnostics" })
+keymap("n", "<leader>cd", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true, desc = "LspSaga cursor diagnostics" })
 
 -- Diagnostic jump can use `<c-o>` to jump back
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, desc = "LspSaga prev diagnostic" })

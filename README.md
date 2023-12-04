@@ -41,20 +41,19 @@ Things that can be searched:
 7. Registers
    - `<tab>tr` 
    - Command: `:Telescope registers<CR>` 
-
-7. Git
+8. Git
    - Commits
    - Branches
    - Status
    - Bcommits
-8. Resume
+9. Resume
     - whatever you were doing last in telescope
     - `<tab>z`
-9. Autocommands
-10. Treesitter things
-11. Vim options
-12. Help files
-13. Projects
+10. Autocommands
+11. Treesitter things
+12. Vim options
+13. Help files
+14. Projects
 
 #### Telescope Extensions
 
@@ -110,3 +109,12 @@ todo
 
 ### LSP-Saga
 
+1. LSP-Finder `<Leader>i`
+2. Outline `<Leader>o`
+3. Documentation window `K`
+2. Code actions `<Leader>a`
+3. Rename `<Leader>r`
+4. Go to previous diagnostic `[e`
+4. Go to previous error `[E`
+4. Definition `gd`
+5. Line or Cursor diagnostics `<Leader>cd`

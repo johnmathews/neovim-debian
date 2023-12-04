@@ -165,7 +165,7 @@ return lazy.setup({
   },
 
   {
-    "glepnir/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     branch = "main",
     -- tag = "*",
     config = function()
