@@ -2,7 +2,7 @@
 -- this is a custom variable to be used with a custom command defined in the linked article
 vim.g.session_dir = "~/.config/nvim/sessions/"
 
--- recommended 
+-- recommended
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
 
 require("auto-session").setup {
@@ -10,7 +10,13 @@ require("auto-session").setup {
   auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" }, -- Suppress session create/restore if in one of these
   auto_save_enabled = true,
   pre_save_cmds = { "NvimTreeClose" },
-  bypass_session_save_file_types = { "NvimTree" }
+  bypass_session_save_file_types = { "NvimTree" },
+
+  session_lens = {
+    theme_conf = { border = true },
+    previewer = false,
+  },
+
 }
 
 vim.cmd [[

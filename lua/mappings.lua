@@ -6,11 +6,8 @@ local map = vim.api.nvim_set_keymap
 local default_options = { noremap = true, silent = true }
 local expr_options = { noremap = true, expr = true, silent = true }
 
+-- this cannot be local if anything in the module is to be used as a keybind
 Functions_ok, LuaFunctions = pcall(require, "luaFunctions")
-if Functions_ok then
-  print("luaFunctions required ok!")
-  map("n", "gG", ":lua LuaFunctions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))
-end
 if not Functions_ok then
   print("luaFunctions could not be loaded")
   return
@@ -91,3 +88,9 @@ map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("Toggle QuickFix wind
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
+
+-- auto session
+vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, { noremap = true, })
+
+-- backgroud git commit and push
+map("n", "gG", ":lua LuaFunctions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))

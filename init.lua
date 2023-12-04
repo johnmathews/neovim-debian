@@ -28,7 +28,7 @@ require("options")
 require("plugins")
 
 require("functions")
-require("luaFunctions")
+-- require("luaFunctions")
 require("mappings")
 require("autocmd")
 

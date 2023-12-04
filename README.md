@@ -107,7 +107,7 @@ todo
 4. Symbols map
 5. Incoming
 
-### LSP-Saga
+### LSP-Saga and Mason
 
 1. LSP-Finder `<Leader>i`
 2. Outline `<Leader>o`
@@ -118,4 +118,10 @@ todo
 4. Go to previous error `[E`
 4. Go to definition `gd`
 4. Peek definition `gld`
-5. Line or Cursor diagnostics `<Leader>cd`
+5. Line diagnostics `<Leader>ll`
+5. Cursor diagnostics `<Leader>lc`
+
+### Mason
+
+1. List of errors: `<Leader>q`
+4. Go to type definition `<Leader>D`

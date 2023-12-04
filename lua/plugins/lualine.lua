@@ -39,8 +39,10 @@ lualine.setup({
     always_divide_middle = true,
   },
   tabline = {
-    lualine_a = { { require('auto-session-library').current_session_name, color = { bg = "#04FBD1" } },
-      { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
+    -- lualine_a = { { require('auto-session-library').current_session_name, color = { bg = "#04FBD1" } },
+    --   { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
+    --     color = { bg = "#04FBD1" } } },
+    lualine_a = { { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
         color = { bg = "#04FBD1" } } },
     lualine_b = { { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C" } },
       { "diff", padding = { left = 3, right = 3 } } },
