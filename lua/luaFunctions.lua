@@ -1,6 +1,11 @@
 local M = {}
 
-function M.asyncGitCommitAndPush()
+function M.asyncGitCommitAndPush(commitMessage)
+
+    if commitMessage == nil or commitMessage == '' then
+        commitMessage = "background commit"  -- Default commit message
+    end
+
     vim.loop.spawn('git', {
         args = { 'rev-parse', '--is-inside-work-tree' },
         cwd = vim.loop.cwd(),
@@ -12,10 +17,9 @@ function M.asyncGitCommitAndPush()
             return
         end
 
-        -- Now wrapped in vim.schedule
         vim.schedule(function()
             vim.fn.system('git add .')
-            vim.fn.system('git commit -m "updates"')
+            vim.fn.system('git commit -m "' .. commitMessage .. '"')
             vim.fn.system('git push')
             vim.api.nvim_out_write("Changes pushed to remote\n")
         end)
