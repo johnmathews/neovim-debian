@@ -24,7 +24,7 @@ return lazy.setup({
   { "nvim-lua/popup.nvim" },
   { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
-  { "gioele/vim-autoswap"},
+  { "gioele/vim-autoswap" },
   {
     -- https://github.com/cpea2506/one_monokai.nvim
     "cpea2506/one_monokai.nvim",
@@ -171,6 +171,10 @@ return lazy.setup({
     config = function()
       require("plugins.lsp-saga")
     end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter',
+      'nvim-tree/nvim-web-devicons'
+    }
   },
 
   -- buffers and window management

@@ -116,5 +116,6 @@ todo
 3. Rename `<Leader>r`
 4. Go to previous diagnostic `[e`
 4. Go to previous error `[E`
-4. Definition `gd`
+4. Go to definition `gd`
+4. Peek definition `gld`
 5. Line or Cursor diagnostics `<Leader>cd`
