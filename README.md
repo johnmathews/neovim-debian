@@ -46,7 +46,7 @@ Things that can be searched:
 10. help files
 11. projects
 
-### Extensions
+#### Telescope Extensions
 
 - fzf [fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
   - this gives better performance and sorting behavior. Also includes FZF
@@ -56,6 +56,7 @@ Things that can be searched:
 - live_grep_args
   [repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 - smart_history
+
 ## Marks
 
 1. `m,` - create next sign 
