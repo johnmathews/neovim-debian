@@ -7,7 +7,7 @@ local default_options = { noremap = true, silent = true }
 local expr_options = { noremap = true, expr = true, silent = true }
 
 -- this cannot be local if anything in the module is to be used as a keybind
-Functions_ok, LuaFunctions = pcall(require, "luaFunctions")
+Functions_ok, functions = pcall(require, "functions")
 if not Functions_ok then
   print("luaFunctions could not be loaded")
   return
@@ -93,4 +93,4 @@ map("n", "<C-p>", "<C-i>", default_options)
 vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, { noremap = true, })
 
 -- backgroud git commit and push
-map("n", "gG", ":lua LuaFunctions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))
+map("n", "gG", ":lua functions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))
