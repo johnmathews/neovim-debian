@@ -49,8 +49,7 @@ Things that can be searched:
 #### Telescope Extensions
 
 - fzf [fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
-  - this gives better performance and sorting behavior. Also includes FZF
-    syntax: \!, \', \^, \$
+  - this gives better performance and sorting behavior. (Also includes FZF syntax `\!`, `\'`, `\^`, `\$` )
 - projects
 - harpoon
 - live_grep_args
