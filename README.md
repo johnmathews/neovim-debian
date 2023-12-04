@@ -31,8 +31,15 @@ Things that can be searched:
 4. Vim command history
    - `<tab>tc`
    - a history of anything done in `EX` mode
-5. Search history
+5. Your search history
+   - `<tab>ts`
+   - Command: `:Telescope search_history<CR>` 
 6. Keymaps
+   - `<tab>tk`
+   - Command: `:Telescope keymaps<CR>`
+6. Registers 
+   - `<tab>tr` 
+
 7. Git
    - Commits
    - Branches
