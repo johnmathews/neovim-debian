@@ -5,15 +5,15 @@
 Things that can be searched:
 
 1. Buffers
-   - `\<tab\>r`
+   - `<tab>r`
    - Command: `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
 2. Files in repo
-   - `\<tab\>f`
+   - `<tab>f`
    - Command: `<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>` 
    - excludes git ignored files if in a git repository. If not in a git repository, searches all
      files.
 3. All files
-   - `\<tab\>a`
+   - `<tab>a`
    - Command: `:Telescope find_files<CR>`
 4. text - whole project, respects .gitignore
    - `\<tab\>s`
