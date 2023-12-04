@@ -28,8 +28,9 @@ Things that can be searched:
      - `-tpy` or `--type python`- searches only in files with .py extension.
    - [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
    - [extension](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
-4. Vim command history
+4. Your command history
    - `<tab>tc`
+   - Command: `:Telescope command_history<CR>`
    - a history of anything done in `EX` mode
 5. Your search history
    - `<tab>ts`
@@ -37,8 +38,9 @@ Things that can be searched:
 6. Keymaps
    - `<tab>tk`
    - Command: `:Telescope keymaps<CR>`
-6. Registers 
+7. Registers
    - `<tab>tr` 
+   - Command: `:Telescope registers<CR>` 
 
 7. Git
    - Commits
