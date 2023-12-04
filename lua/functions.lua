@@ -1,3 +1,4 @@
+
 -- toggle the quickfix window
 -- in mappings.lua gq is mapped to this
 vim.cmd [[
@@ -18,14 +19,6 @@ function! s:NewPost(fn)
 endfunction
 command! -nargs=1 Mp call s:NewPost(<q-args>)
 ]]
-
-
--- convert ascii typographuc quotes to normal quotes including slanty quotes,
-function Convert_smart_and_fancy_ascii_chars_to_normal_chars()
-  vim.cmd([[
-    exe 'normal! ma' | %!iconv -f utf-8 -t ascii//translit | if search('pattern') == 0 | exe 'normal! `a' | endif
-  ]])
-end
 
 -- clear registers and overwrite shada file so that register state is persisted
 vim.cmd [[

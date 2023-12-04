@@ -6,6 +6,16 @@ local map = vim.api.nvim_set_keymap
 local default_options = { noremap = true, silent = true }
 local expr_options = { noremap = true, expr = true, silent = true }
 
+Functions_ok, LuaFunctions = pcall(require, "luaFunctions")
+if Functions_ok then
+  print("luaFunctions required ok!")
+  map("n", "gG", ":lua LuaFunctions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))
+end
+if not Functions_ok then
+  print("luaFunctions could not be loaded")
+  return
+end
+
 ----- INSERT MODE ---------------
 map("i", "jk", "<ESC>", KeymapOptions("enter Insert Mode"))
 --jump back one word
@@ -13,11 +23,13 @@ map("i", "<C-h>", "<C-o>b", KeymapOptions("jump back one word"))
 -- delete the word infront of the cursor
 map("i", "<C-e>", "<C-o>de", KeymapOptions("delete the next word"))
 
-map("n", "<F1>", ":e<CR>|:lua vim.notify('Buffer Refreshed!')<CR>", KeymapOptions("Refresh buffer")) -- refresh buffer
-map("n", "<F2>", ":LspRestart<CR>|:lua vim.notify('LspRestart')<CR>", KeymapOptions("Restart LSP")) -- restart LSP
-map("n", "<F3>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>", KeymapOptions("Toggle relative line numbers")) -- toggle relative linenumbers
+map("n", "<F1>", ":e<CR>|:lua vim.notify('Buffer Refreshed!')<CR>", KeymapOptions("Refresh buffer"))          -- refresh buffer
+map("n", "<F2>", ":LspRestart<CR>|:lua vim.notify('LspRestart')<CR>", KeymapOptions("Restart LSP"))           -- restart LSP
+map("n", "<F3>", ":set relativenumber!<CR>|:lua vim.notify('Toggle relative line numbers')<CR>",
+  KeymapOptions("Toggle relative line numbers"))                                                              -- toggle relative linenumbers
 map("n", "<F4>", ":set nowrap!<CR>|:lua vim.notify('Toggle linewrap')<CR>", KeymapOptions("Toggle linewrap")) -- toggle linewrap
-map("n", "<F5>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>", KeymapOptions("Toggle spell checker")) -- toggle spellcheck
+map("n", "<F5>", ":setlocal spell!<CR>|:lua vim.notify('Toggle local spell check')<CR>",
+  KeymapOptions("Toggle spell checker"))                                                                      -- toggle spellcheck
 
 --Remap space as leader key
 map("n", "<Space>", "<Nop>", KeymapOptions("unmap space so it can be the Leader Key"))
@@ -75,9 +87,7 @@ map("n", "<C-K>", "<C-W><C-K>", default_options)
 map("n", "<C-L>", "<C-W><C-L>", default_options)
 
 -- FUNCTIONS
-map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("toggle quickfix window"))
+map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("Toggle QuickFix window"))
 
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
-
-
