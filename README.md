@@ -99,15 +99,10 @@ Not sure what these are, see `:h marks-bookmarks`
 
 ## LSP
 
-todo
+- View which language server generated a diagnostic message using `<Leader>ll`. (LSPSaga line
+  diagnostics includes server name.)
 
-1. Go to definition
-2. Show references
-3. Show documentation
-4. Symbols map
-5. Incoming
-
-### LSP-Saga and Mason
+### LSPSaga
 
 1. LSP-Finder `<Leader>i`
 2. Outline `<Leader>o`
