@@ -39,10 +39,10 @@ keymap({ "n", "v" }, "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = tru
 -- support tagstack C-t jump back
 keymap("n", "gld", "<cmd>Lspsaga peek_definition<CR>", { silent = true, desc = "LspSaga peek definition" })
 
-keymap("n", "<leader>ll", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, desc = "LspSaga line diagnostics" })
+keymap("n", "<leader>l", "<cmd>Lspsaga show_line_diagnostics<CR>", { silent = true, desc = "LspSaga line diagnostics" })
 
 -- Show cursor diagnostics
-keymap("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true, desc = "LspSaga cursor diagnostics" })
+-- keymap("n", "<leader>lc", "<cmd>Lspsaga show_cursor_diagnostics<CR>", { silent = true, desc = "LspSaga cursor diagnostics" })
 
 -- Diagnostic jump can use `<c-o>` to jump back
 keymap("n", "[e", "<cmd>Lspsaga diagnostic_jump_prev<CR>", { silent = true, desc = "LspSaga prev diagnostic" })

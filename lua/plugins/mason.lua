@@ -48,8 +48,6 @@ local on_attach = function(client, bufnr)
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, KeymapOptions("Diagnostic - Open Location List")) -- view a list of errors and warnings
-  vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, KeymapOptions("Diagnostic - Open Floating Window"))
-
 
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, KeymapOptions("LSP Type Definition"))
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
@@ -71,11 +69,11 @@ local on_attach = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, KeymapBufferOptions({ description = "LSP list workspace folders", bufnr = bufnr }))
 
-  -- HANDLED BETTER BY LSPSAGA.
-  --   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-  --   vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
-  --   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-  --   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
+  -- UNUSED AND PROBABLY HANDLED BETTER BY LSPSAGA.
+  --   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts) -- LSPSaga has a better float
+  --   vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
+  --   vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
+  
   --   See `:help vim.lsp.*` for documentation on any of the below functions
   --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   --   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)

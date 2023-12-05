@@ -192,104 +192,34 @@ return lazy.setup({
     end,
   },
 
-  -- AI
   -- {
-  --   "jackMort/ChatGPT.nvim",
-  --   -- into video https://www.youtube.com/watch?v=7k0KZsheLP4
-  --   -- api/secret managment avoiding plaintext config files https://github.com/jackMort/ChatGPT.nvim#secrets-management
-  --   event = "VeryLazy",
+  --   "zbirenbaum/copilot.lua",
+  --   event = "VimEnter",
   --   config = function()
-  --     require("chatgpt").setup({
-  --       edit_with_instructions = {
-  --         diff = false,
-  --         keymaps = {
-  --           close = "<C-c>",
-  --           accept = "<C-y>",
-  --           toggle_diff = "<C-d>",
-  --           toggle_settings = "<C-o>",
-  --           cycle_windows = "<Tab>",
-  --           use_output_as_input = "<C-i>",
-  --         },
-  --       },
-  --       chat = {
-  --         welcome_message = "welcome..",
-  --         loading_text = "Loading, please wait ...",
-  --       },
-  --       keymaps = {
-  --         submit = "<C-s>",
-  --         close = { "<C-c>" },
-  --         yank_last = "<C-y>",
-  --         yank_last_code = "<C-k>",
-  --         scroll_up = "<C-u>",
-  --         scroll_down = "<C-d>",
-  --         new_session = "<C-n>",
-  --         cycle_windows = "<Tab>",
-  --         cycle_modes = "<C-f>",
-  --         select_session = "<Space>",
-  --         rename_session = "r",
-  --         delete_session = "d",
-  --         draft_message = "<C-d>",
-  --         toggle_settings = "<C-o>",
-  --         toggle_message_role = "<C-r>",
-  --         toggle_system_role_open = "<C-s>",
-  --         stop_generating = "<C-x>",
-  --       },
-  --       openai_params = {
-  --         model = "gpt-3.5-turbo",
-  --         frequency_penalty = 0,
-  --         presence_penalty = 0,
-  --         max_tokens = 300,
-  --         temperature = 0,
-  --         top_p = 1,
-  --         n = 1,
-  --       },
-  --       openai_edit_params = {
-  --         model = "code-davinci-edit-001",
-  --         temperature = 0,
-  --         top_p = 1,
-  --         n = 1,
-  --       },
-  --       actions_paths = {},
-  --       show_quickfixes_cmd = "Trouble quickfix",
-  --       predefined_chat_gpt_prompts = "https://raw.githubusercontent.com/f/awesome-chatgpt-prompts/main/prompts.csv",
-
-  --     })
+  --     vim.defer_fn(function()
+  --       require("copilot").setup({
+  --         suggestion = { enabled = false },
+  --         panel = { enabled = false },
+  --       })
+  --     end, 100)
   --   end,
   --   dependencies = {
-  --     "MunifTanjim/nui.nvim",
-  --     "nvim-lua/plenary.nvim",
-  --     "nvim-telescope/telescope.nvim"
-  --   }
+  --     "copilot.lua",
+  --   },
   -- },
-
-  {
-    "zbirenbaum/copilot.lua",
-    event = "VimEnter",
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        })
-      end, 100)
-    end,
-    dependencies = {
-      "copilot.lua",
-    },
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup({
-        method = "getCompletionsCycling",
-        formatters = {
-          label = require("copilot_cmp.format").format_label_text, -- this breaks multiline suggestions sometimes
-          insert_text = require("copilot_cmp.format").remove_existing,
-          preview = require("copilot_cmp.format").deindent,
-        },
-      })
-    end
-  },
+  -- {
+  --   "zbirenbaum/copilot-cmp",
+  --   config = function()
+  --     require("copilot_cmp").setup({
+  --       method = "getCompletionsCycling",
+  --       formatters = {
+  --         label = require("copilot_cmp.format").format_label_text, -- this breaks multiline suggestions sometimes
+  --         insert_text = require("copilot_cmp.format").remove_existing,
+  --         preview = require("copilot_cmp.format").deindent,
+  --       },
+  --     })
+  --   end
+  -- },
 
   -- completions
   {

@@ -99,14 +99,14 @@ Not sure what these are, see `:h marks-bookmarks`
 
 ## LSP
 
-- View which language server generated a diagnostic message using `<Leader>ll`. (LSPSaga line
+- View which language server generated a diagnostic message using `<Leader>l`. (LSPSaga line
   diagnostics includes server name.)
 
 ### LSPSaga
 
 1. LSP-Finder `<Leader>i`
 2. Outline `<Leader>o`
-3. Documentation window `K`
+3. Documentation window hover `K`
 2. Code actions `<Leader>a`
 3. Rename `<Leader>r`
 4. Go to previous diagnostic `[e`
