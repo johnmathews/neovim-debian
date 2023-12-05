@@ -19,6 +19,8 @@ function M.setDiagnosticConfig()
   local current_config = vim.diagnostic.config()
 
   -- printTable(vim.diagnostic.config(), 2)
+    
+  end
 
   local custom_config
 
