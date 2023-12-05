@@ -2,11 +2,15 @@
 
 ## Window (Split) management
 
-1. `<C-w>` then lots of options in which-key window
+1. `<C-w>` then lots of options in `which-key` window
 2. Change layout uses capital `HJKL` letters.
 3. Horizontal split to vertical split: `<C-w>H`
    - this rotates the splits anti-clockwise. Will work on any layout.
    - `J`, `K`, `L` keys also work.
+## Leap(ing about like a ninja)
+
+1. Jump to text based on character pairs. In normal mode type `s` (or `S` to search backwards from
+   cursor). After a couple of chars, you will see labels in the text.
 
 ## Telescope
 
