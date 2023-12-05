@@ -3,9 +3,9 @@
 ## Window (Split) management
 
 1. `<C-w>` then lots of options in which-key window
-2. Change layout uses capital `HJKL` letters. 
+2. Change layout uses capital `HJKL` letters.
 3. Horizontal split to vertical split: `<C-w>H`
-   - this rotates the splits anti-clockwise. Will work on any layout. 
+   - this rotates the splits anti-clockwise. Will work on any layout.
    - `J`, `K`, `L` keys also work.
 
 ## Telescope
@@ -14,70 +14,74 @@ Things that can be searched:
 
 1. Buffers
    - `<tab>r`
-   - Command: `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
+   - Command:
+     `:lua require('telescope.builtin').buffers({ ignore_current_buffer = true, sort_mru = true })<CR>`
 2. Files in repo
    - `<tab>f`
-   - Command: `<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>` 
-   - excludes git ignored files if in a git repository. If not in a git repository, searches all
-     files.
-1. All files
+   - Command: `<CMD>lua require'plugins.telescope'.find_files_fallback()<CR>`
+   - excludes git ignored files if in a git repository. If not in a git
+     repository, searches all files.
+3. All files
    - `<tab>a`
    - Command: `:Telescope find_files<CR>`
-2. Text - whole project, respects .gitignore
+4. Text - whole project, respects .gitignore
    - `<tab>s`
-   - Command: `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
+   - Command:
+     `:Telescope live_grep<CR>", { noremap = true, silent = true, desc = "Telescope ripgrep (not fuzzy)" }`
    - uses ripgrep, not FZF.
-   - Search for a string in your current working directory, respects `.gitignore`. Requires Ripgrep.
-3. Text - flexible
-   - `<tab>x` 
-   - Command: `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>`
+   - Search for a string in your current working directory, respects
+     `.gitignore`. Requires Ripgrep.
+5. Text - flexible
+   - `<tab>x`
+   - Command:
+     `:lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>`
    - enables passing arguments to ripgrep
      - ` --no-ignore` - searches inside files ignored by git
      - `-tpy` or `--type python`- searches only in files with .py extension.
    - [ripgrep commands](https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md)
    - [extension](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
-4. Your command history
+6. Your command history
    - `<tab>tc`
    - Command: `:Telescope command_history<CR>`
    - a history of anything done in `EX` mode
-5. Your search history
+7. Your search history
    - `<tab>ts`
-   - Command: `:Telescope search_history<CR>` 
-6. Keymaps
+   - Command: `:Telescope search_history<CR>`
+8. Keymaps
    - `<tab>tk`
    - Command: `:Telescope keymaps<CR>`
-7. Registers
-   - `<tab>tr` 
-   - Command: `:Telescope registers<CR>` 
-8. Git
-   - Commits
-   - Branches
-   - Status
-   - Bcommits
-9. Resume
+9. Registers
+   - `<tab>tr`
+   - Command: `:Telescope registers<CR>`
+10. Git
+    - Commits
+    - Branches
+    - Status
+    - Bcommits
+11. Resume
     - whatever you were doing last in telescope
     - `<tab>z`
-10. Autocommands
-11. Treesitter things
-12. Vim options
-13. Help files
-14. Projects
+12. Autocommands
+13. Treesitter things
+14. Vim options
+15. Help files
+16. Projects
 
 #### Telescope Extensions
 
-- fzf 
+- fzf
   - [fzf-native](https://github.com/nvim-telescope/telescope-fzf-native.nvim)
-  - this gives better performance and sorting behavior. (Also includes FZF syntax `\!`, `\'`, `\^`, `\$` )
+  - this gives better performance and sorting behavior. (Also includes FZF
+    syntax `\!`, `\'`, `\^`, `\$` )
 - projects
 - harpoon
 - live_grep_args
   [repo](https://github.com/nvim-telescope/telescope-live-grep-args.nvim)
 - smart_history
 
-
 ## Marks
 
-1. `m,` - create next sign 
+1. `m,` - create next sign
 2. `m;` - toggle next available mark at current line
 3. `dmx` - delete mark x
 4. `dm<space>` - delete all marks in current buffer
@@ -90,10 +94,7 @@ Things that can be searched:
 
 Not sure what these are, see `:h marks-bookmarks`
 
-1. `m[0-9]` - Add a bookmark 
-
-
-
+1. `m[0-9]` - Add a bookmark
 
 ## Gitsigns
 
@@ -107,24 +108,27 @@ Not sure what these are, see `:h marks-bookmarks`
 
 ## LSP
 
-- View which language server generated a diagnostic message using `<Leader>l`. (LSPSaga line
-  diagnostics includes server name.)
+- `toggle-lsp-diagnostics` can toggle virtual text diagnostic messages, but
+  doesn't include the source of the diagnostic. Therefore I wrote a separate
+  function for toggling diagnostic virtual text.
+- View which language server generated a diagnostic message using `<Leader>l`.
+  (LSPSaga line diagnostics includes server name.)
 
 ### LSPSaga
 
 1. LSP-Finder `<Leader>i`
 2. Outline `<Leader>o`
 3. Documentation window hover `K`
-2. Code actions `<Leader>a`
-3. Rename `<Leader>r`
-4. Go to previous diagnostic `[e`
-4. Go to previous error `[E`
-4. Go to definition `gd`
-4. Peek definition `gld`
-5. Line diagnostics `<Leader>ll`
-5. Cursor diagnostics `<Leader>lc`
+4. Code actions `<Leader>a`
+5. Rename `<Leader>r`
+6. Go to previous diagnostic `[e`
+7. Go to previous error `[E`
+8. Go to definition `gd`
+9. Peek definition `gld`
+10. Line diagnostics `<Leader>ll`
+11. Cursor diagnostics `<Leader>lc`
 
 ### Mason
 
 1. List of errors: `<Leader>q`
-4. Go to type definition `<Leader>D`
+2. Go to type definition `<Leader>D`
