@@ -1,4 +1,43 @@
+function printTable(tbl, indent)
+  if not indent then indent = 0 end
+  for k, v in pairs(tbl) do
+    formatting = string.rep("  ", indent) .. k .. ": "
+    if type(v) == "table" then
+      print(formatting)
+      printTable(v, indent + 1)
+    else
+      print(formatting .. tostring(v))
+    end
+  end
+end
+
 local M = {}
+
+
+-- Function to toggle diagnostic configuration
+function M.setDiagnosticConfig()
+  local current_config = vim.diagnostic.config()
+
+  -- printTable(vim.diagnostic.config(), 2)
+
+  local custom_config
+
+  if type(current_config.virtual_text) == "table" and current_config.virtual_text["source"] == true then
+    custom_config = {
+      virtual_text = false,
+    }
+  else
+    custom_config = {
+      severity_sort = true,
+      virtual_text = {
+        source = true,
+      },
+    }
+  end
+
+  -- set the configuration
+  vim.diagnostic.config(custom_config)
+end
 
 function M.asyncGitCommitAndPush(commitMessage)
   if commitMessage == nil or commitMessage == '' then

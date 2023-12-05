@@ -89,12 +89,6 @@ for k, v in pairs(options) do
   vim.opt[k] = v
 end
 
-vim.diagnostic.config({
-    virtual_text = {
-        source = "always",  -- Or "if_many"
-    },
-})
-
 vim.cmd("set indentkeys-=0#") -- https://vim.fandom.com/wiki/Restoring_indent_after_typing_hash
 
 -- this is for the cursorhold plugin https://github.com/antoinemadec/FixCursorHold.nvim

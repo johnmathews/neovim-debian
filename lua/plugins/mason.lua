@@ -43,7 +43,10 @@ end
 local on_attach = function(client, bufnr)
   -- run ascii conversion function before async lsp.buf.format
   -- vim.keymap.set('n', '<leader>f', function() Convert_smart_and_fancy_ascii_chars_to_normal_chars() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
-  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end, KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
+
+  vim.keymap.set('n', '<leader>f', function() vim.lsp.buf.format { async = true } end,
+    KeymapBufferOptions({ description = "LSP format buffer", bufnr = bufnr }))
+
   -- Enable completion triggered by <c-x><c-o>
   vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -73,7 +76,7 @@ local on_attach = function(client, bufnr)
   --   vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts) -- LSPSaga has a better float
   --   vim.keymap.set('n', '[e', vim.diagnostic.goto_prev, opts)
   --   vim.keymap.set('n', ']e', vim.diagnostic.goto_next, opts)
-  
+
   --   See `:help vim.lsp.*` for documentation on any of the below functions
   --   vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
   --   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, bufopts)

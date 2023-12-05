@@ -1,4 +1,4 @@
--- macOS or Unix 
+-- macOS or Unix
 local is_mac = vim.fn.has "macunix" == 1
 if is_mac then
   local home_dir = "/Users/john"
@@ -10,7 +10,7 @@ vim.cmd("let g:python3_host_prog = expand('~/.pyenv/versions/3.10.12/envs/nvim/b
 vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
 vim.cmd("let g:node_host_pro = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
 
--- convenience function for adding keybind details to whichkey from a plugins config 
+-- convenience function for adding keybind details to whichkey from a plugins config
 function KeymapOptions(description)
   description = description or "no description"
   return {
