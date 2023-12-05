@@ -2,7 +2,7 @@ local M = {}
 
 function M.asyncGitCommitAndPush(commitMessage)
   if commitMessage == nil or commitMessage == '' then
-    commitMessage = "background commit" -- Default commit message
+    commitMessage = "quick commit" -- Default commit message
   end
 
   vim.loop.spawn('git', {

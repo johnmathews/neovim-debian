@@ -1,5 +1,13 @@
 # Notes about this Neovim config
 
+## Window (Split) management
+
+2. `<C-w>` then lots of options in which-key window
+1. Horizontal split to vertical split: `<C-w>H`
+   - this rotates the splits anti-clockwise. Will work on any layout. 
+   - `J`, `K`, `L` keys also work.
+   - capital letters!
+
 ## Telescope
 
 Things that can be searched:
