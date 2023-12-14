@@ -1,10 +1,11 @@
-function printTable(tbl, indent)
+function PrintTable(tbl, indent)
+  local formatting
   if not indent then indent = 0 end
   for k, v in pairs(tbl) do
     formatting = string.rep("  ", indent) .. k .. ": "
     if type(v) == "table" then
       print(formatting)
-      printTable(v, indent + 1)
+      PrintTable(v, indent + 1)
     else
       print(formatting .. tostring(v))
     end
@@ -18,9 +19,8 @@ local M = {}
 function M.setDiagnosticConfig()
   local current_config = vim.diagnostic.config()
 
+  -- print("before")
   -- printTable(vim.diagnostic.config(), 2)
-    
-  end
 
   local custom_config
 
@@ -39,6 +39,9 @@ function M.setDiagnosticConfig()
 
   -- set the configuration
   vim.diagnostic.config(custom_config)
+
+  -- print("after")
+  -- printTable(vim.diagnostic.config(), 2)
 end
 
 function M.asyncGitCommitAndPush(commitMessage)
