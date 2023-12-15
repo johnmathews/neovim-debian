@@ -5,8 +5,10 @@ local saga = require('lspsaga')
 
 saga.setup({
   outline = {
-    layout = "float",
+    layout = "normal",
     win_width = 40,
+    close_after_jump = false,
+    expand_nodes = false,
   },
   finder = {
     max_width = 100,
@@ -20,7 +22,7 @@ saga.setup({
     frequency = 7,
   },
   lightbulb = {
-    enable = false,
+    enable = true,
     enable_in_insert = false,
     sign = true,
     sign_priority = 40,
@@ -52,8 +54,8 @@ keymap("n", "[E", function() require("lspsaga.diagnostic").goto_prev({ severity 
 keymap("n", "]E", function() require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR }) end,
   { silent = true, desc = "LspSaga next error" })
 
--- Outline is buggy
-keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, desc = "LspSaga outline" })
+-- Outline is buggy use AERIAL instead
+-- keymap("n", "<leader>o", "<cmd>Lspsaga outline<CR>", { silent = true, desc = "LspSaga outline" })
 
 -- Hover Doc
 keymap("n", "K", "<cmd>Lspsaga hover_doc<CR>", { silent = true, desc = "LspSaga documentation" })

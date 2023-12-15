@@ -25,6 +25,10 @@ return lazy.setup({
   { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
   { "gioele/vim-autoswap" },
+
+  -- dont open a file accidentally in the filetree or preview window
+  { 'stevearc/stickybuf.nvim' },
+
   {
     -- https://github.com/cpea2506/one_monokai.nvim
     "cpea2506/one_monokai.nvim",
@@ -164,7 +168,22 @@ return lazy.setup({
     end
   },
 
+  -- use instead of LSPSaga outline
   {
+    'stevearc/aerial.nvim',
+    opts = {},
+    config = function()
+      require("plugins.aerial")
+    end,
+    -- Optional dependencies
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons"
+    },
+  },
+  {
+    -- dir = '/Users/john/projects/lspsaga.nvim',
+    -- branch = "outline-nodes-collaps",
     "nvimdev/lspsaga.nvim",
     branch = "main",
     -- tag = "*",
