@@ -6,7 +6,35 @@ else
   local home_dir = "/home/john"
 end
 
-vim.cmd("let g:python3_host_prog = expand('~/.pyenv/versions/3.10.12/envs/nvim/bin/python3')")
+function set_python_host_prog()
+    -- Default Python interpreter path
+    local default_python_path = "~/.pyenv/versions/3.10.12/envs/nvim/bin/python3"
+
+    -- Command to get Poetry's Python interpreter path
+    local poetry_python_cmd = "poetry env info -p"
+
+    -- Execute the command to get Poetry's environment path
+    local handle = io.popen(poetry_python_cmd .. " 2> /dev/null") -- Suppress errors
+    local result = handle:read("*a")
+    handle:close()
+
+    if result and result ~= '' then
+        -- Process the result to format the path correctly
+        local poetry_env_path = result:gsub("[\r\n]", "") -- Remove newlines
+        poetry_env_path = poetry_env_path .. "/bin/python" -- Append bin/python to get the interpreter path
+
+        -- Use vim.cmd to set the variable, ensuring to escape special characters
+        vim.cmd("let g:python3_host_prog = '" .. poetry_env_path:gsub("'", "\\'") .. "'")
+    else
+        -- Fallback to default interpreter using vim.cmd and expand
+        vim.cmd("let g:python3_host_prog = expand('" .. default_python_path .. "')")
+    end
+end
+
+-- Call the function to dynamically set the Python interpreter
+set_python_host_prog()
+
+
 vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
 vim.cmd("let g:node_host_pro = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
 
