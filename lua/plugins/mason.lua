@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "tailwindcss", "lua_ls", "jsonls" },
+  ensure_installed = { "rust_analyzer", "tailwindcss", "lua_ls", "jsonls", "pyright" },
   automatic_installation = true,
 }
 
@@ -104,64 +104,8 @@ mason_lspconfig.setup_handlers({
     }
   end,
   -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
-
   -- TO SEE ACTIVE CONFIG:
   -- :lua print(vim.inspect(vim.lsp.get_active_clients()))
-  --
-  -- dont use pylsp because ruff+pyright+black is enough
-  -- ["pylsp"] = function() -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#pylsp
-  --   lspconfig.pylsp.setup {
-  --     on_attach = on_attach,
-  --     flags = lsp_flags,
-  --     capabilities = capabilities,
-  --     settings = {
-  --       pylsp = {
-  --         plugins = {
-  --           black = { -- dont know if config is here or in null-ls
-  --             enabled = false,
-  --             line_length = 120,
-  --             preview = true,
-  --           },
-  --           pycodestyle = {
-  --             ignore = {
-  --               'E501', -- line too long
-  --               'F401', -- unused import
-  --               'W503', -- line break before binary operator
-  --             },
-  --             maxLineLength = 110
-  --           }
-  --         }
-  --       }
-  --     }
-  --   }
-  -- end,
-  -- ["pyright"] = function()
-  --   lspconfig.pyright.setup {
-  --     on_attach = on_attach,
-  --     flags = lsp_flags,
-  --     capabilities = capabilities,
-  --     settings = {
-  --       -- pyright = {
-  --       --   disableOrganizeImports = true,
-  --       -- },
-  --       python = {
-  --         analysis = {
-  --           useLibraryCodeForTypes = true,
-  --           typeCheckingMode = "basic",
-  --           autoSearchPaths = true,
-  --           diagnosticSeverityOverrides = {
-  --             reportUnusedVariable = false, -- or anything
-  --           },
-  --         }
-  --       }
-  --     }
-  --   }
-  -- end,
-  -- ["ruff_lsp"] = function()
-  --   lspconfig.ruff_lsp.setup {
-  --     on_attach = function(client, _) client.server_capabilities.hoverProvider = false end,
-  -- }
-  -- end,
   ["lua_ls"] = function()
     -- documentation about annotations and ignoring a row: https://luals.github.io/wiki/annotations/#diagnostic
     -- just search this repo for ---@diagnostic

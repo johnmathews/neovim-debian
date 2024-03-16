@@ -6,7 +6,7 @@ else
   local home_dir = "/home/john"
 end
 
-function set_python_host_prog()
+local function set_python_host_prog()
     -- Default Python interpreter path
     local default_python_path = "~/.pyenv/versions/3.10.12/envs/nvim/bin/python3"
 
