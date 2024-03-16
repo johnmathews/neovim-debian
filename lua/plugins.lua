@@ -160,7 +160,7 @@ return lazy.setup({
       require("plugins.null-ls")
     end
   },
-  { "ray-x/lsp_signature.nvim",            dependencies = "neovim/nvim-lspconfig" },
+  { "ray-x/lsp_signature.nvim",   dependencies = "neovim/nvim-lspconfig" },
   {
     "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
     config = function()
@@ -333,7 +333,23 @@ return lazy.setup({
     end,
   },
 
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    opts = {},
+    config = function()
+      require("ibl").setup({
+        -- The scope is *not* the current indentation level! Instead, it is the
+        -- indentation level where variables or functions are accessible. This depends
+        -- on the language you are writing.
+        scope = {
+          enabled = false,
+          show_start = false,
+          show_end = false,
+        }
+      })
+    end,
+  },
 
   {
     "gaoDean/autolist.nvim",
