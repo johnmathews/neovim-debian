@@ -160,7 +160,7 @@ return lazy.setup({
       require("plugins.null-ls")
     end
   },
-  { "ray-x/lsp_signature.nvim",   dependencies = "neovim/nvim-lspconfig" },
+  { "ray-x/lsp_signature.nvim",            dependencies = "neovim/nvim-lspconfig" },
   {
     "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
     config = function()
@@ -333,7 +333,7 @@ return lazy.setup({
     end,
   },
 
-  { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+  { "lukas-reineke/indent-blankline.nvim", main = "ibl",                          opts = {} },
 
   {
     "gaoDean/autolist.nvim",
@@ -488,6 +488,18 @@ return lazy.setup({
   { "chrisbra/Colorizer" },
 
   -- required by several plugins
-  { "nvim-tree/nvim-web-devicons" },
+  -- " " toml icon ,
+  {
+    "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("nvim-web-devicons").set_icon {
+        toml = {
+          icon = "",
+          color = "#6d8086",
+          name = "Toml"
+        },
+      }
+    end,
+  },
 
 })
