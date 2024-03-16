@@ -22,7 +22,7 @@ saga.setup({
     frequency = 7,
   },
   lightbulb = {
-    enable = true,
+    enable = false,
     enable_in_insert = false,
     sign = true,
     sign_priority = 40,
@@ -31,7 +31,7 @@ saga.setup({
 })
 
 -- when you use action in finder like open vsplit then you can use <C-t> to jump back
-keymap("n", "<leader>i", "<cmd>Lspsaga lsp_finder<CR>", { silent = true, desc = "LSP finder" })
+keymap("n", "<leader>i", "<cmd>Lspsaga finder<CR>", { silent = true, desc = "LSP finder" })
 keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "LspSaga rename" })
 keymap({ "n", "v" }, "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true, desc = "LspSaga code actions" })
 

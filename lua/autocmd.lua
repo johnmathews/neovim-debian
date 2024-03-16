@@ -8,6 +8,15 @@
 --   augroup END
 -- ]], false)
 
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"python", "yaml", "lua"},
+    callback = function()
+        vim.opt_local.foldmethod = "expr"
+        vim.opt_local.foldexpr = "nvim_treesitter#foldexpr()"
+    end,
+})
+
 -- highlight on yank
 vim.cmd([[
   augroup YankHighlight

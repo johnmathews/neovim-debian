@@ -104,8 +104,6 @@ vim.cmd("set path+=~/.config/nvim/lua/plugins/")
 
 vim.g.markdown_fenced_languages = { "html", "javascript", "typescript", "css", "scss", "lua", "vim" }
 
--- opt.foldenable = false
--- opt.foldmethod = "indent"
 -- opt.hlsearch = true -- Highlight found searches
 -- opt.ignorecase = true -- Ignore case
 -- opt.inccommand = "split" -- Get a preview of replacements
