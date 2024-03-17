@@ -91,6 +91,18 @@ local lsp_flags = {
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+local pyright_settings = {
+  python = {
+    analysis = {
+      typeCheckingMode = "basic", -- Options: "off", "basic", "strict"
+      autoSearchPaths = true,
+      autoImportCompletions = true,
+      diagnosticMode = "workspace",
+      useLibraryCodeForTypes = true,
+    },
+  },
+}
+
 mason_lspconfig.setup_handlers({
   -- AVAILABLE SERVERS: https://github.com/williamboman/mason-lspconfig.nvim#available-lsp-servers
 
@@ -106,6 +118,14 @@ mason_lspconfig.setup_handlers({
   -- settings: https://github.com/sumneko/lua-language-server/wiki/Settings
   -- TO SEE ACTIVE CONFIG:
   -- :lua print(vim.inspect(vim.lsp.get_active_clients()))
+  ["pyright"] = function()
+    lspconfig.pyright.setup {
+      on_attach = on_attach,
+      flags = lsp_flags,
+      capabilities = capabilities,
+      settings = pyright_settings,
+    }
+  end,
   ["lua_ls"] = function()
     -- documentation about annotations and ignoring a row: https://luals.github.io/wiki/annotations/#diagnostic
     -- just search this repo for ---@diagnostic

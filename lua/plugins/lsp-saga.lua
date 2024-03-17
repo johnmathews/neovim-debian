@@ -33,6 +33,7 @@ saga.setup({
 -- when you use action in finder like open vsplit then you can use <C-t> to jump back
 keymap("n", "<leader>i", "<cmd>Lspsaga finder<CR>", { silent = true, desc = "LSP finder" })
 keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "LspSaga rename" })
+-- keymap({ "n", "v" }, "<leader>a", saga.code_action, { silent = true, desc = "LspSaga code actions", buffer=bufnr })
 keymap({ "n", "v" }, "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true, desc = "LspSaga code actions" })
 
 -- Peek Definition
