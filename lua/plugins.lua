@@ -202,6 +202,10 @@ return lazy.setup({
     config = function()
       require("plugins.smartq")
     end,
+    init = function()
+      -- Set the variable before the plugin loads, otherwise it has no effect.
+      vim.g.smartq_default_mappings = 0
+    end
   },
 
   {

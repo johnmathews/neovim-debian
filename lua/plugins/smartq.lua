@@ -13,10 +13,6 @@ map("n", "QE", "<Plug>(smartq_wipe_empty)", KeymapOptions("Quit buffer (smartQ)"
 -- CONFIGURATION
 -- =============
 
-vim.cmd([[
-  let g:smartq_default_mappings = 0
-]])
-
 -- Excluded buffers to disable SmartQ and to preserve windows when closing splits
 -- on excluded buffers. Non-modifiable buffers are preserved by default.
 vim.cmd([[
