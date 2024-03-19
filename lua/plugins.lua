@@ -22,7 +22,6 @@ return lazy.setup({
   { "lewis6991/impatient.nvim" },
   { "nvim-lua/plenary.nvim" },
   { "nvim-lua/popup.nvim" },
-  { "nathom/filetype.nvim" },
   { "dstein64/vim-startuptime" },
   { "gioele/vim-autoswap" },
 
