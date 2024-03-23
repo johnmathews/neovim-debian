@@ -37,7 +37,7 @@ keymap("n", "<leader>r", "<cmd>Lspsaga rename<CR>", { silent = true, desc = "Lsp
 keymap({ "n", "v" }, "<leader>a", "<cmd>Lspsaga code_action<CR>", { silent = true, desc = "LspSaga code actions" })
 
 -- Peek Definition
--- you can edit the definition file in this flaotwindow
+-- you can edit the definition file in this floatwindow
 -- also support open/vsplit/etc operation check definition_action_keys
 -- support tagstack C-t jump back
 keymap("n", "gld", "<cmd>Lspsaga peek_definition<CR>", { silent = true, desc = "LspSaga peek definition" })

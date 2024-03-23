@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "rust_analyzer", "tailwindcss", "lua_ls", "jsonls", "pyright" },
+  ensure_installed = { "rust_analyzer", "tailwindcss", "lua_ls", "jsonls", "pyright", "yaml-language-server" },
   automatic_installation = true,
 }
 
