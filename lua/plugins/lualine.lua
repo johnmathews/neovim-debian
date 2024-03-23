@@ -28,14 +28,14 @@ local function show_filepath()
   return parent
 end
 
--- to make the statusline at the bottom of the buffer, add the config to the "tabline" section. 
+-- to make the statusline at the bottom of the buffer, add the config to the "tabline" section.
 -- to make it appear at the bottom, add the config to the "sections" part of the setup config.
 lualine.setup({
   options = {
     icons_enabled = true,
     globalstatus = true, -- true for laststatus=3, false by default
     theme = "ayu_mirage",
-    component_separators = { left = "", right = "" }, -- 
+    component_separators = { left = "", right = "" },
     section_separators = { left = "", right = "" },
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     always_divide_middle = true,
@@ -44,14 +44,19 @@ lualine.setup({
     -- lualine_a = { { require('auto-session-library').current_session_name, color = { bg = "#04FBD1" } },
     --   { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
     --     color = { bg = "#04FBD1" } } },
-    lualine_a = { { Row_max_row, color = { bg = "#04FBD1", gui='bold' } }, Current_col, { "mode",
-        color = { bg = "#04FBD1", gui='bold' } } },
-    lualine_b = { { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C", gui='bold' } },
-      { "diff", padding = { left = 3, right = 3 } } },
-    lualine_c = { { show_filepath, padding = { left = 2, right = 0 }, color = { fg = "#000000", bg = "#55F954", gui='bold' } },
-      { show_filename, color = { fg = "#000000", bg = "#55F954", gui='bold' }, padding = { left = 0, right = 2 } },
-      { "diagnostics", padding = { left = 2, right = 2 } } },
-      -- { "diagnostics", padding = { left = 2, right = 2 } }, "lsp_progress" },
+    lualine_a = { { Row_max_row, color = { bg = "#04FBD1", gui = 'bold' } }, Current_col, {
+      "mode",
+      color = { bg = "#04FBD1", gui = 'bold' }
+    } },
+    lualine_b = { { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' } },
+      { "diff",   padding = { left = 3, right = 3 } } },
+    lualine_c = {
+      { show_filepath, padding = { left = 2, right = 0 },                        color = { fg = "#000000", bg = "#55F954", gui = 'bold' } },
+      { show_filename, color = { fg = "#000000", bg = "#55F954", gui = 'bold' }, padding = { left = 0, right = 2 } },
+      { "diagnostics", padding = { left = 2, right = 2 } },
+      -- { "lsp_progress" },
+      { "searchcount", maxcount = 999,                                           timout = 500,                                            color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' }, padding = { left = 2, right = 2 } }
+    },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = {},
     -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
@@ -68,12 +73,16 @@ lualine.setup({
   },
   tabline = {},
   extensions = {
-    'quickfix',
-    'nvim-tree',
-    'toggleterm',
-    'nvim-dap-ui',
-    'mundo',
+    'fzf',
+    'lazy',
     'man',
-    'fzf'
+    'mason',
+    'mundo',
+    'nerdtree',
+    'nvim-dap-ui',
+    'nvim-tree',
+    'quickfix',
+    'symbols-outline',
+    'toggleterm',
   }
 })
