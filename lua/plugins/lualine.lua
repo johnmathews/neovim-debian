@@ -28,6 +28,8 @@ local function show_filepath()
   return parent
 end
 
+-- to make the statusline at the bottom of the buffer, add the config to the "tabline" section. 
+-- to make it appear at the bottom, add the config to the "sections" part of the setup config.
 lualine.setup({
   options = {
     icons_enabled = true,
@@ -38,7 +40,7 @@ lualine.setup({
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     always_divide_middle = true,
   },
-  tabline = {
+  sections = {
     -- lualine_a = { { require('auto-session-library').current_session_name, color = { bg = "#04FBD1" } },
     --   { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
     --     color = { bg = "#04FBD1" } } },
@@ -64,7 +66,7 @@ lualine.setup({
     lualine_y = {},
     lualine_z = {},
   },
-  sections = {},
+  tabline = {},
   extensions = {
     'quickfix',
     'nvim-tree',

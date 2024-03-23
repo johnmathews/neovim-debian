@@ -36,7 +36,7 @@ set_python_host_prog()
 
 
 vim.cmd("let g:node_host_prog = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
-vim.cmd("let g:node_host_pro = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
+-- vim.cmd("let g:node_host_pro = expand('~/.nvm/versions/node/v20.5.0/bin/node')")
 
 -- convenience function for adding keybind details to whichkey from a plugins config
 function KeymapOptions(description)
@@ -63,6 +63,7 @@ require("autocmd")
 -- load custom snippets. dont remove this.
 require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
 
+-- this is just some stuff to make syntax highlighting work in .env files
 -- Ensure the setup_env_syntax function is local to avoid polluting the global namespace
 local function setup_env_syntax()
     vim.cmd [[
