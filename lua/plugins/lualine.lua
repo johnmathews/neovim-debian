@@ -38,33 +38,34 @@ local function Row_max_row()
 end
 
 local function find_project_root(current_dir)
-    local root_markers = {'.git', '.hg', '.svn', 'package.json', '.root'} -- Add more root markers as needed
-    local path = current_dir
-    -- Check if we're at the root '/' or the home directory to avoid infinite loops
-    while path ~= '/' and path ~= vim.fn.expand('~') do
-        for _, marker in ipairs(root_markers) do
-            if vim.fn.isdirectory(vim.fn.expand(path .. '/' .. marker)) == 1 or vim.fn.filereadable(vim.fn.expand(path .. '/' .. marker)) == 1 then
-                return path
-            end
-        end
-        path = vim.fn.fnamemodify(path, ':h')
+  local root_markers = { '.git', '.hg', '.svn', 'package.json', '.root' } -- Add more root markers as needed
+  local path = current_dir
+  -- Check if we're at the root '/' or the home directory to avoid infinite loops
+  while path ~= '/' and path ~= vim.fn.expand('~') do
+    for _, marker in ipairs(root_markers) do
+      if vim.fn.isdirectory(vim.fn.expand(path .. '/' .. marker)) == 1 or vim.fn.filereadable(vim.fn.expand(path .. '/' .. marker)) == 1 then
+        return path
+      end
     end
-    return nil -- No project root found
+    path = vim.fn.fnamemodify(path, ':h')
+  end
+  return nil -- No project root found
 end
 
 local function show_filepath()
-    local current_file = vim.fn.expand('%:p')
-    local project_root = find_project_root(vim.fn.expand('%:p:h'))
-    if project_root then
-        -- Get the project root directory name
-        local project_root_name = vim.fn.fnamemodify(project_root, ':t')
-        -- Construct the relative path including the project root name at the beginning
-        local relative_path = vim.fn.fnamemodify(current_file, ':.'):gsub(vim.pesc(vim.fn.fnamemodify(project_root, ':h')) .. '/', '')
-        return project_root_name .. '/' .. relative_path
-    else
-        -- Fallback to showing just the parent directory if no project root is found
-        return vim.fn.expand('%:h')
-    end
+  local current_file = vim.fn.expand('%:p')
+  local project_root = find_project_root(vim.fn.expand('%:p:h'))
+  if project_root then
+    -- Get the project root directory name
+    local project_root_name = vim.fn.fnamemodify(project_root, ':t')
+    -- Construct the relative path including the project root name at the beginning
+    local relative_path = vim.fn.fnamemodify(current_file, ':.'):gsub(
+      vim.pesc(vim.fn.fnamemodify(project_root, ':h')) .. '/', '')
+    return project_root_name .. '/' .. relative_path .. ' '
+  else
+    -- Fallback to showing just the parent directory if no project root is found
+    return vim.fn.expand('%:h')
+  end
 end
 
 -- to make the statusline at the bottom of the buffer, add the config to the "tabline" section.
@@ -74,44 +75,31 @@ lualine.setup({
     icons_enabled = true,
     globalstatus = true, -- true for laststatus=3, false by default
     theme = "ayu_mirage",
-    component_separators = { left = "", right = "" },
-    section_separators = { left = "", right = "" },
+    component_separators = { left = '', right = '' },
+    section_separators = { left = '', right = '' },
     disabled_filetypes = { "alpha", "dashboard", "NvimTree", "Outline", "toggleterm" },
     always_divide_middle = true,
   },
   sections = {
-    -- lualine_a = { { require('auto-session-library').current_session_name, color = { bg = "#04FBD1" } },
-    --   { Row_max_row, color = { bg = "#04FBD1" } }, Current_col, { "mode",
-    --     color = { bg = "#04FBD1" } } },
-    lualine_a = { { Row_max_row, color = { bg = "#04FBD1", gui = 'bold' } }, Current_col, {
-      "mode",
-      color = { bg = "#04FBD1", gui = 'bold' }
-    } },
+    lualine_a = {
+      { Row_max_row, color = { bg = '#04FBD1', gui = 'bold' } },
+      { Current_col, { 'mode', color = { bg = '#04FBD1', gui = 'bold' } } },
+    },
     lualine_b = {
-      { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' } },
-      { "diff",   padding = { left = 3, right = 3 } } 
+      { 'branch', padding = { left = 3, right = 3 }, color = { fg = '#000000', bg = '#FFFB7C', gui = 'bold' }, separator = { left = '', right = '' } },
+      { 'diff', padding = { left = 3, right = 3 }, color = { fg = '#000000', bg = '#36454F', gui = 'bold' }, separator = { left = '', right = '' } },
     },
     lualine_c = {
+      { 'searchcount', maxcount = 999, timout = 500, color = { fg = '#000000', bg = '#FFFB7C', gui = 'bold' }, padding = { left = 2, right = 2 }, separator = { left = '', right = '' } },
       { symbols_outline, padding = { left = 2, right = 2 } },
-      { "diagnostics", padding = { left = 2, right = 2 } },
-      { "searchcount", maxcount = 999, timout = 500,  color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' }, padding = { left = 2, right = 2 } },
+      { 'diagnostics', padding = { left = 2, right = 2 } },
       -- { "lsp_progress" },
     },
     lualine_x = {
-      { show_filepath, padding = { left = 2, right = 0 },                        color = { fg = "#000000", bg = "#55F954", gui = 'bold' } },
+      { show_filepath, padding = { left = 2, right = 0 }, color = { fg = "#000000", bg = "#55F954", gui = 'bold' }, separator = { left = '', right = '' } },
     },
-    lualine_y = { "encoding", "fileformat", "filetype" },
-    -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
-    -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim
-    lualine_z = {},
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = { "filename" },
-    lualine_x = { "location" },
-    lualine_y = {},
-    lualine_z = {},
+    lualine_y = { 'encoding', 'fileformat', 'filetype' },
+    lualine_z = { },
   },
   tabline = {},
   extensions = {
