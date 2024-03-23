@@ -29,7 +29,7 @@ setlocal scrolloff=3 " The number of screen lines to keep above and below the cu
 
 setlocal whichwrap=hl  " let h and l wrap to previous or next line
 
-setlocal textwidth=100
+setlocal textwidth=100 " you need to format (leader-f) to update the line wraps.
 " setlocal colorcolumn=101
 " highlight ColorColumn ctermbg=red ctermfg=red guifg=red guibg=darkcyan
 
