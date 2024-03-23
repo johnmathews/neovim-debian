@@ -22,8 +22,5 @@ runtime macros/matchit.vim
 " ===== jsBeautify =====
 nnoremap <buffer>  <c-f> :call HtmlBeautify()<cr>
 
-let b:ale_linters = ['tidy', 'prettier']
-let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
-let b:ale_warn_about_trailing_whitespace = 1
 
 let g:indentLine_char_list = ['|', '¦', '┆', '┊', '⦙']
