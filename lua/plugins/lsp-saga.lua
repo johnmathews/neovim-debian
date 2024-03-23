@@ -2,6 +2,7 @@ local keymap = vim.keymap.set
 local saga = require('lspsaga')
 
 -- DOCUMENTATION https://nvimdev.github.io/lspsaga/
+-- lspsage.symbols in breadcrumbs
 
 saga.setup({
   outline = {

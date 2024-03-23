@@ -3,6 +3,25 @@ if not status_ok then
   return
 end
 
+local function symbols_outline()
+  local symbols
+  local exclude = {
+    ['terminal'] = true,
+    ['toggleterm'] = true,
+    ['prompt'] = true,
+    ['NvimTree'] = true,
+    ['help'] = true,
+    ['TelescopePrompt'] = true
+  }
+  if exclude[vim.bo.filetype] then
+    symbols = ""
+  elseif not vim.api.nvim_win_get_config(0).zindex then
+    -- https://nvimdev.github.io/lspsaga/breadcrumbs/
+    symbols = require('lspsaga.symbol.winbar').get_bar() or " "
+  end
+  return symbols
+end
+
 local function Current_col()
   ---@diagnostic disable-next-line: deprecated
   table.unpack = table.unpack or unpack -- 5.1 compatibility
@@ -18,14 +37,34 @@ local function Row_max_row()
   return "r" .. row .. "/" .. max_row
 end
 
-local function show_filename()
-  local filename = vim.fn.expand("%:t")
-  return "/" .. filename
+local function find_project_root(current_dir)
+    local root_markers = {'.git', '.hg', '.svn', 'package.json', '.root'} -- Add more root markers as needed
+    local path = current_dir
+    -- Check if we're at the root '/' or the home directory to avoid infinite loops
+    while path ~= '/' and path ~= vim.fn.expand('~') do
+        for _, marker in ipairs(root_markers) do
+            if vim.fn.isdirectory(vim.fn.expand(path .. '/' .. marker)) == 1 or vim.fn.filereadable(vim.fn.expand(path .. '/' .. marker)) == 1 then
+                return path
+            end
+        end
+        path = vim.fn.fnamemodify(path, ':h')
+    end
+    return nil -- No project root found
 end
 
 local function show_filepath()
-  local parent = vim.fn.expand("%:h")
-  return parent
+    local current_file = vim.fn.expand('%:p')
+    local project_root = find_project_root(vim.fn.expand('%:p:h'))
+    if project_root then
+        -- Get the project root directory name
+        local project_root_name = vim.fn.fnamemodify(project_root, ':t')
+        -- Construct the relative path including the project root name at the beginning
+        local relative_path = vim.fn.fnamemodify(current_file, ':.'):gsub(vim.pesc(vim.fn.fnamemodify(project_root, ':h')) .. '/', '')
+        return project_root_name .. '/' .. relative_path
+    else
+        -- Fallback to showing just the parent directory if no project root is found
+        return vim.fn.expand('%:h')
+    end
 end
 
 -- to make the statusline at the bottom of the buffer, add the config to the "tabline" section.
@@ -53,14 +92,15 @@ lualine.setup({
       { "diff",   padding = { left = 3, right = 3 } } 
     },
     lualine_c = {
-      { show_filepath, padding = { left = 2, right = 0 },                        color = { fg = "#000000", bg = "#55F954", gui = 'bold' } },
-      { show_filename, color = { fg = "#000000", bg = "#55F954", gui = 'bold' }, padding = { left = 0, right = 2 } },
+      { symbols_outline, padding = { left = 2, right = 2 } },
       { "diagnostics", padding = { left = 2, right = 2 } },
       { "searchcount", maxcount = 999, timout = 500,  color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' }, padding = { left = 2, right = 2 } },
       -- { "lsp_progress" },
     },
-    lualine_x = { "encoding", "fileformat", "filetype" },
-    lualine_y = {},
+    lualine_x = {
+      { show_filepath, padding = { left = 2, right = 0 },                        color = { fg = "#000000", bg = "#55F954", gui = 'bold' } },
+    },
+    lualine_y = { "encoding", "fileformat", "filetype" },
     -- https://www.reddit.com/r/neovim/comments/q2s3t1/how_to_get_current_filename_relative_to_project/
     -- https://stackoverflow.com/questions/4525261/getting-relative-paths-in-vim
     lualine_z = {},
