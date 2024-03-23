@@ -48,14 +48,16 @@ lualine.setup({
       "mode",
       color = { bg = "#04FBD1", gui = 'bold' }
     } },
-    lualine_b = { { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' } },
-      { "diff",   padding = { left = 3, right = 3 } } },
+    lualine_b = {
+      { "branch", padding = { left = 3, right = 3 }, color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' } },
+      { "diff",   padding = { left = 3, right = 3 } } 
+    },
     lualine_c = {
       { show_filepath, padding = { left = 2, right = 0 },                        color = { fg = "#000000", bg = "#55F954", gui = 'bold' } },
       { show_filename, color = { fg = "#000000", bg = "#55F954", gui = 'bold' }, padding = { left = 0, right = 2 } },
       { "diagnostics", padding = { left = 2, right = 2 } },
+      { "searchcount", maxcount = 999, timout = 500,  color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' }, padding = { left = 2, right = 2 } },
       -- { "lsp_progress" },
-      { "searchcount", maxcount = 999,                                           timout = 500,                                            color = { fg = "#000000", bg = "#FFFB7C", gui = 'bold' }, padding = { left = 2, right = 2 } }
     },
     lualine_x = { "encoding", "fileformat", "filetype" },
     lualine_y = {},
