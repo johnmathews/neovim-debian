@@ -21,7 +21,17 @@ require 'nvim-treesitter.configs'.setup {
     disable = { "" },
     additional_vim_regex_highlighting = false,
   },
+  -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
   textobjects = {
+    lsp_interop = {
+      enable = true,
+      border = 'none',
+      floating_preview_opts = {},
+      peek_definition_code = {
+        ["<leader>df"] = "@function.outer",
+        ["<leader>dF"] = "@class.outer",
+      },
+    },
     select = {
       enable = true,
       lookahead = true,
