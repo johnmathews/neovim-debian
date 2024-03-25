@@ -276,7 +276,10 @@ return lazy.setup({
     end,
     dependencies = {
       "nvim-treesitter/playground",
+      "nvim-treesitter/nvim-treesitter-textobjects",
     },
+  },
+  {
   },
 
   -- this is an (unmaintained) treesitter plugin.

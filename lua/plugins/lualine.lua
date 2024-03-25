@@ -90,9 +90,9 @@ lualine.setup({
       { 'diff', padding = { left = 3, right = 3 }, color = { fg = '#000000', bg = '#36454F', gui = 'bold' }, separator = { left = '', right = '' } },
     },
     lualine_c = {
-      { 'searchcount', maxcount = 999, timout = 500, color = { fg = '#000000', bg = '#FFFB7C', gui = 'bold' }, padding = { left = 2, right = 2 }, separator = { left = '', right = '' } },
-      { symbols_outline, padding = { left = 2, right = 2 } },
       { 'diagnostics', padding = { left = 2, right = 2 } },
+      { symbols_outline, padding = { left = 2, right = 2 }},
+      { 'searchcount', maxcount = 999, timout = 500, color = { fg = '#000000', bg = '#FFFB7C', gui = 'bold' }, padding = { left = 2, right = 2 }, separator = { left = '', right = '' } },
       -- { "lsp_progress" },
     },
     lualine_x = {
@@ -101,7 +101,6 @@ lualine.setup({
     lualine_y = { 'encoding', 'fileformat', 'filetype' },
     lualine_z = { },
   },
-  tabline = {},
   extensions = {
     'fzf',
     'lazy',

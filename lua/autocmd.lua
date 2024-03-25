@@ -67,37 +67,5 @@ vim.cmd([[
   autocmd FileType qf wincmd J
 ]])
 
-
--- WINBAR USING LSPSAGA
--- ====================
-local function config_winbar_or_statusline()
-  local exclude = {
-    ['terminal'] = true,
-    ['toggleterm'] = true,
-    ['prompt'] = true,
-    ['NvimTree'] = true,
-    ['help'] = true,
-    ['TelescopePrompt'] = true
-  }
-  if exclude[vim.bo.filetype] then
-    vim.wo.winbar = ""
-  elseif not vim.api.nvim_win_get_config(0).zindex then
-    -- https://nvimdev.github.io/lspsaga/breadcrumbs/
-    vim.wo.winbar = require('lspsaga.symbol.winbar').get_bar() or " "
-  end
-end
-
-local events = { 'BufEnter', 'BufWinEnter', 'CursorMoved' }
-vim.api.nvim_create_autocmd(events, {
-  pattern = '*',
-  callback = function() config_winbar_or_statusline() end,
-})
-
--- update symbols in LSP Saga
-vim.api.nvim_create_autocmd('User', {
-  pattern = 'LspsagaUpdateSymbol',
-  callback = function() config_winbar_or_statusline() end,
-})
-
 -- set linenumber in telescope previews
 vim.cmd "autocmd User TelescopePreviewerLoaded setlocal number"
