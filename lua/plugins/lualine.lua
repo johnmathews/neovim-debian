@@ -91,8 +91,8 @@ lualine.setup({
     },
     lualine_c = {
       { 'diagnostics', padding = { left = 2, right = 2 } },
+      { 'searchcount', maxcount = 999, timout = 500, color = { fg = 'black', bg = '#00FF00' }, padding = { left = 2, right = 2 }, separator = { left = '', right = '' } },
       { symbols_outline, padding = { left = 2, right = 2 }},
-      { 'searchcount', maxcount = 999, timout = 500, color = { fg = '#000000', bg = '#FFFB7C', gui = 'bold' }, padding = { left = 2, right = 2 }, separator = { left = '', right = '' } },
       -- { "lsp_progress" },
     },
     lualine_x = {

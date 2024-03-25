@@ -90,11 +90,3 @@ vim.api.nvim_create_autocmd({"BufRead", "BufNewFile"}, {
 
 -- use the following to see what highlight group the text under the cursor is part of
 -- :exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')
-
--- can this be deleted now? 17 sep 2023
--- vim.cmd("colorscheme habamax")
--- vim.cmd("colorscheme workaround")
-
--- keep at end
--- vim.cmd("colorscheme monokai")
--- vim.cmd.colorscheme "one_monokai"
