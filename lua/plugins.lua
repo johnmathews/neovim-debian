@@ -276,16 +276,13 @@ return lazy.setup({
     end,
     dependencies = {
       "nvim-treesitter/playground",
+      -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
       "nvim-treesitter/nvim-treesitter-textobjects",
+      -- this is an (unmaintained) treesitter plugin.
+      -- config is in the `rainbow` attribute in treesitter.lua
+      "p00f/nvim-ts-rainbow",
     },
-  },
-  {
-  },
-
-  -- this is an (unmaintained) treesitter plugin.
-  -- config is in the `rainbow` attribute in treesitter.lua
-  {
-    "p00f/nvim-ts-rainbow",
+    event = 'bufread',
   },
 
   -- autoclose and autorename html tags (html,tsx,vue,svelte,php,rescript)
