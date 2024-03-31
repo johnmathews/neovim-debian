@@ -398,6 +398,7 @@ return lazy.setup({
       require("glow").setup({
         style = "dark",
         pager = false,
+        border = "double", 
       })
     end,
   },

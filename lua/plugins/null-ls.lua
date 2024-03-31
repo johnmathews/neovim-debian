@@ -4,6 +4,8 @@ if not null_ls_status_ok then
   return
 end
 
+-- BUILTIN DOCS
+-- https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md
 null_ls.setup({
   debug = false,
   sources = {
@@ -19,10 +21,19 @@ null_ls.setup({
       extra_args = { "--quiet", "--show-warnings", "--show-errors", "--show-info" },
     }),
 
-    --  Prettier formatting works on Markdown, JavaScript, TypeScript, JSX,
+    -- shell, zsh, bash
+    null_ls.builtins.formatting.shellharden,
+    null_ls.builtins.formatting.shfmt,
+
+    --  Prettier formatting works on Markdown, JavaScript, TypeScript, JSX, yaml
     null_ls.builtins.formatting.prettier.with({
+      filetypes = { "yaml", "yml", "css", "html", "scss", "less", "markdown", "markdown.mdx", "JSX", "javascript", "typescript", "typescriptreact", "javascriptreact" },
       extra_args = { "--prose-wrap", "always" },
     }),
+
+    -- yaml formatters
+    null_ls.builtins.formatting.yamlfix,
+    null_ls.builtins.formatting.yamlfmt,
 
     -- ESLint https://github.com/mantoni/eslint_d.js
     -- this might not be necessary in addition to prettier
