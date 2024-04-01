@@ -1,3 +1,4 @@
+-- This is a utility function for debugging
 function PrintTable(tbl, indent)
   local formatting
   if not indent then indent = 0 end
@@ -18,10 +19,6 @@ local M = {}
 -- Function to toggle diagnostic configuration
 function M.setDiagnosticConfig()
   local current_config = vim.diagnostic.config()
-
-  -- print("before")
-  -- printTable(vim.diagnostic.config(), 2)
-
   local custom_config
 
   if type(current_config.virtual_text) == "table" and current_config.virtual_text["source"] == true then
@@ -39,11 +36,9 @@ function M.setDiagnosticConfig()
 
   -- set the configuration
   vim.diagnostic.config(custom_config)
-
-  -- print("after")
-  -- printTable(vim.diagnostic.config(), 2)
 end
 
+-- make really quick commits
 function M.asyncGitCommitAndPush(commitMessage)
   if commitMessage == nil or commitMessage == '' then
     commitMessage = "quick commit" -- Default commit message
@@ -87,14 +82,6 @@ vim.cmd [[
       cclose
     endif
   endfunction
-]]
-
--- blog post
-vim.cmd [[
-function! s:NewPost(fn)
-  execute "e " . "~/projects/blog/data/blog/" . a:fn . ".md"
-endfunction
-command! -nargs=1 Mp call s:NewPost(<q-args>)
 ]]
 
 -- clear registers and overwrite shada file so that register state is persisted
