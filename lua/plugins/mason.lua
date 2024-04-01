@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "tailwindcss", "lua_ls", "jsonls", "pyright", "yamlls" },
+  ensure_installed = { "yamlls" },
   automatic_installation = true,
 }
 
