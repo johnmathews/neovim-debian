@@ -82,6 +82,7 @@ return lazy.setup({
       "kkharji/sqlite.lua",
       "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
+      build = "make",
     },
     config = function()
       require("plugins.telescope")
@@ -398,7 +399,7 @@ return lazy.setup({
       require("glow").setup({
         style = "dark",
         pager = false,
-        border = "double", 
+        border = "double",
       })
     end,
   },
