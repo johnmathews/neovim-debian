@@ -18,7 +18,7 @@ if not mason_lspconfig_ok then
 end
 
 mason_lspconfig.setup {
-  ensure_installed = { "yamlls" },
+  ensure_installed = { },
   automatic_installation = true,
 }
 
