@@ -71,6 +71,7 @@ return lazy.setup({
     end,
   },
 
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -82,7 +83,6 @@ return lazy.setup({
       "kkharji/sqlite.lua",
       "nvim-telescope/telescope-smart-history.nvim",
       "nvim-telescope/telescope-fzf-native.nvim",
-      build = "make",
     },
     config = function()
       require("plugins.telescope")
@@ -160,7 +160,7 @@ return lazy.setup({
       require("plugins.null-ls")
     end
   },
-  { "ray-x/lsp_signature.nvim",   dependencies = "neovim/nvim-lspconfig" },
+  { "ray-x/lsp_signature.nvim",                 dependencies = "neovim/nvim-lspconfig" },
   {
     "WhoIsSethDaniel/toggle-lsp-diagnostics.nvim",
     config = function()
