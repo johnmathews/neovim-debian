@@ -215,35 +215,6 @@ return lazy.setup({
     end,
   },
 
-  {
-    "zbirenbaum/copilot.lua",
-    event = "VimEnter",
-    config = function()
-      vim.defer_fn(function()
-        require("copilot").setup({
-          suggestion = { enabled = false },
-          panel = { enabled = false },
-        })
-      end, 100)
-    end,
-    dependencies = {
-      "copilot.lua",
-    },
-  },
-  {
-    "zbirenbaum/copilot-cmp",
-    config = function()
-      require("copilot_cmp").setup({
-        method = "getCompletionsCycling",
-        formatters = {
-          label = require("copilot_cmp.format").format_label_text, -- this breaks multiline suggestions sometimes
-          insert_text = require("copilot_cmp.format").remove_existing,
-          preview = require("copilot_cmp.format").deindent,
-        },
-      })
-    end
-  },
-
   -- completions
   {
     "hrsh7th/nvim-cmp",
