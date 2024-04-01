@@ -75,7 +75,7 @@ map("n", "<Localleader>a", ":Telescope lsp_code_actions<CR>", default_options)
 
 -- register extensions
 telescope.load_extension('projects')
-telescope.load_extension('fzf') -- this is telescope-fzf-native - https://github.com/nvim-telescope/telescope.nvim/wiki/Switching-from-fzf-to-telescope
+-- telescope.load_extension('fzf') -- this is telescope-fzf-native - https://github.com/nvim-telescope/telescope.nvim/wiki/Switching-from-fzf-to-telescope
 telescope.load_extension('harpoon')
 telescope.load_extension('live_grep_args')
 telescope.load_extension('smart_history')
