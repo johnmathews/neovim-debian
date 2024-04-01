@@ -89,8 +89,5 @@ map("n", "gq", ":call ToggleQuickFix()<CR>", KeymapOptions("Toggle QuickFix wind
 -- Jump List
 map("n", "<C-p>", "<C-i>", default_options)
 
--- auto session
-vim.keymap.set("n", "<C-s>", require("auto-session.session-lens").search_session, { noremap = true, })
-
 -- backgroud git commit and push
 map("n", "gG", ":lua Functions.asyncGitCommitAndPush()<CR>", KeymapOptions("Quietly push all changes to remote"))
